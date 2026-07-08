@@ -1,0 +1,2773 @@
+{
+  "_source": "Congress.gov v3 sponsored-legislation",
+  "filter": {
+    "year": 2025,
+    "filer": "lobbyist"
+  },
+  "members": {
+    "G000558": {
+      "name": "Brett Guthrie",
+      "party": "Republican",
+      "state": "KY",
+      "lobbyist_total": 637024.84,
+      "total_sponsored": 139,
+      "top_policy_areas": [
+        [
+          "Health",
+          9
+        ],
+        [
+          "Energy",
+          3
+        ],
+        [
+          "Environmental Protection",
+          2
+        ],
+        [
+          "Science, Technology, Communications",
+          2
+        ],
+        [
+          "Commerce",
+          2
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HR",
+          "number": "8739",
+          "title": "Brownfields Revitalization for a Better Tomorrow Act",
+          "policy_area": "Environmental Protection",
+          "introduced": "2026-05-12",
+          "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote."
+        },
+        {
+          "type": "HR",
+          "number": "8255",
+          "title": "SAT Streamlining Act",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2026-04-14",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HR",
+          "number": "7871",
+          "title": "MVP Act",
+          "policy_area": "Health",
+          "introduced": "2026-03-09",
+          "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "7757",
+          "title": "KIDS Act",
+          "policy_area": "Commerce",
+          "introduced": "2026-03-03",
+          "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "7389",
+          "title": "Motor Vehicle Modernization Act of 2026",
+          "policy_area": "Transportation and Public Works",
+          "introduced": "2026-02-05",
+          "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 48 - 1."
+        },
+        {
+          "type": "HR",
+          "number": "6498",
+          "title": "Student Financial Clarity Act of 2025",
+          "policy_area": "Education",
+          "introduced": "2025-12-09",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 395."
+        },
+        {
+          "type": "HR",
+          "number": "6087",
+          "title": "To amend the Delta Development Act to add the Kentucky counties of Hancock, Ohio, and Daviess to the Delta Regional Authority area, and for ",
+          "policy_area": "Commerce",
+          "introduced": "2025-11-18",
+          "latest_action": "Referred to the Subcommittee on Economic Development, Public Buildings, and Emergency Management."
+        },
+        {
+          "type": "HR",
+          "number": "3286",
+          "title": "Mammoth Cave National Park Boundary Adjustment Act of 2025",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2025-05-08",
+          "latest_action": "Subcommittee Hearings Held"
+        },
+        {
+          "type": "HR",
+          "number": "2483",
+          "title": "SUPPORT for Patients and Communities Reauthorization Act of 2025",
+          "policy_area": "Health",
+          "introduced": "2025-03-31",
+          "latest_action": "Became Public Law No: 119-44."
+        },
+        {
+          "type": "HRES",
+          "number": "85",
+          "title": "Providing amounts for the expenses of the Committee on Energy and Commerce in the One Hundred Nineteenth Congress.",
+          "policy_area": "Congress",
+          "introduced": "2025-01-31",
+          "latest_action": "Referred to the House Committee on House Administration."
+        },
+        {
+          "type": "HR",
+          "number": "9898",
+          "title": "Securing America\u2019s Midstream Critical Materials Processing of 2024",
+          "policy_area": "Energy",
+          "introduced": "2024-10-01",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HJRES",
+          "number": "204",
+          "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protectio",
+          "policy_area": "Environmental Protection",
+          "introduced": "2024-09-17",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HR",
+          "number": "9184",
+          "title": "Patient Access Act of 2024",
+          "policy_area": "Health",
+          "introduced": "2024-07-30",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "9077",
+          "title": "Fair and Efficient Regulatory Commonsense Act",
+          "policy_area": "Energy",
+          "introduced": "2024-07-22",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HR",
+          "number": "9067",
+          "title": "Building America\u2019s Health Care Workforce Act",
+          "policy_area": "Health",
+          "introduced": "2024-07-18",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "7836",
+          "title": "To amend the Harmonized Tariff Schedule of the United States to provide for permanent duty-free treatment on imports of basketballs.",
+          "policy_area": "Foreign Trade and International Finance",
+          "introduced": "2024-03-29",
+          "latest_action": "Referred to the Subcommittee on Trade."
+        },
+        {
+          "type": "HR",
+          "number": "7218",
+          "title": "BOLD Infrastructure for Alzheimer's Reauthorization Act of 2024",
+          "policy_area": "Health",
+          "introduced": "2024-02-05",
+          "latest_action": "Became Public Law No: 118-142."
+        },
+        {
+          "type": "HR",
+          "number": "6268",
+          "title": "Nuclear for Brownfield Site Preparation Act",
+          "policy_area": "Energy",
+          "introduced": "2023-11-07",
+          "latest_action": "Referred to the Subcommittee on Energy, Climate and Grid Security."
+        },
+        {
+          "type": "HR",
+          "number": "5389",
+          "title": "National Coverage Determination Transparency Act",
+          "policy_area": "Health",
+          "introduced": "2023-09-12",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "4490",
+          "title": "To amend the Controlled Substances Act to authorize pharmacies to deliver certain controlled substances to an administering practitioner in ",
+          "policy_area": "Health",
+          "introduced": "2023-07-06",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "4910",
+          "title": "Deplatform Drug Dealers Act",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2023-07-26",
+          "latest_action": "Referred to the Subcommittee on Communications and Technology."
+        },
+        {
+          "type": "HR",
+          "number": "4531",
+          "title": "Support for Patients and Communities Reauthorization Act",
+          "policy_area": "Health",
+          "introduced": "2023-07-11",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Health, Education, Labor, and Pensions."
+        },
+        {
+          "type": "HR",
+          "number": "4504",
+          "title": "Novel, Advanced Spectrum and Communications Technology Networks Promotion Act",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2023-07-10",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HR",
+          "number": "4489",
+          "title": "To amend the 21st Century Cures Act to clarify that grants for State and Tribal response to opioid use disorders may, at the discretion of t",
+          "policy_area": "Health",
+          "introduced": "2023-07-06",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "3813",
+          "title": "CDC Leadership Accountability Act of 2023",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2023-06-05",
+          "latest_action": "Ordered to be Reported by the Yeas and Nays: 27 - 20."
+        }
+      ]
+    },
+    "S001195": {
+      "name": "Jason Smith",
+      "party": "Republican",
+      "state": "MO",
+      "lobbyist_total": 573100.0,
+      "total_sponsored": 123,
+      "top_policy_areas": [
+        [
+          "Taxation",
+          11
+        ],
+        [
+          "Foreign Trade and International Finance",
+          5
+        ],
+        [
+          "Health",
+          3
+        ],
+        [
+          "Labor and Employment",
+          2
+        ],
+        [
+          "Congress",
+          2
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HR",
+          "number": "6599",
+          "title": "Leasing and Infrastructure Act of 2025",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2025-12-10",
+          "latest_action": "Committee Hearings Held"
+        },
+        {
+          "type": "HR",
+          "number": "6500",
+          "title": "AGOA Extension Act",
+          "policy_area": "Foreign Trade and International Finance",
+          "introduced": "2025-12-09",
+          "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320."
+        },
+        {
+          "type": "HRES",
+          "number": "212",
+          "title": "Returning Senate Joint Resolution 3 to the Senate.",
+          "policy_area": "Taxation",
+          "introduced": "2025-03-11",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "1156",
+          "title": "Pandemic Unemployment Fraud Enforcement Act",
+          "policy_area": "Labor and Employment",
+          "introduced": "2025-02-10",
+          "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 29."
+        },
+        {
+          "type": "HRES",
+          "number": "109",
+          "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
+          "policy_area": "Congress",
+          "introduced": "2025-02-05",
+          "latest_action": "Referred to the House Committee on House Administration."
+        },
+        {
+          "type": "HR",
+          "number": "591",
+          "title": "Defending American Jobs and Investment Act",
+          "policy_area": "Foreign Trade and International Finance",
+          "introduced": "2025-01-21",
+          "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "33",
+          "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources",
+          "policy_area": "Taxation",
+          "introduced": "2025-01-03",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "HR",
+          "number": "8813",
+          "title": "Preventing Child Welfare Entry Caused by Poverty Act",
+          "policy_area": "Families",
+          "introduced": "2024-06-25",
+          "latest_action": "Referred to the Subcommittee on Work and Welfare."
+        },
+        {
+          "type": "HR",
+          "number": "8292",
+          "title": "Taxpayer Data Protection Act",
+          "policy_area": "Taxation",
+          "introduced": "2024-05-08",
+          "latest_action": "Received in the Senate."
+        },
+        {
+          "type": "HR",
+          "number": "7024",
+          "title": "Tax Relief for American Families and Workers Act of 2024",
+          "policy_area": "Taxation",
+          "introduced": "2024-01-17",
+          "latest_action": "Motion by Senator Schumer to reconsider the vote by which cloture on the motion to proceed to the measure was not invoked (Record Vote No. 230) made in Senate."
+        },
+        {
+          "type": "HR",
+          "number": "5988",
+          "title": "United States-Taiwan Expedited Double-Tax Relief Act",
+          "policy_area": "Taxation",
+          "introduced": "2023-10-19",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 249."
+        },
+        {
+          "type": "HR",
+          "number": "4822",
+          "title": "Health Care Price Transparency Act of 2023",
+          "policy_area": "Health",
+          "introduced": "2023-07-24",
+          "latest_action": "Reported (Amended) by the Committee on Ways and Means. H. Rept. 118-231, Part I."
+        },
+        {
+          "type": "HR",
+          "number": "3938",
+          "title": "Build It in America Act",
+          "policy_area": "Taxation",
+          "introduced": "2023-06-09",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 99."
+        },
+        {
+          "type": "HR",
+          "number": "3937",
+          "title": "Small Business Jobs Act",
+          "policy_area": "Taxation",
+          "introduced": "2023-06-09",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 100."
+        },
+        {
+          "type": "HR",
+          "number": "3936",
+          "title": "Tax Cuts for Working Families Act",
+          "policy_area": "Taxation",
+          "introduced": "2023-06-09",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 101."
+        },
+        {
+          "type": "HR",
+          "number": "4004",
+          "title": "United States-Taiwan Initiative on 21st-Century Trade First Agreement Implementation Act",
+          "policy_area": "Foreign Trade and International Finance",
+          "introduced": "2023-06-12",
+          "latest_action": "Became Public Law No: 118-13."
+        },
+        {
+          "type": "HR",
+          "number": "3797",
+          "title": "Paperwork Burden Reduction Act",
+          "policy_area": "Taxation",
+          "introduced": "2023-06-05",
+          "latest_action": "Became Public Law No: 118-167."
+        },
+        {
+          "type": "HR",
+          "number": "3796",
+          "title": "To provide for the extension of taxes funding the Airport and Airway Trust Fund and to require the designation of certain airports as ports ",
+          "policy_area": "Foreign Trade and International Finance",
+          "introduced": "2023-06-05",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 81."
+        },
+        {
+          "type": "HR",
+          "number": "3665",
+          "title": "Defending American Jobs and Investment Act",
+          "policy_area": "Foreign Trade and International Finance",
+          "introduced": "2023-05-25",
+          "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Accountability, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "1163",
+          "title": "Protecting Taxpayers and Victims of Unemployment Fraud Act",
+          "policy_area": "Labor and Employment",
+          "introduced": "2023-02-24",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "141",
+          "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Eighteenth Congress.",
+          "policy_area": "Congress",
+          "introduced": "2023-02-17",
+          "latest_action": "Referred to the House Committee on House Administration."
+        },
+        {
+          "type": "HR",
+          "number": "8910",
+          "title": "Behavioral Health Integration Awareness Act of 2022",
+          "policy_area": "Health",
+          "introduced": "2022-09-20",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "8515",
+          "title": "To amend title XVIII of the Social Security Act to allow for the furnishing of audio-only telehealth services.",
+          "policy_area": "Health",
+          "introduced": "2022-07-26",
+          "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HRES",
+          "number": "1246",
+          "title": "Of inquiry directing the Secretary of the Treasury to provide certain documents in the Secretary's possession to the House of Representative",
+          "policy_area": "Taxation",
+          "introduced": "2022-07-22",
+          "latest_action": "Placed on the House Calendar, Calendar No. 129."
+        },
+        {
+          "type": "HR",
+          "number": "6505",
+          "title": "Child Tax Credit for Pregnant Moms Act of 2022",
+          "policy_area": "Taxation",
+          "introduced": "2022-01-25",
+          "latest_action": "Referred to the Subcommittee on Health."
+        }
+      ]
+    },
+    "W000805": {
+      "name": "Mark R. Warner",
+      "party": "Democrat",
+      "state": "VA",
+      "lobbyist_total": 542059.0,
+      "total_sponsored": 728,
+      "top_policy_areas": [
+        [
+          "Health",
+          3
+        ],
+        [
+          "Government Operations and Politics",
+          1
+        ],
+        [
+          "Labor and Employment",
+          1
+        ],
+        [
+          "Taxation",
+          1
+        ],
+        [
+          "Finance and Financial Sector",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "S",
+          "number": "4623",
+          "title": "A bill to designate the facility of the United States Postal Service located at 12109 New Kent Highway in New Kent, Virginia, as the \"Patric",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2026-05-21",
+          "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs."
+        },
+        {
+          "type": "S",
+          "number": "4585",
+          "title": "Discount Window Preparedness Act",
+          "policy_area": null,
+          "introduced": "2026-05-20",
+          "latest_action": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs."
+        },
+        {
+          "type": "S",
+          "number": "4476",
+          "title": "Workforce Transparency Act of 2026",
+          "policy_area": "Labor and Employment",
+          "introduced": "2026-04-30",
+          "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions."
+        },
+        {
+          "type": "S",
+          "number": "4467",
+          "title": "Ensuring Seniors\u2019 Access to Quality Care Act",
+          "policy_area": "Health",
+          "introduced": "2026-04-30",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "S",
+          "number": "4302",
+          "title": "Improving IRS Customer Service Act",
+          "policy_area": "Taxation",
+          "introduced": "2026-04-15",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "S",
+          "number": "4233",
+          "title": "Save Struggling Hospitals Act",
+          "policy_area": "Health",
+          "introduced": "2026-03-26",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "SJRES",
+          "number": "135",
+          "title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bure",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2026-03-19",
+          "latest_action": "Motion to proceed to consideration of measure rejected in Senate by Voice Vote. (consideration: CR S2272)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-18",
+          "latest_action": null
+        },
+        {
+          "type": "S",
+          "number": "4118",
+          "title": "Hospice CARE Act of 2026",
+          "policy_area": "Health",
+          "introduced": "2026-03-17",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "S",
+          "number": "4046",
+          "title": "Economy of the Future Commission Act of 2026",
+          "policy_area": "Congress",
+          "introduced": "2026-03-11",
+          "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-09-08",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-22",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-21",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-21",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-08",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-06",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-26",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-19",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-18",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-18",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-18",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-18",
+          "latest_action": "Amendment SA 4042 agreed to in Senate by Voice Vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-18",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-12",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-04-21",
+          "latest_action": "Amendment SA 3851 agreed to in Senate by Voice Vote."
+        }
+      ]
+    },
+    "S001176": {
+      "name": "Steve Scalise",
+      "party": "Republican",
+      "state": "LA",
+      "lobbyist_total": 437865.29,
+      "total_sponsored": 110,
+      "top_policy_areas": [
+        [
+          "Congress",
+          10
+        ],
+        [
+          "Science, Technology, Communications",
+          4
+        ],
+        [
+          "Energy",
+          3
+        ],
+        [
+          "Commerce",
+          2
+        ],
+        [
+          "Taxation",
+          2
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HR",
+          "number": "4",
+          "title": "Rescissions Act of 2025",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2025-06-06",
+          "latest_action": "Became Public Law No: 119-28."
+        },
+        {
+          "type": "HRES",
+          "number": "2",
+          "title": "To inform the Senate that a quorum of the House has assembled and of the election of the Speaker and the Clerk.",
+          "policy_area": "Congress",
+          "introduced": "2025-01-03",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "3",
+          "title": "Authorizing the Speaker to appoint a committee to notify the President of the assembly of the Congress.",
+          "policy_area": "Congress",
+          "introduced": "2025-01-03",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "8364",
+          "title": "Firearms Interstate Commerce Reform Act",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2024-05-10",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HCONRES",
+          "number": "93",
+          "title": "Providing for a joint session of Congress to receive a message from the President.",
+          "policy_area": "Congress",
+          "introduced": "2024-03-05",
+          "latest_action": "Message on Senate action sent to the House."
+        },
+        {
+          "type": "HR",
+          "number": "7423",
+          "title": "To designate the facility of the United States Postal Service located at 103 Benedette Street in Rayville, Louisiana, as the \"Luke Letlow Po",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2024-02-20",
+          "latest_action": "Became Public Law No: 118-129."
+        },
+        {
+          "type": "HR",
+          "number": "6843",
+          "title": "To expand the boundaries of the Atchafalaya National Heritage Area to include Lafourche Parish, Louisiana.",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2023-12-15",
+          "latest_action": "Became Public Law No: 118-177."
+        },
+        {
+          "type": "HRES",
+          "number": "810",
+          "title": "To inform the Senate of the election of the Speaker.",
+          "policy_area": "Congress",
+          "introduced": "2023-10-25",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "811",
+          "title": "Authorizing the Clerk to inform the President of the election of the Speaker.",
+          "policy_area": "Congress",
+          "introduced": "2023-10-25",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "1",
+          "title": "Lower Energy Costs Act",
+          "policy_area": "Energy",
+          "introduced": "2023-03-14",
+          "latest_action": "The Clerk was authorized to correct section numbers, punctuation, and cross references, and to make other necessary technical and conforming corrections in the engrossment of H.R. 1."
+        },
+        {
+          "type": "HCONRES",
+          "number": "11",
+          "title": "Providing for a joint session of Congress to receive a message from the President.",
+          "policy_area": "Congress",
+          "introduced": "2023-01-31",
+          "latest_action": "Message on Senate action sent to the House."
+        },
+        {
+          "type": "HRES",
+          "number": "80",
+          "title": "Electing Members to certain standing committees of the House of Representatives.",
+          "policy_area": "Congress",
+          "introduced": "2023-01-31",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "3",
+          "title": "Authorizing the Speaker to appoint a committee to notify the President of the assembly of the Congress.",
+          "policy_area": "Congress",
+          "introduced": "2023-01-06",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "2",
+          "title": "To inform the Senate that a quorum of the House has assembled and election of the Speaker and the Clerk.",
+          "policy_area": "Congress",
+          "introduced": "2023-01-06",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "5",
+          "title": "Adopting the Rules of the House of Representatives for the One Hundred Eighteenth Congress, and for other purposes.",
+          "policy_area": "Congress",
+          "introduced": "2023-01-09",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "8543",
+          "title": "EAVESDROP Act",
+          "policy_area": "Commerce",
+          "introduced": "2022-07-27",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HR",
+          "number": "8437",
+          "title": "BREEZE Act",
+          "policy_area": "Energy",
+          "introduced": "2022-07-20",
+          "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committee on the Budget, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "4334",
+          "title": "American Energy First Act",
+          "policy_area": "Energy",
+          "introduced": "2021-07-01",
+          "latest_action": "Referred to the Subcommittee on Water, Oceans, and Wildlife."
+        },
+        {
+          "type": "HR",
+          "number": "3919",
+          "title": "Secure Equipment Act of 2021",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2021-06-15",
+          "latest_action": "Became Public Law No: 117-55."
+        },
+        {
+          "type": "HCONRES",
+          "number": "34",
+          "title": "Expressing the sense of Congress that a carbon tax would be detrimental to the United States economy.",
+          "policy_area": "Taxation",
+          "introduced": "2021-05-17",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "1855",
+          "title": "Promoting New Manufacturing Act",
+          "policy_area": "Commerce",
+          "introduced": "2021-03-11",
+          "latest_action": "Referred to the Subcommittee on Environment and Climate Change."
+        },
+        {
+          "type": "HR",
+          "number": "1856",
+          "title": "Modern Television Act of 2021",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2021-03-11",
+          "latest_action": "Referred to the Subcommittee on Courts, Intellectual Property, and the Internet."
+        },
+        {
+          "type": "HR",
+          "number": "1074",
+          "title": "RAPID Act",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2021-02-15",
+          "latest_action": "Referred to the Subcommittee on Environment and Climate Change."
+        },
+        {
+          "type": "HR",
+          "number": "837",
+          "title": "Free Speech Fairness Act",
+          "policy_area": "Taxation",
+          "introduced": "2021-02-04",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "7374",
+          "title": "RAPID Act",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2020-06-25",
+          "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        }
+      ]
+    },
+    "J000299": {
+      "name": "Mike Johnson",
+      "party": "Republican",
+      "state": "LA",
+      "lobbyist_total": 432959.22,
+      "total_sponsored": 74,
+      "top_policy_areas": [
+        [
+          "Crime and Law Enforcement",
+          4
+        ],
+        [
+          "Congress",
+          3
+        ],
+        [
+          "Government Operations and Politics",
+          2
+        ],
+        [
+          "Law",
+          2
+        ],
+        [
+          "Civil Rights and Liberties, Minority Issues",
+          2
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HRES",
+          "number": "719",
+          "title": "Honoring the life and legacy of Charles \"Charlie\" James Kirk.",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2025-09-16",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "3",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HR",
+          "number": "9",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HR",
+          "number": "10",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HR",
+          "number": "5",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HR",
+          "number": "8",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HR",
+          "number": "6",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HR",
+          "number": "2",
+          "title": "Reserved for the Speaker.",
+          "policy_area": null,
+          "introduced": "2025-01-03",
+          "latest_action": null
+        },
+        {
+          "type": "HRES",
+          "number": "1126",
+          "title": "Authorizing video recording in the House Chamber during a joint meeting of Congress for certain educational purposes.",
+          "policy_area": "Congress",
+          "introduced": "2024-04-10",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "5488",
+          "title": "Protecting Our Courts from Foreign Manipulation Act of 2023",
+          "policy_area": "Law",
+          "introduced": "2023-09-14",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "4872",
+          "title": "Securing Our Borders and Wilderness Act",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2023-07-25",
+          "latest_action": "Referred to the Subcommittee on Border Security and Enforcement."
+        },
+        {
+          "type": "HR",
+          "number": "4491",
+          "title": "Solving an Overlooked Loophole in Votes for Executives (SOLVE) Act",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2023-07-06",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "1580",
+          "title": "CEASE Overdose Act of 2023",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2023-03-14",
+          "latest_action": "Referred to the Subcommittee on Health."
+        },
+        {
+          "type": "HR",
+          "number": "1183",
+          "title": "Asylum Reform and Border Protection Act of 2023",
+          "policy_area": "Immigration",
+          "introduced": "2023-02-24",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "792",
+          "title": "Child Interstate Abortion Notification Act",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2023-02-02",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HRES",
+          "number": "56",
+          "title": "Electing Members to certain standing committees of the House of Representatives.",
+          "policy_area": "Congress",
+          "introduced": "2023-01-25",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "424",
+          "title": "Leaker Accountability Act of 2023",
+          "policy_area": "Law",
+          "introduced": "2023-01-20",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "425",
+          "title": "History and Tradition Protection Act of 2023",
+          "policy_area": "Civil Rights and Liberties, Minority Issues",
+          "introduced": "2023-01-20",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HCONRES",
+          "number": "3",
+          "title": "Expressing the sense of Congress condemning the recent attacks on pro-life facilities, groups, and churches.",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2023-01-09",
+          "latest_action": "Received in the Senate and referred to the Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "9197",
+          "title": "Stop the Sexualization of Children Act",
+          "policy_area": "Education",
+          "introduced": "2022-10-18",
+          "latest_action": "Referred to the Committee on Oversight and Reform, and in addition to the Committee on Education and Labor, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HRES",
+          "number": "1340",
+          "title": "Electing Members to certain standing committees of the House of Representatives.",
+          "policy_area": "Congress",
+          "introduced": "2022-09-13",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HRES",
+          "number": "1239",
+          "title": "Of inquiry directing the Attorney General to provide certain documents in his possession to the House of Representatives relating to the Oct",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2022-07-20",
+          "latest_action": "Placed on the House Calendar, Calendar No. 105."
+        },
+        {
+          "type": "HRES",
+          "number": "1233",
+          "title": "Expressing the sense of the House of Representatives condemning the recent attacks on pro-life facilities, groups, and churches.",
+          "policy_area": "Civil Rights and Liberties, Minority Issues",
+          "introduced": "2022-07-19",
+          "latest_action": "Referred to the Subcommittee on Crime, Terrorism, and Homeland Security."
+        },
+        {
+          "type": "HR",
+          "number": "8362",
+          "title": "Unborn Child Support Act",
+          "policy_area": "Families",
+          "introduced": "2022-07-13",
+          "latest_action": "Referred to the Subcommittee on Worker and Family Support."
+        },
+        {
+          "type": "HR",
+          "number": "7936",
+          "title": "AMERICANS Act",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2022-06-03",
+          "latest_action": "Referred to the House Committee on Armed Services."
+        }
+      ]
+    },
+    "C001126": {
+      "name": "Mike Carey",
+      "party": "Republican",
+      "state": "OH",
+      "lobbyist_total": 431398.04,
+      "total_sponsored": 55,
+      "top_policy_areas": [
+        [
+          "Taxation",
+          11
+        ],
+        [
+          "Health",
+          3
+        ],
+        [
+          "Social Welfare",
+          2
+        ],
+        [
+          "Armed Forces and National Security",
+          1
+        ],
+        [
+          "Sports and Recreation",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HR",
+          "number": "9012",
+          "title": "Affordable Housing Credit Carryback Act",
+          "policy_area": null,
+          "introduced": "2026-05-22",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "8872",
+          "title": "Preventing Waste, Fraud, and Abuse in TANF Act",
+          "policy_area": "Social Welfare",
+          "introduced": "2026-05-19",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 584."
+        },
+        {
+          "type": "HR",
+          "number": "8810",
+          "title": "No Wasted Space Act",
+          "policy_area": null,
+          "introduced": "2026-05-14",
+          "latest_action": "Referred to the Committee on House Administration, and in addition to the Committees on Transportation and Infrastructure, and Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "8497",
+          "title": "Supporting Energy and Economic Development (SEED) Act",
+          "policy_area": "Taxation",
+          "introduced": "2026-04-27",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "7527",
+          "title": "Pay Less at the Pump Act of 2026",
+          "policy_area": "Taxation",
+          "introduced": "2026-02-12",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "6735",
+          "title": "Connecting Caregivers to Medicare Act of 2025",
+          "policy_area": "Health",
+          "introduced": "2025-12-16",
+          "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "6431",
+          "title": "New Opportunities for Business Ownership and Self-Sufficiency Act",
+          "policy_area": "Taxation",
+          "introduced": "2025-12-04",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "HR",
+          "number": "4639",
+          "title": "Infertility Treatment Affordability Act of 2025",
+          "policy_area": "Taxation",
+          "introduced": "2025-07-23",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "4441",
+          "title": "Patient Access to Innovative New Technologies Act of 2025",
+          "policy_area": "Health",
+          "introduced": "2025-07-16",
+          "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "4160",
+          "title": "Veterans Border Patrol Training Act",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2025-06-26",
+          "latest_action": "Referred to the Subcommittee on Economic Opportunity."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-12-06",
+          "latest_action": "On agreeing to the Carey amendment (A002) Agreed to by voice vote."
+        },
+        {
+          "type": "HR",
+          "number": "3137",
+          "title": "Biodiesel Tax Credit Extension Act of 2025",
+          "policy_area": "Taxation",
+          "introduced": "2025-05-01",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "2972",
+          "title": "EITC for Older Workers Act of 2025",
+          "policy_area": "Taxation",
+          "introduced": "2025-04-21",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HRES",
+          "number": "323",
+          "title": "Congratulating The Ohio State University football team for winning the 2025 College Football Playoff National Championship.",
+          "policy_area": "Sports and Recreation",
+          "introduced": "2025-04-10",
+          "latest_action": "Referred to the House Committee on Education and Workforce."
+        },
+        {
+          "type": "HR",
+          "number": "2672",
+          "title": "Religious Workforce Protection Act",
+          "policy_area": "Immigration",
+          "introduced": "2025-04-07",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "2538",
+          "title": "CARE Act of 2025",
+          "policy_area": "Health",
+          "introduced": "2025-04-01",
+          "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "2410",
+          "title": "Revitalizing Downtowns and Main Streets Act",
+          "policy_area": "Taxation",
+          "introduced": "2025-03-27",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "2359",
+          "title": "Improve Transparency and Stability for Families and Children Act",
+          "policy_area": "Social Welfare",
+          "introduced": "2025-03-26",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "2104",
+          "title": "National STEM Week Act",
+          "policy_area": "Education",
+          "introduced": "2025-03-14",
+          "latest_action": "Referred to the House Committee on Education and Workforce."
+        },
+        {
+          "type": "HR",
+          "number": "2036",
+          "title": "Credit for Caring Act of 2025",
+          "policy_area": "Taxation",
+          "introduced": "2025-03-11",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "1454",
+          "title": "Rural Historic Tax Credit Improvement Act",
+          "policy_area": "Taxation",
+          "introduced": "2025-02-21",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "1453",
+          "title": "Clean Energy Demonstration Transparency Act of 2025",
+          "policy_area": "Energy",
+          "introduced": "2025-02-21",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources."
+        },
+        {
+          "type": "HR",
+          "number": "662",
+          "title": "Promoting Domestic Energy Production Act",
+          "policy_area": "Taxation",
+          "introduced": "2025-01-23",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HJRES",
+          "number": "25",
+          "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Internal Revenue Servic",
+          "policy_area": "Taxation",
+          "introduced": "2025-01-21",
+          "latest_action": "Became Public Law No: 119-5."
+        },
+        {
+          "type": "HR",
+          "number": "9779",
+          "title": "COCOA Act of 2024",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2024-09-24",
+          "latest_action": "Referred to the House Committee on House Administration."
+        }
+      ]
+    },
+    "T000476": {
+      "name": "Thom Tillis",
+      "party": "Republican",
+      "state": "NC",
+      "lobbyist_total": 420002.55,
+      "total_sponsored": 675,
+      "top_policy_areas": [
+        [
+          "Health",
+          3
+        ],
+        [
+          "Congress",
+          2
+        ],
+        [
+          "Armed Forces and National Security",
+          1
+        ],
+        [
+          "Education",
+          1
+        ],
+        [
+          "Immigration",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-06-02",
+          "latest_action": null
+        },
+        {
+          "type": "S",
+          "number": "4499",
+          "title": "ALERT Act of 2026",
+          "policy_area": "Health",
+          "introduced": "2026-05-12",
+          "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions."
+        },
+        {
+          "type": "SRES",
+          "number": "705",
+          "title": "A resolution commending the \"Donut Dollies\" for their patriotic service and steadfast support of United States servicemembers in combat and ",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2026-04-29",
+          "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S2109; text: CR S2136)"
+        },
+        {
+          "type": "S",
+          "number": "1296",
+          "title": "DETERRENT Act",
+          "policy_area": "Education",
+          "introduced": "2025-04-03",
+          "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-09",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-08",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-26",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-02-02",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-06-03",
+          "latest_action": "Amendment SA 1506 agreed to in Senate by Yea-Nay Vote. 48 - 44. Record Vote Number: 204."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-06-03",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-06-03",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-05-20",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-03-25",
+          "latest_action": "Proposed amendment SA 926 withdrawn in Senate. (consideration: CR 3/26/2015 S2022)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-03-25",
+          "latest_action": "Proposed amendment SA 925 withdrawn in Senate. (consideration: CR 3/26/2015 S2022)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-03-17",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-03-18",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-03-16",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-01-22",
+          "latest_action": "Proposed amendment SA 102 withdrawn in Senate. (consideration: CR S626)"
+        },
+        {
+          "type": "SRES",
+          "number": "611",
+          "title": "A resolution authorizing the use of the atrium in the Philip A. Hart Senate Office Building for a Bipawtisan Doggi Gras Pawrade on February ",
+          "policy_area": "Congress",
+          "introduced": "2026-02-12",
+          "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S616; text: CR S614)"
+        },
+        {
+          "type": "S",
+          "number": "3782",
+          "title": "Justice for Victims of Sanctuary Cities and Fallen Law Enforcement Act of 2026",
+          "policy_area": "Immigration",
+          "introduced": "2026-02-05",
+          "latest_action": "Read twice and referred to the Committee on the Judiciary."
+        },
+        {
+          "type": "S",
+          "number": "3719",
+          "title": "National Law Enforcement Officers Remembrance, Support, and Community Outreach Act.",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2026-01-28",
+          "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources."
+        },
+        {
+          "type": "S",
+          "number": "3705",
+          "title": "Semiquincentennial Congressional Time Capsule Act",
+          "policy_area": "Congress",
+          "introduced": "2026-01-27",
+          "latest_action": "Became Public Law No: 119-79."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-12-18",
+          "latest_action": null
+        },
+        {
+          "type": "S",
+          "number": "3551",
+          "title": "PROTECT for Rare Act",
+          "policy_area": "Health",
+          "introduced": "2025-12-17",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "S",
+          "number": "3439",
+          "title": "Connecting Caregivers to Medicare Act of 2025",
+          "policy_area": "Health",
+          "introduced": "2025-12-11",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        }
+      ]
+    },
+    "C001053": {
+      "name": "Tom Cole",
+      "party": "Republican",
+      "state": "OK",
+      "lobbyist_total": 389171.15,
+      "total_sponsored": 227,
+      "top_policy_areas": [
+        [
+          "Economics and Public Finance",
+          14
+        ],
+        [
+          "Native Americans",
+          5
+        ],
+        [
+          "Congress",
+          2
+        ],
+        [
+          "Health",
+          1
+        ],
+        [
+          "Government Operations and Politics",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HR",
+          "number": "7744",
+          "title": "Department of Homeland Security Appropriations Act, 2026",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2026-03-02",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Appropriations."
+        },
+        {
+          "type": "HR",
+          "number": "7490",
+          "title": "Tribal Warrant Fairness Act",
+          "policy_area": "Native Americans",
+          "introduced": "2026-02-11",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "7325",
+          "title": "Truth and Healing Commission on Indian Boarding School Policies Act of 2026",
+          "policy_area": "Native Americans",
+          "introduced": "2026-02-03",
+          "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "7147",
+          "title": "Homeland Security and Further Additional Continuing Appropriations Act, 2026.",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2026-01-20",
+          "latest_action": "Became Public Law No: 119-86."
+        },
+        {
+          "type": "HR",
+          "number": "7148",
+          "title": "Consolidated Appropriations Act, 2026",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2026-01-20",
+          "latest_action": "Became Public Law No: 119-75."
+        },
+        {
+          "type": "HR",
+          "number": "7006",
+          "title": "Financial Services and General Government and National Security, Department of State, and Related Programs Appropriations Act, 2026",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2026-01-12",
+          "latest_action": "Received in the Senate."
+        },
+        {
+          "type": "HR",
+          "number": "6938",
+          "title": "Commerce, Justice, Science; Energy and Water Development; and Interior and Environment Appropriations Act, 2026",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2026-01-06",
+          "latest_action": "Became Public Law No: 119-74."
+        },
+        {
+          "type": "HRES",
+          "number": "747",
+          "title": "Directing the Clerk of the House of Representatives to request the Senate to return to the House the bill (H.R. 3426) entitled \"To amend tit",
+          "policy_area": "Congress",
+          "introduced": "2025-09-19",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "5428",
+          "title": "Medical Student Education Authorization Act of 2025",
+          "policy_area": "Health",
+          "introduced": "2025-09-17",
+          "latest_action": "Referred to the House Committee on Energy and Commerce."
+        },
+        {
+          "type": "HR",
+          "number": "5371",
+          "title": "Continuing Appropriations, Agriculture, Legislative Branch, Military Construction and Veterans Affairs, and Extensions Act, 2026",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2025-09-16",
+          "latest_action": "Became Public Law No: 119-37."
+        },
+        {
+          "type": "HR",
+          "number": "5257",
+          "title": "To reaffirm the trust status of land taken into trust by the United States pursuant to the Act of June 18, 1934, for the benefit of an India",
+          "policy_area": "Native Americans",
+          "introduced": "2025-09-10",
+          "latest_action": "Referred to the House Committee on Natural Resources."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-11-06",
+          "latest_action": "On agreeing to the Cole amendments (A001) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-07-12",
+          "latest_action": "On agreeing to the Cole amendment (A001) Agreed to by recorded vote: 218 - 207 (Roll no. 293)."
+        },
+        {
+          "type": "HR",
+          "number": "2827",
+          "title": "To provide for the equitable settlement of certain Indian land disputes regarding land in Illinois, and for other purposes.",
+          "policy_area": "Native Americans",
+          "introduced": "2025-04-10",
+          "latest_action": "Subcommittee Hearings Held"
+        },
+        {
+          "type": "HR",
+          "number": "1968",
+          "title": "Full-Year Continuing Appropriations and Extensions Act, 2025",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2025-03-10",
+          "latest_action": "Became Public Law No: 119-4."
+        },
+        {
+          "type": "HR",
+          "number": "723",
+          "title": "Protect American Election Administration Act of 2025",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2025-01-24",
+          "latest_action": "Referred to the House Committee on House Administration."
+        },
+        {
+          "type": "HR",
+          "number": "10545",
+          "title": "American Relief Act, 2025",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-12-20",
+          "latest_action": "Became Public Law No: 118-158."
+        },
+        {
+          "type": "HR",
+          "number": "10515",
+          "title": "American Relief Act, 2025",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-12-19",
+          "latest_action": "On motion to suspend the rules and pass the bill Failed by the Yeas and Nays: (2/3 required): 174 - 235, 1 Present (Roll no. 516)."
+        },
+        {
+          "type": "HR",
+          "number": "10445",
+          "title": "Further Continuing Appropriations and Disaster Relief Supplemental Appropriations Act, 2025",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-12-17",
+          "latest_action": "Referred to the Committee on Appropriations, and in addition to the Committees on the Budget, and Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "9747",
+          "title": "Continuing Appropriations and Extensions Act, 2025",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-09-23",
+          "latest_action": "Became Public Law No: 118-83."
+        },
+        {
+          "type": "HR",
+          "number": "8034",
+          "title": "Israel Security Supplemental Appropriations Act, 2024",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-04-17",
+          "latest_action": "Pursuant to the provisions of H. Res. 1160, H.R. 8034 is laid on the table."
+        },
+        {
+          "type": "HR",
+          "number": "8036",
+          "title": "Indo-Pacific Security Supplemental Appropriations Act, 2024",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-04-17",
+          "latest_action": "Pursuant to the provisions of H. Res. 1160, H.R. 8036 is laid on the table."
+        },
+        {
+          "type": "HR",
+          "number": "8035",
+          "title": "Ukraine Security Supplemental Appropriations Act, 2024",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2024-04-17",
+          "latest_action": "Pursuant to the provisions of H. Res. 1160, H.R. 8035 is laid on the table."
+        },
+        {
+          "type": "HR",
+          "number": "5831",
+          "title": "To provide for the equitable settlement of certain Indian land disputes regarding land in Illinois, and for other purposes.",
+          "policy_area": "Native Americans",
+          "introduced": "2023-09-29",
+          "latest_action": "Referred to the House Committee on Natural Resources."
+        },
+        {
+          "type": "HRES",
+          "number": "730",
+          "title": "Providing for consideration of the bill (H.R. 5692) making supplemental appropriations for the fiscal year ending September 30, 2024, and fo",
+          "policy_area": "Congress",
+          "introduced": "2023-09-27",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        }
+      ]
+    },
+    "T000250": {
+      "name": "John Thune",
+      "party": "Republican",
+      "state": "SD",
+      "lobbyist_total": 385201.0,
+      "total_sponsored": 1047,
+      "top_policy_areas": [
+        [
+          "Congress",
+          2
+        ],
+        [
+          "Law",
+          1
+        ],
+        [
+          "Science, Technology, Communications",
+          1
+        ],
+        [
+          "Agriculture and Food",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "SRES",
+          "number": "745",
+          "title": "A resolution to authorize production of records to the United States Attorney.",
+          "policy_area": "Law",
+          "introduced": "2026-05-20",
+          "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S2428; text: CR S2420)"
+        },
+        {
+          "type": "S",
+          "number": "4448",
+          "title": "Accelerating Broadband Permits Act of 2026",
+          "policy_area": "Science, Technology, Communications",
+          "introduced": "2026-04-30",
+          "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation. (text: CR S2173)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-04-29",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-04-29",
+          "latest_action": null
+        },
+        {
+          "type": "SRES",
+          "number": "690",
+          "title": "An executive resolution authorizing the en bloc consideration in Executive Session of certain nominations on the Executive Calendar.",
+          "policy_area": "Congress",
+          "introduced": "2026-04-27",
+          "latest_action": "Resolution agreed to in Senate without amendment by Yea-Nay Vote. 46 - 45. Record Vote Number: 114. (text: CR 4/27/2026 S2056-2057)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-27",
+          "latest_action": "Amendment SA 4790 agreed to in Senate by Voice Vote."
+        },
+        {
+          "type": "SRES",
+          "number": "664",
+          "title": "A resolution to constitute the majority party's membership on certain committees for the One Hundred Nineteenth Congress, or until their suc",
+          "policy_area": "Congress",
+          "introduced": "2026-03-27",
+          "latest_action": "Submitted in the Senate, considered, and agreed to without amendment by Unanimous Consent. (consideration: CR S1690; text: CR S1674)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-24",
+          "latest_action": "Considered by Senate (Message from the House considered). (consideration: CR S1647)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-24",
+          "latest_action": "Considered by Senate (Message from the House considered). (consideration: CR S1647)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-24",
+          "latest_action": "Considered by Senate (Message from the House considered). (consideration: CR S1647)"
+        },
+        {
+          "type": "S",
+          "number": "4152",
+          "title": "Fertilizer Transparency Act of 2026",
+          "policy_area": "Agriculture and Food",
+          "introduced": "2026-03-19",
+          "latest_action": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry. (text: CR S1369-1370)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-17",
+          "latest_action": "SA 4424 fell when SA 4423 fell."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-17",
+          "latest_action": "SA 4423 fell when SA 4422 (the instructions of the motion to refer) fell."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-17",
+          "latest_action": "SA 4422 (the instructions of the motion to refer) fell when the motion to refer to Senate Committee on Rules and Administration the House message to accompany S. 1383 with instructions to report back forthwith with the following amendment (SA 4422) was tabled."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": "Motion to table amendment SA 4310 agreed to in Senate by Voice Vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": "SA 4315 fell when SA 4314 fell."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": "SA 4312 fell when SA 4311 tabled."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": "SA 4314 fell when SA 4313 (the instructions of the motion to commit) fell."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": "SA 4313 (the instructions of the motion to commit) fell when cloture invoked SA 4308."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": "Motion to table amendment SA 4311 agreed to in Senate by Voice Vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-12-10",
+          "latest_action": "Amendment SA 5183 agreed to in Senate by Unanimous Consent."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-12-01",
+          "latest_action": "Amendment SA 5125 agreed to in Senate by Unanimous Consent."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-23",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-21",
+          "latest_action": "Amendment SA 4853 agreed to in Senate by Unanimous Consent."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-21",
+          "latest_action": null
+        }
+      ]
+    },
+    "H001072": {
+      "name": "J. French Hill",
+      "party": "Republican",
+      "state": "AR",
+      "lobbyist_total": 363630.0,
+      "total_sponsored": 147,
+      "top_policy_areas": [
+        [
+          "International Affairs",
+          6
+        ],
+        [
+          "Finance and Financial Sector",
+          6
+        ],
+        [
+          "Taxation",
+          4
+        ],
+        [
+          "Housing and Community Development",
+          2
+        ],
+        [
+          "Public Lands and Natural Resources",
+          2
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HRES",
+          "number": "1299",
+          "title": "Providing for the concurrence by the House in the Senate amendment to H.R. 6644, with amendment.",
+          "policy_area": "Housing and Community Development",
+          "introduced": "2026-05-19",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "8791",
+          "title": "IGNITE HBCU Excellence Act",
+          "policy_area": null,
+          "introduced": "2026-05-13",
+          "latest_action": "Referred to the House Committee on Education and Workforce."
+        },
+        {
+          "type": "HR",
+          "number": "8513",
+          "title": "PROTECT Act",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2026-04-27",
+          "latest_action": "Referred to the House Committee on Oversight and Government Reform."
+        },
+        {
+          "type": "HR",
+          "number": "8264",
+          "title": "HBCU Research Capacity Act",
+          "policy_area": "Education",
+          "introduced": "2026-04-14",
+          "latest_action": "Referred to the House Committee on Education and Workforce."
+        },
+        {
+          "type": "HR",
+          "number": "7253",
+          "title": "Ticket to Work Advertisement Act",
+          "policy_area": "Health",
+          "introduced": "2026-01-27",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "7180",
+          "title": "Countering Captagon and Narcotics Post-Assad Act",
+          "policy_area": "International Affairs",
+          "introduced": "2026-01-21",
+          "latest_action": "Referred to the House Committee on Foreign Affairs."
+        },
+        {
+          "type": "HR",
+          "number": "6955",
+          "title": "Main Street Act",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2026-01-07",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 535."
+        },
+        {
+          "type": "HR",
+          "number": "6644",
+          "title": "21st Century ROAD to Housing Act",
+          "policy_area": "Housing and Community Development",
+          "introduced": "2025-12-11",
+          "latest_action": "Message on House action received in Senate and at desk: House amendment to Senate amendment."
+        },
+        {
+          "type": "HR",
+          "number": "6524",
+          "title": "HIRE Act",
+          "policy_area": "Taxation",
+          "introduced": "2025-12-09",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "5626",
+          "title": "Taiwan and American Space Assistance Act of 2025",
+          "policy_area": "International Affairs",
+          "introduced": "2025-09-30",
+          "latest_action": "Referred to the Committee on Science, Space, and Technology, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HRES",
+          "number": "776",
+          "title": "Expressing concerns regarding the urgent and escalating threats facing Coptic Christians.",
+          "policy_area": "International Affairs",
+          "introduced": "2025-09-30",
+          "latest_action": "Referred to the House Committee on Foreign Affairs."
+        },
+        {
+          "type": "HRES",
+          "number": "738",
+          "title": "Expressing concern regarding severe restrictions on religious freedom abroad.",
+          "policy_area": "International Affairs",
+          "introduced": "2025-09-18",
+          "latest_action": "Referred to the House Committee on Foreign Affairs."
+        },
+        {
+          "type": "HR",
+          "number": "5396",
+          "title": "Price Stability Act of 2025",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2025-09-16",
+          "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 30 - 21."
+        },
+        {
+          "type": "HR",
+          "number": "5317",
+          "title": "Community Bank Deposit Access Act of 2025",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2025-09-11",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs."
+        },
+        {
+          "type": "HR",
+          "number": "4801",
+          "title": "Unleashing AI Innovation in Financial Services Act",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2025-07-29",
+          "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 33 - 19."
+        },
+        {
+          "type": "HR",
+          "number": "4179",
+          "title": "Countering Wrongful Detention Act of 2025",
+          "policy_area": "International Affairs",
+          "introduced": "2025-06-26",
+          "latest_action": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "4102",
+          "title": "RISE Act",
+          "policy_area": "Taxation",
+          "introduced": "2025-06-24",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "3633",
+          "title": "Digital Asset Market Clarity Act",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2025-05-29",
+          "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 423."
+        },
+        {
+          "type": "HR",
+          "number": "3394",
+          "title": "Fair Investment Opportunities for Professional Experts Act",
+          "policy_area": "Finance and Financial Sector",
+          "introduced": "2025-05-14",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-11-08",
+          "latest_action": "On agreeing to the Hill amendment (A037) Agreed to by voice vote."
+        },
+        {
+          "type": "HR",
+          "number": "3187",
+          "title": "To require the Secretary of Agriculture to convey a parcel of property of the Forest Service to Perry County, Arkansas, and for other purpos",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2025-05-05",
+          "latest_action": "Received in the Senate. Read twice. Placed on Senate Legislative Calendar under General Orders. Calendar No. 295."
+        },
+        {
+          "type": "HR",
+          "number": "2777",
+          "title": "S-CAP Act of 2025",
+          "policy_area": "Taxation",
+          "introduced": "2025-04-09",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "1868",
+          "title": "Stop Tax Penalties on American Hostages Act of 2025",
+          "policy_area": "Taxation",
+          "introduced": "2025-03-05",
+          "latest_action": "Referred to the House Committee on Ways and Means."
+        },
+        {
+          "type": "HR",
+          "number": "1612",
+          "title": "Flatside Wilderness Additions Act",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2025-02-26",
+          "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 219."
+        },
+        {
+          "type": "HR",
+          "number": "1474",
+          "title": "International Nuclear Energy Financing Act of 2025",
+          "policy_area": "International Affairs",
+          "introduced": "2025-02-21",
+          "latest_action": "Placed on the Union Calendar, Calendar No. 13."
+        }
+      ]
+    },
+    "S001198": {
+      "name": "Dan Sullivan",
+      "party": "Republican",
+      "state": "AK",
+      "lobbyist_total": 361405.0,
+      "total_sponsored": 533,
+      "top_policy_areas": [
+        [
+          "Social Welfare",
+          1
+        ],
+        [
+          "Public Lands and Natural Resources",
+          1
+        ],
+        [
+          "Crime and Law Enforcement",
+          1
+        ],
+        [
+          "International Affairs",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "S",
+          "number": "4334",
+          "title": "Blind Americans Return to Work Act of 2026",
+          "policy_area": "Social Welfare",
+          "introduced": "2026-04-16",
+          "latest_action": "Read twice and referred to the Committee on Finance."
+        },
+        {
+          "type": "S",
+          "number": "4250",
+          "title": "Sport Fish Restoration, Recreational Boating Safety, and Wildlife Restoration Act of 2026",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2026-03-26",
+          "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation."
+        },
+        {
+          "type": "S",
+          "number": "4209",
+          "title": "TIME for Overdose Justice Act",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2026-03-25",
+          "latest_action": "Read twice and referred to the Committee on the Judiciary."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-22",
+          "latest_action": "Amendment SA 4744 agreed to in Senate by Unanimous Consent."
+        },
+        {
+          "type": "S",
+          "number": "4065",
+          "title": "STAND with Taiwan Act of 2026",
+          "policy_area": "International Affairs",
+          "introduced": "2026-03-11",
+          "latest_action": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2026-03-04",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-12-09",
+          "latest_action": "Amendment SA 5172 agreed to in Senate by Unanimous Consent."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-08",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-06-07",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-26",
+          "latest_action": "Amendment SA 4344 agreed to in Senate by Voice Vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-19",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-17",
+          "latest_action": "Amendment SA 4003 agreed to in Senate by Unanimous Consent."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-05-16",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-04-21",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-04-12",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-02-23",
+          "latest_action": "Amendment SA 3310 agreed to in Senate by Voice Vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-02-02",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-02-01",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-02-01",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-01-27",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-01-27",
+          "latest_action": null
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2016-01-27",
+          "latest_action": "Amendment SA 2996, under the order of 2/2/16, not having achieved 60 votes in the affirmative, was not agreed to in Senate by Yea-Nay Vote. 49 - 46. Record Vote Number: 13."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2015-11-19",
+          "latest_action": null
+        }
+      ]
+    },
+    "C000059": {
+      "name": "Ken Calvert",
+      "party": "Republican",
+      "state": "CA",
+      "lobbyist_total": 358530.0,
+      "total_sponsored": 284,
+      "top_policy_areas": [
+        [
+          "Armed Forces and National Security",
+          3
+        ],
+        [
+          "Environmental Protection",
+          2
+        ],
+        [
+          "Government Operations and Politics",
+          1
+        ],
+        [
+          "Energy",
+          1
+        ],
+        [
+          "Civil Rights and Liberties, Minority Issues",
+          1
+        ]
+      ],
+      "recent_bills": [
+        {
+          "type": "HR",
+          "number": "8951",
+          "title": "Zero Tolerance for Fraudsters Act of 2026",
+          "policy_area": null,
+          "introduced": "2026-05-21",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "8593",
+          "title": "Fireworks for Freedom Act",
+          "policy_area": "Government Operations and Politics",
+          "introduced": "2026-04-30",
+          "latest_action": "Referred to the House Committee on Oversight and Government Reform."
+        },
+        {
+          "type": "HRES",
+          "number": "1227",
+          "title": "Condemning State-level energy policies that restrict domestic oil production, increase gasoline prices, and undermine American energy securi",
+          "policy_area": "Energy",
+          "introduced": "2026-04-29",
+          "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned."
+        },
+        {
+          "type": "HR",
+          "number": "8396",
+          "title": "ACCESS Act of 2026.",
+          "policy_area": "Civil Rights and Liberties, Minority Issues",
+          "introduced": "2026-04-21",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HRES",
+          "number": "978",
+          "title": "Expressing the profound sorrow of the House of Representatives on the death of the Honorable Doug LaMalfa.",
+          "policy_area": "Congress",
+          "introduced": "2026-01-07",
+          "latest_action": "Motion to reconsider laid on the table Agreed to without objection."
+        },
+        {
+          "type": "HR",
+          "number": "5992",
+          "title": "Stuck On Hold Act",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2025-11-10",
+          "latest_action": "Referred to the Subcommittee on Economic Opportunity."
+        },
+        {
+          "type": "HR",
+          "number": "5935",
+          "title": "Agua Caliente Band of Cahuilla Indians Water Rights Settlement Act",
+          "policy_area": "Native Americans",
+          "introduced": "2025-11-07",
+          "latest_action": "Referred to the House Committee on Natural Resources."
+        },
+        {
+          "type": "HR",
+          "number": "5726",
+          "title": "DOD Entrepreneurial Innovation Act",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2025-10-10",
+          "latest_action": "Referred to the House Committee on Armed Services."
+        },
+        {
+          "type": "HR",
+          "number": "4638",
+          "title": "Federal Working Animal Protection Act",
+          "policy_area": "Immigration",
+          "introduced": "2025-07-23",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on the Judiciary."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A006) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A003) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A004) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A007) Agreed to by voice vote. (consideration: CR H3444)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A002) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A001) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2025-07-16",
+          "latest_action": "On agreeing to the Calvert amendments (A005) Agreed to by voice vote."
+        },
+        {
+          "type": "HR",
+          "number": "4016",
+          "title": "Department of Defense Appropriations Act, 2026",
+          "policy_area": "Economics and Public Finance",
+          "introduced": "2025-06-16",
+          "latest_action": "Motion to proceed to consideration of measure made in Senate. (CR S8522)"
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-09-27",
+          "latest_action": "On agreeing to the Calvert amendments (A001) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-09-27",
+          "latest_action": "On agreeing to the Calvert amendments (A002) Agreed to by voice vote."
+        },
+        {
+          "type": null,
+          "number": null,
+          "title": "",
+          "policy_area": null,
+          "introduced": "2023-09-27",
+          "latest_action": "On agreeing to the Calvert amendments (A003) Agreed to by voice vote."
+        },
+        {
+          "type": "HR",
+          "number": "2093",
+          "title": "To amend the Federal Water Pollution Control Act with respect to permitting terms, and for other purposes.",
+          "policy_area": "Environmental Protection",
+          "introduced": "2025-03-14",
+          "latest_action": "Referred to the Subcommittee on Water Resources and Environment."
+        },
+        {
+          "type": "HR",
+          "number": "2026",
+          "title": "Ending Major Borderland Environmental Ruin from Wildfires (EMBER) Act",
+          "policy_area": "Public Lands and Natural Resources",
+          "introduced": "2025-03-11",
+          "latest_action": "Referred to the Subcommittee on Forestry and Horticulture."
+        },
+        {
+          "type": "HR",
+          "number": "1894",
+          "title": "FISH Act of 2025",
+          "policy_area": "Environmental Protection",
+          "introduced": "2025-03-06",
+          "latest_action": "Referred to the House Committee on Natural Resources."
+        },
+        {
+          "type": "HR",
+          "number": "1821",
+          "title": "HELD Act",
+          "policy_area": "Crime and Law Enforcement",
+          "introduced": "2025-03-04",
+          "latest_action": "Referred to the House Committee on the Judiciary."
+        },
+        {
+          "type": "HR",
+          "number": "1663",
+          "title": "VSAFE Act of 2025",
+          "policy_area": "Armed Forces and National Security",
+          "introduced": "2025-02-27",
+          "latest_action": "Received in the Senate and Read twice and referred to the Committee on Veterans' Affairs."
+        }
+      ]
+    }
+  }
+}
