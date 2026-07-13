@@ -134,7 +134,7 @@ discovery. See `checking-the-law` verdict `legal_checks/loc_nation.md`.
 
 ---
 
-## Supporting finding (method): Coordinated messaging is detectable and separable
+## Capability demonstrated (not claimed as a finding): coordinated-messaging detection
 
 The coordination detector finds verbatim talking points reused across many offices in a tight
 window and scores them so *targeted* campaigns separate from ordinary boilerplate. On the 2025

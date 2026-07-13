@@ -62,8 +62,12 @@ working on foreign data. See `generality_demo/README.md`.
 | Pay-the-gavel — lobbyist money pools on committee gatekeepers (Guthrie #1, $694K) | Confirmed | mapper (gatekeeper/resolve), connector (roster/FEC), case-file |
 | Foreign revolving door — Tencent $4.04M; McEntee not FARA-registered | Confirmed | mapper (client/lobbyist/FARA), checking-the-law |
 | Loc Nation — $80M of pseudo-legal claims filed as lobbying (integrity) | Flag | mapper (anomaly, amendment-aware), checking-the-law |
-| Coordinated messaging is detectable (9-member Dream & Promise cluster) | Method | mapper (detect_coordination) |
 | Senate↔House consistency (36,643 comparable periods, 0 gaps >$100K — re-verified this session, amendment-aware) | Cold | mapper (mismatch), case-file |
+
+Also demonstrated, as a capability rather than a finding: a **coordinated-messaging
+detector** (`mapper/detect_coordination.py`) that surfaces near-identical language pushed
+by many offices in a tight window — e.g. a 9-member bipartisan cluster reusing one
+think-tank statistic within 2 days of the Dream & Promise Act reintroduction.
 
 ## Outside data used
 `unitedstates/congress-legislators` (committee roles, member roster — shipped snapshot),
