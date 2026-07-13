@@ -1,33 +1,46 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Investigation Review Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
- :root { --bg:#f6f8fa; --card:#fff; --ink:#1f2328; --mut:#656d76; --line:#d0d7de; }
+ :root { --bg:#F6F5F1; --card:#fff; --ink:#191919; --mut:#747474; --line:#E8E8E8;
+          --maroon:#8C1D40; --maroon-tint:#F8F4F4; --teal:#005B64;
+          --sans:'Libre Franklin',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+          --serif:'Source Serif 4',Georgia,serif;
+          --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace; }
  * { box-sizing:border-box; }
- body { font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-        margin:0; background:var(--bg); color:var(--ink); }
- header { background:#0d1117; color:#fff; padding:20px 28px; }
- header h1 { margin:0 0 4px; font-size:20px; } header p { margin:0; color:#9da7b3; }
+ body { font:15px/1.6 var(--sans); margin:0; background:var(--bg); color:var(--ink);
+        -webkit-font-smoothing:antialiased; }
+ header { background:var(--maroon); color:#fff; padding:20px 28px; }
+ header h1 { margin:0 0 4px; font-size:20px; font-weight:800; letter-spacing:-.01em; }
+ header p { margin:0; color:#DAB8BD; font-family:var(--serif); }
  main { max-width:1000px; margin:0 auto; padding:24px 20px 60px; }
+ a { color:var(--maroon); }
  .row { display:flex; gap:14px; flex-wrap:wrap; margin:16px 0; }
  .stat { background:var(--card); border:1px solid var(--line); border-radius:10px;
           padding:12px 16px; min-width:110px; }
- .stat b { font-size:22px; display:block; } .stat span { color:var(--mut); font-size:12px; }
+ .stat b { font-size:22px; display:block; font-weight:800; }
+ .stat span { color:var(--mut); font-size:11px; font-family:var(--mono);
+          text-transform:uppercase; letter-spacing:.04em; }
  section { background:var(--card); border:1px solid var(--line); border-radius:10px;
             padding:18px 20px; margin:16px 0; }
- h2 { font-size:16px; margin:0 0 12px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+ h2 { font-size:16px; margin:0 0 12px; border-bottom:1px solid var(--line);
+       padding-bottom:8px; font-weight:700; }
  .thread { border-left:4px solid var(--line); padding:8px 12px; margin:10px 0;
-            background:#fafbfc; border-radius:0 8px 8px 0; }
- .pill { display:inline-block; color:#fff; font-size:11px; font-weight:600;
-          padding:2px 8px; border-radius:20px; text-transform:uppercase; }
- .thread h3 { margin:6px 0 4px; font-size:15px; }
- .meta { color:var(--mut); font-size:13px; }
- code { background:#eff1f3; padding:1px 5px; border-radius:5px; font-size:12px;
-         word-break:break-all; }
- pre { white-space:pre-wrap; background:#f6f8fa; padding:12px; border-radius:8px;
-        border:1px solid var(--line); font-size:13px; }
- .flag { border-left:4px solid #cf222e; } details summary { cursor:pointer; font-weight:600; }
- .src { font-size:12px; } .src a { color:#0969da; }
+            background:var(--maroon-tint); border-radius:0 8px 8px 0; }
+ .pill { display:inline-block; color:#fff; font-size:10.5px; font-weight:600;
+          font-family:var(--mono); padding:3px 9px; border-radius:20px;
+          text-transform:uppercase; letter-spacing:.03em; }
+ .thread h3 { margin:6px 0 4px; font-size:15px; font-weight:700; }
+ .meta { color:var(--mut); font-size:13.5px; font-family:var(--serif); }
+ code { background:var(--bg); border:1px solid var(--line); padding:1px 5px;
+         border-radius:5px; font-size:12px; font-family:var(--mono); word-break:break-all; }
+ pre { white-space:pre-wrap; background:var(--bg); padding:12px; border-radius:8px;
+        border:1px solid var(--line); font-size:13px; font-family:var(--mono); }
+ .flag { border-left:4px solid #892312; } details summary { cursor:pointer; font-weight:600; }
+ .src { font-size:12px; font-family:var(--mono); } .src a { color:var(--teal); }
 </style></head><body>
 <header><h1>Investigation Review Dashboard</h1>
 <p>Generated from the case file — every claim links to a source record. No server, no login.</p></header>

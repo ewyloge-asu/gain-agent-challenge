@@ -17,25 +17,39 @@ import json
 from pathlib import Path
 
 CSS = """
- body{margin:0;font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:#0d1117;color:#e6edf3;}
+ :root{--paper:#FFFFFF;--paper2:#F6F5F1;--ink:#191919;--ink2:#484848;--mut:#747474;
+   --line:#E8E8E8;--maroon:#8C1D40;--maroon-tint:#F8F4F4;--teal:#005B64;
+   --teal-tint:#F1F6F7;--gold-tint:#F6F5F1;--gold:#585200;
+   --sans:'Libre Franklin',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+   --serif:'Source Serif 4',Georgia,serif;
+   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+ body{margin:0;font:15px/1.6 var(--sans);background:var(--paper);color:var(--ink);
+      -webkit-font-smoothing:antialiased;}
  .wrap{max-width:1000px;margin:0 auto;padding:24px 20px 80px;}
- h1{font-size:26px;margin:8px 0 4px;} h2{font-size:20px;margin:36px 0 8px;}
- .mut{color:#9198a1;} a{color:#4493f8;text-decoration:none;} a:hover{text-decoration:underline;}
- .msg{border:1px solid #30363d;border-radius:10px;margin:10px 0;overflow:hidden;}
- .msg>summary{padding:8px 14px;cursor:pointer;font-weight:600;font-size:13px;
-      letter-spacing:.03em;list-style:none;display:flex;gap:10px;align-items:baseline;}
+ h1{font-family:var(--sans);font-weight:800;letter-spacing:-.015em;font-size:30px;margin:14px 0 4px;}
+ h2{font-family:var(--sans);font-weight:700;letter-spacing:-.01em;font-size:21px;margin:40px 0 8px;}
+ .mut{color:var(--mut);font-family:var(--serif);}
+ a{color:var(--maroon);text-decoration:none;} a:hover{text-decoration:underline;text-underline-offset:3px;}
+ .msg{border:1px solid var(--line);border-radius:10px;margin:10px 0;overflow:hidden;background:#fff;}
+ .msg>summary{padding:9px 14px;cursor:pointer;font-weight:600;font-size:12.5px;
+      font-family:var(--mono);letter-spacing:.04em;list-style:none;display:flex;gap:10px;
+      align-items:baseline;transition:filter .15s ease;}
+ .msg>summary:hover{filter:brightness(.97);}
  .msg>summary::-webkit-details-marker{display:none;}
- .u>summary{background:rgba(68,147,248,.14);color:#79b8ff;}
- .a>summary{background:rgba(63,185,80,.10);color:#7ee2a8;}
- .t>summary{background:rgba(210,153,34,.10);color:#e3b341;}
+ .u>summary{background:var(--teal-tint);color:var(--teal);}
+ .a>summary{background:var(--maroon-tint);color:var(--maroon);}
+ .t>summary{background:var(--gold-tint);color:var(--gold);}
  .body{padding:10px 14px;}
- pre{background:#010409;border:1px solid #30363d;border-radius:8px;padding:10px;
-     overflow:auto;font-size:12.5px;white-space:pre-wrap;word-break:break-word;margin:8px 0;}
- .toolname{font-weight:700;color:#e3b341;}
- .count{font-weight:400;color:#9198a1;font-size:12px;}
- nav{position:sticky;top:0;background:rgba(13,17,23,.95);border-bottom:1px solid #30363d;
-     padding:10px 20px;font-size:14px;z-index:5;}
+ pre{font-family:var(--mono);background:var(--paper2);border:1px solid var(--line);
+     border-radius:8px;padding:10px;overflow:auto;font-size:12.5px;white-space:pre-wrap;
+     word-break:break-word;margin:8px 0;}
+ .toolname{font-weight:700;color:var(--gold);}
+ .count{font-weight:400;color:var(--mut);font-size:11.5px;}
+ nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+     border-bottom:1px solid var(--line);padding:10px 20px;font-size:12.5px;
+     font-family:var(--mono);z-index:5;}
+ code{font-family:var(--mono);background:var(--paper2);border:1px solid var(--line);
+     padding:1px 6px;border-radius:5px;font-size:12.5px;}
 """
 
 
@@ -105,12 +119,16 @@ def main():
 
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Interaction traces — full session logs</title><style>{CSS}</style></head><body>
-<nav>{' · '.join(toc)}</nav>
+<title>Interaction traces — full session logs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>{CSS}</style></head><body>
+<nav><a href="https://ewyloge-asu.github.io/gain-agent-challenge/">← back to the site</a> &nbsp;·&nbsp; {' · '.join(toc)}</nav>
 <div class="wrap">
 <h1>Interaction traces — full session logs</h1>
-<p class="mut">Complete model-session logs: every human prompt (blue), every agent
-reasoning message (green), and every tool call with its full arguments (yellow), in
+<p class="mut">Complete model-session logs: every human prompt (teal), every agent
+reasoning message (maroon), and every tool call with its full arguments (gold), in
 order. Raw JSONL for each session is in <code>raw/</code>. The curated map keying these
 sessions to the findings is <a href="trace_index.md">trace_index.md</a>. The transcript
 format records prompts, reasoning, and tool inputs; the verbatim <b>outputs</b> of every
