@@ -25,10 +25,18 @@
  body{margin:0;font:16px/1.65 var(--sans);background:var(--paper);color:var(--ink);
       -webkit-font-smoothing:antialiased;}
  ::selection{background:#FEC7CF;}
- a{color:var(--maroon);text-decoration:none;}
- a:hover{text-decoration:underline;text-underline-offset:3px;}
+ /* links: understated grow-in underline */
+ a{color:var(--maroon);text-decoration:none;
+   background-image:linear-gradient(currentColor,currentColor);
+   background-repeat:no-repeat;background-position:0 100%;background-size:0% 1.5px;
+   transition:background-size .25s ease;}
+ a:hover{background-size:100% 1.5px;}
+ .dl,.navlinks a,.tag a{background-image:none;}
  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
  [id]{scroll-margin-top:64px;}
+ @media (prefers-reduced-motion:reduce){
+   *,*::before,*::after{animation:none!important;transition:none!important;}
+ }
 
  /* ---------- nav + hamburger ---------- */
  nav{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
@@ -56,20 +64,34 @@
    .navlinks a{padding:12px;border-bottom:1px solid var(--paper2);font-size:13px;}
  }
 
- /* ---------- hero ---------- */
- header{background:linear-gradient(180deg,var(--paper2),var(--paper));
-        border-bottom:1px solid var(--line);padding:84px 0 64px;}
+ /* ---------- hero (with barely-perceptible parallax layer) ---------- */
+ header{position:relative;background:linear-gradient(180deg,var(--paper2),var(--paper));
+        border-bottom:1px solid var(--line);padding:84px 0 64px;overflow:hidden;}
+ .parallax{position:absolute;inset:-12% -4%;pointer-events:none;will-change:transform;
+   background:
+     radial-gradient(560px 300px at 10% 0%,rgba(140,29,64,.05),transparent 65%),
+     radial-gradient(640px 340px at 92% 8%,rgba(0,125,136,.06),transparent 65%);}
+ .watermark{position:absolute;right:-40px;bottom:-54px;pointer-events:none;
+   font:italic 600 190px/1 var(--disp);color:rgba(140,29,64,.045);
+   user-select:none;will-change:transform;white-space:nowrap;}
+ header .wrap{position:relative;}
  .tag{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
       color:var(--teal-deep);display:inline-block;padding:8px 14px;
       border:1px solid var(--line2);border-radius:99px;background:#fff;}
+ .tag a{color:inherit;}
  h1{font-family:var(--disp);font-weight:600;font-size:clamp(46px,7.5vw,76px);
     letter-spacing:-.015em;line-height:1.02;margin:24px 0 6px;}
  h1 em{font-style:italic;color:var(--maroon);}
  .kicker{font-family:var(--disp);font-style:italic;font-size:19px;color:var(--ink2);margin:0 0 18px;}
  .sub{color:var(--ink2);font-size:18.5px;max-width:740px;}
  .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
- .stat{background:#fff;border:1px solid var(--line);border-top:3px solid var(--maroon);
-       border-radius:10px;padding:12px 18px;min-width:150px;flex:1;max-width:230px;}
+ /* stat chips step through the maroon sequential ramp (light -> deep) */
+ .stat{background:#fff;border:1px solid var(--line);border-radius:10px;
+       padding:12px 18px;min-width:150px;flex:1;max-width:230px;}
+ .stat:nth-child(1){border-top:3px solid #E8758E;}
+ .stat:nth-child(2){border-top:3px solid #CE5371;}
+ .stat:nth-child(3){border-top:3px solid #AF3758;}
+ .stat:nth-child(4){border-top:3px solid #8A2341;}
  .stat b{display:block;font:600 24px/1.2 var(--disp);color:var(--ink);}
  .stat span{font:500 11px/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mut);}
 
@@ -89,9 +111,19 @@
  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;}
  .step b{font-family:var(--disp);font-size:17px;color:var(--maroon);display:block;margin-bottom:6px;}
  .step small{color:var(--ink2);}
+ /* the four workflow steps walk the maroon sequential ramp; generality steps walk teal */
+ #what .flip:nth-child(1) .face{border-left:3px solid #E8758E;}
+ #what .flip:nth-child(2) .face{border-left:3px solid #CE5371;}
+ #what .flip:nth-child(3) .face{border-left:3px solid #AF3758;}
+ #what .flip:nth-child(4) .face{border-left:3px solid #8A2341;}
+ #generality .step:nth-child(1){border-left:3px solid #4FCFDE;}
+ #generality .step:nth-child(2){border-left:3px solid #00B3C3;}
+ #generality .step:nth-child(3){border-left:3px solid #0095A2;}
+ #generality .step:nth-child(4){border-left:3px solid #005B64;}
  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;
-       transition:.18s;display:flex;flex-direction:column;}
+       transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+       display:flex;flex-direction:column;}
  .card:hover{border-color:var(--maroon);box-shadow:0 12px 28px -18px rgba(140,29,64,.35);
        transform:translateY(-2px);}
  .card h3{margin:0 0 2px;font-size:21px;}
@@ -99,9 +131,40 @@
  .card p{margin:0 0 8px;color:var(--ink2);font-size:15px;}
  .card .dl{margin-top:auto;align-self:flex-start;}
 
+ /* ---------- flip cards (click for details) ---------- */
+ .flip{perspective:1200px;cursor:pointer;}
+ .flip .inner{display:grid;transform-style:preserve-3d;
+       transition:transform .55s cubic-bezier(.4,.1,.2,1);height:100%;}
+ .flip.flipped .inner{transform:rotateY(180deg);}
+ .flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+       background:#fff;border:1px solid var(--line);border-radius:12px;
+       padding:16px 16px 14px;display:flex;flex-direction:column;
+       transition:box-shadow .22s ease,border-color .22s ease;}
+ .flip .face.back{transform:rotateY(180deg);background:var(--paper2);}
+ .flip:hover .face{border-color:var(--maroon);box-shadow:0 12px 28px -18px rgba(140,29,64,.3);}
+ .flip{transition:transform .22s ease;}
+ .flip:hover{transform:translateY(-2px);}
+ .flip.flipped{transform:scale(1.02);}
+ .flip .face b{font-family:var(--disp);font-size:17px;color:var(--maroon);display:block;margin-bottom:6px;}
+ .flip .face small{color:var(--ink2);}
+ .flip .hint{margin-top:auto;padding-top:10px;font:500 10.5px/1 var(--mono);
+       letter-spacing:.08em;text-transform:uppercase;color:var(--line2);
+       transition:color .22s ease;}
+ .flip:hover .hint{color:var(--maroon);}
+ .flip .back ul{margin:2px 0 8px;padding-left:16px;color:var(--ink2);font-size:13px;line-height:1.55;}
+ .flip .back li{margin:4px 0;}
+ /* skill cards as flip cards keep card sizing */
+ .grid .flip .face{padding:20px;}
+ .grid .flip .face h3{margin:0 0 2px;font-size:21px;}
+ .grid .flip .face .id{font:500 12px/1.6 var(--mono);color:var(--mut);margin:0 0 10px;}
+ .grid .flip .face p{margin:0 0 8px;color:var(--ink2);font-size:15px;}
+ .grid .flip .face .dl{margin-top:auto;align-self:flex-start;}
+
  /* bundle chooser */
  .bundles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:8px 0 30px;}
- .bundle{background:#fff;border:2px solid var(--line2);border-radius:14px;padding:22px;}
+ .bundle{background:#fff;border:2px solid var(--line2);border-radius:14px;padding:22px;
+       transition:transform .22s ease,box-shadow .22s ease;}
+ .bundle:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(25,25,25,.35);}
  .bundle.primary{border-color:var(--maroon);}
  .bundle h3{font-size:22px;margin-top:0;}
  .bundle .id{font:500 12px/1.6 var(--mono);color:var(--mut);}
@@ -135,15 +198,20 @@
  .dl.alt{background:#fff;color:var(--maroon);border:1.5px solid var(--maroon);}
  .dl.alt:hover{background:var(--maroon-tint);}
  details.acc{background:#fff;border:1px solid var(--line);border-radius:12px;
-     margin:10px 0;overflow:hidden;}
+     margin:10px 0;overflow:hidden;transition:border-color .22s ease,box-shadow .22s ease;}
+ details.acc:hover{border-color:var(--maroon);box-shadow:0 8px 22px -18px rgba(140,29,64,.35);}
  details.acc>summary{cursor:pointer;list-style:none;padding:15px 18px;
-     font:600 15.5px/1.4 var(--sans);display:flex;align-items:center;gap:10px;}
+     font:600 15.5px/1.4 var(--sans);display:flex;align-items:center;gap:10px;
+     transition:background .22s ease;}
+ details.acc>summary:hover{background:var(--maroon-tint);}
  details.acc>summary::-webkit-details-marker{display:none;}
  details.acc>summary::before{content:"+";font:600 18px/1 var(--mono);color:var(--maroon);
-     width:18px;}
- details.acc[open]>summary::before{content:"–";}
+     width:18px;transition:transform .3s ease;}
+ details.acc[open]>summary::before{content:"+";transform:rotate(45deg);}
  details.acc[open]>summary{border-bottom:1px solid var(--line);}
  details.acc .body{padding:6px 18px 18px;}
+ details.acc[open] .body{animation:accIn .3s ease;}
+ @keyframes accIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
  details.acc ol{margin:10px 0;padding-left:22px;}
  details.acc li{margin:9px 0;color:var(--ink2);}
  .note{background:var(--teal-tint);border:1px solid #A5CACE;border-radius:10px;
@@ -164,8 +232,13 @@
  </div>
 </div></nav>
 
-<header><div class="wrap">
- <span class="tag">GAIN Agentic Investigation Challenge · ASU / Howard Center team</span>
+<header>
+ <div class="parallax" data-parallax="0.10"></div>
+ <div class="watermark" data-parallax="-0.05">public records</div>
+ <div class="wrap">
+ <span class="tag">GAIN Agentic Investigation Challenge ·
+  <a href="https://cronkite.asu.edu/">ASU</a> /
+  <a href="https://howardcenter.asu.edu/">Howard Center</a> team</span>
  <h1>Paper <em>Trail</em></h1>
  <p class="kicker">An investigative desk for AI agents.</p>
  <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
@@ -191,19 +264,64 @@
  <p>Six Agent Skills that work as one pipeline. In plain terms, the agent walks the same
  four steps a careful reporter would:</p>
  <div class="flow">
-  <div class="step"><b>1 · Scope the question</b><small>The agent interviews you: what's
-   the question, which entities, what time frame, what counts as a finding? That scope
-   becomes the case file's brief and picks the right tools for the beat.</small></div>
-  <div class="step"><b>2 · Gather &amp; analyze</b><small>Deterministic scripts load the
-   records into a database, resolve messy names to real entities, profile what's normal,
-   and surface what isn't — including searching the web for outside datasets and APIs to
-   check claims against.</small></div>
-  <div class="step"><b>3 · Stay organized</b><small>A case file on disk tracks every
-   thread (open, chasing, confirmed, or dead), every key entity, and a session journal —
-   so next week's session picks up exactly where this one stopped.</small></div>
-  <div class="step"><b>4 · Make it publishable</b><small>Before a claim ships: read the
-   actual statute and apply it element-by-element, footnote the draft to primary sources
-   as tracked changes, and flag anything a human still needs to judge.</small></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><b>1 · Scope the question</b><small>The agent interviews you: what's
+    the question, which entities, what time frame, what counts as a finding? That scope
+    becomes the case file's brief and picks the right tools for the beat.</small>
+    <span class="hint">Click for details +</span></div>
+   <div class="face back"><b>Under the hood</b><ul>
+    <li><code>scope.py</code> runs the clarifying-question dialogue (or takes flags) and
+     writes <code>brief.md</code> + <code>beatpack.json</code>.</li>
+    <li>The beat-pack maps the domain: entity keys, outside sources, law packs, anomaly
+     rules — lobbying ships prebuilt; anything else is synthesized.</li>
+    <li>It loops: if the data suggests a broader or narrower story, the scope gets
+     re-asked and the change is journaled.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><b>2 · Gather &amp; analyze</b><small>Deterministic scripts load the
+    records into a database, resolve messy names to real entities, profile what's normal,
+    and surface what isn't — including searching the web for outside datasets and APIs to
+    check claims against.</small>
+    <span class="hint">Click for details +</span></div>
+   <div class="face back"><b>Under the hood</b><ul>
+    <li><code>ingest.py</code> → SQLite in ~15s for a full year; <code>resolve_entities.py</code>
+     links honorees, members, campaign committees (81.8% coverage).</li>
+    <li><code>find_data.py</code> ranks a curated source catalog, queries live CKAN
+     portals, and proposes web searches; <code>fetch_source.py</code> snapshots what you
+     pull in (sha256).</li>
+    <li><code>xref.py</code> answers the money questions: gatekeeper, anomaly (amendment-aware),
+     client, lobbyist, cross-chamber mismatch.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><b>3 · Stay organized</b><small>A case file on disk tracks every
+    thread (open, chasing, confirmed, or dead), every key entity, and a session journal —
+    so next week's session picks up exactly where this one stopped.</small>
+    <span class="hint">Click for details +</span></div>
+   <div class="face back"><b>Under the hood</b><ul>
+    <li>Plain files, no server: <code>brief.md</code>, <code>threads/T-*.md</code>,
+     <code>entities.yaml</code>, <code>findings.yaml</code>, an append-only journal.</li>
+    <li>A lint enforces the honesty rules: confirmed needs a source record; a dead thread
+     needs a recorded reason; chasing needs a next action.</li>
+    <li><code>build_dashboard.py</code> renders it all into the one-page review
+     dashboard.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><b>4 · Make it publishable</b><small>Before a claim ships: read the
+    actual statute and apply it element-by-element, footnote the draft to primary sources
+    as tracked changes, and flag anything a human still needs to judge.</small>
+    <span class="hint">Click for details +</span></div>
+   <div class="face back"><b>Under the hood</b><ul>
+    <li><code>checking-the-law</code> verdicts are capped at "possible" or "genuinely
+     unclear — ask a lawyer"; never an accusation.</li>
+    <li>The footnoter inserts Howard Center–style footnotes as Word tracked changes and
+     files margin comments (<code>no_source</code>, <code>context_concern</code>) instead
+     of inventing sources.</li>
+    <li><code>review.py</code> round-trips any number to the raw filing it came from.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
  </div>
  <p style="color:var(--ink2)">Underneath all four steps, one rule: <b>every number carries
  a provenance ID</b> that traces back to the raw filing it came from, so an editor can
@@ -299,35 +417,101 @@
  drift apart. The six skills, individually (each card links its own zip):</p>
 
  <div class="grid">
-  <div class="card"><h3>Start here: the conductor</h3><p class="id">investigative-method</p>
-   <p>Interviews you to scope the investigation, opens the case file, and drives the other
-   five skills in order. Includes the web-search-for-data tools.</p>
-   <a class="dl" href="downloads/skill-investigative-method.zip">Download</a></div>
-  <div class="card"><h3>Find the leads</h3><p class="id">lobbying-influence-mapper</p>
-   <p>Loads lobbying filings, contributions, and press releases into a database; resolves
-   messy names to real members and companies; ranks who's paying whom; checks it all
-   against outside records (FEC, committee rosters, FARA).</p>
-   <a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">Download</a></div>
-  <div class="card"><h3>Understand any table</h3><p class="id">robodoig</p>
-   <p>Point it at any CSV or table and get a profile: what the columns mean, what's
-   normal, what's missing, what correlates. Named for Steve Doig, the Pulitzer-winning
-   ASU data-journalism pioneer whose method it automates.</p>
-   <a class="dl" href="downloads/skill-robodoig.zip">Download</a></div>
-  <div class="card"><h3>Never lose the thread</h3><p class="id">case-file</p>
-   <p>The investigation's memory: every lead's status (open, chasing, confirmed, dead),
-   every key entity, a session journal. Come back a week later and the agent re-orients
-   itself instead of starting over.</p>
-   <a class="dl" href="downloads/skill-case-file.zip">Download</a></div>
-  <div class="card"><h3>Is it actually illegal?</h3><p class="id">checking-the-law</p>
-   <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
-   from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
-   lawyer," or "not a violation, and here's why."</p>
-   <a class="dl" href="downloads/skill-checking-the-law.zip">Download</a></div>
-  <div class="card"><h3>Source every claim</h3><p class="id">howard-center-footnoter</p>
-   <p>Reads a draft story, matches each factual claim to your reporting materials, and
-   inserts Howard Center–style footnotes as Word tracked changes — with margin comments
-   where no source exists or a quote may be out of context.</p>
-   <a class="dl" href="downloads/skill-howard-center-footnoter.zip">Download</a></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Start here: the conductor</h3><p class="id">investigative-method</p>
+    <p>Interviews you to scope the investigation, opens the case file, and drives the other
+    five skills in order. Includes the web-search-for-data tools.</p>
+    <a class="dl" href="downloads/skill-investigative-method.zip">Download</a>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">investigative-method</p><ul>
+    <li><b>Tools:</b> <code>scope.py</code> (S0 dialogue → brief + beat-pack),
+     <code>find_data.py</code> (curated catalog + live CKAN + web-search prompts),
+     <code>fetch_source.py</code> (snapshot with sha256), <code>build_dashboard.py</code>.</li>
+    <li><b>Workflow:</b> scope → gather → analyze → organize → harden, with guardrails on
+     what may be claimed at each stage.</li>
+    <li><b>Needs:</b> Python 3 only, stdlib. Works on any dataset.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Find the leads</h3><p class="id">lobbying-influence-mapper</p>
+    <p>Loads lobbying filings, contributions, and press releases into a database; resolves
+    messy names to real members and companies; ranks who's paying whom; checks it all
+    against outside records (FEC, committee rosters, FARA).</p>
+    <a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">Download</a>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">lobbying-influence-mapper</p><ul>
+    <li><b>Tools:</b> <code>ingest.py</code>, <code>resolve_entities.py</code>,
+     <code>xref.py</code> (gatekeeper / anomaly / client / lobbyist / mismatch / timeline),
+     <code>detect_coordination.py</code>, <code>connector.py</code>, <code>review.py</code>.</li>
+    <li><b>Extends the agent:</b> honoree→member + cross-chamber resolvers,
+     amendment-aware de-dup, provenance IDs on every number.</li>
+    <li><b>Needs:</b> Python 3 only. Ships demo data + offline snapshots (FEC, roster,
+     FARA, Voteview).</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Understand any table</h3><p class="id">robodoig</p>
+    <p>Point it at any CSV or table and get a profile: what the columns mean, what's
+    normal, what's missing, what correlates. Named for Steve Doig, the Pulitzer-winning
+    ASU data-journalism pioneer whose method it automates.</p>
+    <a class="dl" href="downloads/skill-robodoig.zip">Download</a>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">robodoig</p><ul>
+    <li><b>Tools:</b> <code>analyze.py</code> (types, stats, correlations, histogram +
+     heatmap charts → one <code>analysis.json</code>), <code>verify_report.py</code>
+     (checks every number in a written report against the JSON — a transcription
+     fact-checker).</li>
+    <li><b>Handles:</b> CSV/TSV/Excel, messy types, missing data, overflow values.</li>
+    <li><b>Needs:</b> <code>pip install pandas numpy matplotlib openpyxl</code>.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Never lose the thread</h3><p class="id">case-file</p>
+    <p>The investigation's memory: every lead's status (open, chasing, confirmed, dead),
+    every key entity, a session journal. Come back a week later and the agent re-orients
+    itself instead of starting over.</p>
+    <a class="dl" href="downloads/skill-case-file.zip">Download</a>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">case-file</p><ul>
+    <li><b>Tools:</b> <code>casefile.py</code> — init, brief (the re-orientation digest),
+     update-status, log, rollup, lint.</li>
+    <li><b>Honesty rules, enforced:</b> confirmed requires a source record; cold requires
+     a reason; chasing requires a next action.</li>
+    <li><b>Needs:</b> Python 3 only. Plain files — readable and editable by humans.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Is it actually illegal?</h3><p class="id">checking-the-law</p>
+    <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
+    from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
+    lawyer," or "not a violation, and here's why."</p>
+    <a class="dl" href="downloads/skill-checking-the-law.zip">Download</a>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">checking-the-law</p><ul>
+    <li><b>Method:</b> fetch the current statute text, break it into elements, test the
+     facts against each element, cite what's missing.</li>
+    <li><b>Law packs:</b> reusable per-domain statute maps (LDA, FARA shipped; synthesize
+     new ones per beat).</li>
+    <li><b>Output:</b> a written verdict memo — the two in this submission are the
+     Loc Nation and McEntee/FARA legal checks.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Source every claim</h3><p class="id">howard-center-footnoter</p>
+    <p>Reads a draft story, matches each factual claim to your reporting materials, and
+    inserts Howard Center–style footnotes as Word tracked changes — with margin comments
+    where no source exists or a quote may be out of context.</p>
+    <a class="dl" href="downloads/skill-howard-center-footnoter.zip">Download</a>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">howard-center-footnoter</p><ul>
+    <li><b>Tools:</b> claim extraction, source ingestion (PDF/transcript/notes), footnote
+     formatting, tracked-change insertion, source-tier checking (primary beats
+     secondary; Wikipedia is never an endpoint).</li>
+    <li><b>Flags, not fabrications:</b> ⟨NEEDS SOURCE⟩ placeholders + margin comments for
+     anything unsupported.</li>
+    <li><b>Needs:</b> <code>pip install python-docx lxml</code> (+ pdfplumber for PDFs).</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
  </div>
 </div></section>
 
@@ -495,11 +679,40 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
 </div></section>
 
 <footer><div class="wrap">
- <b style="color:var(--ink)">Paper Trail</b> · ASU / Howard Center for Investigative
- Journalism team — Evan (analysis engine &amp; findings), Steve (data profiler &amp; QA),
+ <b style="color:var(--ink)">Paper Trail</b> ·
+ <a href="https://cronkite.asu.edu/">ASU's Cronkite School</a> /
+ <a href="https://howardcenter.asu.edu/">Howard Center for Investigative Journalism</a>
+ team — Evan (analysis engine &amp; findings), Steve (data profiler &amp; QA),
  Mitul (legal checker), Allie &amp; Katie (case file &amp; de-duplication), Shelby
  (footnoter &amp; story framing) · GAIN Agentic Investigation Challenge 2026 · MIT license ·
  <a href="https://github.com/ewyloge-asu/gain-agent-challenge">GitHub repo</a>
 </div></footer>
+
+<script>
+// Flip cards: click toggles; clicks on links inside pass through untouched.
+document.querySelectorAll('.flip').forEach(function (card) {
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    card.classList.toggle('flipped');
+  });
+});
+// Barely-perceptible parallax on the hero layers (rate set per element).
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if (!els.length) return;
+  var ticking = false;
+  function frame() {
+    var y = window.scrollY;
+    els.forEach(function (el) {
+      el.style.transform = 'translateY(' + (y * parseFloat(el.dataset.parallax)) + 'px)';
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(frame); ticking = true; }
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
