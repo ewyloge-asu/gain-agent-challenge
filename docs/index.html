@@ -3,119 +3,171 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Investigative Desk — an agent assembly line for records investigations</title>
+<title>Paper Trail — an investigative desk for AI agents</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
  :root{
-   --bg:#0a0c10;--panel:#12151c;--panel2:#171b24;--ink:#e9edf3;--mut:#96a0ad;
-   --line:#232936;--line2:#2e3646;
-   --accent:#5b9dff;--accent2:#8f7bff;--good:#41c46a;--warn:#e0a63a;--flag:#ff6459;
-   --sans:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-   --disp:'Space Grotesk',var(--sans);
-   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+   /* The Beam color system (ASU-blended) — maroon primary, turquoise secondary,
+      warm paper neutrals. Gold deliberately unused. */
+   --paper:#FFFFFF;--paper2:#F6F5F1;--ink:#191919;--ink2:#484848;--mut:#747474;
+   --line:#E8E8E8;--line2:#D0D0D0;
+   --maroon:#8C1D40;--maroon-deep:#611A2E;--maroon-tint:#F8F4F4;
+   --teal:#007D88;--teal-deep:#005B64;--teal-tint:#F1F6F7;
+   --ok-bg:#D7F5D7;--ok:#005F14;--warn-bg:#FFE6D5;--warn:#773A00;
+   --err-bg:#FFE4DF;--err:#892312;--info-bg:#D1F1FF;--info:#00566E;
+   --sans:'Public Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+   --disp:'Fraunces',Georgia,'Times New Roman',serif;
+   --mono:'Spline Sans Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
  }
  *{box-sizing:border-box;} html{scroll-behavior:smooth;}
- body{margin:0;font:16px/1.65 var(--sans);background:var(--bg);color:var(--ink);
+ body{margin:0;font:16px/1.65 var(--sans);background:var(--paper);color:var(--ink);
       -webkit-font-smoothing:antialiased;}
- ::selection{background:rgba(91,157,255,.35);}
- a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;text-underline-offset:3px;}
+ ::selection{background:#FEC7CF;}
+ a{color:var(--maroon);text-decoration:none;}
+ a:hover{text-decoration:underline;text-underline-offset:3px;}
  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
  [id]{scroll-margin-top:64px;}
 
- /* nav */
- nav{position:sticky;top:0;background:rgba(10,12,16,.82);backdrop-filter:blur(12px) saturate(1.4);
-     border-bottom:1px solid var(--line);z-index:10;}
- nav .wrap{display:flex;gap:4px;padding:10px 24px;flex-wrap:wrap;}
- nav a{font:500 12.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;
-       color:var(--mut);padding:8px 12px;border-radius:99px;transition:.18s;}
- nav a:hover{color:var(--ink);background:rgba(91,157,255,.12);text-decoration:none;}
+ /* ---------- nav + hamburger ---------- */
+ nav{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+     border-bottom:1px solid var(--line);z-index:20;}
+ nav .wrap{display:flex;align-items:center;gap:4px;padding:10px 24px;}
+ .brand{font:600 15px/1 var(--disp);color:var(--ink);margin-right:auto;white-space:nowrap;}
+ .brand b{color:var(--maroon);}
+ .navlinks{display:flex;gap:2px;flex-wrap:wrap;}
+ .navlinks a{font:500 12px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
+       color:var(--ink2);padding:9px 11px;border-radius:8px;}
+ .navlinks a:hover{color:var(--maroon);background:var(--maroon-tint);text-decoration:none;}
+ .burger{display:none;background:none;border:1px solid var(--line2);border-radius:8px;
+       padding:8px 10px;cursor:pointer;}
+ .burger span{display:block;width:18px;height:2px;background:var(--ink);margin:3.5px 0;
+       transition:.2s;}
+ @media (max-width:780px){
+   .burger{display:block;}
+   .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+       border-bottom:1px solid var(--line);flex-direction:column;padding:8px 16px 14px;
+       box-shadow:0 16px 30px -18px rgba(25,25,25,.25);}
+   nav.open .navlinks{display:flex;}
+   nav.open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
+   nav.open .burger span:nth-child(2){opacity:0;}
+   nav.open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
+   .navlinks a{padding:12px;border-bottom:1px solid var(--paper2);font-size:13px;}
+ }
 
- /* hero */
- header{position:relative;padding:96px 0 72px;border-bottom:1px solid var(--line);overflow:hidden;}
- header::before{content:"";position:absolute;inset:0;pointer-events:none;
-   background:
-     radial-gradient(600px 320px at 12% -10%,rgba(91,157,255,.16),transparent 65%),
-     radial-gradient(700px 380px at 88% -20%,rgba(143,123,255,.13),transparent 65%);}
- header::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-   background-image:linear-gradient(rgba(140,160,190,.05) 1px,transparent 1px),
-                    linear-gradient(90deg,rgba(140,160,190,.05) 1px,transparent 1px);
-   background-size:44px 44px;
-   -webkit-mask-image:linear-gradient(#000,transparent 75%);mask-image:linear-gradient(#000,transparent 75%);}
- header .wrap{position:relative;}
- .tag{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
-      color:var(--accent);display:inline-block;padding:7px 14px;border:1px solid rgba(91,157,255,.35);
-      border-radius:99px;background:rgba(91,157,255,.08);}
- h1{font-family:var(--disp);font-weight:700;font-size:clamp(42px,7vw,66px);letter-spacing:-.02em;
-    margin:22px 0 16px;line-height:1.05;
-    background:linear-gradient(100deg,#fff 30%,#a8c4ff 70%,#c3b4ff 100%);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
- .sub{color:var(--mut);font-size:19px;max-width:720px;}
- .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
- .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-       padding:12px 18px;min-width:150px;}
- .stat b{display:block;font:600 22px/1.2 var(--disp);color:var(--ink);}
- .stat span{font:500 11.5px/1.5 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--mut);}
+ /* ---------- hero ---------- */
+ header{background:linear-gradient(180deg,var(--paper2),var(--paper));
+        border-bottom:1px solid var(--line);padding:84px 0 64px;}
+ .tag{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+      color:var(--teal-deep);display:inline-block;padding:8px 14px;
+      border:1px solid var(--line2);border-radius:99px;background:#fff;}
+ h1{font-family:var(--disp);font-weight:600;font-size:clamp(46px,7.5vw,76px);
+    letter-spacing:-.015em;line-height:1.02;margin:24px 0 6px;}
+ h1 em{font-style:italic;color:var(--maroon);}
+ .kicker{font-family:var(--disp);font-style:italic;font-size:19px;color:var(--ink2);margin:0 0 18px;}
+ .sub{color:var(--ink2);font-size:18.5px;max-width:740px;}
+ .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+ .stat{background:#fff;border:1px solid var(--line);border-top:3px solid var(--maroon);
+       border-radius:10px;padding:12px 18px;min-width:150px;flex:1;max-width:230px;}
+ .stat b{display:block;font:600 24px/1.2 var(--disp);color:var(--ink);}
+ .stat span{font:500 11px/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mut);}
 
- /* sections */
+ /* ---------- sections ---------- */
  section{padding:64px 0;border-bottom:1px solid var(--line);}
- .eyebrow{font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
-          color:var(--accent);margin:0 0 10px;}
- .eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:var(--accent);
-          vertical-align:middle;margin-right:10px;opacity:.7;}
- h2{font-family:var(--disp);font-weight:600;font-size:clamp(26px,3.4vw,34px);
+ section:nth-of-type(even){background:var(--paper2);}
+ .eyebrow{font:600 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+          color:var(--teal-deep);margin:0 0 12px;}
+ .eyebrow::before{content:"";display:inline-block;width:22px;height:2px;background:var(--maroon);
+          vertical-align:middle;margin-right:10px;}
+ h2{font-family:var(--disp);font-weight:600;font-size:clamp(28px,3.6vw,38px);
     letter-spacing:-.01em;margin:0 0 18px;}
- h3{font-family:var(--disp);margin:8px 0 6px;font-size:18px;letter-spacing:-.01em;}
+ h3{font-family:var(--disp);font-weight:600;margin:6px 0;font-size:20px;}
 
- /* flow + cards */
- .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:22px 0;}
- .step{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
-       border-radius:14px;padding:16px;transition:.18s;}
- .step:hover{border-color:var(--line2);transform:translateY(-2px);}
- .step b{color:var(--accent);font-family:var(--disp);display:block;margin-bottom:6px;}
- .step small{color:var(--mut);}
+ /* ---------- flow + cards ---------- */
+ .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:22px 0;}
+ .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;}
+ .step b{font-family:var(--disp);font-size:17px;color:var(--maroon);display:block;margin-bottom:6px;}
+ .step small{color:var(--ink2);}
  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
- .card{position:relative;background:linear-gradient(180deg,var(--panel2),var(--panel));
-       border:1px solid var(--line);border-radius:16px;padding:20px;transition:.18s;}
- .card:hover{border-color:rgba(91,157,255,.45);transform:translateY(-3px);
-       box-shadow:0 14px 34px -18px rgba(0,0,0,.8);}
- .card .b{font:600 11px/1 var(--mono);letter-spacing:.1em;color:var(--mut);text-transform:uppercase;}
+ .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;
+       transition:.18s;display:flex;flex-direction:column;}
+ .card:hover{border-color:var(--maroon);box-shadow:0 12px 28px -18px rgba(140,29,64,.35);
+       transform:translateY(-2px);}
+ .card h3{margin:0 0 2px;font-size:21px;}
+ .card .id{font:500 12px/1.6 var(--mono);color:var(--mut);margin:0 0 10px;}
+ .card p{margin:0 0 8px;color:var(--ink2);font-size:15px;}
+ .card .dl{margin-top:auto;align-self:flex-start;}
 
- /* pills + tables */
- .pill{display:inline-block;font:600 11.5px/1 var(--mono);letter-spacing:.03em;
+ /* bundle chooser */
+ .bundles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:8px 0 30px;}
+ .bundle{background:#fff;border:2px solid var(--line2);border-radius:14px;padding:22px;}
+ .bundle.primary{border-color:var(--maroon);}
+ .bundle h3{font-size:22px;margin-top:0;}
+ .bundle .id{font:500 12px/1.6 var(--mono);color:var(--mut);}
+ .bundle ul{margin:10px 0 6px;padding-left:20px;color:var(--ink2);font-size:15px;}
+ .bundle li{margin:4px 0;}
+
+ /* ---------- pills + tables ---------- */
+ .pill{display:inline-block;font:600 11.5px/1 var(--mono);letter-spacing:.02em;
        padding:5px 11px;border-radius:99px;white-space:nowrap;}
- .c-good{background:rgba(65,196,106,.13);color:var(--good);border:1px solid rgba(65,196,106,.3);}
- .c-warn{background:rgba(224,166,58,.13);color:var(--warn);border:1px solid rgba(224,166,58,.3);}
- .c-flag{background:rgba(255,100,89,.12);color:var(--flag);border:1px solid rgba(255,100,89,.3);}
- .c-mut{background:rgba(150,160,173,.12);color:var(--mut);border:1px solid rgba(150,160,173,.3);}
- table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;}
- th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
- th{font:600 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);}
- tr:hover td{background:rgba(91,157,255,.04);}
+ .c-good{background:var(--ok-bg);color:var(--ok);}
+ .c-warn{background:var(--info-bg);color:var(--info);}
+ .c-flag{background:var(--err-bg);color:var(--err);}
+ .c-mut{background:var(--line);color:var(--ink2);}
+ table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;background:#fff;
+       border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+ th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+ tr:last-child td{border-bottom:none;}
+ th{font:600 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+    color:var(--mut);background:var(--paper2);}
+ tr:hover td{background:var(--maroon-tint);}
 
- /* code + buttons */
- code{font-family:var(--mono);background:#1c212c;padding:2px 7px;border-radius:6px;font-size:13px;}
- pre{font-family:var(--mono);background:#07090d;border:1px solid var(--line);border-radius:14px;
+ /* ---------- code, buttons, accordions ---------- */
+ code{font-family:var(--mono);background:var(--paper2);border:1px solid var(--line);
+      padding:2px 7px;border-radius:6px;font-size:13px;}
+ pre{font-family:var(--mono);background:var(--ink);color:#F2F0EC;border-radius:12px;
      padding:18px;overflow:auto;font-size:13px;line-height:1.7;}
+ pre .cm{color:#B7A276;}
  .dl{display:inline-block;font:600 13.5px/1 var(--sans);color:#fff;padding:11px 18px;
-     border-radius:10px;margin-top:12px;
-     background:linear-gradient(135deg,var(--accent),var(--accent2));
-     box-shadow:0 6px 18px -8px rgba(91,157,255,.55);transition:.18s;}
- .dl:hover{text-decoration:none;filter:brightness(1.12);transform:translateY(-1px);}
- footer{padding:48px 0 60px;color:var(--mut);font-size:14px;line-height:1.8;}
+     border-radius:9px;margin-top:12px;background:var(--maroon);transition:.18s;}
+ .dl:hover{text-decoration:none;background:var(--maroon-deep);transform:translateY(-1px);}
+ .dl.alt{background:#fff;color:var(--maroon);border:1.5px solid var(--maroon);}
+ .dl.alt:hover{background:var(--maroon-tint);}
+ details.acc{background:#fff;border:1px solid var(--line);border-radius:12px;
+     margin:10px 0;overflow:hidden;}
+ details.acc>summary{cursor:pointer;list-style:none;padding:15px 18px;
+     font:600 15.5px/1.4 var(--sans);display:flex;align-items:center;gap:10px;}
+ details.acc>summary::-webkit-details-marker{display:none;}
+ details.acc>summary::before{content:"+";font:600 18px/1 var(--mono);color:var(--maroon);
+     width:18px;}
+ details.acc[open]>summary::before{content:"–";}
+ details.acc[open]>summary{border-bottom:1px solid var(--line);}
+ details.acc .body{padding:6px 18px 18px;}
+ details.acc ol{margin:10px 0;padding-left:22px;}
+ details.acc li{margin:9px 0;color:var(--ink2);}
+ .note{background:var(--teal-tint);border:1px solid #A5CACE;border-radius:10px;
+     padding:12px 16px;font-size:14.5px;color:var(--teal-deep);margin:14px 0;}
+ footer{padding:48px 0 60px;color:var(--mut);font-size:14px;line-height:1.8;background:var(--paper2);}
 </style>
 </head>
 <body>
-<nav><div class="wrap">
- <a href="#what">What it is</a><a href="#findings">What we found</a><a href="#skills">The tools</a>
- <a href="#install">Try it</a><a href="#traces">Check our work</a><a href="#generality">Any dataset</a>
- <a href="#evaluators">For evaluators</a>
+<nav id="nav"><div class="wrap">
+ <span class="brand">Paper <b>Trail</b></span>
+ <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+  <span></span><span></span><span></span>
+ </button>
+ <div class="navlinks" onclick="document.getElementById('nav').classList.remove('open')">
+  <a href="#what">What it is</a><a href="#findings">What we found</a><a href="#skills">The tools</a>
+  <a href="#install">Install &amp; run</a><a href="#traces">Check our work</a><a href="#generality">Any dataset</a>
+  <a href="#evaluators">For evaluators</a>
+ </div>
 </div></nav>
 
 <header><div class="wrap">
- <div class="tag">GAIN Agentic Investigation Challenge · ASU / Howard Center team</div>
- <h1>Investigative Desk</h1>
+ <span class="tag">GAIN Agentic Investigation Challenge · ASU / Howard Center team</span>
+ <h1>Paper <em>Trail</em></h1>
+ <p class="kicker">An investigative desk for AI agents.</p>
  <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
  a newsroom would: gather the documents, find the leads, keep the investigation organized
  across sessions, and tie every claim to a source record a human can check.</p>
@@ -139,124 +191,226 @@
  <p>Six Agent Skills that work as one pipeline. In plain terms, the agent walks the same
  four steps a careful reporter would:</p>
  <div class="flow">
-  <div class="step"><b>1 · Scope the question</b><br><small>The agent interviews you: what's
+  <div class="step"><b>1 · Scope the question</b><small>The agent interviews you: what's
    the question, which entities, what time frame, what counts as a finding? That scope
    becomes the case file's brief and picks the right tools for the beat.</small></div>
-  <div class="step"><b>2 · Gather &amp; analyze</b><br><small>Deterministic scripts load the
+  <div class="step"><b>2 · Gather &amp; analyze</b><small>Deterministic scripts load the
    records into a database, resolve messy names to real entities, profile what's normal,
    and surface what isn't — including searching the web for outside datasets and APIs to
    check claims against.</small></div>
-  <div class="step"><b>3 · Stay organized</b><br><small>A case file on disk tracks every
-   thread (open, chasing, confirmed, or cold), every key entity, and a session journal —
+  <div class="step"><b>3 · Stay organized</b><small>A case file on disk tracks every
+   thread (open, chasing, confirmed, or dead), every key entity, and a session journal —
    so next week's session picks up exactly where this one stopped.</small></div>
-  <div class="step"><b>4 · Make it publishable</b><br><small>Before a claim ships: read the
+  <div class="step"><b>4 · Make it publishable</b><small>Before a claim ships: read the
    actual statute and apply it element-by-element, footnote the draft to primary sources
    as tracked changes, and flag anything a human still needs to judge.</small></div>
  </div>
- <p style="color:var(--mut)">Underneath all four steps, one rule: <b>every number carries a
- provenance ID</b> that traces back to the raw filing it came from, so an editor can audit
- any claim in one click.</p>
+ <p style="color:var(--ink2)">Underneath all four steps, one rule: <b>every number carries
+ a provenance ID</b> that traces back to the raw filing it came from, so an editor can
+ audit any claim in one click.</p>
 </div></section>
 
 <section id="findings"><div class="wrap">
  <p class="eyebrow">02 · The journalism</p>
  <h2>What we found</h2>
- <p><b>The headline: lobbyist money pools around the members who control whether
- legislation moves.</b> In 2025, the top recipient of contributions reported by registered
- lobbyists was Rep. Brett Guthrie — <b>$694,295 from 177 different lobbying firms</b> — and
- he chairs House Energy &amp; Commerce. The rest of the leaderboard reads the same way:
- Ways &amp; Means chair Jason Smith ($674,775), Appropriations chair Tom Cole, Financial
- Services chair French Hill, plus the floor leaders of both parties. Checked against each
- member's FEC totals, lobbyist money runs <b>13–18% of the entire campaign haul</b> for the
+ <p><b>The headline: lobbyist money pools around the members of Congress who control
+ whether legislation moves.</b> In 2025, the top recipient of contributions reported by
+ registered lobbyists was Rep. Brett Guthrie — <b>$694,295 from 177 different lobbying
+ firms</b> — and he chairs House Energy &amp; Commerce, the committee most corporate
+ legislation must pass through. The rest of the leaderboard reads the same way: Ways &amp;
+ Means chair Jason Smith ($674,775), Appropriations chair Tom Cole, Financial Services
+ chair French Hill, plus the floor leaders of both parties. Checked against each member's
+ FEC totals, lobbyist money runs <b>13–18% of the entire campaign haul</b> for the
  money-committee chairs. We claim the pattern, not causation — and we verified every
  recipient against the official congressional roster.</p>
- <p>The same pipeline also surfaced a foreign-influence seam, an abuse of the disclosure
- system itself, and one lead we killed on purpose:</p>
+ <p>The same pipeline surfaced three more things worth knowing about:</p>
  <table>
   <tr><th>Finding</th><th>Status</th></tr>
-  <tr><td><b>Pay-the-gavel</b> — lobbyist contributions concentrate on committee chairs and floor leaders (above)</td><td><span class="pill c-good">Confirmed</span></td></tr>
-  <tr><td><b>Foreign revolving door</b> — Tencent's lobbying spend jumped 5× ($800K → $4.04M) while fighting a Pentagon designation, and the ex-White House official lobbying for it isn't in the foreign-agents registry — legal, but a seam a reporter would chase</td><td><span class="pill c-good">Confirmed</span></td></tr>
-  <tr><td><b>Loc Nation</b> — one Delaware filer claimed <b>$80M of fictional "lobbying income"</b> (four $20M quarters of pseudo-legal reparations claims), making it the #1 "client" in the entire 2025 data — nobody validates these filings; flagged to the panel as possible misuse of a federal system</td><td><span class="pill c-flag">Integrity flag</span></td></tr>
-  <tr><td><b>Coordinated messaging</b> — the tool detects when many offices push identical talking points in a tight window (e.g., a 9-member bipartisan cluster reusing one think-tank statistic within 2 days)</td><td><span class="pill c-warn">Method</span></td></tr>
-  <tr><td><b>Senate↔House consistency</b> — do firms tell the two chambers different numbers? We checked 36,643 matched filings: zero gaps over $100K. A clean dead end, documented so nobody re-chases it</td><td><span class="pill c-mut">Cold</span></td></tr>
+  <tr><td><b>Money finds the gatekeepers</b> — lobbyist contributions concentrate on
+    committee chairs and floor leaders (the story above)</td>
+    <td><span class="pill c-good">Verified</span></td></tr>
+  <tr><td><b>A foreign-influence blind spot</b> — as Tencent fought a Pentagon
+    designation, its U.S. lobbying spending jumped five-fold ($800K → $4.04M), and the
+    former White House official lobbying for it appears nowhere in the foreign-agents
+    registry. All legal — the story is that the lighter disclosure regime allows it</td>
+    <td><span class="pill c-good">Verified</span></td></tr>
+  <tr><td><b>Nobody checks the filings</b> — a Delaware filer claimed <b>$80 million of
+    make-believe "lobbying income"</b> (pseudo-legal reparations claims filed as four $20M
+    quarters), making it the single biggest "client" in the 2025 data. No one at the
+    Senate validates what gets filed</td>
+    <td><span class="pill c-flag">Flagged to the judges</span></td></tr>
+  <tr><td><b>Talking-point tracing</b> — a detector that spots when many congressional
+    offices push identical language in a tight window (it caught 9 offices from both
+    parties reusing one think-tank statistic within 2 days)</td>
+    <td><span class="pill c-warn">New capability</span></td></tr>
+  <tr><td><b>Do firms tell the House and Senate different numbers?</b> — we checked
+    36,643 matched filings across the two chambers: zero meaningful gaps. Recorded so no
+    one wastes time re-chasing it</td>
+    <td><span class="pill c-mut">Ruled out</span></td></tr>
  </table>
- <p style="color:var(--mut);font-size:13px;margin-top:10px"><b>How to read the labels:</b>
- <span class="pill c-good">Confirmed</span> = verified against outside records, every number
- sourced · <span class="pill c-flag">Integrity flag</span> = referred to the panel as a
- possible legal issue, not asserted as one · <span class="pill c-warn">Method</span> = a
- reusable detection capability more than a single story ·
- <span class="pill c-mut">Cold</span> = a dead end we verified and recorded on purpose, so
- the investigation doesn't repeat it.</p>
+ <p style="color:var(--mut);font-size:13.5px;margin-top:12px"><b>What the labels mean:</b>
+ <span class="pill c-good">Verified</span> checked against outside records; every number
+ traces to a specific filing &nbsp;·&nbsp; <span class="pill c-flag">Flagged to the
+ judges</span> a possible misuse of a federal system — raised as a question for lawyers,
+ not an accusation &nbsp;·&nbsp; <span class="pill c-warn">New capability</span> a
+ reusable detection tool rather than a single story &nbsp;·&nbsp;
+ <span class="pill c-mut">Ruled out</span> checked thoroughly, found clean — documented
+ on purpose so the lead isn't chased twice.</p>
  <p style="margin-top:14px"><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">Read the full findings report →</a>
  &nbsp;·&nbsp; <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/legal_checks">Legal checks →</a></p>
 </div></section>
 
 <section id="skills"><div class="wrap">
  <p class="eyebrow">03 · The skills</p>
- <h2>The tools (six Agent Skills)</h2>
- <p>Each skill is useful on its own — install just one, or the whole line. An
- <a href="https://agentskills.io">Agent Skill</a> is a folder of instructions and scripts
- that a coding agent (Claude Code, Cursor, Cowork) picks up automatically.</p>
- <p style="color:var(--mut);font-size:14px">The technical names below are the skills'
- install identifiers; <b>the label on each card is what it does</b>. One deserves a
- footnote: <code>robodoig</code> honors Steve Doig, the Pulitzer-winning pioneer of
- data journalism at ASU's Cronkite School — profiling the data before trusting it is
- his method, automated.</p>
+ <h2>The tools</h2>
+ <p>An <a href="https://agentskills.io">Agent Skill</a> is a folder of instructions and
+ scripts that a coding agent (Claude Code, Cursor, Cowork) picks up automatically. We ship
+ the same six tools <b>two ways — pick one:</b></p>
+
+ <div class="bundles">
+  <div class="bundle primary">
+   <h3>Six separate skills</h3>
+   <p class="id">investigative-desk-menu.zip · "the menu"</p>
+   <ul>
+    <li>Each skill installs, validates, and works <b>on its own</b> — take just the
+        footnoter, or just the case file, into your existing setup.</li>
+    <li>Your agent sees six specialized tools and picks the right one per task —
+        triggering is more precise.</li>
+    <li><b>Best for:</b> newsrooms adopting a capability or two, and anyone who wants to
+        mix these with their own skills.</li>
+   </ul>
+   <a class="dl" href="downloads/investigative-desk-menu.zip">⬇ Download the menu bundle</a>
+  </div>
+  <div class="bundle">
+   <h3>One skill with everything inside</h3>
+   <p class="id">investigative-desk-mega.zip · "the mega"</p>
+   <ul>
+    <li>The <b>same scripts</b>, packaged behind a single front door
+        (<code>investigative-desk</code>) — one folder to install, one skill for your
+        agent to trigger.</li>
+    <li>The agent routes internally to the right tool; you don't manage six folders.</li>
+    <li><b>Best for:</b> a fast start, demos, and "just give me the whole investigation
+        workflow."</li>
+   </ul>
+   <a class="dl alt" href="downloads/investigative-desk-mega.zip">⬇ Download the mega skill</a>
+  </div>
+ </div>
+ <p style="color:var(--mut);font-size:14px">Both are built from one source, so they never
+ drift apart. The six skills, individually (each card links its own zip):</p>
+
  <div class="grid">
-  <div class="card"><div class="b">Start here · the conductor</div><h3>investigative-method</h3>
+  <div class="card"><h3>Start here: the conductor</h3><p class="id">investigative-method</p>
    <p>Interviews you to scope the investigation, opens the case file, and drives the other
-   five skills in order. Includes the web-search-for-data tools. Use it when you want the
-   whole workflow.</p>
+   five skills in order. Includes the web-search-for-data tools.</p>
    <a class="dl" href="downloads/skill-investigative-method.zip">Download</a></div>
-  <div class="card"><div class="b">Find the leads</div><h3>lobbying-influence-mapper</h3>
+  <div class="card"><h3>Find the leads</h3><p class="id">lobbying-influence-mapper</p>
    <p>Loads lobbying filings, contributions, and press releases into a database; resolves
    messy names to real members and companies; ranks who's paying whom; checks it all
    against outside records (FEC, committee rosters, FARA).</p>
    <a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">Download</a></div>
-  <div class="card"><div class="b">Understand any table</div><h3>robodoig</h3>
-   <p>Point it at any CSV or table and get a profile: what the columns mean, what's normal,
-   what's missing, what correlates. Also double-checks numbers copied into a report against
-   the source data.</p>
+  <div class="card"><h3>Understand any table</h3><p class="id">robodoig</p>
+   <p>Point it at any CSV or table and get a profile: what the columns mean, what's
+   normal, what's missing, what correlates. Named for Steve Doig, the Pulitzer-winning
+   ASU data-journalism pioneer whose method it automates.</p>
    <a class="dl" href="downloads/skill-robodoig.zip">Download</a></div>
-  <div class="card"><div class="b">Never lose the thread</div><h3>case-file</h3>
-   <p>The investigation's memory: every lead's status (open, chasing, confirmed, cold),
+  <div class="card"><h3>Never lose the thread</h3><p class="id">case-file</p>
+   <p>The investigation's memory: every lead's status (open, chasing, confirmed, dead),
    every key entity, a session journal. Come back a week later and the agent re-orients
    itself instead of starting over.</p>
    <a class="dl" href="downloads/skill-case-file.zip">Download</a></div>
-  <div class="card"><div class="b">Is it actually illegal?</div><h3>checking-the-law</h3>
+  <div class="card"><h3>Is it actually illegal?</h3><p class="id">checking-the-law</p>
    <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
    from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
    lawyer," or "not a violation, and here's why."</p>
    <a class="dl" href="downloads/skill-checking-the-law.zip">Download</a></div>
-  <div class="card"><div class="b">Source every claim</div><h3>howard-center-footnoter</h3>
+  <div class="card"><h3>Source every claim</h3><p class="id">howard-center-footnoter</p>
    <p>Reads a draft story, matches each factual claim to your reporting materials, and
    inserts Howard Center–style footnotes as Word tracked changes — with margin comments
    where no source exists or a quote may be out of context.</p>
    <a class="dl" href="downloads/skill-howard-center-footnoter.zip">Download</a></div>
  </div>
- <p style="margin-top:16px">
-  <a class="dl" href="downloads/investigative-desk-menu.zip">⬇ All six, separate (menu)</a>
-  &nbsp;<a class="dl" href="downloads/investigative-desk-mega.zip">⬇ All six behind one front door (mega)</a>
- </p>
 </div></section>
 
 <section id="install"><div class="wrap">
- <p class="eyebrow">04 · Two minutes to first result</p>
- <h2>Try it</h2>
- <p>Requirements: a code-executing agent (Claude Code, Cursor, or Cowork) — or just a
- shell — and Python 3. <b>No packages to install, no API keys needed</b> for the core
- findings. Point <code>GAIN_DATA_DIR</code> at the challenge corpus (evaluators already
- have it; each skill also ships a small demo slice that works out of the box).</p>
-<pre># from the unzipped menu bundle
-export GAIN_DATA_DIR=/path/to/gain-corpus GAIN_WORKDIR=$PWD/workdir
+ <p class="eyebrow">04 · Step by step</p>
+ <h2>Install &amp; run</h2>
+ <p>You need <b>Python 3</b> and either a code-executing AI agent or just a terminal.
+ Pick your setup:</p>
+
+ <div class="note"><b>Two things to know first.</b><br>
+ <b>The data:</b> the scripts read the corpus from a folder you point to with the
+ <code>GAIN_DATA_DIR</code> environment variable — that's the <code>data/</code> folder
+ Northwestern sent to registered teams and evaluators. <b>Don't have the corpus?</b> Skip
+ that step entirely: every skill ships a small built-in demo dataset and runs out of the
+ box.<br>
+ <b>API keys:</b> none are needed to reproduce our findings. The outside data they rely
+ on — FEC campaign totals, committee rosters, the foreign-agents registry — ships with
+ the skills as saved, checksummed snapshots. Free keys (FEC, Congress.gov) are only for
+ refreshing those numbers live; <code>setup_keys.py</code> walks you through it.</div>
+
+ <details class="acc" open><summary>Claude Code (desktop app or the <code>claude</code> CLI)</summary>
+  <div class="body"><ol>
+   <li>Download <a href="downloads/investigative-desk-menu.zip">the menu bundle</a> and
+       unzip it: <code>unzip investigative-desk-menu.zip -d paper-trail</code></li>
+   <li>Copy the six skill folders into Claude Code's skills directory:<br>
+       <code>cp -r paper-trail/skills/* ~/.claude/skills/</code><br>
+       (for one project only: <code>.claude/skills/</code> inside that project instead)</li>
+   <li>If you have the corpus, tell the scripts where it is before launching:<br>
+       <code>export GAIN_DATA_DIR=/path/to/data</code> — otherwise skip this.</li>
+   <li>Open Claude Code and ask:
+       <i>"Use the investigative-method skill to reproduce the pay-the-gavel finding"</i> —
+       or start your own investigation:
+       <i>"Use investigative-method to investigate [your question] in [your data]."</i></li>
+  </ol></div>
+ </details>
+
+ <details class="acc"><summary>Claude Cowork</summary>
+  <div class="body"><ol>
+   <li>Download and unzip <a href="downloads/investigative-desk-menu.zip">the menu
+       bundle</a> (or the single-skill <a href="downloads/investigative-desk-mega.zip">mega</a>).</li>
+   <li>Add the unzipped folder to your Cowork workspace (drag it in, or place it in the
+       folder Cowork is working from).</li>
+   <li>Cowork sessions with code execution can run every script. If the corpus lives on
+       your machine, mention its path in your first message.</li>
+   <li>Ask: <i>"Read paper-trail/skills/investigative-method/SKILL.md and follow it to
+       start an investigation."</i></li>
+  </ol></div>
+ </details>
+
+ <details class="acc"><summary>Cursor &amp; other agents that support Agent Skills</summary>
+  <div class="body"><ol>
+   <li>Download and unzip <a href="downloads/investigative-desk-menu.zip">the menu bundle</a>.</li>
+   <li>Place the skill folders in your agent's skills directory (Cursor:
+       <code>~/.cursor/skills/</code>), or simply open the unzipped folder as part of
+       your workspace.</li>
+   <li>Works in any agent even <b>without</b> skills support — the universal fallback is
+       one instruction: <i>"Read skills/investigative-method/SKILL.md and follow it."</i>
+       The SKILL.md files are the manual; the agent takes it from there.</li>
+  </ol></div>
+ </details>
+
+ <details class="acc"><summary>No agent — plain terminal</summary>
+  <div class="body">
+   <p style="color:var(--ink2)">The deterministic pipeline runs by itself. From the
+   unzipped bundle:</p>
+<pre><span class="cm"># point at the corpus (SKIP this line to use the built-in demo data)</span>
+export GAIN_DATA_DIR=/path/to/data
+export GAIN_WORKDIR=$PWD/workdir
+
+<span class="cm"># build the database (about 15 seconds on the full 2025 corpus)</span>
 python3 skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
 python3 skills/lobbying-influence-mapper/scripts/resolve_entities.py
+
+<span class="cm"># the pay-the-gavel leaderboard — Guthrie $694,295 at the top</span>
 python3 skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
-#   ^ that's the pay-the-gavel leaderboard — Guthrie $694,295 — in about 30 seconds
+
+<span class="cm"># Loc Nation's $80M flagged as the #1 outlier</span>
 python3 skills/lobbying-influence-mapper/scripts/xref.py anomaly --year 2025 --factor 5
-#   ^ and that's Loc Nation's $80M flagged as the #1 outlier
-python3 skills/investigative-method/tools/find_data.py "your topic"   # find outside datasets/APIs
-python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.gov refreshes</pre>
+
+<span class="cm"># find outside datasets/APIs for any topic</span>
+python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
+  </div>
+ </details>
 </div></section>
 
 <section id="traces"><div class="wrap">
@@ -265,22 +419,21 @@ python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.go
  <p>Don't take the findings on faith — audit them. Three ways in, from quickest to
  deepest:</p>
  <div class="grid">
-  <div class="card"><div class="b">2 minutes · the overview</div><h3>Review dashboard</h3>
+  <div class="card"><h3>The 2-minute overview</h3><p class="id">review dashboard</p>
    <p>One page generated from the case file: every investigation thread and its status,
    the confirmed findings, the legal flags — and every claim linked to the exact source
    filing behind it.</p>
    <a class="dl" href="review_dashboard.html">Open dashboard</a></div>
-  <div class="card"><div class="b">10 minutes · the paper trail</div><h3>Footnoter demo</h3>
+  <div class="card"><h3>The paper trail itself</h3><p class="id">footnoter demo</p>
    <p>An excerpt of the findings report, footnoted claim-by-claim to the pipeline's own
    outputs as Word tracked changes. Where a claim had no source, the tool says so in the
    margin instead of inventing one.</p>
-   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/footnoter_demo">See the demo →</a></div>
-  <div class="card"><div class="b">The whole story · session logs</div><h3>Interaction traces</h3>
+   <a class="dl alt" href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/footnoter_demo">See the demo</a></div>
+  <div class="card"><h3>The whole story</h3><p class="id">full session logs</p>
    <p>Complete logs of all four working sessions — every prompt we typed, every reasoning
-   step, every tool call — including the moments human judgment changed course. Raw JSONL
-   alongside.</p>
-   <a class="dl" href="sessions.html">Browse sessions</a>
-   &nbsp;<a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/trace_index.md">curated index →</a></div>
+   step, every tool call and its output — including the moments human judgment changed
+   course.</p>
+   <a class="dl" href="sessions.html">Browse sessions</a></div>
  </div>
 </div></section>
 
@@ -291,18 +444,18 @@ python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.go
  pipeline</b> on a completely different question — <em>"Which hospitals show billing
  patterns consistent with Medicare up-coding?"</em> — using zero lobbying-specific code:</p>
  <div class="flow">
-  <div class="step"><b>1 · Scoped the new beat</b><br><small>The scoping step took the
+  <div class="step"><b>1 · Scoped the new beat</b><small>The scoping step took the
    healthcare question and generated a healthcare investigation plan — instead of falling
    back to lobbying.</small></div>
-  <div class="step"><b>2 · Found &amp; kept the data</b><br><small>The data-search tool
+  <div class="step"><b>2 · Found &amp; kept the data</b><small>The data-search tool
    ranked CMS first, queried a live open-data portal, and surfaced the HHS Inspector
    General's up-coding report — then snapshotted the report and three live CMS data
    slices with checksums.</small></div>
-  <div class="step"><b>3 · Profiled &amp; found leads</b><br><small>4,079 hospital billing
+  <div class="step"><b>3 · Profiled &amp; found leads</b><small>4,079 hospital billing
    rows profiled; per-provider highest-severity billing shares computed against the
    national baseline (median 74.4%) — top outliers bill 90–92%, exactly the pattern the
    OIG flags for up-coding review.</small></div>
-  <div class="step"><b>4 · Caught its own trap</b><br><small>The naive pass showed a wall
+  <div class="step"><b>4 · Caught its own trap</b><small>The naive pass showed a wall
    of 100% shares — recognized as a data-suppression artifact, not a story; 120 providers
    excluded, method recorded. Ranked leads landed in a case file with next actions.</small></div>
  </div>
@@ -319,7 +472,7 @@ python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.go
       <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/menu/skills">menu/skills/</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/mega/investigative-desk">mega/</a> · <a href="#skills">downloads above</a></td></tr>
   <tr><td><b>2 · Findings report</b> — every claim source-stamped, disclosed vs. independently-confirmed distinguished</td>
       <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">submission/findings_report.md</a></td></tr>
-  <tr><td><b>3 · Interaction traces</b> — full session logs (raw JSONL + rendered), keyed to skill invocations by a curated index</td>
+  <tr><td><b>3 · Interaction traces</b> — full session logs (raw JSONL + rendered + verbatim invocation outputs), keyed to skill invocations by a curated index</td>
       <td><a href="sessions.html">sessions.html</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/traces">submission/traces/</a></td></tr>
   <tr><td><b>4 · README</b> — the submission map: skills ↔ findings, outside data, conflicts of interest, legal flags for the panel</td>
       <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">submission/README.md</a></td></tr>
@@ -328,24 +481,24 @@ python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.go
  <table>
   <tr><th>Dimension</th><th>Where it's demonstrated</th></tr>
   <tr><td><b>Organized across sessions</b></td><td>The <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/casefile">real case file</a> from this investigation: 4 threads with statuses, a recorded dead end with its reason, entity registry, session journal</td></tr>
-  <tr><td><b>Efficient with the corpus</b></td><td>Deterministic scripts index a full year — 108,225 filings, 149,182 contribution line-items, 48,318 press releases — in about 15 seconds; the agent reads small aggregates, never raw bulk. Python stdlib only</td></tr>
+  <tr><td><b>Efficient with the corpus</b></td><td>Deterministic scripts index a full year — 108,225 filings, 149,182 contribution line-items, 48,318 press releases — in about 15 seconds; the agent reads small aggregates, never raw bulk. Core pipeline is Python stdlib only</td></tr>
   <tr><td><b>Human-verifiable</b></td><td>Provenance IDs on every number (round-trip any claim to its raw filing with <code>review.py</code>), the <a href="review_dashboard.html">dashboard</a>, and tracked-changes footnotes</td></tr>
   <tr><td><b>Extends the agent</b></td><td>Honoree→member and cross-chamber entity resolvers, amendment-aware de-duplication (which corrected two published-number errors), a coordinated-messaging detector, a statute element-checker, web-search-for-data</td></tr>
  </table>
  <p style="margin-top:14px"><b>Reproducibility:</b> the core findings re-run offline with
- no keys and no installs — the exact commands are in <a href="#install">Try it</a>, and a
- cold re-run from a fresh working directory is part of the trace record. Possible legal
- violations (Loc Nation; the FARA question) are flagged in the
+ no keys and no installs — the exact commands are under <a href="#install">Install &amp;
+ run</a>, and a cold re-run from a fresh working directory is part of the trace record.
+ Possible legal violations (Loc Nation; the FARA question) are flagged in the
  <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">README</a>
  and framed as questions for a lawyer, not conclusions. No conflicts of interest to
  declare.</p>
 </div></section>
 
 <footer><div class="wrap">
- ASU / Howard Center for Investigative Journalism team — Evan (analysis engine &amp;
- findings), Steve (data profiler &amp; QA), Mitul (legal checker), Allie &amp; Katie (case
- file &amp; de-duplication), Shelby (footnoter &amp; story framing) ·
- GAIN Agentic Investigation Challenge 2026 · MIT license ·
+ <b style="color:var(--ink)">Paper Trail</b> · ASU / Howard Center for Investigative
+ Journalism team — Evan (analysis engine &amp; findings), Steve (data profiler &amp; QA),
+ Mitul (legal checker), Allie &amp; Katie (case file &amp; de-duplication), Shelby
+ (footnoter &amp; story framing) · GAIN Agentic Investigation Challenge 2026 · MIT license ·
  <a href="https://github.com/ewyloge-asu/gain-agent-challenge">GitHub repo</a>
 </div></footer>
 </body>
