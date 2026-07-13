@@ -240,8 +240,7 @@
  <div class="watermark" data-parallax="-0.05">public records</div>
  <div class="wrap">
  <span class="tag">GAIN Agentic Investigation Challenge ·
-  <a href="https://cronkite.asu.edu/">ASU</a> /
-  <a href="https://howardcenter.asu.edu/">Howard Center</a> team</span>
+  <a href="https://www.asu.edu/">ASU</a></span>
  <h1>Case <em>Agent</em></h1>
  <p class="kicker">It works the case. People write the story.</p>
  <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
@@ -276,13 +275,14 @@
     the question, which entities, what time frame, what counts as a finding? That scope
     becomes the case file's brief and picks the right tools for the beat.</small>
     <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>Under the hood</b><ul>
-    <li><code>scope.py</code> runs the clarifying-question dialogue (or takes flags) and
-     writes <code>brief.md</code> + <code>beatpack.json</code>.</li>
-    <li>The beat-pack maps the domain: entity keys, outside sources, law packs, anomaly
-     rules — lobbying ships prebuilt; anything else is synthesized.</li>
-    <li>It loops: if the data suggests a broader or narrower story, the scope gets
-     re-asked and the change is journaled.</li></ul>
+   <div class="face back"><b>What's actually happening</b><ul>
+    <li>Your answers become two small files: a plain-English brief — the investigation's
+     charter — and a settings file that points the rest of the tools at your beat.</li>
+    <li>Lobbying comes pre-configured. Any other beat gets a starter plan built from
+     your answers: what to treat as an entity, where to look for outside data, what
+     counts as unusual.</li>
+    <li>If the data later suggests a bigger or smaller story, the agent asks again, and
+     the change is written down.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
   <div class="flip"><div class="inner">
@@ -291,14 +291,14 @@
     and surface what isn't — including searching the web for outside datasets and APIs to
     check claims against.</small>
     <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>Under the hood</b><ul>
-    <li><code>ingest.py</code> → SQLite in ~15s for a full year; <code>resolve_entities.py</code>
-     links honorees, members, campaign committees (81.8% coverage).</li>
-    <li><code>find_data.py</code> ranks a curated source catalog, queries live CKAN
-     portals, and proposes web searches; <code>fetch_source.py</code> snapshots what you
-     pull in (sha256).</li>
-    <li><code>xref.py</code> answers the money questions: gatekeeper, anomaly (amendment-aware),
-     client, lobbyist, cross-chamber mismatch.</li></ul>
+   <div class="face back"><b>What's actually happening</b><ul>
+    <li>Scripts read the raw records once and organize them into a small database on
+     your computer — a year of federal lobbying filings takes about 15 seconds.</li>
+    <li>Name cleanup connects the variations — "Rep. Brett Guthrie," "GUTHRIE, BRETT,"
+     "Guthrie for Congress" — to the same real person, so the money adds up correctly.</li>
+    <li>A data-finder suggests public datasets and official sources for your topic, and
+     anything you pull in is saved with a digital fingerprint so it can be re-checked
+     later.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
   <div class="flip"><div class="inner">
@@ -306,13 +306,14 @@
     thread (open, chasing, confirmed, or dead), every key entity, and a session journal —
     so next week's session picks up exactly where this one stopped.</small>
     <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>Under the hood</b><ul>
-    <li>Plain files, no server: <code>brief.md</code>, <code>threads/T-*.md</code>,
-     <code>entities.yaml</code>, <code>findings.yaml</code>, an append-only journal.</li>
-    <li>A lint enforces the honesty rules: confirmed needs a source record; a dead thread
-     needs a recorded reason; chasing needs a next action.</li>
-    <li><code>build_dashboard.py</code> renders it all into the one-page review
-     dashboard.</li></ul>
+   <div class="face back"><b>What's actually happening</b><ul>
+    <li>The case file is a folder of ordinary text files — a brief, one file per lead,
+     a list of who matters, a diary of what happened each session. You can read or edit
+     any of it without special software.</li>
+    <li>Built-in rules keep it honest: a lead can't be marked confirmed without a source
+     record behind it, and a dead end has to say why it died.</li>
+    <li>One command turns the whole case file into a dashboard page an editor can open
+     in any browser.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
   <div class="flip"><div class="inner">
@@ -321,13 +322,14 @@
     to primary sources as tracked changes, and flag what still needs a human decision.
     The tool prepares claims for review; publishing judgments belong to people.</small>
     <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>Under the hood</b><ul>
-    <li><code>checking-the-law</code> verdicts are capped at "possible" or "genuinely
-     unclear — ask a lawyer"; never an accusation.</li>
-    <li>The footnoter inserts Howard Center–style footnotes as Word tracked changes and
-     files margin comments (<code>no_source</code>, <code>context_concern</code>) instead
-     of inventing sources.</li>
-    <li><code>review.py</code> round-trips any number to the raw filing it came from.</li></ul>
+   <div class="face back"><b>What's actually happening</b><ul>
+    <li>The legal checker quotes the actual statute and walks through it requirement by
+     requirement. The strongest thing it will ever say is "possible — ask a lawyer."</li>
+    <li>The footnoter attaches each claim in a draft to its source, as a tracked change
+     in Word — and where it can't find support, it says so in a margin note rather than
+     inventing one.</li>
+    <li>Any number, anywhere in the work, can be traced back to the exact government
+     filing it came from with one command.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
  </div>
