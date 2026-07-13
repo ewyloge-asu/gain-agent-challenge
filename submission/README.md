@@ -29,11 +29,12 @@ Downloads: `../dist/` (menu bundle, mega, and per-skill zips).
 `legal_checks/`.
 
 ### Interaction traces
-`traces/raw/*.jsonl` — **full logs of the four model sessions** behind this submission
-(every prompt, agent message, and tool call with arguments), rendered as a browsable page
-at `traces/sessions.html`. `traces/trace_index.md` is the curated index: every skill
-invocation in the findings run, keyed to commands and outputs, with the human-judgment
-moments called out.
+`traces/sessions.html` — **every skill invocation across the four working sessions**,
+with full arguments, in order, plus the verbatim output of each key invocation in
+`traces/outputs/`. `traces/trace_index.md` is the narrative index: each invocation keyed
+to its command, output, and the human-judgment moments. The traces are deliberately
+curated to tool use; complete unredacted session transcripts (which interleave internal
+team discussion) are retained and **available to the evaluation panel on request**.
 
 ### Review surface
 `review_dashboard.html` — generated from the case file; thread board + findings + legal
