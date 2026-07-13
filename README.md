@@ -5,7 +5,8 @@ Agent Skills plus the newsworthy findings they produced on the GAIN federal lobb
 corpus (2022–2026 Q1).
 
 **Site:** https://ewyloge-asu.github.io/gain-agent-challenge/ ·
-**Submission map (required README):** [`submission/README.md`](submission/README.md)
+**Submission map (required README):** [`submission/README.md`](submission/README.md) ·
+**Plain-repo edition** (same submission, no website layer): [ewyloge-asu/case-agent](https://github.com/ewyloge-asu/case-agent)
 
 ## The four deliverables, at a glance
 
