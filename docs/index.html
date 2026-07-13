@@ -47,125 +47,223 @@
 </head>
 <body>
 <nav><div class="wrap">
- <a href="#what">What it is</a><a href="#findings">Findings</a><a href="#skills">Skills</a>
- <a href="#install">Install</a><a href="#traces">Traces</a><a href="#generality">Any dataset</a>
+ <a href="#what">What it is</a><a href="#findings">What we found</a><a href="#skills">The tools</a>
+ <a href="#install">Try it</a><a href="#traces">Check our work</a><a href="#generality">Any dataset</a>
+ <a href="#evaluators">For evaluators</a>
 </div></nav>
 
 <header><div class="wrap">
- <div class="tag">GAIN Agentic Investigation Challenge · ASU / Howard Center</div>
+ <div class="tag">GAIN Agentic Investigation Challenge · ASU / Howard Center team</div>
  <h1>Investigative Desk</h1>
- <p class="sub">An agent assembly line that turns messy public records into sourced,
- reviewable investigative leads — on <em>any</em> dataset. Every number traces back to a
- source; the whole thing re-runs offline.</p>
+ <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
+ a newsroom would: gather the documents, find the leads, keep the investigation organized
+ across sessions, and tie every claim to a source record a human can check.</p>
+ <p class="sub" style="font-size:16px;margin-top:10px">We built it for the challenge's
+ federal lobbying corpus and used it to find real stories — who lobbyist money actually
+ pools around, a foreign-influence disclosure seam, and $80&nbsp;million of fictional
+ claims sitting unchecked in the official disclosure data — then packaged the whole
+ workflow as <a href="https://agentskills.io">Agent Skills</a> any other team can install
+ and point at their own data.</p>
 </div></header>
 
 <section id="what"><div class="wrap">
  <h2>What it is</h2>
- <p>Six composable Agent Skills organized into three functional buckets, plus a
- verifiability contract underneath. Scope the question with the user, then:</p>
+ <p>Six Agent Skills that work as one pipeline. In plain terms, the agent walks the same
+ four steps a careful reporter would:</p>
  <div class="flow">
-  <div class="step"><b>Scope (S0)</b><br><small>clarify the question → open a case file → pick the beat-pack</small></div>
-  <div class="step"><b>Gather + analyze</b><br><small>ingest + web-search for data · profile · discover · verify</small></div>
-  <div class="step"><b>Organize</b><br><small>case file: threads, status, cold-ledger, journal</small></div>
-  <div class="step"><b>Harden claims</b><br><small>check the law · footnote to primary sources · QA</small></div>
+  <div class="step"><b>1 · Scope the question</b><br><small>The agent interviews you: what's
+   the question, which entities, what time frame, what counts as a finding? That scope
+   becomes the case file's brief and picks the right tools for the beat.</small></div>
+  <div class="step"><b>2 · Gather &amp; analyze</b><br><small>Deterministic scripts load the
+   records into a database, resolve messy names to real entities, profile what's normal,
+   and surface what isn't — including searching the web for outside datasets and APIs to
+   check claims against.</small></div>
+  <div class="step"><b>3 · Stay organized</b><br><small>A case file on disk tracks every
+   thread (open, chasing, confirmed, or cold), every key entity, and a session journal —
+   so next week's session picks up exactly where this one stopped.</small></div>
+  <div class="step"><b>4 · Make it publishable</b><br><small>Before a claim ships: read the
+   actual statute and apply it element-by-element, footnote the draft to primary sources
+   as tracked changes, and flag anything a human still needs to judge.</small></div>
  </div>
- <p style="color:var(--mut)">Built for the lobbying corpus, but corpus-agnostic: S0 selects a
- beat-pack and the tool works on other public-records beats.</p>
+ <p style="color:var(--mut)">Underneath all four steps, one rule: <b>every number carries a
+ provenance ID</b> that traces back to the raw filing it came from, so an editor can audit
+ any claim in one click.</p>
 </div></section>
 
 <section id="findings"><div class="wrap">
- <h2>Findings</h2>
+ <h2>What we found</h2>
+ <p><b>The headline: lobbyist money pools around the members who control whether
+ legislation moves.</b> In 2025, the top recipient of contributions reported by registered
+ lobbyists was Rep. Brett Guthrie — <b>$694,295 from 177 different lobbying firms</b> — and
+ he chairs House Energy &amp; Commerce. The rest of the leaderboard reads the same way:
+ Ways &amp; Means chair Jason Smith ($674,775), Appropriations chair Tom Cole, Financial
+ Services chair French Hill, plus the floor leaders of both parties. Checked against each
+ member's FEC totals, lobbyist money runs <b>13–18% of the entire campaign haul</b> for the
+ money-committee chairs. We claim the pattern, not causation — and we verified every
+ recipient against the official congressional roster.</p>
+ <p>The same pipeline also surfaced a foreign-influence seam, an abuse of the disclosure
+ system itself, and one lead we killed on purpose:</p>
  <table>
   <tr><th>Finding</th><th>Status</th></tr>
-  <tr><td><b>Pay-the-gavel</b> — lobbyist money pools on committee gatekeepers (Guthrie #1, $694K in 2025)</td><td><span class="pill c-good">Confirmed</span></td></tr>
-  <tr><td><b>Foreign revolving door</b> — Tencent's lobbying jumped ~5× to $4.04M; John McEntee not FARA-registered</td><td><span class="pill c-good">Confirmed</span></td></tr>
-  <tr><td><b>Loc Nation</b> — $80M of pseudo-legal reparations claims filed as lobbying income</td><td><span class="pill c-flag">Integrity flag</span></td></tr>
-  <tr><td><b>Coordinated messaging</b> — a 9-member bipartisan cluster on the Dream &amp; Promise Act</td><td><span class="pill c-warn">Method</span></td></tr>
-  <tr><td><b>Senate↔House consistency</b> — 36,643 comparable engagement-periods, 0 gaps &gt;$100K (amendment-aware, both chambers)</td><td><span class="pill c-mut">Cold</span></td></tr>
+  <tr><td><b>Pay-the-gavel</b> — lobbyist contributions concentrate on committee chairs and floor leaders (above)</td><td><span class="pill c-good">Confirmed</span></td></tr>
+  <tr><td><b>Foreign revolving door</b> — Tencent's lobbying spend jumped 5× ($800K → $4.04M) while fighting a Pentagon designation, and the ex-White House official lobbying for it isn't in the foreign-agents registry — legal, but a seam a reporter would chase</td><td><span class="pill c-good">Confirmed</span></td></tr>
+  <tr><td><b>Loc Nation</b> — one Delaware filer claimed <b>$80M of fictional "lobbying income"</b> (four $20M quarters of pseudo-legal reparations claims), making it the #1 "client" in the entire 2025 data — nobody validates these filings; flagged to the panel as possible misuse of a federal system</td><td><span class="pill c-flag">Integrity flag</span></td></tr>
+  <tr><td><b>Coordinated messaging</b> — the tool detects when many offices push identical talking points in a tight window (e.g., a 9-member bipartisan cluster reusing one think-tank statistic within 2 days)</td><td><span class="pill c-warn">Method</span></td></tr>
+  <tr><td><b>Senate↔House consistency</b> — do firms tell the two chambers different numbers? We checked 36,643 matched filings: zero gaps over $100K. A clean dead end, documented so nobody re-chases it</td><td><span class="pill c-mut">Cold</span></td></tr>
  </table>
+ <p style="color:var(--mut);font-size:13px;margin-top:10px"><b>How to read the labels:</b>
+ <span class="pill c-good">Confirmed</span> = verified against outside records, every number
+ sourced · <span class="pill c-flag">Integrity flag</span> = referred to the panel as a
+ possible legal issue, not asserted as one · <span class="pill c-warn">Method</span> = a
+ reusable detection capability more than a single story ·
+ <span class="pill c-mut">Cold</span> = a dead end we verified and recorded on purpose, so
+ the investigation doesn't repeat it.</p>
  <p style="margin-top:14px"><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">Read the full findings report →</a>
  &nbsp;·&nbsp; <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/legal_checks">Legal checks →</a></p>
 </div></section>
 
 <section id="skills"><div class="wrap">
- <h2>The skills</h2>
- <p>Download the whole bundle, the single mega skill, or just the one capability you need.</p>
+ <h2>The tools (six Agent Skills)</h2>
+ <p>Each skill is useful on its own — install just one, or the whole line. An
+ <a href="https://agentskills.io">Agent Skill</a> is a folder of instructions and scripts
+ that a coding agent (Claude Code, Cursor, Cowork) picks up automatically.</p>
  <div class="grid">
-  <div class="card"><div class="b">Orchestrator</div><h3>investigative-method</h3>
-   <p>S0 scope-framing loop + the 3-bucket workflow. Works on any dataset.</p>
+  <div class="card"><div class="b">Start here · the conductor</div><h3>investigative-method</h3>
+   <p>Interviews you to scope the investigation, opens the case file, and drives the other
+   five skills in order. Includes the web-search-for-data tools. Use it when you want the
+   whole workflow.</p>
    <a class="dl" href="downloads/skill-investigative-method.zip">Download</a></div>
-  <div class="card"><div class="b">Analysis</div><h3>lobbying-influence-mapper</h3>
-   <p>Ingest, entity-resolve, cross-reference, verify vs. outside data. Full provenance.</p>
+  <div class="card"><div class="b">Find the leads</div><h3>lobbying-influence-mapper</h3>
+   <p>Loads lobbying filings, contributions, and press releases into a database; resolves
+   messy names to real members and companies; ranks who's paying whom; checks it all
+   against outside records (FEC, committee rosters, FARA).</p>
    <a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">Download</a></div>
-  <div class="card"><div class="b">Analysis · profile</div><h3>robodoig</h3>
-   <p>Profile any tabular dataset (types, stats, correlations) + transcription-error QA.</p>
+  <div class="card"><div class="b">Understand any table</div><h3>robodoig</h3>
+   <p>Point it at any CSV or table and get a profile: what the columns mean, what's normal,
+   what's missing, what correlates. Also double-checks numbers copied into a report against
+   the source data.</p>
    <a class="dl" href="downloads/skill-robodoig.zip">Download</a></div>
-  <div class="card"><div class="b">Organizing</div><h3>case-file</h3>
-   <p>Durable multi-session state: threads, entities, cold-thread ledger, journal.</p>
+  <div class="card"><div class="b">Never lose the thread</div><h3>case-file</h3>
+   <p>The investigation's memory: every lead's status (open, chasing, confirmed, cold),
+   every key entity, a session journal. Come back a week later and the agent re-orients
+   itself instead of starting over.</p>
    <a class="dl" href="downloads/skill-case-file.zip">Download</a></div>
-  <div class="card"><div class="b">Claim hardening</div><h3>checking-the-law</h3>
-   <p>Read the actual statute and apply it element-by-element. Never from memory.</p>
+  <div class="card"><div class="b">Is it actually illegal?</div><h3>checking-the-law</h3>
+   <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
+   from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
+   lawyer," or "not a violation, and here's why."</p>
    <a class="dl" href="downloads/skill-checking-the-law.zip">Download</a></div>
-  <div class="card"><div class="b">Claim hardening</div><h3>howard-center-footnoter</h3>
-   <p>Footnote a draft to primary sources as tracked changes; flag weak claims.</p>
+  <div class="card"><div class="b">Source every claim</div><h3>howard-center-footnoter</h3>
+   <p>Reads a draft story, matches each factual claim to your reporting materials, and
+   inserts Howard Center–style footnotes as Word tracked changes — with margin comments
+   where no source exists or a quote may be out of context.</p>
    <a class="dl" href="downloads/skill-howard-center-footnoter.zip">Download</a></div>
  </div>
  <p style="margin-top:16px">
-  <a class="dl" href="downloads/investigative-desk-menu.zip">⬇ Full bundle (menu)</a>
-  &nbsp;<a class="dl" href="downloads/investigative-desk-mega.zip">⬇ Single skill (mega)</a>
+  <a class="dl" href="downloads/investigative-desk-menu.zip">⬇ All six, separate (menu)</a>
+  &nbsp;<a class="dl" href="downloads/investigative-desk-mega.zip">⬇ All six behind one front door (mega)</a>
  </p>
 </div></section>
 
 <section id="install"><div class="wrap">
- <h2>Install &amp; run</h2>
- <p>Runs inside a code-executing agent (Claude Code, Cursor, or Cowork). Python standard
- library only; no keys needed for the core findings.</p>
-<pre>export GAIN_DATA_DIR=/path/to/data GAIN_WORKDIR=$PWD/build/workdir
+ <h2>Try it</h2>
+ <p>Requirements: a code-executing agent (Claude Code, Cursor, or Cowork) — or just a
+ shell — and Python 3. <b>No packages to install, no API keys needed</b> for the core
+ findings. Point <code>GAIN_DATA_DIR</code> at the challenge corpus (evaluators already
+ have it; each skill also ships a small demo slice that works out of the box).</p>
+<pre># from the unzipped menu bundle
+export GAIN_DATA_DIR=/path/to/gain-corpus GAIN_WORKDIR=$PWD/workdir
 python3 skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
 python3 skills/lobbying-influence-mapper/scripts/resolve_entities.py
 python3 skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
-python3 skills/investigative-method/tools/find_data.py "your topic"   # web-search for data
-python3 setup_keys.py    # optional: add free API keys (Congress.gov, FEC, ...)</pre>
+#   ^ that's the pay-the-gavel leaderboard — Guthrie $694,295 — in about 30 seconds
+python3 skills/lobbying-influence-mapper/scripts/xref.py anomaly --year 2025 --factor 5
+#   ^ and that's Loc Nation's $80M flagged as the #1 outlier
+python3 skills/investigative-method/tools/find_data.py "your topic"   # find outside datasets/APIs
+python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.gov refreshes</pre>
 </div></section>
 
 <section id="traces"><div class="wrap">
- <h2>Traces &amp; review</h2>
- <p>Every claim is auditable, three ways:</p>
+ <h2>Check our work</h2>
+ <p>Don't take the findings on faith — audit them. Three ways in, from quickest to
+ deepest:</p>
  <div class="grid">
-  <div class="card"><div class="b">Full session logs</div><h3>Interaction traces</h3>
-   <p>Complete logs of all four model sessions — every prompt, reasoning step, and tool
-   call — rendered as one page, with raw JSONL alongside.</p>
+  <div class="card"><div class="b">2 minutes · the overview</div><h3>Review dashboard</h3>
+   <p>One page generated from the case file: every investigation thread and its status,
+   the confirmed findings, the legal flags — and every claim linked to the exact source
+   filing behind it.</p>
+   <a class="dl" href="review_dashboard.html">Open dashboard</a></div>
+  <div class="card"><div class="b">10 minutes · the paper trail</div><h3>Footnoter demo</h3>
+   <p>An excerpt of the findings report, footnoted claim-by-claim to the pipeline's own
+   outputs as Word tracked changes. Where a claim had no source, the tool says so in the
+   margin instead of inventing one.</p>
+   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/footnoter_demo">See the demo →</a></div>
+  <div class="card"><div class="b">The whole story · session logs</div><h3>Interaction traces</h3>
+   <p>Complete logs of all four working sessions — every prompt we typed, every reasoning
+   step, every tool call — including the moments human judgment changed course. Raw JSONL
+   alongside.</p>
    <a class="dl" href="sessions.html">Browse sessions</a>
    &nbsp;<a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/trace_index.md">curated index →</a></div>
-  <div class="card"><div class="b">Review surface</div><h3>Review dashboard</h3>
-   <p>Generated from the case file: thread board, findings, legal flags — every claim
-   linked to its source record.</p>
-   <a class="dl" href="review_dashboard.html">Open dashboard</a></div>
-  <div class="card"><div class="b">Claim hardening</div><h3>Footnoter demo</h3>
-   <p>The findings draft footnoted to the engine's own outputs as Word tracked changes,
-   with margin flags where a claim needs a human.</p>
-   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/footnoter_demo">See the demo →</a></div>
  </div>
 </div></section>
 
 <section id="generality"><div class="wrap">
  <h2>Not just this corpus</h2>
- <p>Two features make the line run on <em>any</em> dataset — demonstrated live on a
- Medicare hospital up-coding question with zero lobbying-specific code:</p>
+ <p>The lobbying work is one configuration, not the tool. To prove it, we ran the same
+ workflow on a completely different question — <em>"Which hospitals show billing patterns
+ consistent with Medicare up-coding?"</em> — using zero lobbying-specific code:</p>
  <div class="flow">
-  <div class="step"><b>S0 scope-framing</b><br><small>a healthcare question → a synthesized
-  <code>healthcare</code> beat-pack (brief.md + beatpack.json), not the lobbying pack</small></div>
-  <div class="step"><b>Web-search-for-data</b><br><small>curated catalog ranked CMS first ·
-  live CKAN portal query · suggested web searches surfaced the HHS-OIG up-coding report</small></div>
-  <div class="step"><b>Snapshot the source</b><br><small>the OIG report fetched + stored with
-  URL, timestamp, sha256 — the acquisition re-runs offline</small></div>
+  <div class="step"><b>1 · It scoped the new beat</b><br><small>The scoping step took the
+   healthcare question and generated a healthcare investigation plan — entity keys,
+   anomaly rules, outside sources to seek — instead of falling back to lobbying.</small></div>
+  <div class="step"><b>2 · It found the data</b><br><small>The data-search tool ranked
+   CMS's Medicare files first, queried a live state open-data portal (surfacing
+   California's suspended-provider list), and suggested the web search that turned up the
+   HHS Inspector General's up-coding report.</small></div>
+  <div class="step"><b>3 · It kept the receipts</b><br><small>That OIG report — the primary
+   source for the whole beat — was fetched and stored with its URL, timestamp, and
+   checksum, so the acquisition step re-runs offline like everything else.</small></div>
  </div>
  <p><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/generality_demo">See the generality demo →</a></p>
 </div></section>
 
+<section id="evaluators"><div class="wrap">
+ <h2>For evaluators</h2>
+ <p>The four required deliverables, and where each one lives:</p>
+ <table>
+  <tr><th>Deliverable</th><th>Where</th></tr>
+  <tr><td><b>1 · Agent Skills</b> — six skills, all validating against the spec, in two packagings built from one source</td>
+      <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/menu/skills">menu/skills/</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/mega/investigative-desk">mega/</a> · <a href="#skills">downloads above</a></td></tr>
+  <tr><td><b>2 · Findings report</b> — every claim source-stamped, disclosed vs. independently-confirmed distinguished</td>
+      <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">submission/findings_report.md</a></td></tr>
+  <tr><td><b>3 · Interaction traces</b> — full session logs (raw JSONL + rendered), keyed to skill invocations by a curated index</td>
+      <td><a href="sessions.html">sessions.html</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/traces">submission/traces/</a></td></tr>
+  <tr><td><b>4 · README</b> — the submission map: skills ↔ findings, outside data, conflicts of interest, legal flags for the panel</td>
+      <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">submission/README.md</a></td></tr>
+ </table>
+ <p style="margin-top:18px">And how the skill maps to the four scoring dimensions:</p>
+ <table>
+  <tr><th>Dimension</th><th>Where it's demonstrated</th></tr>
+  <tr><td><b>Organized across sessions</b></td><td>The <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/casefile">real case file</a> from this investigation: 4 threads with statuses, a recorded dead end with its reason, entity registry, session journal</td></tr>
+  <tr><td><b>Efficient with the corpus</b></td><td>Deterministic scripts index a full year — 108,225 filings, 149,182 contribution line-items, 48,318 press releases — in about 15 seconds; the agent reads small aggregates, never raw bulk. Python stdlib only</td></tr>
+  <tr><td><b>Human-verifiable</b></td><td>Provenance IDs on every number (round-trip any claim to its raw filing with <code>review.py</code>), the <a href="review_dashboard.html">dashboard</a>, and tracked-changes footnotes</td></tr>
+  <tr><td><b>Extends the agent</b></td><td>Honoree→member and cross-chamber entity resolvers, amendment-aware de-duplication (which corrected two published-number errors), a coordinated-messaging detector, a statute element-checker, web-search-for-data</td></tr>
+ </table>
+ <p style="margin-top:14px"><b>Reproducibility:</b> the core findings re-run offline with
+ no keys and no installs — the exact commands are in <a href="#install">Try it</a>, and a
+ cold re-run from a fresh working directory is part of the trace record. Possible legal
+ violations (Loc Nation; the FARA question) are flagged in the
+ <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">README</a>
+ and framed as questions for a lawyer, not conclusions. No conflicts of interest to
+ declare.</p>
+</div></section>
+
 <footer><div class="wrap">
- ASU / Howard Center team · GAIN Agentic Investigation Challenge 2026 ·
- Skills validate against the <a href="https://agentskills.io">Agent Skills</a> spec.
+ ASU / Howard Center for Investigative Journalism team — Evan (analysis engine &amp;
+ findings), Steve (data profiler &amp; QA), Mitul (legal checker), Allie &amp; Katie (case
+ file &amp; de-duplication), Shelby (footnoter &amp; story framing) ·
+ GAIN Agentic Investigation Challenge 2026 · MIT license ·
+ <a href="https://github.com/ewyloge-asu/gain-agent-challenge">GitHub repo</a>
 </div></footer>
 </body>
 </html>
