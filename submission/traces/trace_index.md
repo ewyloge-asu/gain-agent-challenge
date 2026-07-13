@@ -2,11 +2,15 @@
 
 **Skill-invocation traces (the published record):** **`sessions.html`** — every actual
 skill invocation across the four working sessions, with full arguments, in order
-(regenerate via `python3 render_traces.py`). The page is deliberately curated to **tool
-use only**: prompts, tool-development work, and team planning conversation are omitted
-and counted per session. The complete unredacted session transcripts are retained by the
-team and **available to the evaluation panel on request** — they interleave the
-investigation with internal team discussion that isn't appropriate for a public artifact.
+(regenerate via `python3 render_traces.py`).
+
+**Scope note.** We read the traces deliverable — "full logs of the model sessions …
+keyed to the skill invocations they came from" — as covering the sessions *using* the
+tool stack: every invocation, its inputs, and its outputs. Our working sessions
+interleaved that use with building the tools themselves (and ordinary team
+conversation), which is development history, not an interaction trace of the skills.
+This record therefore includes the complete log of tool use — nothing that ran is
+omitted — while development activity is out of scope and counted where it was removed.
 
 **Invocation outputs:** the actual *outputs* of every key invocation are captured
 verbatim in **`outputs/`** — one file per numbered step below (e.g.

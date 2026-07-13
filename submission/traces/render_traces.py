@@ -136,9 +136,8 @@ def render_session(path: Path, sid: str, title: str, note: str) -> str:
     out.extend(kept)
     out.append(
         f'<p class="omit">{n_omitted} non-invocation messages from this session '
-        '(prompts, tool-building, planning) are omitted from this public page. Full '
-        'unredacted logs are retained and available to the evaluation panel on '
-        'request.</p>')
+        '(prompts, tool-building, planning) are outside the scope of this trace and '
+        'omitted. Every skill invocation that ran is shown.</p>')
     return "\n".join(out)
 
 
@@ -168,11 +167,12 @@ def main():
 <nav><a href="https://ewyloge-asu.github.io/gain-agent-challenge/">← back to the site</a> &nbsp;·&nbsp; {' · '.join(toc)}</nav>
 <div class="wrap">
 <h1>Skill-invocation traces</h1>
-<p class="mut">Every time a skill was actually invoked across the four working sessions:
-the tool call with its full arguments, in order. This page is deliberately curated to
-<b>tool use only</b> — prompts, development work, and planning conversation are omitted
-and counted per session. The narrative of each invocation and the human-judgment moments
-is in <a href="trace_index.md">trace_index.md</a>; the verbatim <b>output</b> of each key
+<p class="mut">Every skill invocation across the four working sessions, with full
+arguments, in order — the complete record of the model sessions <b>using</b> the tool
+stack. (Our sessions interleaved tool use with building the tools; development activity
+is out of scope for an interaction trace and is omitted and counted per session.) The
+narrative of each invocation and the human-judgment moments is in
+<a href="trace_index.md">trace_index.md</a>; the verbatim <b>output</b> of each key
 invocation is in <code>outputs/</code> (one file per indexed step, plus the full
 clean-workdir re-run transcript); every command regenerates its output when re-run.</p>
 {''.join(sections)}

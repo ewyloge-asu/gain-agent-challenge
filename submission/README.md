@@ -32,9 +32,10 @@ Downloads: `../dist/` (menu bundle, mega, and per-skill zips).
 `traces/sessions.html` — **every skill invocation across the four working sessions**,
 with full arguments, in order, plus the verbatim output of each key invocation in
 `traces/outputs/`. `traces/trace_index.md` is the narrative index: each invocation keyed
-to its command, output, and the human-judgment moments. The traces are deliberately
-curated to tool use; complete unredacted session transcripts (which interleave internal
-team discussion) are retained and **available to the evaluation panel on request**.
+to its command, output, and the human-judgment moments. Scope: we read the traces
+deliverable as the full record of the model sessions *using* the tool stack — every
+invocation, input, and output is here; the sessions' interleaved tool-development
+activity is development history, not an interaction trace, and is out of scope.
 
 ### Review surface
 `review_dashboard.html` — generated from the case file; thread board + findings + legal

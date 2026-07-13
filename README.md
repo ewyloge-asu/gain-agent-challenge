@@ -1,4 +1,4 @@
-# GAIN Agentic Investigation Challenge — Submission (ASU / Howard Center team)
+# Case Agent — GAIN Agentic Investigation Challenge submission (ASU / Howard Center team)
 
 A reusable **investigative assembly line** for records investigations — six composable
 Agent Skills plus the newsworthy findings they produced on the GAIN federal lobbying
@@ -13,7 +13,7 @@ corpus (2022–2026 Q1).
 |---|---|
 | **1 · Agent Skills** | [`menu/skills/`](menu/skills/) (six skills, à la carte) · [`mega/investigative-desk/`](mega/investigative-desk/) (single-skill form) · [`dist/`](dist/) (zips) |
 | **2 · Findings report** | [`submission/findings_report.md`](submission/findings_report.md) (+ [`submission/legal_checks/`](submission/legal_checks/)) |
-| **3 · Interaction traces** | [`submission/traces/raw/`](submission/traces/raw/) (full session logs, JSONL) · [`submission/traces/sessions.html`](submission/traces/sessions.html) (rendered) · [`submission/traces/trace_index.md`](submission/traces/trace_index.md) (curated index) |
+| **3 · Interaction traces** | [`submission/traces/sessions.html`](submission/traces/sessions.html) (every skill invocation, full arguments) · [`submission/traces/outputs/`](submission/traces/outputs/) (verbatim outputs) · [`submission/traces/trace_index.md`](submission/traces/trace_index.md) (narrative index + scope note) |
 | **4 · README** | [`submission/README.md`](submission/README.md) — skills ↔ findings map, outside data, conflicts of interest, legal flags for the panel |
 
 ## The assembly line

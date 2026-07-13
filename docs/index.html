@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paper Trail — an investigative desk for AI agents</title>
+<title>Case Agent — an AI agent for records investigations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -224,7 +224,7 @@
 </head>
 <body>
 <nav id="nav"><div class="wrap">
- <span class="brand">Paper <b>Trail</b></span>
+ <span class="brand">Case <b>Agent</b></span>
  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
   <span></span><span></span><span></span>
  </button>
@@ -242,18 +242,21 @@
  <span class="tag">GAIN Agentic Investigation Challenge ·
   <a href="https://cronkite.asu.edu/">ASU</a> /
   <a href="https://howardcenter.asu.edu/">Howard Center</a> team</span>
- <h1>Paper <em>Trail</em></h1>
- <p class="kicker">An investigative desk for AI agents.</p>
+ <h1>Case <em>Agent</em></h1>
+ <p class="kicker">It works the case. People write the story.</p>
  <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
  a newsroom would: gather the documents, find the leads, keep the investigation organized
  across sessions, and tie every claim to a source record a human can check.</p>
  <p class="sub" style="font-size:16px;margin-top:10px">We built it for the challenge's
- federal lobbying corpus and used it to find real stories — who lobbyist money actually
- pools around, a foreign-influence disclosure seam, and $80&nbsp;million in claimed
- "lobbying income" that matches no real lobbying, accepted unchecked into the official
- record — then packaged the whole
- workflow as <a href="https://agentskills.io">Agent Skills</a> any other team can install
- and point at their own data.</p><!-- hero copy continues below -->
+ federal lobbying corpus, where it surfaced the findings below: where lobbyist money
+ concentrates, a gap between two foreign-influence disclosure regimes, and
+ $80&nbsp;million in claimed "lobbying income" with no lobbying behind it. The workflow
+ is packaged as <a href="https://agentskills.io">Agent Skills</a> that other teams can
+ install and point at their own records.</p>
+ <p class="sub" style="font-size:16px;margin-top:10px"><b>One boundary is built in: the
+ agent does not write the story.</b> It does the records work — gathering,
+ cross-referencing, sourcing, tracking — and hands a reporter material they can verify.
+ News judgment and the writing stay with people.</p><!-- hero copy continues below -->
  <div class="stats">
   <div class="stat"><b>$694,295</b><span>top lobbyist-$ recipient, 2025</span></div>
   <div class="stat"><b>$80M</b><span>unvetted claims flagged</span></div>
@@ -265,8 +268,8 @@
 <section id="what"><div class="wrap">
  <p class="eyebrow">01 · The tool</p>
  <h2>What it is</h2>
- <p>Six Agent Skills that work as one pipeline. In plain terms, the agent walks the same
- four steps a careful reporter would:</p>
+ <p>Six Agent Skills that work as one pipeline, following the same four steps a careful
+ reporter would:</p>
  <div class="flow">
   <div class="flip"><div class="inner">
    <div class="face"><b>1 · Scope the question</b><small>The agent interviews you: what's
@@ -313,9 +316,10 @@
     <span class="hint">Click to flip back</span></div>
   </div></div>
   <div class="flip"><div class="inner">
-   <div class="face"><b>4 · Make it publishable</b><small>Before a claim ships: read the
-    actual statute and apply it element-by-element, footnote the draft to primary sources
-    as tracked changes, and flag anything a human still needs to judge.</small>
+   <div class="face"><b>4 · Harden every claim</b><small>Before anything goes to an
+    editor: read the actual statute and apply it element-by-element, footnote the draft
+    to primary sources as tracked changes, and flag what still needs a human decision.
+    The tool prepares claims for review; publishing judgments belong to people.</small>
     <span class="hint">Click for details +</span></div>
    <div class="face back"><b>Under the hood</b><ul>
     <li><code>checking-the-law</code> verdicts are capped at "possible" or "genuinely
@@ -357,10 +361,11 @@
   <tr><td><b>A foreign-influence blind spot</b> — as Tencent fought a Pentagon
     designation, its U.S. lobbying spending jumped five-fold ($800K → $4.04M), and the
     former White House official lobbying for it appears nowhere in the foreign-agents
-    registry. All legal — the story is that the lighter disclosure regime allows it</td>
+    registry. All of it lawful; the finding is that the lighter of two disclosure
+    regimes permits exactly this</td>
     <td><span class="pill c-good">Verified</span> — same standard; the legal read is a
     written element-by-element check</td></tr>
-  <tr><td><b>Nobody checks the filings</b> — a Delaware filer reported <b>$80 million of
+  <tr><td><b>No one validates the filings</b> — a Delaware filer reported <b>$80 million of
     "lobbying income" that matches no real lobbying</b>: the filings themselves describe
     pseudo-legal reparations claims and a self-issued currency, filed as four $20M
     quarters — enough to make it the single biggest "client" in the 2025 data. Whatever
@@ -412,8 +417,8 @@
         (<code>investigative-desk</code>) — one folder to install, one skill for your
         agent to trigger.</li>
     <li>The agent routes internally to the right tool; you don't manage six folders.</li>
-    <li><b>Best for:</b> a fast start, demos, and "just give me the whole investigation
-        workflow."</li>
+    <li><b>Best for:</b> a fast start, demos, and installing the whole workflow at
+        once.</li>
    </ul>
    <a class="dl alt" href="downloads/investigative-desk-mega.zip">⬇ Download the mega skill</a>
   </div>
@@ -605,23 +610,23 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
 <section id="traces"><div class="wrap">
  <p class="eyebrow">05 · Verification</p>
  <h2>Check our work</h2>
- <p>Don't take the findings on faith — audit them. Three ways in, from quickest to
- deepest:</p>
+ <p>Every claim can be audited without redoing the work. Three entry points, ordered
+ by depth:</p>
  <div class="grid">
   <div class="card"><h3>The 2-minute overview</h3><p class="id">review dashboard</p>
    <p>One page generated from the case file: every investigation thread and its status,
    the confirmed findings, the legal flags — and every claim linked to the exact source
    filing behind it.</p>
    <a class="dl" href="review_dashboard.html">Open dashboard</a></div>
-  <div class="card"><h3>The paper trail itself</h3><p class="id">footnoter demo</p>
+  <div class="card"><h3>The sourcing, claim by claim</h3><p class="id">footnoter demo</p>
    <p>An excerpt of the findings report, footnoted claim-by-claim to the pipeline's own
    outputs as Word tracked changes. Where a claim had no source, the tool says so in the
    margin instead of inventing one.</p>
    <a class="dl alt" href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/footnoter_demo">See the demo</a></div>
-  <div class="card"><h3>The whole story</h3><p class="id">skill-invocation traces</p>
+  <div class="card"><h3>The invocation record</h3><p class="id">skill-invocation traces</p>
    <p>Every skill invocation from all four working sessions, with full arguments and
-   verbatim outputs — and a narrative index of where human judgment changed course.
-   Curated to tool use; unredacted transcripts available to the panel on request.</p>
+   verbatim outputs, plus a narrative index of where human judgment changed course.
+   Scoped to tool use; development activity is not an interaction trace.</p>
    <a class="dl" href="sessions.html">Browse the traces</a></div>
  </div>
 </div></section>
@@ -629,9 +634,9 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
 <section id="generality"><div class="wrap">
  <p class="eyebrow">06 · Generality</p>
  <h2>Not just this corpus</h2>
- <p>The lobbying work is one configuration, not the tool. To prove it, we ran the <b>whole
- pipeline</b> on a completely different question — <em>"Which hospitals show billing
- patterns consistent with Medicare up-coding?"</em> — using zero lobbying-specific code:</p>
+ <p>Nothing in the workflow is hardwired to lobbying. To check that, we ran the whole
+ pipeline on a different question — <em>"Which hospitals show billing patterns consistent
+ with Medicare up-coding?"</em> — with no lobbying-specific code involved:</p>
  <div class="flow">
   <div class="step"><b>1 · Scoped the new beat</b><small>The scoping step took the
    healthcare question and generated a healthcare investigation plan — instead of falling
@@ -644,9 +649,10 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
    rows profiled; per-provider highest-severity billing shares computed against the
    national baseline (median 74.4%) — top outliers bill 90–92%, exactly the pattern the
    OIG flags for up-coding review.</small></div>
-  <div class="step"><b>4 · Caught its own trap</b><small>The naive pass showed a wall
-   of 100% shares — recognized as a data-suppression artifact, not a story; 120 providers
-   excluded, method recorded. Ranked leads landed in a case file with next actions.</small></div>
+  <div class="step"><b>4 · Flagged a data artifact</b><small>The first pass showed a
+   wall of hospitals at exactly 100%. That turned out to be a data-suppression artifact
+   in the CMS files, so 120 providers were excluded and the correction was recorded.
+   The ranked leads landed in a case file with next actions.</small></div>
  </div>
  <p><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/generality_demo">See the full second-beat run →</a></p>
 </div></section>
@@ -661,7 +667,7 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
       <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/menu/skills">menu/skills/</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/mega/investigative-desk">mega/</a> · <a href="#skills">downloads above</a></td></tr>
   <tr><td><b>2 · Findings report</b> — every claim source-stamped, disclosed vs. independently-confirmed distinguished</td>
       <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">submission/findings_report.md</a></td></tr>
-  <tr><td><b>3 · Interaction traces</b> — every skill invocation with arguments + verbatim outputs, keyed by a narrative index; unredacted session transcripts available to the panel on request</td>
+  <tr><td><b>3 · Interaction traces</b> — every skill invocation with arguments + verbatim outputs, keyed by a narrative index (scoped to tool use; see the scope note in trace_index.md)</td>
       <td><a href="sessions.html">sessions.html</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/traces">submission/traces/</a></td></tr>
   <tr><td><b>4 · README</b> — the submission map: skills ↔ findings, outside data, conflicts of interest, legal flags for the panel</td>
       <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">submission/README.md</a></td></tr>
@@ -684,7 +690,7 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
 </div></section>
 
 <footer><div class="wrap">
- <b style="color:var(--ink)">Paper Trail</b> ·
+ <b style="color:var(--ink)">Case Agent</b> ·
  <a href="https://cronkite.asu.edu/">ASU's Cronkite School</a> /
  <a href="https://howardcenter.asu.edu/">Howard Center for Investigative Journalism</a>
  team — Evan (analysis engine &amp; findings), Steve (data profiler &amp; QA),
