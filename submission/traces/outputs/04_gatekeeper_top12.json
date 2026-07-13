@@ -1,0 +1,128 @@
+{
+  "filter": {
+    "year": 2025,
+    "filer_type": "lobbyist"
+  },
+  "top_recipients": [
+    {
+      "name": "Brett Guthrie",
+      "party": "R",
+      "state": "KY",
+      "chamber": "House",
+      "bioguide": "G000558",
+      "items": 404,
+      "total": 694295.35,
+      "distinct_registrants": 177
+    },
+    {
+      "name": "Jason Smith",
+      "party": "R",
+      "state": "MO",
+      "chamber": "House",
+      "bioguide": "S001195",
+      "items": 314,
+      "total": 674775.0,
+      "distinct_registrants": 119
+    },
+    {
+      "name": "Mark R. Warner",
+      "party": "D",
+      "state": "VA",
+      "chamber": "Senate",
+      "bioguide": "W000805",
+      "items": 448,
+      "total": 632009.0,
+      "distinct_registrants": 164
+    },
+    {
+      "name": "Steve Scalise",
+      "party": "R",
+      "state": "LA",
+      "chamber": "House",
+      "bioguide": "S001176",
+      "items": 142,
+      "total": 508265.29,
+      "distinct_registrants": 67
+    },
+    {
+      "name": "Mike Johnson",
+      "party": "R",
+      "state": "LA",
+      "chamber": "House",
+      "bioguide": "J000299",
+      "items": 112,
+      "total": 473209.22,
+      "distinct_registrants": 43
+    },
+    {
+      "name": "Thom Tillis",
+      "party": "R",
+      "state": "NC",
+      "chamber": "Senate",
+      "bioguide": "T000476",
+      "items": 281,
+      "total": 467202.55,
+      "distinct_registrants": 132
+    },
+    {
+      "name": "Tom Cole",
+      "party": "R",
+      "state": "OK",
+      "chamber": "House",
+      "bioguide": "C001053",
+      "items": 216,
+      "total": 465971.15,
+      "distinct_registrants": 97
+    },
+    {
+      "name": "Mike Carey",
+      "party": "R",
+      "state": "OH",
+      "chamber": "House",
+      "bioguide": "C001126",
+      "items": 231,
+      "total": 457648.04,
+      "distinct_registrants": 101
+    },
+    {
+      "name": "John Thune",
+      "party": "R",
+      "state": "SD",
+      "chamber": "Senate",
+      "bioguide": "T000250",
+      "items": 154,
+      "total": 452805.48,
+      "distinct_registrants": 100
+    },
+    {
+      "name": "Hakeem S. Jeffries",
+      "party": "D",
+      "state": "NY",
+      "chamber": "House",
+      "bioguide": "J000294",
+      "items": 147,
+      "total": 426950.0,
+      "distinct_registrants": 57
+    },
+    {
+      "name": "J. French Hill",
+      "party": "R",
+      "state": "AR",
+      "chamber": "House",
+      "bioguide": "H001072",
+      "items": 252,
+      "total": 425330.0,
+      "distinct_registrants": 108
+    },
+    {
+      "name": "Ken Calvert",
+      "party": "R",
+      "state": "CA",
+      "chamber": "House",
+      "bioguide": "C000059",
+      "items": 252,
+      "total": 424580.0,
+      "distinct_registrants": 105
+    }
+  ]
+}

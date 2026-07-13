@@ -1,0 +1,370 @@
+{
+  "window": {
+    "year": 2025,
+    "start": null,
+    "end": null
+  },
+  "n_releases": 48317,
+  "clusters": [
+    {
+      "n_members": 9,
+      "parties": "DR",
+      "span_days": 2,
+      "specificity": 2,
+      "sentence": "The Center for American Progress estimates that the national GDP could grow by $799 billion over the next decade if Dreamers were provided a pathway to citizenship",
+      "sample_urls": [
+        "https://jayapal.house.gov/2025/02/26/congresswoman-sylvia-garcia-leads-200-colleagues-in-reintroducing-the-bipartisan-american-dream-and-promise-act/",
+        "https://subramanyam.house.gov/media/press-releases/congressman-suhas-subramanyam-joins-over-200-colleagues-reintroducing-american",
+        "https://sylviagarcia.house.gov/media/press-releases/congresswoman-sylvia-garcia-leads-200-colleagues-in-reintroducing-the-bipartisan-american-dream-and-promise-act"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$1,243,636 to the Baltimore County Fire Department to provide advanced rescue training for 1,300 personnel",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$320,500 to the Riverdale Fire Department to support volunteer firefighter recruitment and retention activities",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$309,913 to the University of Maryland, College Park\u2019s Maryland Fire and Rescue Institute to purchase simulator equipment, turnout gear, and mapping equipment for firefighter training",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$379,999 to the Burtonsville Volunteer Fire Department to hire a full-time volunteer firefighter recruiter and provide tuition reimbursement to volunteers",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$436,761 to the Hack's Point Fire Company in Earleville and the Crumpton Volunteer Fire Department to acquire 59 sets of self-contained breathing apparatus (SCBA)",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$100,000 to the Water Witch Fire Company in Port Deposit to purchase 20 sets of turnout gear",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$116,190 to the Community Fire Company of Perryville to install a fire alarm system in two stations",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$291,428 to the Ocean Pines Volunteer Fire Department to acquire 34 sets of SCBA",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$83,181 to the Community Rescue Service in Hagerstown to purchase five new automatic CPR devices",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$45,130 to the Community Rescue Service in Hagerstown, Williamsport Volunteer Fire and EMS, and the Smithsburg Community Volunteer Fire to equip ambulances with narcotic safes for controlled substance",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$124,174 to the Hughesville, Dentsville, Bryans Road, and Benedict Volunteer Fire Departments to acquire new gear washers and dryers",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 6,
+      "parties": "DR",
+      "span_days": 1,
+      "specificity": 2,
+      "sentence": "$124,100 to the Maryland State Police to support a smoke and Co2 alarm installation program in collaboration with the Office of the State Fire Marshall and the Maryland Department of Health",
+      "sample_urls": [
+        "https://olszewski.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://harris.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first",
+        "https://hoyer.house.gov/media/press-releases/maryland-congressional-delegation-announces-69-million-firefighters-first"
+      ]
+    },
+    {
+      "n_members": 27,
+      "parties": "DR",
+      "span_days": 0,
+      "specificity": 1,
+      "sentence": "The newest Members of Congress to be sworn in after the first session of the 119th United States Congress convenes",
+      "sample_urls": [
+        "https://barrett.house.gov/media/press-releases/newest-members-congress",
+        "https://baumgartner.house.gov/media/press-releases/newest-members-congress",
+        "https://bresnahan.house.gov/media/press-releases/newest-members-congress"
+      ]
+    },
+    {
+      "n_members": 15,
+      "parties": "DI",
+      "span_days": 45,
+      "specificity": 1,
+      "sentence": "Better support Head Start programs by providing the funding necessary to offer full-day, full-year programming and increasing wages for Head Start workers",
+      "sample_urls": [
+        "https://bobbyscott.house.gov/media-center/press-releases/scott-murray-reintroduce-child-care-working-families-act-0",
+        "https://katherineclark.house.gov/press-releases?ID=E1404BE7-B1B2-436B-AE03-3E9A3CED258C",
+        "https://www.kaine.senate.gov/press-releases/kaine-scott-and-colleagues-introduce-legislation-to-make-child-care-more-affordable"
+      ]
+    },
+    {
+      "n_members": 14,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "The Administration\u2019s failure to expend funds appropriated on a bipartisan basis by Congress would violate the Impoundment Control Act",
+      "sample_urls": [
+        "https://www.booker.senate.gov/news/press/booker-joins-kaine-36-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.heinrich.senate.gov/newsroom/press-releases/heinrich-raises-alarm-over-trump-caused-chaos-at-critical-national-security-agencies",
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies"
+      ]
+    },
+    {
+      "n_members": 13,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "The Senators continued, \u201cThe Administration\u2019s failure to consult with Congress prior to taking these steps violates the law and impedes Congress\u2019s constitutional duty to conduct oversight of funding, ",
+      "sample_urls": [
+        "https://www.booker.senate.gov/news/press/booker-joins-kaine-36-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.heinrich.senate.gov/newsroom/press-releases/heinrich-raises-alarm-over-trump-caused-chaos-at-critical-national-security-agencies",
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies"
+      ]
+    },
+    {
+      "n_members": 13,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "They continued, \u201cEvery Administration has the right to review and adjust ongoing assistance programming",
+      "sample_urls": [
+        "https://www.booker.senate.gov/news/press/booker-joins-kaine-36-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.heinrich.senate.gov/newsroom/press-releases/heinrich-raises-alarm-over-trump-caused-chaos-at-critical-national-security-agencies",
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies"
+      ]
+    },
+    {
+      "n_members": 11,
+      "parties": "DR",
+      "span_days": 2,
+      "specificity": 1,
+      "sentence": "\u201cThe law is clear: all impacted government employees, regardless of excepted or furloughed status, are entitled to back pay after a government shutdown ends, which is consistent with the guidance curr",
+      "sample_urls": [
+        "https://beyer.house.gov/news/documentsingle.aspx?DocumentID=8666",
+        "https://cleaver.house.gov/media-center/press-releases/rep-cleaver-joins-bipartisan-call-urging-trump-administration-follow",
+        "https://evans.house.gov/media/press-releases/evans-joins-bipartisan-bicameral-delegation-demands-administration-follow-law"
+      ]
+    },
+    {
+      "n_members": 11,
+      "parties": "DR",
+      "span_days": 2,
+      "specificity": 1,
+      "sentence": "\u201cWe request you immediately clarify and update the Frequently Asked Questions During a Lapse in Appropriations Document and other relevant materials to affirm that furloughed employees will receive ba",
+      "sample_urls": [
+        "https://beyer.house.gov/news/documentsingle.aspx?DocumentID=8666",
+        "https://cleaver.house.gov/media-center/press-releases/rep-cleaver-joins-bipartisan-call-urging-trump-administration-follow",
+        "https://evans.house.gov/media/press-releases/evans-joins-bipartisan-bicameral-delegation-demands-administration-follow-law"
+      ]
+    },
+    {
+      "n_members": 10,
+      "parties": "DI",
+      "span_days": 4,
+      "specificity": 1,
+      "sentence": "District Court Judge Andrew Hanen halted the DACA program and enjoined USCIS from approving any new DACA applications nationwide",
+      "sample_urls": [
+        "https://www.durbin.senate.gov/newsroom/press-releases/durbin-40-senate-democrats-press-trump-administration-to-resume-processing-daca-application",
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-to-resume-processing-daca-applications",
+        "https://www.kaine.senate.gov/press-releases/warner-kaine-and-colleagues-press-trump-administration-to-resume-processing-daca-applications"
+      ]
+    },
+    {
+      "n_members": 10,
+      "parties": "DI",
+      "span_days": 4,
+      "specificity": 1,
+      "sentence": "While the program was enjoined, USCIS has continued to accept and hold initial applications, and in 2022, the Department of Homeland Security published the DACA Final Rule, codifying the 2012 memorand",
+      "sample_urls": [
+        "https://www.durbin.senate.gov/newsroom/press-releases/durbin-40-senate-democrats-press-trump-administration-to-resume-processing-daca-application",
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-to-resume-processing-daca-applications",
+        "https://www.kaine.senate.gov/press-releases/warner-kaine-and-colleagues-press-trump-administration-to-resume-processing-daca-applications"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "The Administration\u2019s failure to consult with Congress prior to taking these steps violates the law and impedes Congress\u2019s constitutional duty to conduct oversight of funding, personnel and the nation\u2019",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "Every Administration has the right to review and adjust ongoing assistance programming",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "Elon Musk\u2019s financial ties to China and the impact of these ties to the decision-making process of Mr",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "This move was not only unprecedented, but also inconsistent with the Office of Personnel Management\u2019s own guidelines for the use of administrative leave",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "The legal authority under which, on January 28, approximately 390 USAID Institutional Support Contractors (ISCs) were given stop-work orders, and clarification of which Administration official directe",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "Whether any Department of State career civil and foreign service or contractors have been placed on administrative leave or removed from their roles as a result of or relating to the assistance freeze",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "Under what authorities and by which official\u2019s directive career civil service, foreign service, and Personal Services Contractors (PSC), and those under other hiring authorities have been removed from",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    },
+    {
+      "n_members": 9,
+      "parties": "DI",
+      "span_days": 1,
+      "specificity": 1,
+      "sentence": "Public identification of the individual currently serving as the Director or Acting Director of the State Department\u2019s Office of Foreign Assistance and as Acting Deputy Administrator of USAID, and the",
+      "sample_urls": [
+        "https://www.hirono.senate.gov/news/press-releases/hirono-colleagues-press-trump-administration-for-answers-following-chaos-at-critical-national-security-agencies",
+        "https://www.kaine.senate.gov/press-releases/kaine-leads-37-senators-in-raising-alarm-over-trump-administration-chaos-at-critical-national-security-agencies",
+        "https://www.king.senate.gov/newsroom/press-releases/brazen-and-illegal_king-colleagues-raise-alarm-over-trump-administrations-attempt-to-dismantle-critical-national-security-agency"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "lobbyist_query": "John McEntee",
+  "engagements": [
+    {
+      "lobbyist_name": "JOHN MCENTEE",
+      "covered_position": "Officer in the Executive Office of the President",
+      "client_name": "TENCENT AMERICA LLC",
+      "registrant_name": "JOHN MCENTEE",
+      "n": 3,
+      "prov": "data/senate/2025/filings/filings_2025.json#b8b09920-a089-4e40-badb-eaaa93cf6a8d"
+    }
+  ]
+}

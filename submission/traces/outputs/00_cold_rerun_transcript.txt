@@ -1,0 +1,28 @@
+---
+pid: 51606
+cwd: "/Users/evanwyloge/northwestern-agentic-investigation-challenge/combined-submission/build"
+command: "rm -rf /tmp/gain-coldrun && mkdir -p /tmp/gain-coldrun && cd /Users/evanwyloge/northwestern-agentic-investigation-challenge/combined-submission/build && env GAIN_WORKDIR=/tmp/gain-coldrun GAIN_DATA_DIR=/Users/evanwyloge/northwestern-agentic-investigation-challenge/data sh -c '\npython3 menu/skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press 2>&1 | tail -2 &&\npython3 menu/skills/lobbying-influence-mapper/scripts/resolve_entities.py &&\necho \"=== gatekeeper top 3:\" &&\npython3 menu/skills/lobbying-influence-mapper/scripts/xref.py --json gatekeeper --filer lobbyist --year 2025 --top 3 | python3 -c \"import json,sys; [print(r[\\\"name\\\"], r[\\\"total\\\"], r[\\\"distinct_registrants\\\"]) for r in json.load(sys.stdin)[\\\"top_recipients\\\"]]\" &&\necho \"=== anomaly top 2:\" &&\npython3 menu/skills/lobbying-influence-mapper/scripts/xref.py --json anomaly --year 2025 --factor 5 | python3 -c \"import json,sys; d=json.load(sys.stdin); [print(r[\\\"client_name\\\"][:50], r[\\\"income\\\"], r[\\\"x_over_next\\\"]) for r in d[\\\"top_clients_by_income\\\"][:2]]; print(\\\"outliers:\\\", d[\\\"outliers_over_factor\\\"][\\\"clients\\\"])\" &&\necho COLD-RERUN-OK'"
+started_at: 2026-07-13T03:55:19.280Z
+running_for_ms: 15009    
+---
+  [press 2025] 48318 releases, 477 members
+done.
+[roster] roster members=536 | members table 477 -> 540 (+63 seeded) | rows with party+state: 540/540
+[honoree] 19038 distinct honorees | exact=6820 lastname_unique=3983 campaign_exact=576 campaign_lastname_unique=392 unmatched=7267
+[honoree] contribution items resolved to a member: 122020/149182 (81.8%)
+[bridge] house filings=0 | linked via senateID=0 | linked via name fallback=0 | total linked=0 (0.0%)
+=== gatekeeper top 3:
+Brett Guthrie 694295.35 177
+Jason Smith 674775.0 119
+Mark R. Warner 632009.0 164
+=== anomaly top 2:
+STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORAT 80000000.0 15.6
+QUALCOMM INC. 5130000.0 1.0
+outliers: ['STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION']
+COLD-RERUN-OK
+
+---
+exit_code: 0
+elapsed_ms: 16131
+ended_at: 2026-07-13T03:55:35.411Z
+---

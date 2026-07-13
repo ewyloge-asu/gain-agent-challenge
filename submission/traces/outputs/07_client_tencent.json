@@ -1,0 +1,150 @@
+{
+  "query_key": "TENCENT",
+  "senate_by_year": [
+    {
+      "year": 2024,
+      "filings": 8,
+      "income": 800000.0,
+      "registrants": 2
+    },
+    {
+      "year": 2025,
+      "filings": 24,
+      "income": 4040000.0,
+      "registrants": 6
+    }
+  ],
+  "house_by_year": [
+    {
+      "year": 2025,
+      "filings": 24,
+      "income": 4040000.0
+    }
+  ],
+  "top_registrants": [
+    {
+      "registrant_name": "BROWNSTEIN HYATT FARBER SCHRECK, LLP",
+      "filings": 8,
+      "income": 1600000.0
+    },
+    {
+      "registrant_name": "MO STRATEGIES, INC.",
+      "filings": 5,
+      "income": 1240000.0
+    },
+    {
+      "registrant_name": "HOGAN LOVELLS US LLP",
+      "filings": 4,
+      "income": 1000000.0
+    },
+    {
+      "registrant_name": "MERCURY PUBLIC AFFAIRS, LLC",
+      "filings": 4,
+      "income": 600000.0
+    },
+    {
+      "registrant_name": "JOHN MCENTEE",
+      "filings": 3,
+      "income": 400000.0
+    },
+    {
+      "registrant_name": "TENCENT HOLDINGS LIMITED",
+      "filings": 8,
+      "income": 0
+    }
+  ],
+  "top_issues": [
+    {
+      "issue_code": "MIA",
+      "n": 14
+    },
+    {
+      "issue_code": "GOV",
+      "n": 13
+    },
+    {
+      "issue_code": "TEC",
+      "n": 11
+    },
+    {
+      "issue_code": "MAN",
+      "n": 7
+    },
+    {
+      "issue_code": "TRD",
+      "n": 3
+    }
+  ],
+  "top_gov_entities": [
+    {
+      "gov_entities": "Office of Administration",
+      "n": 9
+    },
+    {
+      "gov_entities": "Defense, Dept of (DOD); White House Office",
+      "n": 8
+    },
+    {
+      "gov_entities": "Treasury, Dept of",
+      "n": 2
+    },
+    {
+      "gov_entities": "U.S. Trade Representative (USTR)",
+      "n": 1
+    },
+    {
+      "gov_entities": "SENATE",
+      "n": 1
+    },
+    {
+      "gov_entities": "Defense, Dept of (DOD); Executive Office of the President (EOP)",
+      "n": 1
+    },
+    {
+      "gov_entities": "Defense, Dept of (DOD)",
+      "n": 1
+    }
+  ],
+  "client_countries": [
+    {
+      "client_country": "US",
+      "n": 24
+    },
+    {
+      "client_country": "KY",
+      "n": 8
+    }
+  ],
+  "provenance_samples": [
+    {
+      "filing_uuid": "f74e06d6-0315-4d6c-8c82-97fc9faa1fbc",
+      "registrant_name": "MO STRATEGIES, INC.",
+      "income": 530000.0,
+      "prov": "data/senate/2025/filings/filings_2025.json#f74e06d6-0315-4d6c-8c82-97fc9faa1fbc"
+    },
+    {
+      "filing_uuid": "583d3413-941f-4707-a691-63a8ec36d84d",
+      "registrant_name": "MO STRATEGIES, INC.",
+      "income": 530000.0,
+      "prov": "data/senate/2025/filings/filings_2025.json#583d3413-941f-4707-a691-63a8ec36d84d"
+    },
+    {
+      "filing_uuid": "436799b1-bdf8-4bf4-adbd-c578c68a3630",
+      "registrant_name": "HOGAN LOVELLS US LLP",
+      "income": 410000.0,
+      "prov": "data/senate/2025/filings/filings_2025.json#436799b1-bdf8-4bf4-adbd-c578c68a3630"
+    },
+    {
+      "filing_uuid": "c335a2e3-9b56-4c0b-aece-6a0cf68f88cb",
+      "registrant_name": "HOGAN LOVELLS US LLP",
+      "income": 410000.0,
+      "prov": "data/senate/2025/filings/filings_2025.json#c335a2e3-9b56-4c0b-aece-6a0cf68f88cb"
+    },
+    {
+      "filing_uuid": "b1bdb42e-76bd-4521-8235-faa177bf9934",
+      "registrant_name": "JOHN MCENTEE",
+      "income": 225000.0,
+      "prov": "data/senate/2025/filings/filings_2025.json#b1bdb42e-76bd-4521-8235-faa177bf9934"
+    }
+  ]
+}

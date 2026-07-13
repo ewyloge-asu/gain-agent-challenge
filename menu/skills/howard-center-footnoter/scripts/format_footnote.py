@@ -41,6 +41,8 @@ Templates live in references/source_type_templates.md. This script is the
 operational stub of those templates — when a new source type is added there,
 add a corresponding render_*() function here.
 """
+from __future__ import annotations
+
 
 import argparse
 import json

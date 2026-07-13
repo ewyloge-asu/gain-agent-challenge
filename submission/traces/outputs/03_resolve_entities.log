@@ -1,0 +1,4 @@
+[roster] roster members=536 | members table 540 -> 540 (+0 seeded) | rows with party+state: 540/540
+[honoree] 19038 distinct honorees | exact=6820 lastname_unique=3983 campaign_exact=576 campaign_lastname_unique=392 unmatched=7267
+[honoree] contribution items resolved to a member: 122020/149182 (81.8%)
+[bridge] house filings=108518 | linked via senateID=48904 | linked via name fallback=57758 | total linked=106662 (98.3%)

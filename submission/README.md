@@ -9,15 +9,16 @@ findings it produced on the GAIN federal lobbying corpus.
 Delivered in two forms from **one shared source** (`../menu/` is canonical; `../mega/` is
 assembled from it):
 
-- **Menu (bundle)** — six composable skills you can install together or à la carte:
-  | Skill | Bucket | What it does |
+- **Menu (bundle)** — six composable skills you can install together or à la carte.
+  The `Skill` column is the install identifier; **`What it does` is the real name**:
+  | Skill (identifier) | Role | What it does |
   |---|---|---|
-  | `investigative-method` | orchestrator | S0 scope-framing loop (works on any data) + the 3-bucket workflow |
-  | `lobbying-influence-mapper` | analysis | ingest → resolve → cross-ref → verify vs. outside data |
-  | `robodoig` | analysis (profile) | profile any tabular dataset + transcription-error QA |
-  | `case-file` | organizing | durable thread/entity/journal state across sessions |
-  | `checking-the-law` | claim hardening | read the actual statute, apply it element-by-element |
-  | `howard-center-footnoter` | claim hardening | footnote a draft to primary sources (tracked changes) |
+  | `investigative-method` | the conductor | scopes the question with the user (works on any data), opens the case file, drives the workflow; includes web-search-for-data |
+  | `lobbying-influence-mapper` | find the leads | ingest → resolve entities → cross-reference → verify vs. outside data, with provenance on every number |
+  | `robodoig` | understand any table | profile any tabular dataset + transcription-error QA *(named for Steve Doig, the Pulitzer-winning ASU data-journalism pioneer whose method it automates)* |
+  | `case-file` | never lose the thread | durable thread/entity/journal state across sessions |
+  | `checking-the-law` | is it actually illegal? | read the actual statute, apply it element-by-element |
+  | `howard-center-footnoter` | source every claim | footnote a draft to primary sources (tracked changes) |
 - **Mega (single skill)** — `investigative-desk`: the whole line behind one `SKILL.md`.
 
 All skills **validate against the Agent Skills spec** (`python3 ../validate_skills.py menu/skills`).

@@ -57,6 +57,8 @@ Tested with:
     python-docx >= 1.0
     lxml >= 4.6
 """
+from __future__ import annotations
+
 
 import argparse
 import datetime as dt

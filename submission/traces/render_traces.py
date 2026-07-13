@@ -9,6 +9,8 @@ Output: sessions.html — every prompt, every reasoning message, every tool call
 
 Standard library only.  Usage:  python3 render_traces.py [--raw raw] [--out sessions.html]
 """
+from __future__ import annotations
+
 import argparse
 import html
 import json
@@ -110,9 +112,11 @@ def main():
 <p class="mut">Complete model-session logs: every human prompt (blue), every agent
 reasoning message (green), and every tool call with its full arguments (yellow), in
 order. Raw JSONL for each session is in <code>raw/</code>. The curated map keying these
-sessions to the findings is <a href="trace_index.md">trace_index.md</a>. Deterministic
-tool outputs are reproduced by re-running the commands shown (see the submission README);
-the platform's transcript format records prompts, reasoning, and tool inputs.</p>
+sessions to the findings is <a href="trace_index.md">trace_index.md</a>. The transcript
+format records prompts, reasoning, and tool inputs; the verbatim <b>outputs</b> of every
+key invocation are captured in <code>outputs/</code> (one file per indexed step, plus the
+full clean-workdir re-run transcript), and all of them regenerate from the commands
+shown.</p>
 {''.join(sections)}
 </div></body></html>"""
     Path(a.out).write_text(page)

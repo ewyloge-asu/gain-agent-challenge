@@ -5,6 +5,11 @@ description: "Runs a preliminary/exploratory analysis on a tabular data file (CS
 
 # Preliminary Data Analysis
 
+> **Why "robodoig":** named in tribute to Steve Doig — the Pulitzer-winning pioneer of
+> computer-assisted reporting and longtime Knight Chair at ASU's Cronkite School — whose
+> first move with any new dataset is exactly what this skill automates: profile it,
+> learn what's normal, and let the deviations point to the story.
+
 ## What this produces
 
 A Word document that answers four questions about a data table: how big is it, what's in each column, what do the numeric columns look like, and which numeric columns move together. This is meant to be the first thing you hand someone before any deeper modeling or analysis — a quick, trustworthy orientation to a dataset.

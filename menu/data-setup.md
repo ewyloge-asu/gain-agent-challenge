@@ -36,7 +36,18 @@ For a non-lobbying investigation, don't assume this schema. Start at **S0 scope-
 - use `investigative-method/tools/find_data.py "<topic>"` to locate relevant outside
   datasets/APIs, and `fetch_source.py <url>` to snapshot the ones you pull in.
 
-## 3. Optional API keys
+## 3. Python & dependencies
+
+**Python 3.9+.** The core findings pipeline (`lobbying-influence-mapper`,
+`investigative-method` tools, `case-file`) is **standard library only — nothing to
+install.** Two optional skills use third-party packages and say so clearly when missing:
+
+| Skill | Needs | Install |
+|---|---|---|
+| `robodoig` | pandas, numpy, matplotlib, openpyxl | `pip install pandas numpy matplotlib openpyxl` |
+| `howard-center-footnoter` | python-docx, lxml (+ pdfplumber for PDF sources) | `pip install python-docx lxml pdfplumber` |
+
+## 4. Optional API keys
 
 Some outside sources need a free key. Run the shared helper — it tells you where to get each
 one and writes a gitignored `credentials.env`:
@@ -50,7 +61,7 @@ python3 setup_keys.py --check    # status only
 snapshots; keys only unlock richer enrichment. Any keyed fetch is snapshotted so keyed
 findings still re-run with no network and no key.
 
-## 4. Reproducibility contract
+## 5. Reproducibility contract
 
 - Deterministic tools do the heavy lifting; the agent reasons over small aggregates.
 - Every number carries a provenance id; `lobbying-influence-mapper/scripts/review.py "<prov>"`

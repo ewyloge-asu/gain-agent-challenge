@@ -5,6 +5,12 @@ transcripts (every prompt, agent message, and tool call with arguments) for the 
 sessions behind this submission, with `raw/manifest.json` describing each. Rendered,
 browsable version: **`sessions.html`** (regenerate via `python3 render_traces.py`).
 
+**Invocation outputs:** the transcript format records tool *inputs*; the actual
+*outputs* of every key invocation are captured verbatim in **`outputs/`** — one file per
+numbered step below (e.g. `04_gatekeeper_top12.json`, `06_review_locnation_roundtrip.json`),
+plus `00_cold_rerun_transcript.txt`, the full log of the clean-workdir re-run that
+reconfirms the headline numbers. Every output regenerates from the commands shown.
+
 **This file is the curated index** into those logs: the investigation session that
 produced `findings_report.md`, keyed to the skill invocations. Each step lists the
 **skill / command**, the **key output**, and any **human-judgment moment** (where a

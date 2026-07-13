@@ -56,12 +56,15 @@ Shared setup lives at the bundle root: `setup_keys.py`, `credentials.env.example
 """
 
 
+IGNORE = shutil.ignore_patterns("__pycache__", "*.pyc", ".DS_Store")
+
+
 def copy_sub(kind, dst_root):
     for sk in SUBSKILLS:
         src = os.path.join(SRC, sk, kind)
         if os.path.isdir(src):
             dst = os.path.join(dst_root, kind, sk)
-            shutil.copytree(src, dst, dirs_exist_ok=True)
+            shutil.copytree(src, dst, dirs_exist_ok=True, ignore=IGNORE)
 
 
 def main():
@@ -72,7 +75,8 @@ def main():
         copy_sub(kind, OUT)
     # orchestrator tools
     tools_src = os.path.join(SRC, "investigative-method", "tools")
-    shutil.copytree(tools_src, os.path.join(OUT, "tools"), dirs_exist_ok=True)
+    shutil.copytree(tools_src, os.path.join(OUT, "tools"), dirs_exist_ok=True,
+                    ignore=IGNORE)
     # ASSEMBLY.md = orchestrator SKILL.md (the method)
     shutil.copy(os.path.join(SRC, "investigative-method", "SKILL.md"),
                 os.path.join(OUT, "ASSEMBLY.md"))

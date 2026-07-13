@@ -400,23 +400,39 @@ def _now():
 # Commands
 # ==========================================================================
 def cmd_init(cf, template):
-    if cf.exists() and os.listdir(cf.root):
-        print("refusing to init: %s already exists and is not empty" % cf.root, file=sys.stderr)
-        return 2
     if template and os.path.isdir(template):
+        if cf.exists() and os.listdir(cf.root):
+            print("refusing to init from template: %s already exists and is not empty"
+                  % cf.root, file=sys.stderr)
+            return 2
         shutil.copytree(template, cf.root, dirs_exist_ok=True)
         print("initialized case file from template at %s" % cf.root)
         return 0
+    # Scaffold any MISSING state files; never overwrite existing ones. This makes
+    # init safe in either order with S0 scope-framing (which writes brief.md +
+    # beatpack.json first when it runs before init).
     os.makedirs(cf.threads_dir, exist_ok=True)
+    created, kept = [], []
     for fn, seed in (
         ("brief.md", "# Investigation Brief\n\n## The question\n\n## Scope\n\n## What counts as a finding (the bar)\n"),
         ("entities.yaml", "# Entity registry. Each entry: canonical_id, display, type/status, why.\nmembers: []\nfirms: []\nclients: []\n"),
         ("findings.yaml", "# Findings ledger. Each finding needs >=1 source_record.\nfindings: []\nlegal_flags: []\n"),
         ("journal.md", "# Journal - append-only session log\n"),
     ):
-        with open(os.path.join(cf.root, fn), "w", encoding="utf-8") as fh:
+        path = os.path.join(cf.root, fn)
+        if os.path.exists(path):
+            kept.append(fn)
+            continue
+        with open(path, "w", encoding="utf-8") as fh:
             fh.write(seed)
-    print("initialized empty case file at %s" % cf.root)
+        created.append(fn)
+    if created and kept:
+        print("initialized case file at %s (created: %s; kept existing: %s)"
+              % (cf.root, ", ".join(created), ", ".join(kept)))
+    elif created:
+        print("initialized empty case file at %s" % cf.root)
+    else:
+        print("case file at %s already initialized (nothing to do)" % cf.root)
     return 0
 
 
