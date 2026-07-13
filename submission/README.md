@@ -1,4 +1,4 @@
-# GAIN Agentic Investigation Challenge — Submission (ASU / Howard Center team)
+# GAIN Agentic Investigation Challenge — Submission (Arizona State University team)
 
 A reusable **investigative assembly line** for records investigations, plus the newsworthy
 findings it produced on the GAIN federal lobbying corpus.

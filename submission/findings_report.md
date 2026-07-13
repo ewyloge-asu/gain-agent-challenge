@@ -1,6 +1,6 @@
 # Findings Report — GAIN Agentic Investigation Challenge
 
-**Team:** ASU / Howard Center
+**Team:** Arizona State University
 **Corpus:** GAIN federal lobbying + press corpus (Senate/House LDA filings, LD-203
 contributions, congressional press releases), 2022–2026 Q1. Numbers below are from the
 **2025** slice unless noted.

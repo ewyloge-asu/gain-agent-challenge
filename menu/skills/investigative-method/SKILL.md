@@ -11,7 +11,7 @@ description: >-
   in this data", triage leads, or run a reproducible public-records investigation.
 license: MIT
 metadata:
-  author: ASU / Howard Center team
+  author: Arizona State University team
   version: "0.1.0"
 ---
 

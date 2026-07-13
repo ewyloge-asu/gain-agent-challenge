@@ -1,4 +1,4 @@
-# Case Agent — GAIN Agentic Investigation Challenge submission (ASU / Howard Center team)
+# Case Agent — GAIN Agentic Investigation Challenge submission (Arizona State University team)
 
 A reusable **investigative assembly line** for records investigations — six composable
 Agent Skills plus the newsworthy findings they produced on the GAIN federal lobbying
@@ -59,7 +59,7 @@ Shipped snapshots reproduce every keyed finding offline.
 
 ## Team
 
-ASU / Howard Center for Investigative Journalism team. Contributors: Evan
+Arizona State University team. Contributors: Evan
 (analysis engine, connectors, findings), Steve (RoboDoig profiler + QA), Mitul
 (checking-the-law), Allie + Katie (case-file, amendment-aware de-dup), Shelby
 (howard-center-footnoter, story framing). License: MIT.
