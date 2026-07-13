@@ -1,0 +1,10 @@
+{
+  "url": "https://data.cms.gov/data-api/v1/dataset/690ddc6c-2767-4618-b277-420ffb2bf27c/data?filter%5BDRG_Cd%5D=193&size=5000",
+  "fetched_at": "2026-07-13T05:56:45.218682+00:00",
+  "status": 200,
+  "content_type": "application/json",
+  "sha256": "5158791955b6245be9386f853b7433b8e5506c530ada7d6a959dbc5db17c45a0",
+  "bytes": 1405236,
+  "slug": "cms_inpatient_drg193",
+  "data_file": "cms_inpatient_drg193.json"
+}

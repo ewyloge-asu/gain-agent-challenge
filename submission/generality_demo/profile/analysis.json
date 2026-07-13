@@ -1,0 +1,168 @@
+{
+  "source_file": "cms_pneumonia_drgs.csv",
+  "notes": {},
+  "n_records": 4079,
+  "n_variables": 10,
+  "variables": [
+    {
+      "name": "Rndrng_Prvdr_CCN",
+      "type": "integer",
+      "type_detail": "Integer (discrete numeric)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Rndrng_Prvdr_Org_Name",
+      "type": "text",
+      "type_detail": "Text (free text)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Rndrng_Prvdr_City",
+      "type": "text",
+      "type_detail": "Text (free text)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Rndrng_Prvdr_State_Abrvtn",
+      "type": "text",
+      "type_detail": "Text (free text)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "DRG_Cd",
+      "type": "integer",
+      "type_detail": "Integer (ordinal / coded scale, 3 levels)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "DRG_Desc",
+      "type": "text",
+      "type_detail": "Text (categorical, 3 levels)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Tot_Dschrgs",
+      "type": "integer",
+      "type_detail": "Integer (discrete numeric)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Avg_Submtd_Cvrd_Chrg",
+      "type": "floating point",
+      "type_detail": "Floating point (continuous numeric)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Avg_Tot_Pymt_Amt",
+      "type": "floating point",
+      "type_detail": "Floating point (continuous numeric)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    },
+    {
+      "name": "Avg_Mdcr_Pymt_Amt",
+      "type": "floating point",
+      "type_detail": "Floating point (continuous numeric)",
+      "non_null_count": 4079,
+      "missing_count": 0
+    }
+  ],
+  "numeric_stats": [
+    {
+      "count": 4079,
+      "mean": 255392.6168178475,
+      "median": 240115.0,
+      "min": 10001.0,
+      "max": 670300.0,
+      "std_dev": 154437.1668933221,
+      "range": 660299.0,
+      "name": "Rndrng_Prvdr_CCN",
+      "type": "integer"
+    },
+    {
+      "count": 4079,
+      "mean": 193.42951703848982,
+      "median": 193.0,
+      "min": 193.0,
+      "max": 195.0,
+      "std_dev": 0.5490832675154829,
+      "range": 2.0,
+      "name": "DRG_Cd",
+      "type": "integer"
+    },
+    {
+      "count": 4079,
+      "mean": 44.23486148565825,
+      "median": 30.0,
+      "min": 11.0,
+      "max": 465.0,
+      "std_dev": 39.693013391382365,
+      "range": 454.0,
+      "name": "Tot_Dschrgs",
+      "type": "integer"
+    },
+    {
+      "count": 4079,
+      "mean": 48865.565151006645,
+      "median": 39797.207921,
+      "min": 6198.8181818,
+      "max": 375925.30769,
+      "std_dev": 32050.81224773502,
+      "range": 369726.4895082,
+      "name": "Avg_Submtd_Cvrd_Chrg",
+      "type": "floating point"
+    },
+    {
+      "count": 4079,
+      "mean": 10397.030590830744,
+      "median": 10027.478261,
+      "min": 4005.7142857,
+      "max": 60274.071429,
+      "std_dev": 3956.3495532365228,
+      "range": 56268.3571433,
+      "name": "Avg_Tot_Pymt_Amt",
+      "type": "floating point"
+    },
+    {
+      "count": 4079,
+      "mean": 8325.403441065899,
+      "median": 8152.7582418,
+      "min": 2349.4285714,
+      "max": 54098.909091,
+      "std_dev": 3441.082383639419,
+      "range": 51749.4805196,
+      "name": "Avg_Mdcr_Pymt_Amt",
+      "type": "floating point"
+    }
+  ],
+  "correlation_threshold": 0.4,
+  "correlations": [
+    {
+      "var1": "Avg_Tot_Pymt_Amt",
+      "var2": "Avg_Mdcr_Pymt_Amt",
+      "r": 0.9302
+    },
+    {
+      "var1": "DRG_Cd",
+      "var2": "Avg_Mdcr_Pymt_Amt",
+      "r": -0.6082
+    },
+    {
+      "var1": "DRG_Cd",
+      "var2": "Avg_Tot_Pymt_Amt",
+      "r": -0.5426
+    }
+  ],
+  "charts": {
+    "histograms": "histograms.png",
+    "correlation_heatmap": "correlation_heatmap.png"
+  }
+}

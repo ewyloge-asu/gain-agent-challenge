@@ -1,60 +1,68 @@
-# Generality demo — the same assembly line on a NON-lobbying beat
+# Generality test — the FULL assembly line on a non-lobbying beat
 
 The challenge asks for skills that "would generalize past this particular investigation."
-Two features make that real in this bundle: **S0 scope-framing** (the topic/scope dialogue
-that selects or synthesizes a beat-pack, so nothing is hardwired to lobbying) and
-**web-search-for-data** (active acquisition of outside datasets/APIs, not just the
-provided reference corpus). This folder is a live run of both on a completely different
-beat: **Medicare hospital up-coding** (the cross-domain test dataset a teammate proposed).
+This folder is the proof: the same pipeline that produced the lobbying findings, run
+**end-to-end on a different beat with zero lobbying-specific code** — Medicare hospital
+billing (the cross-domain test a teammate proposed). Every stage below actually ran; every
+artifact is in this folder.
 
-## What was run (all reproducible)
+## The run, stage by stage
 
 **1 · S0 scope-framing** (`investigative-method/tools/scope.py`) — the healthcare question
-produced a case brief + a *synthesized* beat-pack (note: `domain: healthcare`, not the
-lobbying pack; the explicit domain wins over keyword hints):
+produced a case brief + a *synthesized* `healthcare` beat-pack (not the lobbying pack):
 
 ```bash
 python3 tools/scope.py --dir casefile \
   --question "Which hospitals show billing patterns consistent with Medicare up-coding, and did their reimbursements outpace peers?" \
-  --entities "hospitals, CMS, Medicare Administrative Contractors" \
-  --from 2020-01-01 --to 2025-12-31 --jurisdiction "US federal" --domain healthcare \
+  --domain healthcare --jurisdiction "US federal" --from 2020-01-01 --to 2025-12-31 \
   --finding-bar "a named-provider billing pattern deviating from peer baseline, sourced to CMS records"
 ```
-→ `casefile/brief.md` + `casefile/beatpack.json` (generic pack: profile with robodoig,
-acquire with find_data).
+→ `casefile/brief.md` + `casefile/beatpack.json`
 
-**2 · Web-search-for-data** (`investigative-method/tools/find_data.py`) — three legs:
+**2 · Web-search-for-data** (`tools/find_data.py`) — three legs, all live: the curated
+catalog ranked **CMS/data.cms.gov** first; a live CKAN query (data.ca.gov) surfaced the
+state's suspended-provider list; the tool's suggested `site:.gov` search surfaced
+**HHS-OIG report OEI-02-18-00380** — which recommends targeted review of *stays billed at
+the highest severity level* and *the hospitals that frequently bill them*. That report
+defined the anomaly rule for stage 5. → `found_sources.json`
 
-- **Curated catalog** (offline backbone): correctly ranked **CMS / data.cms.gov** first
-  for this topic.
-- **Live CKAN catalog query** (any portal via `--catalog`; here data.ca.gov, since
-  data.gov retired its public CKAN API): surfaced the California **Provider Suspended and
-  Ineligible List** and hospital inpatient datasets.
-- **Suggested web searches** for the agent's own search capability. Running the tool's
-  `site:.gov` query surfaced **HHS-OIG report OEI-02-18-00380** ("Trend Toward More
-  Expensive Inpatient Hospital Stays…"), the primary source that defines exactly the
-  up-coding-vulnerable billing patterns the scoped question asks about.
+**3 · Snapshot the sources** (`tools/fetch_source.py`) — the OIG report **and three CMS
+data slices** (simple pneumonia at its three severity tiers: DRG 193 "with MCC" / 194
+"with CC" / 195 "without") fetched from the live data.cms.gov API and stored with URL,
+timestamp, and sha256 → `snapshots/` (4,079 provider×DRG rows, re-runs offline).
 
-```bash
-python3 tools/find_data.py "medicare hospital billing up-coding fraud" \
-  --catalog https://data.ca.gov --out found_sources.json
-```
-→ `found_sources.json` (the reproducible acquisition snapshot).
+**4 · Profile** (`robodoig/scripts/analyze.py`) — the combined slice profiled
+deterministically: 4,079 records, 10 variables typed, descriptive stats, 3 correlated
+pairs, histograms + correlation heatmap → `profile/analysis.json`, `profile/*.png`.
 
-**3 · Snapshot the best hit** (`investigative-method/tools/fetch_source.py`) — the OIG
-report is snapshotted with URL, timestamp, and sha256 so the acquisition step re-runs
-offline:
+**5 · Discover** (the generic beat-pack anomaly rule: *learn the baseline, flag
+deviations*) — per provider (≥50 pneumonia discharges): share billed at the highest
+severity tier. National median **74.4%**; top outliers bill **90–92%**
+→ `leads_upcoding_signal.json` (25 ranked leads with method + caveats).
 
-```bash
-python3 tools/fetch_source.py "https://oig.hhs.gov/reports/all/2021/trend-toward-more-expensive-inpatient-hospital-stays-in-medicare-emerged-before-covid-19-and-warrants-further-scrutiny/" \
-  --name oig_upcoding_report --out-dir snapshots
-```
-→ `snapshots/oig_upcoding_report.html` + `.meta.json` (provenance).
+**The human-judgment moment (this is the tool working as designed):** the naive first
+pass returned a wall of providers at exactly **100%** — which turned out to be a **CMS
+small-cell suppression artifact** (provider×DRG cells under 11 discharges are withheld,
+hiding the lower-severity rows). 120 providers were flagged as artifacts and excluded,
+and the artifact-aware method is recorded in the output. Same discipline that caught the
+Loc Nation amendment double-count and the 19 phantom cross-chamber gaps.
 
-## Why this matters for the rubric
+**6 · Organize** (`case-file`) — thread `T-0001` opened (status: chasing, next action
+recorded), session journal logged, lint clean → `casefile/`, and a generated
+`review_dashboard.html`.
 
-From here the generic pipeline takes over — profile the CMS files with `robodoig`, flag
-deviations from the peer baseline (the beat-pack's anomaly rule), track threads in the
-case file, run `checking-the-law` with a synthesized law pack (False Claims Act), footnote
-the draft. **No lobbying-specific code is involved at any step.** The lobbying corpus is
-one beat-pack; this folder is the proof, not the promise.
+## What this demonstrates
+
+| Stage | Lobbying corpus | This beat |
+|---|---|---|
+| Scope | lobbying beat-pack | synthesized healthcare pack |
+| Acquire | provided corpus + connectors | live API discovery + sha256 snapshots |
+| Profile | mapper ingest/schema | robodoig on any table |
+| Discover | gatekeeper/anomaly commands | peer-baseline deviation rule |
+| Organize | real case file (4 threads) | this case file (1 thread, chasing) |
+
+These are **leads, not findings** — severity mix can reflect real patient acuity
+(transfer centers, teaching hospitals). The recorded next actions (case-mix adjustment,
+multi-year trend per the OIG method, the sepsis DRG pair) are where a reporter would take
+it. That's the point: the tool got a brand-new beat from a blank question to a ranked,
+source-stamped, artifact-checked lead list in one session.

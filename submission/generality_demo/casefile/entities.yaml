@@ -1,0 +1,4 @@
+# Entity registry. Each entry: canonical_id, display, type/status, why.
+members: []
+firms: []
+clients: []

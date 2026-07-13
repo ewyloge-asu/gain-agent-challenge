@@ -152,10 +152,15 @@ def describe_type_detail(name, series, base_type):
 
 
 def numeric_series(df, col, col_type):
-    """Return the column as a clean numeric pandas Series (for stats/correlation)."""
+    """Return the column as a clean numeric pandas Series (for stats/correlation).
+
+    Infinities (e.g. an overflow like 1e309 in the source file) are treated as
+    missing: they would poison means/ranges and crash histogram binning."""
     if col_type == "integer" and pd.api.types.is_integer_dtype(df[col]):
-        return df[col].astype(float)
-    return pd.to_numeric(df[col], errors="coerce")
+        s = df[col].astype(float)
+    else:
+        s = pd.to_numeric(df[col], errors="coerce")
+    return s.replace([np.inf, -np.inf], np.nan)
 
 
 def compute_stats(s):

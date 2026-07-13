@@ -44,12 +44,14 @@ flags, every claim linked to a source record.
 pipeline outputs as Word tracked changes: 10 footnotes (9 sourced + 1 ⟨NEEDS SOURCE⟩) and
 2 margin comments (`no_source`, `context_concern`). See `footnoter_demo/README.md`.
 
-### Generality demo (runs on ANY dataset, not just this corpus)
-`generality_demo/` — a live run of **S0 scope-framing** + **web-search-for-data** on a
-non-lobbying beat (Medicare hospital up-coding): scoped question → synthesized healthcare
-beat-pack → curated + live-CKAN + web-search acquisition → an HHS-OIG primary source
-snapshotted with sha256 provenance. No lobbying-specific code involved. See
-`generality_demo/README.md`.
+### Generality test (the FULL pipeline on a second beat)
+`generality_demo/` — the whole assembly line run end-to-end on a non-lobbying beat
+(Medicare hospital up-coding), zero lobbying-specific code: scoped question → synthesized
+healthcare beat-pack → live acquisition (CMS API + HHS-OIG report, sha256 snapshots) →
+robodoig profile of 4,079 billing rows → peer-baseline anomaly pass (25 ranked leads;
+median highest-severity share 74.4%, outliers 90–92%) → case-file thread + dashboard.
+Includes a caught-and-recorded data-suppression artifact — the tool's honesty features
+working on foreign data. See `generality_demo/README.md`.
 
 ## Findings and the skills that support them
 

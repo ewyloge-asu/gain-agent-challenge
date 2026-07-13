@@ -287,22 +287,26 @@ python3 setup_keys.py    # optional: free API keys unlock live FEC / Congress.go
 <section id="generality"><div class="wrap">
  <p class="eyebrow">06 · Generality</p>
  <h2>Not just this corpus</h2>
- <p>The lobbying work is one configuration, not the tool. To prove it, we ran the same
- workflow on a completely different question — <em>"Which hospitals show billing patterns
- consistent with Medicare up-coding?"</em> — using zero lobbying-specific code:</p>
+ <p>The lobbying work is one configuration, not the tool. To prove it, we ran the <b>whole
+ pipeline</b> on a completely different question — <em>"Which hospitals show billing
+ patterns consistent with Medicare up-coding?"</em> — using zero lobbying-specific code:</p>
  <div class="flow">
-  <div class="step"><b>1 · It scoped the new beat</b><br><small>The scoping step took the
-   healthcare question and generated a healthcare investigation plan — entity keys,
-   anomaly rules, outside sources to seek — instead of falling back to lobbying.</small></div>
-  <div class="step"><b>2 · It found the data</b><br><small>The data-search tool ranked
-   CMS's Medicare files first, queried a live state open-data portal (surfacing
-   California's suspended-provider list), and suggested the web search that turned up the
-   HHS Inspector General's up-coding report.</small></div>
-  <div class="step"><b>3 · It kept the receipts</b><br><small>That OIG report — the primary
-   source for the whole beat — was fetched and stored with its URL, timestamp, and
-   checksum, so the acquisition step re-runs offline like everything else.</small></div>
+  <div class="step"><b>1 · Scoped the new beat</b><br><small>The scoping step took the
+   healthcare question and generated a healthcare investigation plan — instead of falling
+   back to lobbying.</small></div>
+  <div class="step"><b>2 · Found &amp; kept the data</b><br><small>The data-search tool
+   ranked CMS first, queried a live open-data portal, and surfaced the HHS Inspector
+   General's up-coding report — then snapshotted the report and three live CMS data
+   slices with checksums.</small></div>
+  <div class="step"><b>3 · Profiled &amp; found leads</b><br><small>4,079 hospital billing
+   rows profiled; per-provider highest-severity billing shares computed against the
+   national baseline (median 74.4%) — top outliers bill 90–92%, exactly the pattern the
+   OIG flags for up-coding review.</small></div>
+  <div class="step"><b>4 · Caught its own trap</b><br><small>The naive pass showed a wall
+   of 100% shares — recognized as a data-suppression artifact, not a story; 120 providers
+   excluded, method recorded. Ranked leads landed in a case file with next actions.</small></div>
  </div>
- <p><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/generality_demo">See the generality demo →</a></p>
+ <p><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/generality_demo">See the full second-beat run →</a></p>
 </div></section>
 
 <section id="evaluators"><div class="wrap">
