@@ -1,0 +1,86 @@
+# Entity registry — canonical entities referenced across threads/findings.
+# Illustrative subset drawn from the ECCA memo + landscape analysis.
+# In production, canonical_id for members = bioguide_id (from the Member Resolver skill).
+
+members:
+  - canonical_id: foxx-virginia          # bioguide TBD via resolver
+    display: "Rep. Virginia Foxx (R-NC)"
+    role: "House Education & Workforce Chair (until Jan 2025)"
+    status: key
+    why: "Lead House sponsor, H.R. 833; recipient in contribution trail"
+  - canonical_id: cassidy-bill
+    display: "Sen. Bill Cassidy (R-LA)"
+    role: "Senate HELP Chair"
+    status: key
+    why: "Lead Senate sponsor, S. 292; managed the bill; recipient in trail"
+  - canonical_id: walberg-tim
+    display: "Rep. Tim Walberg (R-MI)"
+    role: "House Ed & Workforce Chair (from Jan 2025)"
+    status: key
+    why: "Chaired ECCA markup; recipient in trail"
+  - canonical_id: scott-tim
+    display: "Sen. Tim Scott (R-SC)"
+    status: watch
+    why: "HELP member, ECCA supporter; recipient in trail"
+  - canonical_id: banks-jim
+    display: "Sen. Jim Banks (R-IN)"
+    status: watch
+    why: "HELP member, ECCA supporter; recipient in trail"
+
+firms:
+  - canonical_id: brownstein-hyatt
+    display: "Brownstein Hyatt Farber Schreck"
+    status: key
+    why: "Largest ECCA-network spender ($730K income on ECCA filings); multiple revolving-door lobbyists; heaviest in contribution trail"
+  - canonical_id: thegroup-dc
+    display: "TheGroup DC"
+    status: key
+    why: "$1.55M ECCA-filing income; Stride + NAPCS; David Cleary (fmr Senate HELP Staff Dir)"
+  - canonical_id: penn-hill-group
+    display: "Penn Hill Group"
+    status: watch
+    why: "NAPCS + KIPP; Amanda Schaumburg (fmr House Ed & Workforce Chief Counsel); 3 lobbyists gave to Walberg"
+  - canonical_id: db3-daschle-group
+    display: "DB3 / Daschle Group"
+    status: watch
+    why: "Thomas Daschle (fmr Senate Majority Leader) lobbying for Stride — a Democrat on a GOP-advanced bill"
+
+clients:
+  - canonical_id: stride-inc
+    display: "Stride, Inc. (fmr K12 Inc.)"
+    status: key
+    why: "Largest online charter operator; retained TheGroup DC, DB3, self-filer Karen Johnson"
+  - canonical_id: invest-in-education-coalition
+    display: "Invest in Education Coalition"
+    status: key
+    why: "Largest spending entity in network; 501(c)(4); retained Brownstein Hyatt, Michael Best"
+  - canonical_id: napcs
+    display: "National Alliance for Public Charter Schools"
+    status: watch
+  - canonical_id: yes-every-kid
+    display: "Yes. Every Kid."
+    status: watch
+    why: "New org (2023); donor base not publicly reported — see FEC follow-up"
+
+revolving_door_people:
+  - canonical_id: cleary-david
+    display: "David Cleary"
+    prior_role: "Republican Staff Director, Senate HELP Cmte; CoS to Sen. Lamar Alexander"
+    now: "TheGroup DC — Stride"
+    status: key
+  - canonical_id: schaumburg-amanda
+    display: "Amanda Schaumburg"
+    prior_role: "Chief Counsel & Ed Deputy Director, House Ed & Workforce Cmte; Deputy Asst Sec, Dept of Education"
+    now: "Penn Hill Group — NAPCS"
+    status: key
+  - canonical_id: johnson-karen
+    display: "Karen Johnson"
+    prior_role: "Assistant Secretary, U.S. Dept of Education"
+    now: "Self / Potomac Strategic — K12/Stride"
+    status: flag
+    why: "Possible 18 U.S.C. § 207 post-employment restriction — see findings legal_flag"
+  - canonical_id: daschle-thomas
+    display: "Thomas Daschle"
+    prior_role: "U.S. Senator; Senate Majority Leader"
+    now: "DB3/Daschle Group — Stride"
+    status: watch

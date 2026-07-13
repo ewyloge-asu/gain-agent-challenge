@@ -1,0 +1,57 @@
+# Findings ledger — claims that graduated from a thread to "documented from records."
+# Every finding carries source records + the workflow step that produced it + caveats.
+# "documented" here means: present in public filings. It does NOT assert causation.
+
+findings:
+  - id: F-001
+    thread: T-0001
+    status: documented          # documented | confirmed | retracted
+    claim: >
+      A concentrated network of lobbying firms staffed by former congressional and
+      White House officials lobbied on the ECCA (H.R. 833 / S. 292) while their clients
+      supported passage. The pro-ECCA network reported $44.5M total lobbying spend in
+      2025, up from $6.6M in 2024 (education-specific spend est. $4–6M).
+    workflow_step: "Step 1–2, Step 5 (school_choice_deep.py)"
+    source_records:
+      - "Senate LDA EDU filings 2022–2026 (650 school-choice activity records)"
+      - "Firm/income/contacts table — ECCA_Reporting_Memo"
+    caveats: "Spend is total, not ECCA-only. Network membership defined by client support of passage."
+
+  - id: F-002
+    thread: T-0001
+    status: documented
+    claim: >
+      Revolving-door roster: named lobbyists on ECCA-supporting filings disclosed prior
+      covered positions in the offices/committees they later lobbied — e.g., David Cleary
+      (fmr Senate HELP Staff Director) for Stride; Amanda Schaumburg (fmr House Ed &
+      Workforce Chief Counsel) for NAPCS; Thomas Daschle (fmr Senate Majority Leader) for Stride.
+    workflow_step: "Step 5 (covered_position extraction)"
+    source_records:
+      - "Revolving-door table — ECCA_Reporting_Memo (17 individuals)"
+      - "lobbyists[].covered_position on EDU filings mentioning ECCA/school choice"
+    caveats: "Covered positions are self-disclosed; verify each prior role independently."
+
+  - id: F-003
+    thread: T-0001
+    status: documented
+    claim: >
+      Contribution trail: lobbyists/firms in the school-choice network made LD-203-reported
+      contributions to ECCA sponsors during periods they were lobbying them — e.g.,
+      Brownstein Hyatt lobbyists/PAC → Foxx (2023–24), → Cassidy (2023–25); Penn Hill
+      lobbyists → Walberg (2025, markup year); CGCN lobbyists → Banks/Scott (2025).
+    workflow_step: "Step 6 (ecca_contributions.py)"
+    source_records:
+      - "Contribution trail table — ECCA_Reporting_Memo (Senate LD-203, 2022–2026)"
+    caveats: >
+      LD-203 = lobbyist/firm-PAC contributions only, not clients or client PACs.
+      Contribution + contact of the same member is documented; influence is unproven.
+      Requires FEC cross-reference (Step 4 of memo roadmap).
+
+legal_flags:
+  - finding: F-002
+    entity: johnson-karen
+    note: >
+      Karen Johnson (former Dept. of Education Assistant Secretary, now lobbying for
+      Stride/K12) may be subject to post-employment restrictions under 18 U.S.C. § 207.
+      Flag to evaluation panel; request Ethics office post-employment certification if any.
+    status: to_verify

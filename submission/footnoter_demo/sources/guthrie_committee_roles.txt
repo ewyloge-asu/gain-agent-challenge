@@ -1,0 +1,22 @@
+# Committee roles — connector.py committee G000558 (congress-legislators snapshot)
+{
+  "bioguide": "G000558",
+  "name": "Brett Guthrie",
+  "roles": [
+    {
+      "committee": "House Committee on Energy and Commerce",
+      "committee_id": "HSIF",
+      "title": "Chair",
+      "rank": 1
+    }
+  ],
+  "chamber": "House",
+  "fec_ids": [
+    "H8KY02031"
+  ],
+  "party": "R",
+  "state": "KY",
+  "gatekeeper_tags": [
+    "CHAIR House Committee on Energy and Commerce"
+  ]
+}

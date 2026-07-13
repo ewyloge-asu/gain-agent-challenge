@@ -1,0 +1,65 @@
+{
+  "topic": "medicare hospital billing up-coding fraud",
+  "catalog": "https://data.ca.gov",
+  "curated": [
+    {
+      "name": "CMS / Medicare data",
+      "url": "https://data.cms.gov/",
+      "kind": "bulk",
+      "needs_key": false,
+      "tags": [
+        "medicare",
+        "medicaid",
+        "hospital",
+        "health",
+        "healthcare",
+        "cms",
+        "provider",
+        "claims",
+        "fraud"
+      ],
+      "match_score": 3
+    },
+    {
+      "name": "Congress.gov API",
+      "url": "https://api.congress.gov/",
+      "kind": "api",
+      "needs_key": true,
+      "tags": [
+        "congress",
+        "bill",
+        "legislation",
+        "vote",
+        "sponsor",
+        "committee",
+        "member",
+        "law"
+      ],
+      "match_score": 1
+    }
+  ],
+  "data_gov": [
+    {
+      "name": "Hospital Inpatient - Characteristics by Patient County of Residence",
+      "org": "Department of Health Care Access and Information",
+      "url": "https://data.ca.gov/dataset/hospital-inpatient-characteristics-by-patient-county-of-residence",
+      "notes": "This dataset contains annual hospital inpatient summary data based upon the Patient\u2019s County of Residence.  The summary data includes discharge disposition, expected payer, sex, Medicare Severity-Diagnosis Related Group (MS-DRG), Major Diag",
+      "resources": 10
+    },
+    {
+      "name": "Provider Suspended and Ineligible List (S&I List)",
+      "org": "California Department of Health Care Services",
+      "url": "https://data.ca.gov/dataset/provider-suspended-and-ineligible-list-si-list",
+      "notes": "Medi-Cal law, _Welfare and Institutions Code_ (W&I Code), sections 14043.6 and 14123, mandate that the Department of Health Care Services (DHCS) suspend a Medi-Cal provider of health care services (provider) from participation in the Medi-C",
+      "resources": 2
+    }
+  ],
+  "data_gov_error": null,
+  "suggested_web_searches": [
+    "medicare hospital billing up-coding fraud dataset",
+    "medicare hospital billing up-coding fraud API data download",
+    "medicare hospital billing up-coding fraud site:.gov data",
+    "medicare hospital billing up-coding fraud bulk data csv OR json",
+    "medicare hospital billing up-coding fraud FOIA OR \"public records\" dataset"
+  ]
+}

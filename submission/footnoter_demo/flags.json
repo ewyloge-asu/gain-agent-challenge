@@ -1,0 +1,14 @@
+{
+  "flags": [
+    {
+      "claim_id": "claim_0015",
+      "flag_type": "no_source",
+      "message": "Searched the six pipeline source extracts \u2014 the DoD 'Chinese military companies' listing is real-world context, not a corpus fact. Cite the Federal Register notice (90 FR 331, Jan. 6, 2025) or DoD's published 1260H list before publication."
+    },
+    {
+      "claim_id": "claim_0014",
+      "flag_type": "context_concern",
+      "message": "The $4.04M 2025 figure is verbatim in the engine output, but the 'roughly five times its level from a year earlier' multiplier is not in this extract (it only covers 2025). Re-run xref.py client TENCENT over 2024 or soften to 'sharply higher.'"
+    }
+  ]
+}

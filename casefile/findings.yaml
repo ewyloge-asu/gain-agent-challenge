@@ -1,0 +1,32 @@
+# Findings ledger. Each finding needs >=1 source_record. Legal flags surface for the panel.
+findings:
+  - id: F-0001
+    title: Lobbyist money concentrates on committee gatekeepers (pay-the-gavel)
+    thread: T-0001
+    status: confirmed
+    source_records:
+      - data/senate/2025/contributions/contributions_2025.json#17a8911b-d48a-4020-af49-e1824e664f57
+    summary: >
+      In 2025, registered-lobbyist LD-203 contributions pool on committee chairs/ranking
+      members and floor leadership; Brett Guthrie (Chair, House Energy & Commerce) is #1 at
+      $694K from lobbyist filers. Recipients verified against the congress-legislators roster.
+      Descriptive, not causal.
+legal_flags:
+  - id: L-0001
+    thread: T-0003
+    status: to_verify
+    issue: >
+      Possible misuse of the federal LDA filing system — a single filer lodged pseudo-legal
+      reparations claims as $20M/quarter of lobbying income ($80M nominal in 2025). Flag to
+      the panel for possible referral; not asserted as a crime.
+    source_records:
+      - data/senate/2025/filings/filings_2025.json#4d5b1cb0-0971-43b8-958b-d260e2be8af1
+  - id: L-0002
+    thread: T-0002
+    status: to_verify
+    issue: >
+      LDA-vs-FARA election — John McEntee lobbies for a foreign client (Tencent) under the LDA
+      and is not FARA-registered; cooling-off compliance unknown (departure dates not in the
+      corpus). Disclosed and presumptively lawful; flagged as a question for a lawyer.
+    source_records:
+      - data/senate/2025/filings/filings_2025.json#b8b09920-a089-4e40-badb-eaaa93cf6a8d

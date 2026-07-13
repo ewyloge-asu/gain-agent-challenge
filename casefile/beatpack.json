@@ -1,0 +1,47 @@
+{
+  "domain": "lobbying",
+  "summary": "US federal lobbying & money-in-politics (LDA filings, LD-203 contributions, congressional press).",
+  "entity_keys": [
+    "bioguide_id (members)",
+    "senateID/houseID (filing bridge)",
+    "registrant/client names (resolve)"
+  ],
+  "external_sources": [
+    {
+      "name": "congress-legislators",
+      "kind": "roster",
+      "needs_key": false,
+      "why": "verify committee roles (the 'gatekeep' leg)"
+    },
+    {
+      "name": "Congress.gov",
+      "kind": "api",
+      "needs_key": true,
+      "why": "sponsored bills + policy areas (the 'act' leg)"
+    },
+    {
+      "name": "FEC",
+      "kind": "api",
+      "needs_key": true,
+      "why": "campaign-finance denominator (lobbyist $ as share of receipts)"
+    },
+    {
+      "name": "Voteview",
+      "kind": "bulk",
+      "needs_key": false,
+      "why": "roll-call votes / party-unity context"
+    },
+    {
+      "name": "FARA",
+      "kind": "bulk",
+      "needs_key": false,
+      "why": "foreign-agent cross-check"
+    }
+  ],
+  "law_packs": [
+    "us-influence-law",
+    "us-campaign-finance-law"
+  ],
+  "anomaly_rules": "round-number million income, self-referential registrant/client, many unrelated issue codes, income>>peers (see mapper anomaly).",
+  "engine_notes": "Use lobbying-influence-mapper for model/discover/verify; amendment-aware de-dup before any spend aggregate."
+}

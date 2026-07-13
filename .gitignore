@@ -1,11 +1,5 @@
-# Regenerable artifacts — rebuild with lobbying-influence-mapper/scripts/run_all.sh
-build/
-**/__pycache__/
-.DS_Store
-
-# Release archives — generated; attach to a GitHub Release, don't commit the blobs.
-# (The standalone skill folder lobbying-influence-mapper/ — incl. demo_data/ — IS committed.)
-dist/
-
-# Secrets — never commit real keys. Use credentials.env.example as the template.
+workdir/
 credentials.env
+__pycache__/
+.DS_Store
+*.pyc

@@ -1,0 +1,39 @@
+{
+  "_comment": "Example matches.json AND flags.json — both schemas the agent produces during workflow steps 5 and 7. The KEY FIELD in matches is context_quote: always pull the literal supporting sentence PLUS one or two sentences of surrounding context from the source so the footnote shows the quote in context. Flags become Word margin comments anchored to the paragraph; use them for things a footnote can't fix.",
+  "matches": [
+    {
+      "claim_id": "claim_0002",
+      "claim_sentence": "Arizona State University has proposed a new $200 annual fee for advanced technology, including artificial intelligence tools.",
+      "source_id": "src_0002",
+      "segment_id": "src_0002_p001_g01",
+      "supporting_quote": "a new annual undergraduate and graduate provost advanced technology fee of $200, which, according to the committee book for the meeting, is 'to provide students access to artificial intelligence tools and platforms and other technologies.'",
+      "context_quote": "The proposal is for 25 new graduate program fees and two increases to graduate program fees. Also included is a new annual undergraduate and graduate provost advanced technology fee of $200, which, according to the committee book for the meeting, is 'to provide students access to artificial intelligence tools and platforms and other technologies.'",
+      "source_tier": null,
+      "_note_on_tier": "Folder-only source (the reporter already vetted it). source_tier can be omitted or null for folder sources. Required for web-found sources.",
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0006",
+      "claim_sentence": "Critics have called the move the largest fee hike in recent ASU history.",
+      "source_id": null,
+      "segment_id": null,
+      "supporting_quote": null,
+      "context_quote": null,
+      "confidence": "none",
+      "_note": "No source found. This becomes both a ⟨NEEDS SOURCE⟩ placeholder footnote AND a flag entry below."
+    }
+  ],
+  "_separator": "------ flags.json schema example below ------",
+  "flags": [
+    {
+      "claim_id": "claim_0006",
+      "flag_type": "no_source",
+      "message": "Searched the reporting folder and three rounds of web queries — no source supports 'largest fee hike in recent ASU history.' The reporter notes file actually contradicts the claim: it identifies the 2008-09 21% tuition increase as the largest single-year hike. Suggest attributing the superlative to a named critic or removing it."
+    },
+    {
+      "claim_id": "claim_0003",
+      "flag_type": "context_concern",
+      "message": "The State Press article supports that the fee applies to both undergraduates and graduates, but does NOT explicitly say the fee begins in the 2026-27 academic year. Reporter should confirm the start year directly with the source or the ABOR committee book before publication."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://oig.hhs.gov/reports/all/2021/trend-toward-more-expensive-inpatient-hospital-stays-in-medicare-emerged-before-covid-19-and-warrants-further-scrutiny/",
+  "fetched_at": "2026-07-13T03:44:33.339383+00:00",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "b1f36bee1c180b07bf2648b96f11f054567a8ba9eb87e3aad6c6cd31f4ed50e4",
+  "bytes": 49249,
+  "slug": "oig_upcoding_report",
+  "data_file": "oig_upcoding_report.html"
+}

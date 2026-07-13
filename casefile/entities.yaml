@@ -1,0 +1,34 @@
+# Entity registry. Each entry: canonical_id, display, status, why.
+# canonical_id follows the analysis engine's keys (bioguide for members).
+members:
+  - canonical_id: G000558
+    display: Brett Guthrie (R-KY)
+    status: key
+    why: Chair, House Energy & Commerce; #1 lobbyist-money recipient in 2025 ($694K, 177 registrants)
+  - canonical_id: S001195
+    display: Jason Smith (R-MO)
+    status: key
+    why: Chair, House Ways & Means; top-3 lobbyist-money recipient 2025
+  - canonical_id: W000805
+    display: Mark R. Warner (D-VA)
+    status: key
+    why: Senate Banking/Intelligence; top-3 lobbyist-money recipient 2025
+firms:
+  - canonical_id: akin-gump
+    display: Akin Gump
+    status: watch
+    why: Lead registrant for Nippon Steel; FARA-registered; fielded former officials
+clients:
+  - canonical_id: loc-nation
+    display: State of Loc Nation Global Public Benefit Corporation
+    status: flag
+    why: $80M of pseudo-legal reparations claims filed as lobbying income (disclosure integrity)
+  - canonical_id: tencent
+    display: Tencent America LLC
+    status: key
+    why: ~5x lobbying spend jump to $4.04M while fighting DoD 'Chinese military company' listing
+people:
+  - canonical_id: mcentee-john
+    display: John McEntee
+    status: key
+    why: Former EOP official lobbying for Tencent on 'erroneous trade restriction'; not FARA-registered

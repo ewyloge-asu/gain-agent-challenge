@@ -1,0 +1,10 @@
+# Secrets — never commit
+credentials.env
+
+# Generated artifacts
+build/
+casefile/.state.json
+snapshots/
+**/__pycache__/
+*.pyc
+.DS_Store

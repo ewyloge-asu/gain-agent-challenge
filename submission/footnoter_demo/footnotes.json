@@ -1,0 +1,77 @@
+{
+  "n_footnotes": 10,
+  "n_matched": 9,
+  "n_needs_source": 1,
+  "footnotes": [
+    {
+      "claim_id": "claim_0002",
+      "rendered_footnote": "# Gatekeeper leaderboard — xref.py gatekeeper --filer lobbyist --year 2025 --top 12 (run 2026-07-12), 2026-07-12, paragraph 1: \"\"filter\": {\n    \"year\": 2025,\n    \"filer_type\": \"lobbyist\"\n  },\n  \"top_recipients\": [\n    {\n      \"name\": \"Brett Guthrie\",\n      \"party\": \"R\",\n      \"state\": \"KY\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"G000558\",\n      \"items\": 404,\n      \"total\": 694295.35,\n      \"distinct_registrants\": 177\"",
+      "url": "sources/gatekeeper_leaderboard_2025.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0003",
+      "rendered_footnote": "# Gatekeeper leaderboard — xref.py gatekeeper --filer lobbyist --year 2025 --top 12 (run 2026-07-12), 2026-07-12, paragraph 1: \"\"name\": \"Brett Guthrie\",\n      \"party\": \"R\",\n      \"state\": \"KY\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"G000558\",\n      \"items\": 404,\n      \"total\": 694295.35,\n      \"distinct_registrants\": 177\"",
+      "url": "sources/gatekeeper_leaderboard_2025.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0004",
+      "rendered_footnote": "# Committee roles — connector.py committee G000558 (congress-legislators snapshot), 2026-07-12, paragraph 1: \"\"bioguide\": \"G000558\",\n  \"name\": \"Brett Guthrie\",\n  \"roles\": [\n    {\n      \"committee\": \"House Committee on Energy and Commerce\",\n      \"committee_id\": \"HSIF\",\n      \"title\": \"Chair\",\n      \"rank\": 1\n    }\n  ],\n  \"chamber\": \"House\",\n  \"fec_ids\": [\n    \"H8KY02031\"\n  ],\n  \"party\": \"R\",\n  \"state\": \"KY\",\n  \"gatekeeper_tags\": [\n    \"CHAIR House Committee on Energy and Commerce\"\"",
+      "url": "sources/guthrie_committee_roles.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0006",
+      "rendered_footnote": "# Gatekeeper leaderboard — xref.py gatekeeper --filer lobbyist --year 2025 --top 12 (run 2026-07-12), 2026-07-12, paragraph 1: \"\"name\": \"Jason Smith\",\n      \"party\": \"R\",\n      \"state\": \"MO\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"S001195\",\n      \"items\": 314,\n      \"total\": 674775.0,\n      \"distinct_registrants\": 119\"",
+      "url": "sources/gatekeeper_leaderboard_2025.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0007",
+      "rendered_footnote": "# Gatekeeper leaderboard — xref.py gatekeeper --filer lobbyist --year 2025 --top 12 (run 2026-07-12), 2026-07-12, paragraph 1: \"\"name\": \"Mark R. Warner\",\n      \"party\": \"D\",\n      \"state\": \"VA\",\n      \"chamber\": \"Senate\",\n      \"bioguide\": \"W000805\",\n      \"items\": 448,\n      \"total\": 632009.0,\n      \"distinct_registrants\": 164\"",
+      "url": "sources/gatekeeper_leaderboard_2025.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0008",
+      "rendered_footnote": "# FEC receipts denominator — connector.py enrich-finance --year 2025 --filer lobbyist --top 12 (shipped snapshot), 2026-07-12, paragraph 1: \"\"name\": \"Brett Guthrie\",\n      \"chamber\": \"House\",\n      \"ld203_lobbyist_$\": 694295.35,\n      \"fec_receipts\": 4193324.77,\n      \"fec_cycle\": 2026,\n      \"lobbyist_share_of_receipts\": 0.1656,\n      \"fec_id\": \"H8KY02031\"\"",
+      "url": "sources/fec_denominator_top12.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0010",
+      "rendered_footnote": "# Anomaly scan — xref.py anomaly --year 2025 --factor 5 (run 2026-07-12), 2026-07-12, paragraph 1: \"\"dedup\": \"amendment-aware (latest filing per registrant/client/period)\",\n  \"top_clients_by_income\": [\n    {\n      \"client_name\": \"STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION\",\n      \"periods\": 4,\n      \"income\": 80000000.0,\n      \"registrants\": 1,\n      \"x_over_next\": 15.6\"",
+      "url": "sources/anomaly_scan_2025.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0011",
+      "rendered_footnote": "{, 2026-07-12, paragraph 1: \"\"filing_type_display\": \"1st Quarter - Amendment\",\n  \"filing_year\": 2025,\n  \"filing_period\": \"first_quarter\",\n  \"filing_period_display\": \"1st Quarter (Jan 1 - Mar 31)\",\n  \"filing_document_url\": \"https://lda.senate.gov/filings/public/filing/4d5b1cb0-0971-43b8-958b-d260e2be8af1/print/\",\n  \"filing_document_content_type\": \"text/html\",\n  \"income\": \"20000000.00\",\n  \"expenses\": null,\n  \"expenses_method\": null,\n  \"expenses_method_display\": null,\n  \"posted_by_name\": \"REV DR CHRISTINA L CLEMENT\" ... \"name\": \"LOC COMMUNITY ASSOCIATION\"\"",
+      "url": "sources/loc_nation_filing_record.txt",
+      "confidence": "high",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0014",
+      "rendered_footnote": "# Tencent client footprint — xref.py client TENCENT (run 2026-07-12), 2026-07-12, paragraph 1: \"\"senate_by_year\": [\n    {\n      \"year\": 2025,\n      \"filings\": 24,\n      \"income\": 4040000.0,\n      \"registrants\": 6\"",
+      "url": "sources/tencent_client_footprint.txt",
+      "confidence": "medium",
+      "match_status": "matched"
+    },
+    {
+      "claim_id": "claim_0015",
+      "rendered_footnote": "⟨NEEDS SOURCE: The Department of Defense added Tencent to its list of Chinese military companies in January 2025.⟩",
+      "url": null,
+      "confidence": "none",
+      "match_status": "needs_source"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "matches": [
+    {
+      "claim_id": "claim_0002",
+      "claim_sentence": "In 2025, contributions reported by registered federal lobbyists concentrated on the members of Congress who decide whether legislation moves.",
+      "source_id": "src_0003",
+      "segment_id": "src_0003_para001",
+      "supporting_quote": "\"name\": \"Brett Guthrie\",\n      \"party\": \"R\",\n      \"state\": \"KY\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"G000558\",\n      \"items\": 404,\n      \"total\": 694295.35,\n      \"distinct_registrants\": 177",
+      "context_quote": "\"filter\": {\n    \"year\": 2025,\n    \"filer_type\": \"lobbyist\"\n  },\n  \"top_recipients\": [\n    {\n      \"name\": \"Brett Guthrie\",\n      \"party\": \"R\",\n      \"state\": \"KY\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"G000558\",\n      \"items\": 404,\n      \"total\": 694295.35,\n      \"distinct_registrants\": 177",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0003",
+      "claim_sentence": "Rep. Brett Guthrie of Kentucky was the top recipient, with $694,295 from 177 distinct lobbying registrants.",
+      "source_id": "src_0003",
+      "segment_id": "src_0003_para001",
+      "supporting_quote": "\"total\": 694295.35,\n      \"distinct_registrants\": 177",
+      "context_quote": "\"name\": \"Brett Guthrie\",\n      \"party\": \"R\",\n      \"state\": \"KY\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"G000558\",\n      \"items\": 404,\n      \"total\": 694295.35,\n      \"distinct_registrants\": 177",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0004",
+      "claim_sentence": "Guthrie chairs the House Committee on Energy and Commerce.",
+      "source_id": "src_0004",
+      "segment_id": "src_0004_para001",
+      "supporting_quote": "\"committee\": \"House Committee on Energy and Commerce\",\n      \"committee_id\": \"HSIF\",\n      \"title\": \"Chair\"",
+      "context_quote": "\"bioguide\": \"G000558\",\n  \"name\": \"Brett Guthrie\",\n  \"roles\": [\n    {\n      \"committee\": \"House Committee on Energy and Commerce\",\n      \"committee_id\": \"HSIF\",\n      \"title\": \"Chair\",\n      \"rank\": 1\n    }\n  ],\n  \"chamber\": \"House\",\n  \"fec_ids\": [\n    \"H8KY02031\"\n  ],\n  \"party\": \"R\",\n  \"state\": \"KY\",\n  \"gatekeeper_tags\": [\n    \"CHAIR House Committee on Energy and Commerce\"",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0006",
+      "claim_sentence": "Rep. Jason Smith of Missouri, who chairs Ways and Means, received $674,775 from lobbyist filers.",
+      "source_id": "src_0003",
+      "segment_id": "src_0003_para001",
+      "supporting_quote": "\"total\": 674775.0",
+      "context_quote": "\"name\": \"Jason Smith\",\n      \"party\": \"R\",\n      \"state\": \"MO\",\n      \"chamber\": \"House\",\n      \"bioguide\": \"S001195\",\n      \"items\": 314,\n      \"total\": 674775.0,\n      \"distinct_registrants\": 119",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0007",
+      "claim_sentence": "Sen. Mark Warner of Virginia received $632,009.",
+      "source_id": "src_0003",
+      "segment_id": "src_0003_para001",
+      "supporting_quote": "\"total\": 632009.0",
+      "context_quote": "\"name\": \"Mark R. Warner\",\n      \"party\": \"D\",\n      \"state\": \"VA\",\n      \"chamber\": \"Senate\",\n      \"bioguide\": \"W000805\",\n      \"items\": 448,\n      \"total\": 632009.0,\n      \"distinct_registrants\": 164",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0008",
+      "claim_sentence": "For the money-committee chairs, lobbyist contributions amounted to roughly 17 percent of Guthrie's entire campaign haul for the 2026 cycle.",
+      "source_id": "src_0002",
+      "segment_id": "src_0002_para001",
+      "supporting_quote": "\"lobbyist_share_of_receipts\": 0.1656",
+      "context_quote": "\"name\": \"Brett Guthrie\",\n      \"chamber\": \"House\",\n      \"ld203_lobbyist_$\": 694295.35,\n      \"fec_receipts\": 4193324.77,\n      \"fec_cycle\": 2026,\n      \"lobbyist_share_of_receipts\": 0.1656,\n      \"fec_id\": \"H8KY02031\"",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0010",
+      "claim_sentence": "The largest 2025 lobbying client by reported income is fictional: a Delaware filer calling itself the State of Loc Nation claimed $20,000,000 of lobbying income per quarter, $80 million for the year after amendment-aware de-duplication.",
+      "source_id": "src_0001",
+      "segment_id": "src_0001_para001",
+      "supporting_quote": "\"client_name\": \"STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION\",\n      \"periods\": 4,\n      \"income\": 80000000.0,\n      \"registrants\": 1,\n      \"x_over_next\": 15.6",
+      "context_quote": "\"dedup\": \"amendment-aware (latest filing per registrant/client/period)\",\n  \"top_clients_by_income\": [\n    {\n      \"client_name\": \"STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION\",\n      \"periods\": 4,\n      \"income\": 80000000.0,\n      \"registrants\": 1,\n      \"x_over_next\": 15.6",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0011",
+      "claim_sentence": "One amended first-quarter filing was posted by Rev. Dr. Christina L. Clement on behalf of the LOC Community Association.",
+      "source_id": "src_0005",
+      "segment_id": "src_0005_para001",
+      "supporting_quote": "\"posted_by_name\": \"REV DR CHRISTINA L CLEMENT\"",
+      "context_quote": "\"filing_type_display\": \"1st Quarter - Amendment\",\n  \"filing_year\": 2025,\n  \"filing_period\": \"first_quarter\",\n  \"filing_period_display\": \"1st Quarter (Jan 1 - Mar 31)\",\n  \"filing_document_url\": \"https://lda.senate.gov/filings/public/filing/4d5b1cb0-0971-43b8-958b-d260e2be8af1/print/\",\n  \"filing_document_content_type\": \"text/html\",\n  \"income\": \"20000000.00\",\n  \"expenses\": null,\n  \"expenses_method\": null,\n  \"expenses_method_display\": null,\n  \"posted_by_name\": \"REV DR CHRISTINA L CLEMENT\" ... \"name\": \"LOC COMMUNITY ASSOCIATION\"",
+      "source_tier": null,
+      "confidence": "high"
+    },
+    {
+      "claim_id": "claim_0014",
+      "claim_sentence": "Tencent's reported lobbying income reached $4.04 million in 2025, roughly five times its level from a year earlier.",
+      "source_id": "src_0006",
+      "segment_id": "src_0006_para001",
+      "supporting_quote": "\"income\": 4040000.0",
+      "context_quote": "\"senate_by_year\": [\n    {\n      \"year\": 2025,\n      \"filings\": 24,\n      \"income\": 4040000.0,\n      \"registrants\": 6",
+      "source_tier": null,
+      "confidence": "medium"
+    },
+    {
+      "claim_id": "claim_0015",
+      "claim_sentence": "The Department of Defense added Tencent to its list of Chinese military companies in January 2025.",
+      "source_id": null,
+      "segment_id": null,
+      "supporting_quote": null,
+      "context_quote": null,
+      "source_tier": null,
+      "confidence": "none"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "domain": "healthcare",
+  "summary": "Custom beat 'healthcare' \u2014 synthesize a minimal pack.",
+  "entity_keys": [
+    "<the join key(s) in your data \u2014 resolve to canonical ids>"
+  ],
+  "external_sources": [],
+  "law_packs": [],
+  "anomaly_rules": "learn the baseline with robodoig, then flag deviations from normal.",
+  "engine_notes": "Profile with robodoig first; use tools/find_data.py to locate relevant outside datasets/APIs for this topic."
+}

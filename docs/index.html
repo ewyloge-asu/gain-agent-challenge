@@ -1,606 +1,171 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lobbying Influence Mapper — an investigative agent skill</title>
-<meta name="description" content="A reusable AI agent skill for investigating lobbying and money in Congress. Maps who pays, what they say, and what they do — with a receipt behind every number." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investigative Desk — an agent assembly line for records investigations</title>
 <style>
-  :root{
-    --ink:#12140f; --muted:#454a3f; --faint:#6b7063;
-    --line:#ccd5c2; --bg:#e9eee1; --card:#f2f5ea;
-    --accent:#14532d; --accent-soft:#dbe5d7;
-    --gold:#b8912e; --gold-soft:#f0e6c8;
-    --pay:#8a5a00; --say:#1f5e8b; --act:#2f6b3a;
-    --black:#000000; --cream:#eef2e6;
-    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --serif:Georgia,"Times New Roman","Iowan Old Style",serif;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.58;
-       -webkit-font-smoothing:antialiased}
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(20,83,45,.35)}
-  a:hover{color:var(--ink);border-bottom-color:var(--ink);text-decoration:none}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-  h1,h2,h3{line-height:1.05;letter-spacing:-0.015em}
-  code,kbd{font-family:var(--mono);font-size:.9em}
-  .eyebrow{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.22em;
-       text-transform:uppercase;color:var(--accent)}
-
-  /* buttons */
-  .btn{display:inline-block;font-family:var(--mono);font-weight:700;font-size:14px;
-       text-transform:uppercase;letter-spacing:.08em;padding:14px 24px;border:2px solid var(--ink);
-       border-radius:0;cursor:pointer;background:var(--gold);color:var(--ink)}
-  .btn:hover{background:var(--accent);color:#fff;border-color:var(--ink);text-decoration:none}
-  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--cream)}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:30px 0 4px}
-  .hero-cta .cta-note{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted)}
-
-  /* nav — black masthead bar */
-  nav{position:sticky;top:0;z-index:10;background:var(--black);
-      border-bottom:3px solid var(--gold)}
-  nav .wrap{display:flex;align-items:center;gap:18px;height:58px}
-  nav .brand{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.01em;
-       margin-right:auto;color:var(--cream);text-transform:uppercase}
-  nav .brand span{color:#d8b45a}
-  nav a.link{color:#bcc4b2;font-size:12px;font-family:var(--mono);text-transform:uppercase;
-       letter-spacing:.1em;border-bottom:none}
-  nav a.link:hover{color:#fff;text-decoration:none;border-bottom:none}
-  nav a.dl{background:var(--gold);color:var(--ink);border:2px solid var(--gold);padding:5px 12px;
-       font-family:var(--mono);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-  nav a.dl:hover{background:#fff;color:var(--ink);border-color:#fff;text-decoration:none}
-  @media(max-width:720px){nav a.link{display:none}}
-
-  /* hero */
-  header.hero{padding:76px 0 44px;border-bottom:3px solid var(--ink);
-       background:linear-gradient(180deg,#dfe6d5 0%,var(--bg) 100%)}
-  header.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(42px,7vw,76px);
-       line-height:1.02;letter-spacing:-0.02em;margin:16px 0 18px}
-  header.hero p.lede{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:680px;margin:0 0 26px}
-  .demo-corpus{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
-       color:var(--ink);border:2px solid var(--ink);border-radius:0;padding:6px 12px;background:var(--card)}
-
-  /* paths */
-  .paths{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px 0 8px}
-  @media(max-width:720px){.paths{grid-template-columns:1fr}}
-  .path{background:var(--card);border:2px solid var(--ink);border-radius:0;padding:22px 22px 20px;
-        border-top:8px solid var(--accent)}
-  .path.ops{border-top-color:var(--ink)}
-  .path .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
-       text-transform:uppercase;color:var(--accent)}
-  .path h3{margin:10px 0 8px;font-size:22px;font-family:var(--serif);font-weight:700}
-  .path p{margin:0 0 14px;color:var(--muted);font-size:15px}
-  .path ul{margin:0 0 16px;padding-left:18px;color:var(--muted);font-size:14px}
-  .path ul li{margin:4px 0}
-  .path a.go{font-family:var(--mono);font-weight:700;font-size:13px;text-transform:uppercase;
-       letter-spacing:.08em;border-bottom:none}
-
-  /* sections */
-  section{padding:60px 0;border-bottom:2px solid var(--ink)}
-  section h2{font-size:clamp(30px,4.4vw,48px);margin:8px 0 12px;font-family:var(--serif);
-       font-weight:700;line-height:1.04;letter-spacing:-0.02em;max-width:900px}
-  section .sub{color:var(--muted);max-width:720px;margin:0 0 30px;font-size:16px}
-
-  /* pay say act */
-  .triad{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media(max-width:720px){.triad{grid-template-columns:1fr}}
-  .leg{background:var(--card);border:2px solid var(--ink);border-radius:0;padding:20px}
-  .leg .badge{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:700;
-       padding:3px 9px;border-radius:0;color:#fff;margin-bottom:10px;letter-spacing:.08em}
-  .leg.pay .badge{background:var(--pay)} .leg.say .badge{background:var(--say)} .leg.act .badge{background:var(--act)}
-  .leg h3{margin:2px 0 8px;font-size:19px;font-family:var(--serif);font-weight:700}
-  .leg p{margin:0 0 12px;color:var(--muted);font-size:14px}
-  .leg .cmd{font-family:var(--mono);font-size:12.5px;background:#141210;border:2px solid var(--ink);
-       border-radius:0;padding:9px 11px;color:#eaeaea;overflow-x:auto;white-space:nowrap}
-  .leg .new{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
-
-  /* findings */
-  .finds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:720px){.finds{grid-template-columns:1fr}}
-  .find{background:var(--card);border:2px solid var(--ink);border-radius:0;padding:20px;position:relative}
-  .find .kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
-       text-transform:uppercase;color:var(--accent)}
-  .find.flag .kicker{color:var(--pay)} .find.cold .kicker{color:var(--faint)}
-  .find h3{margin:8px 0 8px;font-size:22px;font-family:var(--serif);font-weight:700}
-  .find p{margin:0 0 10px;color:var(--muted);font-size:14.5px}
-  .find .stat{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--gold);
-       display:block;margin:6px 0 4px;letter-spacing:-0.01em}
-  .find .stat.wordy{font-size:20px;line-height:1.2}
-  .find .src{font-size:12.5px;color:var(--faint)}
-  .find .src code{color:var(--muted)}
-
-  /* pipeline */
-  .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:8px;border:2px solid var(--ink)}
-  @media(max-width:720px){.pipe{grid-template-columns:1fr 1fr}}
-  .step{background:var(--card);border-radius:0;padding:18px;border-right:1px solid var(--line)}
-  .step:last-child{border-right:none}
-  @media(max-width:720px){.step{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}}
-  .step .n{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
-  .step h4{margin:8px 0 6px;font-size:16px;font-family:var(--serif);font-weight:700}
-  .step p{margin:0;color:var(--muted);font-size:13px}
-
-  /* code block — terminal panel, square, hard border */
-  pre{background:#141210;color:#eaeaea;border:2px solid var(--ink);border-radius:0;padding:18px;
-      overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.7;margin:0}
-  pre .c{color:#8bb58a} pre .p{color:#d8b45a}
-  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media(max-width:760px){.twocol{grid-template-columns:1fr}}
-  .panel{background:var(--card);border:2px solid var(--ink);border-radius:0;padding:24px}
-  .panel h3{margin:0 0 6px;font-size:18px;font-family:var(--serif);font-weight:700}
-  .panel p.note{color:var(--muted);font-size:13.5px;margin:0 0 14px}
-  .steplist{counter-reset:s;list-style:none;margin:0;padding:0}
-  .steplist li{position:relative;padding:0 0 18px 40px;margin:0}
-  .steplist li:not(:last-child){border-bottom:1px solid var(--line);margin-bottom:18px}
-  .steplist li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
-       width:28px;height:28px;border-radius:0;background:var(--accent);border:2px solid var(--accent);
-       color:#fff;font-family:var(--mono);font-size:13px;font-weight:700;
-       display:flex;align-items:center;justify-content:center}
-  .steplist li b{display:block;font-size:16px;margin-bottom:3px;font-family:var(--serif);font-weight:700}
-  .steplist li span{color:var(--muted);font-size:13.5px}
-
-  /* ladder table */
-  table{width:100%;border-collapse:collapse;background:var(--card);border:2px solid var(--ink);
-       border-radius:0;overflow:hidden}
-  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
-  th{background:var(--black);font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-       text-transform:uppercase;color:var(--cream);border-bottom:2px solid var(--ink)}
-  tr:last-child td{border-bottom:none}
-  td .t{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.06em}
-
-  /* caveats / guardrails */
-  .caveats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:720px){.caveats{grid-template-columns:1fr}}
-  .cav{background:var(--accent-soft);border:2px solid var(--accent);border-radius:0;padding:16px;
-       border-left:8px solid var(--gold)}
-  .cav h4{margin:0 0 6px;font-size:15px;color:var(--accent);font-family:var(--serif);font-weight:700}
-  .cav p{margin:0;font-size:13.5px;color:#33402f}
-
-  /* try-it prompts */
-  .try-note{background:var(--accent);color:#fff;border:2px solid var(--ink);border-radius:0;
-       padding:14px 18px;margin:0 0 26px;font-size:14.5px}
-  .try-note a{color:var(--gold-soft);border-bottom-color:rgba(240,230,200,.5)}
-  .try-note a:hover{color:#fff;border-bottom-color:#fff}
-  .trygrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:720px){.trygrid{grid-template-columns:1fr}}
-  .trycard{background:var(--card);border:2px solid var(--ink);border-radius:0;padding:18px;
-       display:flex;flex-direction:column}
-  .trycard .tk{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
-       text-transform:uppercase;color:var(--accent)}
-  .trycard h3{margin:6px 0 10px;font-size:19px;font-family:var(--serif);font-weight:700}
-  .trycard pre.prompt{background:#12140f;color:#eaeaea;border:2px solid var(--ink);border-radius:0;
-       padding:13px;font-size:12.5px;line-height:1.55;white-space:pre-wrap;margin:0 0 12px;flex:1 0 auto}
-  .copybtn{align-self:flex-start;font-family:var(--mono);font-weight:700;font-size:12px;
-       text-transform:uppercase;letter-spacing:.08em;padding:9px 16px;border:2px solid var(--ink);
-       border-radius:0;background:var(--gold);color:var(--ink);cursor:pointer}
-  .copybtn:hover{background:var(--accent);color:#fff}
-  .copybtn.copied{background:var(--accent);color:#fff}
-
-  footer{padding:44px 0 64px;background:var(--black);color:#bcc4b2}
-  footer p{color:#bcc4b2;font-size:13px;margin:6px 0}
-  footer strong{color:var(--cream)}
-  footer code{color:#d8b45a}
-  footer a{color:#d8b45a;border-bottom-color:rgba(216,180,90,.4)}
-  footer a:hover{color:#fff;border-bottom-color:#fff}
-  .pill{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--mono);font-size:10px;
-       font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:0;padding:2px 7px;
-       vertical-align:middle}
+ :root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#9198a1;--line:#30363d;
+       --accent:#4493f8;--good:#3fb950;--warn:#d29922;--flag:#f85149;}
+ *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+ body{margin:0;font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);}
+ a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
+ .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+ header{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+ .tag{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:13px;}
+ h1{font-size:40px;margin:10px 0 12px;line-height:1.15;}
+ .sub{color:var(--mut);font-size:19px;max-width:680px;}
+ nav{position:sticky;top:0;background:rgba(13,17,23,.9);backdrop-filter:blur(6px);
+     border-bottom:1px solid var(--line);z-index:10;}
+ nav .wrap{display:flex;gap:22px;padding:12px 20px;font-size:14px;flex-wrap:wrap;}
+ section{padding:44px 0;border-bottom:1px solid var(--line);}
+ h2{font-size:26px;margin:0 0 18px;}
+ h3{margin:0 0 6px;font-size:17px;}
+ .flow{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;margin:18px 0;}
+ .step{flex:1;min-width:150px;background:var(--panel);border:1px solid var(--line);
+       border-radius:10px;padding:12px 14px;}
+ .step b{color:var(--accent);} .step small{color:var(--mut);}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+ .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;}
+ .card .b{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;}
+ .pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:20px;}
+ .c-good{background:rgba(63,185,80,.15);color:var(--good);}
+ .c-warn{background:rgba(210,153,34,.15);color:var(--warn);}
+ .c-flag{background:rgba(248,81,73,.15);color:var(--flag);}
+ .c-mut{background:rgba(145,152,161,.15);color:var(--mut);}
+ table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px;}
+ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
+ th{color:var(--mut);font-weight:600;}
+ code{background:#1f2530;padding:2px 6px;border-radius:6px;font-size:13px;}
+ pre{background:#010409;border:1px solid var(--line);border-radius:10px;padding:14px;
+     overflow:auto;font-size:13px;}
+ .dl{display:inline-block;background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px;
+     font-size:14px;font-weight:600;margin-top:10px;} .dl:hover{text-decoration:none;opacity:.9;}
+ footer{padding:40px 0;color:var(--mut);font-size:14px;}
 </style>
 </head>
 <body>
-
 <nav><div class="wrap">
-  <div class="brand">Lobbying&nbsp;Influence&nbsp;<span>Mapper</span></div>
-  <a class="link" href="#what">What it is</a>
-  <a class="link" href="#capability">Pay · Say · Act</a>
-  <a class="link" href="#findings">Findings</a>
-  <a class="link" href="#walkthrough">Walkthrough</a>
-  <a class="link" href="#install">Install</a>
-  <a class="link" href="#try">Try it</a>
-  <a class="link" href="#quickstart">Commands</a>
-  <a class="link" href="#reproduce">Reproduce</a>
-  <a class="dl" href="lobbying-influence-mapper-1.1.0.zip" download>Download</a>
+ <a href="#what">What it is</a><a href="#findings">Findings</a><a href="#skills">Skills</a>
+ <a href="#install">Install</a><a href="#traces">Traces</a><a href="#generality">Any dataset</a>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <div class="eyebrow">Investigative agent skill · for working journalists</div>
-  <h1>Follow the money through Congress —<br>and check every number yourself.</h1>
-  <p class="lede">A reusable AI agent skill that reads four years of lobbying filings and
-    congressional press releases, then answers the reporter's questions: who pays a lawmaker,
-    what that lawmaker says in public, and what they actually do. Every figure links back to
-    the original record.</p>
-  <span class="demo-corpus">Demo corpus: federal lobbying disclosures &amp; congressional press releases, 2022–2026 Q1</span>
-
-  <div class="hero-cta">
-    <a class="btn" href="lobbying-influence-mapper-1.1.0.zip" download>Download the skill (.zip)</a>
-    <span class="cta-note">v1.1.0 · standard-library Python · ships with a demo corpus</span>
-  </div>
-
-  <div class="paths">
-    <div class="path">
-      <div class="tag">New to AI agents</div>
-      <h3>Show me how this works</h3>
-      <p>Never pointed an AI agent at a pile of records before? Start here — plain language,
-         one step at a time, from "what even is a skill" to your first checked lead.</p>
-      <ul>
-        <li>What an agent skill actually is</li>
-        <li>A guided first investigation</li>
-        <li>How to verify the agent before you publish</li>
-      </ul>
-      <a class="go" href="#walkthrough">Start the walkthrough →</a>
-    </div>
-    <div class="path ops">
-      <div class="tag">Comfortable with tooling</div>
-      <h3>Just give me the commands</h3>
-      <p>Used a terminal and an LLM before? Skip the explainers — here's the build, the query
-         surface, the external-data tiers, and how to point it at your own corpus.</p>
-      <ul>
-        <li>Build the store &amp; resolve entities</li>
-        <li>The full <code>xref</code> / connector command set</li>
-        <li>The Tier 0–2 reproducibility ladder</li>
-      </ul>
-      <a class="go" href="#quickstart">Go to the quickstart →</a>
-    </div>
-  </div>
+<header><div class="wrap">
+ <div class="tag">GAIN Agentic Investigation Challenge · ASU / Howard Center</div>
+ <h1>Investigative Desk</h1>
+ <p class="sub">An agent assembly line that turns messy public records into sourced,
+ reviewable investigative leads — on <em>any</em> dataset. Every number traces back to a
+ source; the whole thing re-runs offline.</p>
 </div></header>
 
-<!-- WHAT IT IS -->
 <section id="what"><div class="wrap">
-  <div class="eyebrow">What this is</div>
-  <h2>A packaged folder of instructions and scripts you install into an AI agent.</h2>
-  <p class="sub">An Agent Skill is a folder of instructions plus scripts that you install into an AI
-    agent such as Claude. Once it is installed, you ask your questions in plain English. The agent
-    runs the analysis for you and returns the answers, with a source for every number. You do not
-    write any code.</p>
-  <div class="triad">
-    <div class="leg" style="border-top:3px solid var(--ink)">
-      <h3>The corpus</h3>
-      <p>The records being investigated: 100K+ Senate lobbying filings, 108K House filings, and
-         141K congressional press releases. The files are inconsistent and too large to read by hand.</p>
-    </div>
-    <div class="leg" style="border-top:3px solid var(--ink)">
-      <h3>The skill</h3>
-      <p>Plain Python scripts that clean up the records, match the same person or firm across the
-         datasets, and answer questions about them. They give the same answer every time you run them.</p>
-    </div>
-    <div class="leg" style="border-top:3px solid var(--ink)">
-      <h3>The receipt</h3>
-      <p>Every row carries a <code>prov</code> id. Any number the agent reports can be traced back to
-         the exact filing or press release it came from, so a person can check it.</p>
-    </div>
-  </div>
+ <h2>What it is</h2>
+ <p>Six composable Agent Skills organized into three functional buckets, plus a
+ verifiability contract underneath. Scope the question with the user, then:</p>
+ <div class="flow">
+  <div class="step"><b>Scope (S0)</b><br><small>clarify the question → open a case file → pick the beat-pack</small></div>
+  <div class="step"><b>Gather + analyze</b><br><small>ingest + web-search for data · profile · discover · verify</small></div>
+  <div class="step"><b>Organize</b><br><small>case file: threads, status, cold-ledger, journal</small></div>
+  <div class="step"><b>Harden claims</b><br><small>check the law · footnote to primary sources · QA</small></div>
+ </div>
+ <p style="color:var(--mut)">Built for the lobbying corpus, but corpus-agnostic: S0 selects a
+ beat-pack and the tool works on other public-records beats.</p>
 </div></section>
 
-<!-- CAPABILITY: PAY SAY ACT -->
-<section id="capability"><div class="wrap">
-  <div class="eyebrow">The core question</div>
-  <h2>Pay → Say → Act</h2>
-  <p class="sub">The skill lines up three things about a lawmaker that normally live in three separate
-    piles of paperwork — the money that flows to them, what they tell the public, and what they
-    legislate — so a reporter can see where they line up and where they don't.</p>
-  <div class="triad">
-    <div class="leg pay">
-      <span class="badge">PAY</span>
-      <h3>Who funds them</h3>
-      <p>Lobbyist and registrant contributions (LD-203), resolved to the member who received them,
-         ranked into a "gatekeeper" leaderboard.</p>
-      <div class="cmd">xref.py gatekeeper --filer lobbyist --year 2025</div>
-    </div>
-    <div class="leg say">
-      <span class="badge">SAY</span>
-      <h3>What they tell the public</h3>
-      <p>141K press releases tagged into policy domains, turning a release count into a topic profile —
-         then compared against what they actually sponsor.</p>
-      <div class="cmd">xref.py say-vs-do "Mark Warner"</div>
-    </div>
-    <div class="leg act">
-      <span class="badge">ACT</span>
-      <h3>What they legislate</h3>
-      <p>Sponsored-bill policy areas (Congress.gov) and dated contributions interleaved on a timeline —
-         the "pay → say → act" cadence for one member.</p>
-      <div class="cmd">xref.py timeline "Mark Warner" --year 2025</div>
-    </div>
-  </div>
-</div></section>
-
-<!-- FINDINGS -->
 <section id="findings"><div class="wrap">
-  <div class="eyebrow">What it found on the demo corpus</div>
-  <h2>Five threads, every number sourced.</h2>
-  <p class="sub">Run against the 2022–2026 corpus, the skill surfaced two publishable stories, one
-    integrity flag, one new method finding, and one supporting result.</p>
-  <div class="finds">
-    <div class="find">
-      <div class="kicker">Finding 1 · headline</div>
-      <h3>Pay-the-gavel</h3>
-      <p>Lobbyist money pools on the lawmakers who control the calendar. 10 of the top 20 recipients
-         chair or are ranking members of a committee; their sponsored bills track their committee's
-         jurisdiction.</p>
-      <span class="stat">$637K</span>
-      <p class="src">to Rep. Brett Guthrie (Chair, Energy &amp; Commerce) in 2025 from 157 distinct
-         registrants. <code>xref.py gatekeeper / member</code></p>
-    </div>
-    <div class="find">
-      <div class="kicker">Finding 2 · headline</div>
-      <h3>Foreign revolving door</h3>
-      <p>Former government insiders lobby for foreign clients. A former Executive Office official
-         registered to lobby for Tencent; Nippon Steel's spend jumped during its U.S. Steel bid.</p>
-      <span class="stat">$30K → $4.3M</span>
-      <p class="src">Nippon Steel lobbying, 2023→2024, via Akin Gump &amp; Ballard Partners.
-         <code>xref.py client / lobbyist</code> + FARA cross-check</p>
-    </div>
-    <div class="find say" style="border-top:3px solid var(--say)">
-      <div class="kicker" style="color:var(--say)">Finding · method</div>
-      <h3>Say vs. do</h3>
-      <p>With press tagged into policy domains, the skill flags where a member's public messaging
-         leans far harder on a topic than their recent bills do — a lead, not a verdict.</p>
-      <span class="stat wordy">1,057 of 1,235 releases tagged</span>
-      <p class="src">Sen. Warner releases tagged; talks Defense/Foreign-affairs more than he sponsors
-         them, sponsors Health more than he talks it. <code>xref.py say-vs-do</code></p>
-    </div>
-    <div class="find flag">
-      <div class="kicker">Finding 3 · integrity flag</div>
-      <h3>Disclosure-system abuse</h3>
-      <p>A single filer submitted nine 2025 filings each claiming $20M, injecting $180M of fictional
-         "lobbying" into the public record — flagged to the panel for referral.</p>
-      <span class="stat">$180M</span>
-      <p class="src">"State of Loc Nation…", 9 filings, pseudo-legal claims. <code>xref.py anomaly</code>
-         + <code>review.py</code></p>
-    </div>
-    <div class="find">
-      <div class="kicker">Supporting</div>
-      <h3>Coordinated messaging</h3>
-      <p>The detector finds verbatim talking points reused across many offices in a tight window —
-         e.g. a DHS/Noem investigation thread carried by 20 members.</p>
-      <span class="stat wordy">26 releases · 20 members</span>
-      <p class="src">the same phrase reused across 26 releases from 20 distinct members. <code>detect_coordination.py</code></p>
-    </div>
-  </div>
+ <h2>Findings</h2>
+ <table>
+  <tr><th>Finding</th><th>Status</th></tr>
+  <tr><td><b>Pay-the-gavel</b> — lobbyist money pools on committee gatekeepers (Guthrie #1, $694K in 2025)</td><td><span class="pill c-good">Confirmed</span></td></tr>
+  <tr><td><b>Foreign revolving door</b> — Tencent's lobbying jumped ~5× to $4.04M; John McEntee not FARA-registered</td><td><span class="pill c-good">Confirmed</span></td></tr>
+  <tr><td><b>Loc Nation</b> — $80M of pseudo-legal reparations claims filed as lobbying income</td><td><span class="pill c-flag">Integrity flag</span></td></tr>
+  <tr><td><b>Coordinated messaging</b> — a 9-member bipartisan cluster on the Dream &amp; Promise Act</td><td><span class="pill c-warn">Method</span></td></tr>
+  <tr><td><b>Senate↔House consistency</b> — 36,643 comparable engagement-periods, 0 gaps &gt;$100K (amendment-aware, both chambers)</td><td><span class="pill c-mut">Cold</span></td></tr>
+ </table>
+ <p style="margin-top:14px"><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">Read the full findings report →</a>
+ &nbsp;·&nbsp; <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/legal_checks">Legal checks →</a></p>
 </div></section>
 
-<!-- HOW IT WORKS -->
-<section id="how"><div class="wrap">
-  <div class="eyebrow">Under the hood</div>
-  <h2>A four-stage pipeline, standard library only.</h2>
-  <p class="sub">There is nothing extra to install. The skill is plain Python, and it runs in four
-    steps: it loads the records, matches up the same people and firms, answers your questions, and
-    lets you check every answer against the original source.</p>
-  <div class="pipe">
-    <div class="step"><div class="n">01 · ingest</div><h4>Normalize</h4>
-      <p>Load the House, Senate, and press files into one database, and label each row with where it came from.</p></div>
-    <div class="step"><div class="n">02 · resolve</div><h4>Match entities</h4>
-      <p>Figure out when a firm, person, or lawmaker in one file is the same one in another file.</p></div>
-    <div class="step"><div class="n">03 · xref</div><h4>Cross-reference</h4>
-      <p>Run set commands that answer questions and return totals plus a pointer to each source record.</p></div>
-    <div class="step"><div class="n">04 · review</div><h4>Verify</h4>
-      <p>Take any answer's source id and open the exact filing or press release behind it before publishing.</p></div>
-  </div>
+<section id="skills"><div class="wrap">
+ <h2>The skills</h2>
+ <p>Download the whole bundle, the single mega skill, or just the one capability you need.</p>
+ <div class="grid">
+  <div class="card"><div class="b">Orchestrator</div><h3>investigative-method</h3>
+   <p>S0 scope-framing loop + the 3-bucket workflow. Works on any dataset.</p>
+   <a class="dl" href="downloads/skill-investigative-method.zip">Download</a></div>
+  <div class="card"><div class="b">Analysis</div><h3>lobbying-influence-mapper</h3>
+   <p>Ingest, entity-resolve, cross-reference, verify vs. outside data. Full provenance.</p>
+   <a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">Download</a></div>
+  <div class="card"><div class="b">Analysis · profile</div><h3>robodoig</h3>
+   <p>Profile any tabular dataset (types, stats, correlations) + transcription-error QA.</p>
+   <a class="dl" href="downloads/skill-robodoig.zip">Download</a></div>
+  <div class="card"><div class="b">Organizing</div><h3>case-file</h3>
+   <p>Durable multi-session state: threads, entities, cold-thread ledger, journal.</p>
+   <a class="dl" href="downloads/skill-case-file.zip">Download</a></div>
+  <div class="card"><div class="b">Claim hardening</div><h3>checking-the-law</h3>
+   <p>Read the actual statute and apply it element-by-element. Never from memory.</p>
+   <a class="dl" href="downloads/skill-checking-the-law.zip">Download</a></div>
+  <div class="card"><div class="b">Claim hardening</div><h3>howard-center-footnoter</h3>
+   <p>Footnote a draft to primary sources as tracked changes; flag weak claims.</p>
+   <a class="dl" href="downloads/skill-howard-center-footnoter.zip">Download</a></div>
+ </div>
+ <p style="margin-top:16px">
+  <a class="dl" href="downloads/investigative-desk-menu.zip">⬇ Full bundle (menu)</a>
+  &nbsp;<a class="dl" href="downloads/investigative-desk-mega.zip">⬇ Single skill (mega)</a>
+ </p>
 </div></section>
 
-<!-- WALKTHROUGH (newcomer path) -->
-<section id="walkthrough"><div class="wrap">
-  <div class="eyebrow">New to AI agents</div>
-  <h2>Your first investigation, step by step.</h2>
-  <p class="sub">No jargon. This is what it feels like to use the skill the first time.</p>
-  <div class="panel">
-    <ol class="steplist">
-      <li><b>Pick the question, in plain words</b><span>Tell the agent what you're chasing the way
-        you'd tell a colleague: "Who's putting the most lobbyist money behind the lawmaker who runs
-        the health committee?"</span></li>
-      <li><b>Let it do the reading</b><span>The agent runs the skill's commands across hundreds of
-        thousands of filings — the boring part — and comes back with a tidy ranking, profile, or
-        timeline instead of a wall of files.</span></li>
-      <li><b>Read the "say vs. do" gap</b><span>Ask it to line up what a member talks about against
-        what they sponsor. Where the two diverge is a lead to chase — not a conclusion, a starting
-        point.</span></li>
-      <li><b>Check the receipts before you trust it</b><span>Every figure comes with a provenance id.
-        Hand one back to the agent and it shows you the exact filing or press release. If it doesn't
-        say what the agent claimed, you caught it before print.</span></li>
-      <li><b>Follow the thread</b><span>The skill keeps investigation state across sessions, so leads
-        you flagged today are waiting when you come back tomorrow.</span></li>
-    </ol>
-  </div>
-</div></section>
-
-<!-- INSTALL -->
 <section id="install"><div class="wrap">
-  <div class="eyebrow">Get it · runs anywhere, not just here</div>
-  <h2>Install the skill into your agent.</h2>
-  <p class="sub">It's a portable Agent Skill — a self-contained folder you drop into the skills
-    directory of any agent that supports the spec. Once installed, the agent discovers it on its
-    own and you just ask in plain language. It ships with a ~6&nbsp;MB demo corpus, so it runs out
-    of the box before you point it at the full dataset.</p>
-  <pre><span class="c"># 1 · install the folder into your agent's skills directory</span>
-unzip lobbying-influence-mapper-1.1.0.zip -d ~/.agent/skills/
-
-<span class="c"># 2 · try it immediately on the bundled demo (no key, no full corpus)</span>
-cd ~/.agent/skills/lobbying-influence-mapper
-export GAIN_DATA_DIR="$PWD/demo_data" GAIN_WORKDIR="$PWD/build"
-python3 scripts/ingest.py --years 2025 2026 --datasets senate contributions press
-python3 scripts/resolve_entities.py
-
-<span class="c"># 3 · or just ask your agent, in plain words —</span>
-<span class="c">#   "Who got the most lobbyist money in 2025, and does the top</span>
-<span class="c">#    senator's messaging match what they sponsor? Show me the source."</span>
-<span class="c"># For real work, point GAIN_DATA_DIR at the full federal corpus (same layout).</span></pre>
+ <h2>Install &amp; run</h2>
+ <p>Runs inside a code-executing agent (Claude Code, Cursor, or Cowork). Python standard
+ library only; no keys needed for the core findings.</p>
+<pre>export GAIN_DATA_DIR=/path/to/data GAIN_WORKDIR=$PWD/build/workdir
+python3 skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
+python3 skills/lobbying-influence-mapper/scripts/resolve_entities.py
+python3 skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
+python3 skills/investigative-method/tools/find_data.py "your topic"   # web-search for data
+python3 setup_keys.py    # optional: add free API keys (Congress.gov, FEC, ...)</pre>
 </div></section>
 
-<!-- TRY IT -->
-<section id="try"><div class="wrap">
-  <div class="eyebrow">Ready-to-run investigations</div>
-  <h2>Try it: five prompts you can paste into Claude.</h2>
-  <p class="sub">Each prompt reproduces one of the threads shown in Findings, using the bundled demo
-    data. Copy one, paste it into Claude, and read the answer with its sources.</p>
-  <div class="try-note"><strong>Install the skill first.</strong> These prompts only work once the
-    skill is installed into your agent — follow the <a href="#install">Install</a> steps above, then
-    paste a prompt below.</div>
-  <div class="trygrid">
-    <div class="trycard">
-      <div class="tk">Thread 1 · Pay-the-gavel</div>
-      <h3>Who funds the gatekeepers?</h3>
-      <pre class="prompt">Use the lobbying-influence-mapper skill on its bundled demo. Who received the most lobbyist money in 2025, and how many of the top recipients chair or are ranking members of a committee? Show me the source for the top number.</pre>
-      <button class="copybtn" type="button" onclick="copyPrompt(this)">Copy prompt</button>
-    </div>
-    <div class="trycard">
-      <div class="tk">Thread 2 · Foreign revolving door</div>
-      <h3>Trace Nippon Steel</h3>
-      <pre class="prompt">Use the skill to trace Nippon Steel's lobbying in the demo data: how much did they spend, which firms did they hire, and did any of their lobbyists hold former government positions? Cross-check the firms against FARA.</pre>
-      <button class="copybtn" type="button" onclick="copyPrompt(this)">Copy prompt</button>
-    </div>
-    <div class="trycard">
-      <div class="tk">Thread 3 · Say vs. do</div>
-      <h3>Where messaging and bills diverge</h3>
-      <pre class="prompt">Use the skill's say-vs-do on Mark Warner: which policy areas does he emphasize in press releases far more than in the bills he sponsors? Flag the biggest gaps as leads to chase.</pre>
-      <button class="copybtn" type="button" onclick="copyPrompt(this)">Copy prompt</button>
-    </div>
-    <div class="trycard">
-      <div class="tk">Thread 4 · Disclosure anomaly</div>
-      <h3>Spot an implausible filing</h3>
-      <pre class="prompt">Use the skill's anomaly scan on 2025 filings: is any single client reporting an implausibly large lobbying spend? Show the outlier and open one of its filings to verify.</pre>
-      <button class="copybtn" type="button" onclick="copyPrompt(this)">Copy prompt</button>
-    </div>
-    <div class="trycard">
-      <div class="tk">Thread 5 · Coordinated messaging</div>
-      <h3>Find reused talking points</h3>
-      <pre class="prompt">Use the skill to find verbatim talking points reused across many members' press releases in a tight window, and list which members carried one of the threads.</pre>
-      <button class="copybtn" type="button" onclick="copyPrompt(this)">Copy prompt</button>
-    </div>
-  </div>
+<section id="traces"><div class="wrap">
+ <h2>Traces &amp; review</h2>
+ <p>Every claim is auditable, three ways:</p>
+ <div class="grid">
+  <div class="card"><div class="b">Full session logs</div><h3>Interaction traces</h3>
+   <p>Complete logs of all four model sessions — every prompt, reasoning step, and tool
+   call — rendered as one page, with raw JSONL alongside.</p>
+   <a class="dl" href="sessions.html">Browse sessions</a>
+   &nbsp;<a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/trace_index.md">curated index →</a></div>
+  <div class="card"><div class="b">Review surface</div><h3>Review dashboard</h3>
+   <p>Generated from the case file: thread board, findings, legal flags — every claim
+   linked to its source record.</p>
+   <a class="dl" href="review_dashboard.html">Open dashboard</a></div>
+  <div class="card"><div class="b">Claim hardening</div><h3>Footnoter demo</h3>
+   <p>The findings draft footnoted to the engine's own outputs as Word tracked changes,
+   with margin flags where a claim needs a human.</p>
+   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/footnoter_demo">See the demo →</a></div>
+ </div>
 </div></section>
 
-<!-- QUICKSTART (operator path) -->
-<section id="quickstart"><div class="wrap">
-  <div class="eyebrow">Comfortable with tooling</div>
-  <h2>The command surface.</h2>
-  <p class="sub">Standard-library Python, no install step. These run against the bundled demo or the
-    full corpus — same commands, just change <code>GAIN_DATA_DIR</code>.</p>
-  <div class="twocol">
-    <div>
-      <h3 style="font-size:15px;margin:0 0 8px;color:var(--muted)">Build &amp; query</h3>
-      <pre><span class="c"># build the store + resolve entities (or: run_all.sh)</span>
-python ingest.py --years 2022 2023 2024 2025 2026 \
-  --datasets senate contributions press
-python resolve_entities.py
-
-<span class="c"># PAY — who funds the gatekeepers</span>
-python xref.py gatekeeper --filer lobbyist --year 2025
-
-<span class="c"># SAY — press topic profile + say-vs-do</span>
-python xref.py say "Mark Warner"
-python xref.py say-vs-do "Mark Warner"
-
-<span class="c"># ACT — money + press + bills on one timeline</span>
-python xref.py timeline "Mark Warner" --year 2025
-
-<span class="c"># integrity + footprint</span>
-python xref.py anomaly --year 2025 --factor 5
-python xref.py client "NIPPON STEEL"</pre>
-    </div>
-    <div>
-      <h3 style="font-size:15px;margin:0 0 8px;color:var(--muted)">Enrich &amp; verify</h3>
-      <pre><span class="c"># external data, tiered (keys optional)</span>
-python connector.py annotate-gatekeeper --year 2025  <span class="c"># no key</span>
-python connector.py fara                              <span class="c"># no key</span>
-python connector.py enrich-votes --year 2025          <span class="c"># Voteview</span>
-python connector.py enrich-act --year 2025            <span class="c"># Congress.gov</span>
-python connector.py enrich-finance --year 2025        <span class="c"># FEC</span>
-
-<span class="c"># coordinated messaging across offices</span>
-python detect_coordination.py clusters \
-  --start 2025-01-01 --end 2025-03-31 --min-members 6
-
-<span class="c"># VERIFY — provenance id back to the source record</span>
-python review.py \
-  "data/congress_press/2026-01.jsonl#L2701"</pre>
-    </div>
-  </div>
-</div></section>
-
-<!-- REPRODUCE -->
-<section id="reproduce"><div class="wrap">
-  <div class="eyebrow">Reproducibility ladder</div>
-  <h2>Keys never gate the core findings.</h2>
-  <p class="sub">The core findings run with no API keys and no internet, because the outside data they
-    need is saved as snapshot files inside the package. API keys are optional and only unlock the
-    extra tiers below. The full raw dataset is not included, so either use the bundled demo data or
-    point <code>GAIN_DATA_DIR</code> at the dataset.</p>
-  <table>
-    <tr><th>Tier</th><th>Needs</th><th>Adds</th><th>Snapshot shipped</th></tr>
-    <tr><td><span class="t">TIER 0</span></td><td>Nothing (offline)</td>
-      <td>All core findings from the corpus + committee roles + FARA + Voteview</td>
-      <td><code>committees.json</code>, <code>fara_active.json</code>, <code>votes.json</code></td></tr>
-    <tr><td><span class="t">TIER 1</span></td><td>Free Congress.gov key</td>
-      <td>The "act" leg — sponsored-bill policy areas</td>
-      <td><code>legislation.json</code></td></tr>
-    <tr><td><span class="t">TIER 2</span></td><td>FEC key</td>
-      <td>Campaign-finance denominator (lobbyist share of receipts)</td>
-      <td><code>fec_totals.json</code></td></tr>
-  </table>
-</div></section>
-
-<!-- CAVEATS -->
-<section id="caveats"><div class="wrap">
-  <div class="eyebrow">Guardrails</div>
-  <h2>Built-in limits that keep findings honest and defensible.</h2>
-  <div class="caveats">
-    <div class="cav"><h4>Disclosure ≠ truth</h4>
-      <p>Filings are self-reported, and about 35% report no income. A finding describes what was
-         disclosed, not necessarily what happened.</p></div>
-    <div class="cav"><h4>Press is Senate-skewed</h4>
-      <p>There are 1,000+ releases for active senators but only a handful for many House members. The
-         "say" leg is reliable for senators and thin for low-volume members.</p></div>
-    <div class="cav"><h4>Topic tags are coarse</h4>
-      <p>Press topics are tagged by keywords in the title and lede. A say-vs-do gap is a lead to
-         confirm, not a verdict of hypocrisy.</p></div>
-    <div class="cav"><h4>Correlation, not cause</h4>
-      <p>Money rising as a member takes a gavel is suggestive, not proof of cause. The skill shows the
-         timeline and leaves the judgment to the reader.</p></div>
-  </div>
+<section id="generality"><div class="wrap">
+ <h2>Not just this corpus</h2>
+ <p>Two features make the line run on <em>any</em> dataset — demonstrated live on a
+ Medicare hospital up-coding question with zero lobbying-specific code:</p>
+ <div class="flow">
+  <div class="step"><b>S0 scope-framing</b><br><small>a healthcare question → a synthesized
+  <code>healthcare</code> beat-pack (brief.md + beatpack.json), not the lobbying pack</small></div>
+  <div class="step"><b>Web-search-for-data</b><br><small>curated catalog ranked CMS first ·
+  live CKAN portal query · suggested web searches surfaced the HHS-OIG up-coding report</small></div>
+  <div class="step"><b>Snapshot the source</b><br><small>the OIG report fetched + stored with
+  URL, timestamp, sha256 — the acquisition re-runs offline</small></div>
+ </div>
+ <p><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/generality_demo">See the generality demo →</a></p>
 </div></section>
 
 <footer><div class="wrap">
-  <p><strong>Lobbying Influence Mapper</strong> — an Agent Skill (<code>lobbying-influence-mapper</code>).
-     Validates against the Agent Skills spec · standard-library Python · MIT.</p>
-  <p>Source, scripts, findings, and reproducibility traces live alongside this page in the repository.</p>
+ ASU / Howard Center team · GAIN Agentic Investigation Challenge 2026 ·
+ Skills validate against the <a href="https://agentskills.io">Agent Skills</a> spec.
 </div></footer>
-
-<script>
-  function copyPrompt(btn){
-    var card = btn.closest('.trycard');
-    var pre = card ? card.querySelector('pre.prompt') : null;
-    if(!pre){ return; }
-    var text = pre.innerText.trim();
-    function flash(){
-      var original = btn.textContent;
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 1600);
-    }
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(flash).catch(function(){ legacyCopy(text, flash); });
-    } else {
-      legacyCopy(text, flash);
-    }
-  }
-  function legacyCopy(text, onDone){
-    try{
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.top = '0';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.focus(); ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      onDone();
-    } catch(e){
-      /* clipboard blocked (e.g. file://) — prompt text stays visible for manual copy */
-    }
-  }
-</script>
-
 </body>
 </html>

@@ -1,0 +1,570 @@
+{
+  "_source": "Voteview 119th + Congress.gov policy areas",
+  "_note": "sampled: 80 most recent bill-linked votes",
+  "bioguide": "G000558",
+  "name": "GUTHRIE, Brett",
+  "policy_area_distribution": [
+    [
+      "Congress",
+      16
+    ],
+    [
+      "Agriculture and Food",
+      11
+    ],
+    [
+      "Environmental Protection",
+      8
+    ],
+    [
+      "Armed Forces and National Security",
+      6
+    ],
+    [
+      "Crime and Law Enforcement",
+      6
+    ],
+    [
+      "Finance and Financial Sector",
+      4
+    ],
+    [
+      "Science, Technology, Communications",
+      4
+    ],
+    [
+      "International Affairs",
+      4
+    ],
+    [
+      "Energy",
+      4
+    ],
+    [
+      "Economics and Public Finance",
+      3
+    ],
+    [
+      "Arts, Culture, Religion",
+      2
+    ],
+    [
+      "Education",
+      2
+    ],
+    [
+      "Law",
+      2
+    ],
+    [
+      "Taxation",
+      2
+    ],
+    [
+      "Housing and Community Development",
+      1
+    ],
+    [
+      "Civil Rights and Liberties, Minority Issues",
+      1
+    ],
+    [
+      "Foreign Trade and International Finance",
+      1
+    ],
+    [
+      "Social Welfare",
+      1
+    ],
+    [
+      "Commerce",
+      1
+    ],
+    [
+      "Health",
+      1
+    ]
+  ],
+  "votes": [
+    {
+      "date": "2026-05-21",
+      "bill": "HR6047",
+      "policy_area": "Armed Forces and National Security",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-21",
+      "bill": "HR1041",
+      "policy_area": "Armed Forces and National Security",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-21",
+      "bill": "HR1041",
+      "policy_area": "Armed Forces and National Security",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-21",
+      "bill": "HR1329",
+      "policy_area": "Arts, Culture, Religion",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-21",
+      "bill": "HR1329",
+      "policy_area": "Arts, Culture, Religion",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HRES1300",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HRES1300",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HR2616",
+      "policy_area": "Education",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HR2616",
+      "policy_area": "Education",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HR1993",
+      "policy_area": "Finance and Financial Sector",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "S1003",
+      "policy_area": "Science, Technology, Communications",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "S2393",
+      "policy_area": "Armed Forces and National Security",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HR5317",
+      "policy_area": "Finance and Financial Sector",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HR4544",
+      "policy_area": "Finance and Financial Sector",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HR3234",
+      "policy_area": "Finance and Financial Sector",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-20",
+      "bill": "HRES1299",
+      "policy_area": "Housing and Community Development",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-15",
+      "bill": "HR8469",
+      "policy_area": "Economics and Public Finance",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-15",
+      "bill": "HR8469",
+      "policy_area": "Economics and Public Finance",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-14",
+      "bill": "HR8365",
+      "policy_area": "Law",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-14",
+      "bill": "HR8365",
+      "policy_area": "Law",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-14",
+      "bill": "HR5625",
+      "policy_area": "Crime and Law Enforcement",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-14",
+      "bill": "HCONRES75",
+      "policy_area": "International Affairs",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-14",
+      "bill": "HR6260",
+      "policy_area": "Crime and Law Enforcement",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-14",
+      "bill": "HR6260",
+      "policy_area": "Crime and Law Enforcement",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1259",
+      "policy_area": "International Affairs",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1251",
+      "policy_area": "Civil Rights and Liberties, Minority Issues",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HCONRES96",
+      "policy_area": "Crime and Law Enforcement",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HR1346",
+      "policy_area": "Environmental Protection",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HR1346",
+      "policy_area": "Environmental Protection",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1252",
+      "policy_area": "Crime and Law Enforcement",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1274",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1274",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1275",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-13",
+      "bill": "HRES1275",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-12",
+      "bill": "HR2853",
+      "policy_area": "Crime and Law Enforcement",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-05-12",
+      "bill": "HR2071",
+      "policy_area": "Foreign Trade and International Finance",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "S4465",
+      "policy_area": "Armed Forces and National Security",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-30",
+      "bill": "HR7567",
+      "policy_area": "Agriculture and Food",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-29",
+      "bill": "SCONRES33",
+      "policy_area": "Economics and Public Finance",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-29",
+      "bill": "S1318",
+      "policy_area": "Armed Forces and National Security",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-29",
+      "bill": "HRES1224",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-29",
+      "bill": "HRES1224",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-27",
+      "bill": "HR227",
+      "policy_area": "Social Welfare",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-27",
+      "bill": "HR7959",
+      "policy_area": "Taxation",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-23",
+      "bill": "HR5587",
+      "policy_area": "Energy",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HR6387",
+      "policy_area": "Environmental Protection",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HR6387",
+      "policy_area": "Environmental Protection",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HR4690",
+      "policy_area": "Energy",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HR4690",
+      "policy_area": "Energy",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HRES1182",
+      "policy_area": "Commerce",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HRES1189",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-22",
+      "bill": "HRES1189",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-21",
+      "bill": "S1020",
+      "policy_area": "Energy",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-21",
+      "bill": "HR2493",
+      "policy_area": "Health",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-21",
+      "bill": "HR5201",
+      "policy_area": "Science, Technology, Communications",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-20",
+      "bill": "HR5200",
+      "policy_area": "Science, Technology, Communications",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-20",
+      "bill": "HR1681",
+      "policy_area": "Science, Technology, Communications",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-17",
+      "bill": "HRES1175",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-17",
+      "bill": "HRES1175",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-17",
+      "bill": "HRES1175",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HRES1156",
+      "policy_area": "Taxation",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HR1689",
+      "policy_area": "International Affairs",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HRES965",
+      "policy_area": "Congress",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HR6398",
+      "policy_area": "Environmental Protection",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HR6398",
+      "policy_area": "Environmental Protection",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HR6409",
+      "policy_area": "Environmental Protection",
+      "vote": "Yea"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HR6409",
+      "policy_area": "Environmental Protection",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-16",
+      "bill": "HCONRES40",
+      "policy_area": "International Affairs",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-15",
+      "bill": "HRES965",
+      "policy_area": "Congress",
+      "vote": "Nay"
+    },
+    {
+      "date": "2026-04-15",
+      "bill": "HRES1174",
+      "policy_area": "Congress",
+      "vote": "Yea"
+    }
+  ]
+}

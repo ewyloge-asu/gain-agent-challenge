@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investigation Review Dashboard</title>
+<style>
+ :root { --bg:#f6f8fa; --card:#fff; --ink:#1f2328; --mut:#656d76; --line:#d0d7de; }
+ * { box-sizing:border-box; }
+ body { font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+        margin:0; background:var(--bg); color:var(--ink); }
+ header { background:#0d1117; color:#fff; padding:20px 28px; }
+ header h1 { margin:0 0 4px; font-size:20px; } header p { margin:0; color:#9da7b3; }
+ main { max-width:1000px; margin:0 auto; padding:24px 20px 60px; }
+ .row { display:flex; gap:14px; flex-wrap:wrap; margin:16px 0; }
+ .stat { background:var(--card); border:1px solid var(--line); border-radius:10px;
+          padding:12px 16px; min-width:110px; }
+ .stat b { font-size:22px; display:block; } .stat span { color:var(--mut); font-size:12px; }
+ section { background:var(--card); border:1px solid var(--line); border-radius:10px;
+            padding:18px 20px; margin:16px 0; }
+ h2 { font-size:16px; margin:0 0 12px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+ .thread { border-left:4px solid var(--line); padding:8px 12px; margin:10px 0;
+            background:#fafbfc; border-radius:0 8px 8px 0; }
+ .pill { display:inline-block; color:#fff; font-size:11px; font-weight:600;
+          padding:2px 8px; border-radius:20px; text-transform:uppercase; }
+ .thread h3 { margin:6px 0 4px; font-size:15px; }
+ .meta { color:var(--mut); font-size:13px; }
+ code { background:#eff1f3; padding:1px 5px; border-radius:5px; font-size:12px;
+         word-break:break-all; }
+ pre { white-space:pre-wrap; background:#f6f8fa; padding:12px; border-radius:8px;
+        border:1px solid var(--line); font-size:13px; }
+ .flag { border-left:4px solid #cf222e; } details summary { cursor:pointer; font-weight:600; }
+ .src { font-size:12px; } .src a { color:#0969da; }
+</style></head><body>
+<header><h1>Investigation Review Dashboard</h1>
+<p>Generated from the case file — every claim links to a source record. No server, no login.</p></header>
+<main><div class="row"><div class="stat"><b>1</b><span>Confirmed</span></div><div class="stat"><b>2</b><span>Chasing</span></div><div class="stat"><b>0</b><span>Open</span></div><div class="stat"><b>1</b><span>Cold</span></div><div class="stat"><b>1</b><span>Findings</span></div><div class="stat"><b>2</b><span>Legal flags</span></div></div><section><h2>Thread board</h2><div class="thread" style="border-left-color:#1a7f37"><span class="pill" style="background:#1a7f37">confirmed</span> <span class="meta">T-0001 · P1</span><h3>Pay-the-gavel — lobbyist money concentrates on committee gatekeepers</h3><div class="src"><b>source:</b> <code>data/senate/2025/contributions/contributions_2025.json#17a8911b-d48a-4020-af49-e1824e664f57</code></div><details><summary>notes</summary><pre>Hypothesis: registered-lobbyist LD-203 money pools on the members who control whether
+legislation moves (committee chairs / ranking members + floor leadership).
+
+Evidence (2025, this run): the resolved gatekeeper leaderboard (honoree→member, 81.8%
+coverage after seeding members from the congress-legislators roster and resolving
+campaign-committee honorees like &quot;Guthrie for Congress&quot;) puts **Brett Guthrie
+(E&amp;C chair) #1 at $694K** from lobbyist filers (177 registrants), then Jason Smith
+(Ways &amp; Means), Mark Warner, Scalise, Johnson, Tillis, Cole, Carey, Thune, Jeffries —
+overwhelmingly committee chairs/ranking members and floor leaders.
+
+The discretionary signal is **bill sponsorship** (what a member chooses to push), not floor
+votes (which are ~97–99% party-line, so donor-alignment at the vote level is confounded by
+party). Documented ≠ causation.</pre></details></div><div class="thread" style="border-left-color:#9a6700"><span class="pill" style="background:#9a6700">chasing</span> <span class="meta">T-0002 · P2</span><h3>Foreign companies under US scrutiny hired insiders (revolving door), disclosed</h3><div class="meta"><b>Next:</b> Confirm FARA foreign principals for Tencent/Nippon and McEntee&#x27;s LDA-vs-FARA status; route to checking-the-law.</div><details><summary>notes</summary><pre>Tencent America&#x27;s reported lobbying jumped ~5x to **$4.04M in 2025** while it fought a DoD
+&quot;Chinese military company&quot; designation. **John McEntee** — disclosed covered position
+&quot;Officer in the Executive Office of the President&quot; — registered on the single issue
+&quot;Erroneous trade restriction designation&quot; (filing b8b09920…) and does **not** appear in the
+FARA registry, so the work proceeds under the lighter LDA regime.
+
+Legal questions (cooling-off; LDA-vs-FARA election) routed to `checking-the-law`; expect a
+&quot;genuinely-unclear / question for the panel&quot; verdict since departure dates aren&#x27;t in the corpus.</pre></details></div><div class="thread" style="border-left-color:#9a6700"><span class="pill" style="background:#9a6700">chasing</span> <span class="meta">T-0003 · P2</span><h3>Loc Nation — disclosure-system integrity flag (possible misuse)</h3><div class="meta"><b>Next:</b> Run checking-the-law on possible misuse of the LDA filing system; seek comment; keep $80M labeled nominal.</div><details><summary>notes</summary><pre>A single filer (LOC COMMUNITY ASSOCIATION → STATE OF LOC NATION GPBC) filed **four 2025
+quarterly reports each claiming $20M = $80M** (amendment-aware; the naive sum of all 11
+filings is $180M — an amendment double-count now fixed in `xref.py anomaly`). The filings
+describe pseudo-legal reparations claims (HR 40, a self-issued &quot;Loc Nation Dollar&quot;), not
+lobbying.
+
+The &quot;biggest 2025 spender&quot; framing is **dead** — it isn&#x27;t real spending. The live angle is
+**disclosure-system integrity** plus a **possible-misuse legal flag** for the panel. Prior
+public notice exists (LegiStorm, Aug 2025), so pitch as the fuller, reproducible, full-year,
+cross-checked version — not a first discovery.</pre></details></div><div class="thread" style="border-left-color:#6e7781"><span class="pill" style="background:#6e7781">cold</span> <span class="meta">T-0004 · P5</span><h3>Do Senate and House report the same engagement&#x27;s dollars differently?</h3><div class="meta"><b>Cold reason:</b> Re-verified this session on a full 2025 House re-ingest: 108,518 House filings bridged (98.3% linked), 36,643 comparable engagement-periods, 0 gaps &gt;100K after amendment-aware de-dup on BOTH chambers. Clean dead end; revive only if a future ingest shows gaps.</div><div class="src"><b>source:</b> <code>data/house/2025_2ndQuarter_XML#301746252</code></div><details><summary>notes</summary><pre>**Re-verified this session** (previously a prior-work result reached independently by all
+three solo attempts): House 2025 re-ingested into this store — 108,518 filings, 98.3%
+bridged to Senate engagements via senateID + name fallback. Across **36,643 comparable
+engagement-periods, zero** differed in reported income by more than $100K. A clean dead
+end, reported on purpose as a credibility signal.
+
+**Methods catch:** the naive join first showed 19 six-figure &quot;gaps&quot; — all were quarterly
+amendment artifacts (original filing in one chamber compared against the amendment in the
+other; e.g. Mercury/Prvo Plinarsko Q2: $1.2M originally in both chambers, amended to $120K
+in both). Amendment-aware de-dup on both sides (latest filing per engagement-period — the
+same discipline that corrected Loc Nation) collapsed all 19 to zero. Folded into
+`xref.py mismatch` so the tool can&#x27;t repeat the mistake.</pre></details></div></section><section><h2>Findings</h2><div class="thread" style="border-left-color:#1a7f37"><h3>Lobbyist money concentrates on committee gatekeepers (pay-the-gavel) <span class="meta">(F-0001)</span></h3><div class="meta">In 2025, registered-lobbyist LD-203 contributions pool on committee chairs/ranking members and floor leadership; Brett Guthrie (Chair, House Energy &amp; Commerce) is #1 at $694K from lobbyist filers. Recipients verified against the congress-legislators roster. Descriptive, not causal.</div><div class="src"><b>source:</b> <code>data/senate/2025/contributions/contributions_2025.json#17a8911b-d48a-4020-af49-e1824e664f57</code></div></div></section><section><h2>Legal flags — for the panel</h2><div class="thread flag"><h3>L-0001 <span class="meta">status: to_verify</span></h3><div class="meta">Possible misuse of the federal LDA filing system — a single filer lodged pseudo-legal reparations claims as $20M/quarter of lobbying income ($80M nominal in 2025). Flag to the panel for possible referral; not asserted as a crime.</div><div class="src"><b>source:</b> <code>data/senate/2025/filings/filings_2025.json#4d5b1cb0-0971-43b8-958b-d260e2be8af1</code></div></div><div class="thread flag"><h3>L-0002 <span class="meta">status: to_verify</span></h3><div class="meta">LDA-vs-FARA election — John McEntee lobbies for a foreign client (Tencent) under the LDA and is not FARA-registered; cooling-off compliance unknown (departure dates not in the corpus). Disclosed and presumptively lawful; flagged as a question for a lawyer.</div><div class="src"><b>source:</b> <code>data/senate/2025/filings/filings_2025.json#b8b09920-a089-4e40-badb-eaaa93cf6a8d</code></div></div></section><section><h2>Key entities</h2><div class="meta">[KEY] <b>Brett Guthrie (R-KY)</b> (<code>G000558</code>) — Chair, House Energy &amp; Commerce;</div><div class="meta">[KEY] <b>Jason Smith (R-MO)</b> (<code>S001195</code>) — Chair, House Ways &amp; Means; top-3 lobbyist-money recipient 2025</div><div class="meta">[KEY] <b>Mark R. Warner (D-VA)</b> (<code>W000805</code>) — Senate Banking/Intelligence; top-3 lobbyist-money recipient 2025</div><div class="meta">[WATCH] <b>Akin Gump</b> (<code>akin-gump</code>) — Lead registrant for Nippon Steel; FARA-registered; fielded former officials</div><div class="meta">[FLAG] <b>State of Loc Nation Global Public Benefit Corporation</b> (<code>loc-nation</code>) — $80M of pseudo-legal reparations claims filed as lobbying income (disclosure integrity)</div><div class="meta">[KEY] <b>Tencent America LLC</b> (<code>tencent</code>) — ~5x lobbying spend jump to $4.04M while fighting DoD &#x27;Chinese military company&#x27; listing</div><div class="meta">[KEY] <b>John McEntee</b> (<code>mcentee-john</code>) — Former EOP official lobbying for Tencent on &#x27;erroneous trade restriction&#x27;; not FARA-registered</div></section><section><h2>Case brief (scope)</h2><pre># Case Brief
+
+_Generated by S0 scope-framing on 2026-07-12. Human-owned after this: edit freely as the investigation sharpens._
+
+## The question
+Where does lobbyist money concentrate, and does the disclosure system contain integrity anomalies worth flagging?
+
+## Scope
+- Entities: committee chairs, registered lobbyists, foreign clients under US scrutiny, Loc Nation
+- Timeframe: 2025-01-01 to 2025-12-31
+- Jurisdiction: US federal
+- Domain/beat: lobbying  (beat-pack: lobbying)
+
+## What counts as a finding (the finding bar)
+a sourced pattern a reporter would chase (concentration, revolving door, disclosure misuse) — not a dataset summary
+
+## Beat-pack selected: `lobbying`
+US federal lobbying &amp; money-in-politics (LDA filings, LD-203 contributions, congressional press).
+
+- Entity keys: bioguide_id (members), senateID/houseID (filing bridge), registrant/client names (resolve)
+- Outside sources to seek: congress-legislators, Congress.gov, FEC, Voteview, FARA
+- Law packs: us-influence-law, us-campaign-finance-law
+- Engine notes: Use lobbying-influence-mapper for model/discover/verify; amendment-aware de-dup before any spend aggregate.
+
+## Scope-adjustment log
+S0 is a loop. If acquisition/analysis suggests the story is broader or narrower
+than the above, ask the user, then record the change here (and in the journal).
+</pre></section></main></body></html>

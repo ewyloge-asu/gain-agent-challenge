@@ -1,0 +1,316 @@
+{
+  "draft_path": "findings_draft.docx",
+  "n_claims_extracted": 15,
+  "n_needing_footnote": 11,
+  "claims": [
+    {
+      "id": "claim_0001",
+      "paragraph_index": 0,
+      "sentence_index": 0,
+      "char_span": [
+        0,
+        50
+      ],
+      "sentence_text": "Lobbyist money pools around Congress's gatekeepers",
+      "claim_type": "general_assertion",
+      "distinctive_terms": [],
+      "flags": [],
+      "multi_claim": false,
+      "needs_footnote": false,
+      "rationale": "no verifiable assertion detected"
+    },
+    {
+      "id": "claim_0002",
+      "paragraph_index": 1,
+      "sentence_index": 0,
+      "char_span": [
+        51,
+        192
+      ],
+      "sentence_text": "In 2025, contributions reported by registered federal lobbyists concentrated on the members of Congress who decide whether legislation moves.",
+      "claim_type": "attribution",
+      "distinctive_terms": [
+        "2025,",
+        "2025"
+      ],
+      "flags": [
+        "date",
+        "attribution"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "date, attribution"
+    },
+    {
+      "id": "claim_0003",
+      "paragraph_index": 1,
+      "sentence_index": 1,
+      "char_span": [
+        193,
+        300
+      ],
+      "sentence_text": "Rep. Brett Guthrie of Kentucky was the top recipient, with $694,295 from 177 distinct lobbying registrants.",
+      "claim_type": "statistic",
+      "distinctive_terms": [
+        "$694,295",
+        "694,295",
+        "177"
+      ],
+      "flags": [
+        "dollar_amount",
+        "named_title"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "dollar_amount, named_title"
+    },
+    {
+      "id": "claim_0004",
+      "paragraph_index": 1,
+      "sentence_index": 2,
+      "char_span": [
+        301,
+        359
+      ],
+      "sentence_text": "Guthrie chairs the House Committee on Energy and Commerce.",
+      "claim_type": "named_fact",
+      "distinctive_terms": [
+        "House Committee"
+      ],
+      "flags": [
+        "named_organization"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "named_organization"
+    },
+    {
+      "id": "claim_0005",
+      "paragraph_index": 2,
+      "sentence_index": 0,
+      "char_span": [
+        360,
+        399
+      ],
+      "sentence_text": "The pattern holds down the leaderboard.",
+      "claim_type": "general_assertion",
+      "distinctive_terms": [],
+      "flags": [],
+      "multi_claim": false,
+      "needs_footnote": false,
+      "rationale": "no verifiable assertion detected"
+    },
+    {
+      "id": "claim_0006",
+      "paragraph_index": 2,
+      "sentence_index": 1,
+      "char_span": [
+        400,
+        496
+      ],
+      "sentence_text": "Rep. Jason Smith of Missouri, who chairs Ways and Means, received $674,775 from lobbyist filers.",
+      "claim_type": "statistic",
+      "distinctive_terms": [
+        "$674,775",
+        "674,775"
+      ],
+      "flags": [
+        "dollar_amount",
+        "named_title"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "dollar_amount, named_title"
+    },
+    {
+      "id": "claim_0007",
+      "paragraph_index": 2,
+      "sentence_index": 2,
+      "char_span": [
+        497,
+        544
+      ],
+      "sentence_text": "Sen. Mark Warner of Virginia received $632,009.",
+      "claim_type": "statistic",
+      "distinctive_terms": [
+        "$632,009",
+        "632,009"
+      ],
+      "flags": [
+        "dollar_amount",
+        "named_title"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "dollar_amount, named_title"
+    },
+    {
+      "id": "claim_0008",
+      "paragraph_index": 2,
+      "sentence_index": 3,
+      "char_span": [
+        545,
+        684
+      ],
+      "sentence_text": "For the money-committee chairs, lobbyist contributions amounted to roughly 17 percent of Guthrie's entire campaign haul for the 2026 cycle.",
+      "claim_type": "named_fact",
+      "distinctive_terms": [
+        "17 percent",
+        "2026"
+      ],
+      "flags": [
+        "date"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "date"
+    },
+    {
+      "id": "claim_0009",
+      "paragraph_index": 3,
+      "sentence_index": 0,
+      "char_span": [
+        685,
+        732
+      ],
+      "sentence_text": "The disclosure system itself has no gatekeeper.",
+      "claim_type": "general_assertion",
+      "distinctive_terms": [],
+      "flags": [],
+      "multi_claim": false,
+      "needs_footnote": false,
+      "rationale": "no verifiable assertion detected"
+    },
+    {
+      "id": "claim_0010",
+      "paragraph_index": 3,
+      "sentence_index": 1,
+      "char_span": [
+        733,
+        969
+      ],
+      "sentence_text": "The largest 2025 lobbying client by reported income is fictional: a Delaware filer calling itself the State of Loc Nation claimed $20,000,000 of lobbying income per quarter, $80 million for the year after amendment-aware de-duplication.",
+      "claim_type": "attribution",
+      "distinctive_terms": [
+        "$20,000,000",
+        "$80 million",
+        "20,000,000",
+        "80 million",
+        "2025",
+        "largest"
+      ],
+      "flags": [
+        "dollar_amount",
+        "date",
+        "attribution",
+        "superlative"
+      ],
+      "multi_claim": true,
+      "needs_footnote": true,
+      "rationale": "dollar_amount, date, attribution, superlative"
+    },
+    {
+      "id": "claim_0011",
+      "paragraph_index": 3,
+      "sentence_index": 2,
+      "char_span": [
+        970,
+        1038
+      ],
+      "sentence_text": "One amended first-quarter filing was posted by Rev. Dr. Christina L.",
+      "claim_type": "comparison_or_superlative",
+      "distinctive_terms": [
+        "first"
+      ],
+      "flags": [
+        "superlative"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "superlative"
+    },
+    {
+      "id": "claim_0012",
+      "paragraph_index": 3,
+      "sentence_index": 3,
+      "char_span": [
+        1039,
+        1090
+      ],
+      "sentence_text": "Clement on behalf of the LOC Community Association.",
+      "claim_type": "named_fact",
+      "distinctive_terms": [
+        "Community Association"
+      ],
+      "flags": [
+        "named_organization"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "named_organization"
+    },
+    {
+      "id": "claim_0013",
+      "paragraph_index": 4,
+      "sentence_index": 0,
+      "char_span": [
+        1091,
+        1156
+      ],
+      "sentence_text": "Foreign companies under U.S. scrutiny also ramped their lobbying.",
+      "claim_type": "general_assertion",
+      "distinctive_terms": [],
+      "flags": [],
+      "multi_claim": false,
+      "needs_footnote": false,
+      "rationale": "no verifiable assertion detected"
+    },
+    {
+      "id": "claim_0014",
+      "paragraph_index": 4,
+      "sentence_index": 1,
+      "char_span": [
+        1157,
+        1272
+      ],
+      "sentence_text": "Tencent's reported lobbying income reached $4.04 million in 2025, roughly five times its level from a year earlier.",
+      "claim_type": "attribution",
+      "distinctive_terms": [
+        "$4.04 million",
+        "4.04 million",
+        "2025,",
+        "2025"
+      ],
+      "flags": [
+        "dollar_amount",
+        "date",
+        "attribution"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "dollar_amount, date, attribution"
+    },
+    {
+      "id": "claim_0015",
+      "paragraph_index": 4,
+      "sentence_index": 2,
+      "char_span": [
+        1273,
+        1371
+      ],
+      "sentence_text": "The Department of Defense added Tencent to its list of Chinese military companies in January 2025.",
+      "claim_type": "date_event",
+      "distinctive_terms": [
+        "2025",
+        "The Department"
+      ],
+      "flags": [
+        "date",
+        "named_organization"
+      ],
+      "multi_claim": false,
+      "needs_footnote": true,
+      "rationale": "date, named_organization"
+    }
+  ]
+}

@@ -1,142 +1,68 @@
-# GAIN Agentic Investigation Challenge — Submission
+# GAIN Agentic Investigation Challenge — Submission (ASU / Howard Center team)
 
-**Skill:** `lobbying-influence-mapper` · **Author:** evan · **License:** MIT
+A reusable **investigative assembly line** for records investigations — six composable
+Agent Skills plus the newsworthy findings they produced on the GAIN federal lobbying
+corpus (2022–2026 Q1).
 
-A reusable Agent Skill for investigating lobbying and money in Congress, plus the
-findings produced by running it on the GAIN corpus (2022–2026 Q1).
+**Site:** https://ewyloge-asu.github.io/gain-agent-challenge/ ·
+**Submission map (required README):** [`submission/README.md`](submission/README.md)
 
-## What's here
+## The four deliverables, at a glance
+
+| Deliverable | Where |
+|---|---|
+| **1 · Agent Skills** | [`menu/skills/`](menu/skills/) (six skills, à la carte) · [`mega/investigative-desk/`](mega/investigative-desk/) (single-skill form) · [`dist/`](dist/) (zips) |
+| **2 · Findings report** | [`submission/findings_report.md`](submission/findings_report.md) (+ [`submission/legal_checks/`](submission/legal_checks/)) |
+| **3 · Interaction traces** | [`submission/traces/raw/`](submission/traces/raw/) (full session logs, JSONL) · [`submission/traces/sessions.html`](submission/traces/sessions.html) (rendered) · [`submission/traces/trace_index.md`](submission/traces/trace_index.md) (curated index) |
+| **4 · README** | [`submission/README.md`](submission/README.md) — skills ↔ findings map, outside data, conflicts of interest, legal flags for the panel |
+
+## The assembly line
 
 ```
-evan_gain_agent_challenge_submission/
-├── README.md                       # this map
-├── validate_skill.py               # checks SKILL.md against the Agent Skills spec
-├── lobbying-influence-mapper/      # THE SKILL — standalone, distributable unit
-│   ├── SKILL.md                    # agent-facing instructions (spec frontmatter)
-│   ├── README.md                   # human install/use guide (skills-dir install, demo, BYO)
-│   ├── scripts/                    # ingest, resolve_entities, xref, detect_coordination,
-│   │                               #   connector, state, review, common, make_demo_data, run_all.sh
-│   ├── references/                 # schema, bridge_format, connectors, methodology
-│   ├── assets/                     # offline snapshots (committees, FARA, Voteview, legislation, FEC)
-│   └── demo_data/                  # bundled ~6 MB demo corpus — the skill runs out of the box
-├── dist/                           # generated release archives (zip/tarball) — gitignored
-├── docs/index.html                 # USER-FACING SITE (GitHub Pages-ready front door)
-├── findings/findings_report.md     # the newsworthy discoveries, sourced
-├── meeting/                        # shareable briefs (findings, tool pitch, team comparison)
-├── traces/                         # invocation log keyed to each finding
-└── build/                          # generated artifacts (db, cache, snapshots, state) — gitignored, regenerable
+S0 scope-framing (works on ANY dataset; selects/synthesizes a beat-pack)
+  → gather & analyze   ingest + web-search-for-data · profile (robodoig) ·
+                       discover leads · cross-check vs ground truth
+  → organize           case-file: threads, status, cold-ledger, journal
+  → harden claims      checking-the-law · howard-center-footnoter · QA
+  → findings report + review dashboard
+     (verifiability contract underneath: every number carries a provenance id)
 ```
 
-## User-facing site
+Also in this repo, demonstrated end-to-end on real data:
 
-`docs/index.html` is a self-contained webpage (no build step, no dependencies) that
-serves as the front door for a non-technical reader: what the skill is, the
-**pay → say → act** capability, the findings with sourced numbers, a plain-language
-walkthrough, an operator quickstart, and the reproducibility ladder. Open it
-directly in a browser, or enable **GitHub Pages → Deploy from branch → `/docs`** to
-publish it.
+- [`submission/generality_demo/`](submission/generality_demo/) — the same line on a
+  **non-lobbying** beat (Medicare up-coding): S0 synthesized a healthcare beat-pack and
+  web-search-for-data surfaced + snapshotted an HHS-OIG primary source.
+- [`submission/footnoter_demo/`](submission/footnoter_demo/) — the findings draft
+  footnoted to the engine's own outputs as Word tracked changes, with margin flags.
+- [`submission/review_dashboard.html`](submission/review_dashboard.html) — generated from
+  the real case file ([`casefile/`](casefile/)); every claim links to a source record.
 
-## The skill (primary artifact)
+## Reproduce (no API key, no network needed for the core findings)
 
-`lobbying-influence-mapper` turns the three corpora into a provenance-stamped
-SQLite store and gives the agent deterministic tools to cross-reference them:
-
-- **ingest.py / common.py** — parse House XML + Senate JSON + press JSONL into a
-  normalized store; every row carries a `prov` id.
-- **resolve_entities.py** — cross-chamber entity resolution (the `senateID`
-  bridge + name fallback) and honoree→member resolution.
-- **xref.py** — query engine: `gatekeeper`, `member`, `client`, `lobbyist`,
-  `anomaly`, `mismatch`, plus the **say** leg — `say` (press topic profile),
-  `say-vs-do` (press topics vs. sponsored-bill policy areas), and `timeline`
-  (dated money + press cadence vs. bills).
-- **detect_coordination.py** — coordinated-messaging detector with party/timing
-  /specificity signals.
-- **connector.py** — config-driven, cached external-data connector (committees
-  verified with no key; Congress.gov/FEC/FARA wired with offline fallback).
-- **state.py** — investigation-state tracker across sessions.
-- **review.py** — provenance → exact source record, for human verification.
-
-Validate it: `python3 validate_skill.py lobbying-influence-mapper`
-(or `skills-ref validate ./lobbying-influence-mapper`).
-
-### Distribution (it's a portable skill, not a Cursor thing)
-
-`lobbying-influence-mapper/` is a self-contained Agent Skill. A recipient installs
-the folder into their agent's skills directory; a spec-compliant agent then
-auto-discovers it from the `SKILL.md` `description` and invokes it in response to
-plain-language questions. It **ships with `demo_data/`** (~6 MB) so it runs out of
-the box, then points at the full corpus via `GAIN_DATA_DIR`. Build a versioned
-release archive (the skill folder is the unit) with:
+Runs inside a code-executing agent (Claude Code, Cursor, Cowork) or any shell. Python
+standard library only. Evaluators supply the corpus via `GAIN_DATA_DIR`
+(see [`menu/data-setup.md`](menu/data-setup.md)).
 
 ```bash
-mkdir -p dist
-zip -r dist/lobbying-influence-mapper-1.1.0.zip lobbying-influence-mapper \
-  -x '*/__pycache__/*' '*.DS_Store'
+export GAIN_DATA_DIR=/path/to/data GAIN_WORKDIR=$PWD/workdir
+python3 menu/skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
+python3 menu/skills/lobbying-influence-mapper/scripts/resolve_entities.py
+python3 menu/skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
+python3 menu/skills/lobbying-influence-mapper/scripts/xref.py anomaly --year 2025 --factor 5
+python3 validate_skills.py menu/skills      # all 6 skills validate against the spec
 ```
 
-Attach that archive to a GitHub Release for download. Full human install/use guide:
-[lobbying-influence-mapper/README.md](lobbying-influence-mapper/README.md).
+Optional free keys (Congress.gov, FEC) unlock live refreshes: `python3 menu/setup_keys.py`.
+Shipped snapshots reproduce every keyed finding offline.
 
-## Findings → which skill capability supports them → traces
+## Team
 
-| Finding | Supported by | Trace |
-|---|---|---|
-| **1. Pay-the-gavel** (lobbyist money pools on chairs/leadership; Guthrie case) | `xref.py gatekeeper/member` + `connector.py annotate-gatekeeper` (committee verify) | traces/invocation_log.md §Finding 1 |
-| **2. Foreign revolving door** (Tencent→McEntee; Nippon Steel→Akin Gump/Ballard) | `xref.py client/lobbyist` | §Finding 2 |
-| **Say vs. do** (press topics vs. sponsored bills; e.g. Warner talks Defense/Foreign-affairs more than he sponsors) | `xref.py say` / `say-vs-do` | traces §Say leg |
-| **3. Disclosure abuse FLAG** (Loc Nation $180M fictional) | `xref.py anomaly` + `review.py` | §Finding 3 |
-| Supporting: coordinated messaging (DHS/Noem thread) | `detect_coordination.py` | §Supporting |
-| Cold thread: Senate↔House income consistency | `xref.py mismatch` | §Cold thread |
+ASU / Howard Center for Investigative Journalism team. Contributors: Evan
+(analysis engine, connectors, findings), Steve (RoboDoig profiler + QA), Mitul
+(checking-the-law), Allie + Katie (case-file, amendment-aware de-dup), Shelby
+(howard-center-footnoter, story framing). License: MIT.
 
-Full detail: [findings/findings_report.md](findings/findings_report.md).
-
-## Outside data used (tiered so keys never gate the core findings)
-
-Reproducibility ladder: **Tier 0** (no key) reproduces all core findings from the
-corpus + committed snapshots; **Tier 1** (free Congress.gov key) adds the "act"
-leg; **Tier 2** (FEC key) adds campaign-finance ground-truthing. Every keyed
-fetch is snapshotted so keyed findings still re-run offline.
-
-- **`unitedstates/congress-legislators`** (public GitHub, no key) — committee
-  membership + the authoritative bioguide→FEC candidate-id crosswalk; verifies
-  Finding 1 and powers reliable FEC lookups. Snapshot: `…/assets/committees.json`.
-- **FARA active foreign-agent registry** (no key) — corroborates Finding 2
-  (firms are FARA-registered; lobbyist John McEntee is not). Snapshot:
-  `…/assets/fara_active.json`. Command: `connector.py fara`.
-- **Voteview roll-call votes** (public bulk CSV, no key) — the vote dimension of
-  "act": participation, party-unity, and ideology for the top recipients (they're
-  ~97–99% party-line votes). Snapshot: `…/assets/votes.json`. Commands:
-  `connector.py enrich-votes`, `vote-align`. Honest caveat: floor votes track
-  *party*, not donors — so sponsorship (Tier 1) stays the cleaner "act" signal.
-- **Congress.gov** (free key, Tier 1) — `connector.py enrich-act` pulls the top
-  recipients' sponsored bills + policy areas (the "act" leg): the money-committee
-  chairs' bills track their committee jurisdictions. Snapshot:
-  `…/assets/legislation.json`.
-- **FEC** (`DEMO_KEY`/real key, Tier 2) — `connector.py enrich-finance` gives a
-  real denominator: registered lobbyists are ~13–17% of the money-committee
-  chairs' *total* campaign receipts. Snapshot: `…/assets/fec_totals.json`.
-- Real-world context in the findings report (DOD Tencent listing, Nippon/U.S.
-  Steel CFIUS timeline, McEntee's prior role) is labeled *[context]* and should
-  be independently confirmed before publication.
-
-## Reproducibility
-Runtime is Python standard library only. `GAIN_DATA_DIR=/path/to/data bash
-lobbying-influence-mapper/scripts/run_all.sh` rebuilds the store and regenerates
-every headline number. Ingest timings on a laptop: cheap datasets ~2 min total,
-House 2025 ~40s.
-
-**On the data:** the ~8 GB challenge corpus is *not* committed to this repo (size
-limits; it is the challenge's dataset to distribute). Point `GAIN_DATA_DIR` at the
-decompressed `data/` directory (containing `congress_press/ senate/ house/`). The
-small external snapshots in `…/assets/` *are* committed, so every keyed finding
-still re-runs offline. The regenerable `build/` store (~2 GB) is gitignored.
-
-## Conflicts of interest
-None known.
-
-## Possible legal violations flagged to the panel
-- **Finding 3 (Loc Nation):** apparent misuse of the federal LDA filing system
-  (pseudo-legal/financial claims filed as lobbying disclosures). Recommended for
-  referral/review.
-- Finding 2's revolving-door relationships are disclosed and presumptively lawful;
-  flagged as newsworthy, not as violations.
+> This repo previously hosted Evan's solo entry (the `lobbying-influence-mapper` alone);
+> that work is superseded by — and included within — this combined submission. See git
+> history for the original.

@@ -1,0 +1,114 @@
+# FEC receipts denominator — connector.py enrich-finance --year 2025 --filer lobbyist --top 12 (shipped snapshot)
+{
+  "shipped": "/Users/evanwyloge/northwestern-agentic-investigation-challenge/combined-submission/build/menu/skills/lobbying-influence-mapper/assets/fec_totals.json",
+  "summary": [
+    {
+      "name": "Brett Guthrie",
+      "chamber": "House",
+      "ld203_lobbyist_$": 694295.35,
+      "fec_receipts": 4193324.77,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.1656,
+      "fec_id": "H8KY02031"
+    },
+    {
+      "name": "Jason Smith",
+      "chamber": "House",
+      "ld203_lobbyist_$": 674775.0,
+      "fec_receipts": 4460550.3,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.1513,
+      "fec_id": "H4MO08162"
+    },
+    {
+      "name": "Mark R. Warner",
+      "chamber": "Senate",
+      "ld203_lobbyist_$": 632009.0,
+      "fec_receipts": 21990910.08,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.0287,
+      "fec_id": "S6VA00093"
+    },
+    {
+      "name": "Steve Scalise",
+      "chamber": "House",
+      "ld203_lobbyist_$": 508265.29,
+      "fec_receipts": 9320529.35,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.0545,
+      "fec_id": "H0LA01087"
+    },
+    {
+      "name": "Mike Johnson",
+      "chamber": "House",
+      "ld203_lobbyist_$": 473209.22,
+      "fec_receipts": 17548949.57,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.027,
+      "fec_id": "H6LA04138"
+    },
+    {
+      "name": "Thom Tillis",
+      "chamber": "Senate",
+      "ld203_lobbyist_$": 467202.55,
+      "fec_receipts": 8113422.14,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.0576,
+      "fec_id": "S4NC00162"
+    },
+    {
+      "name": "Tom Cole",
+      "chamber": "House",
+      "ld203_lobbyist_$": 465971.15,
+      "fec_receipts": 3592381.31,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.1297,
+      "fec_id": "H2OK04055"
+    },
+    {
+      "name": "Mike Carey",
+      "chamber": "House",
+      "ld203_lobbyist_$": 457648.04,
+      "fec_receipts": 2567314.01,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.1783,
+      "fec_id": "H2OH15228"
+    },
+    {
+      "name": "John Thune",
+      "chamber": "Senate",
+      "ld203_lobbyist_$": 452805.48,
+      "fec_receipts": 7623908.13,
+      "fec_cycle": 2028,
+      "lobbyist_share_of_receipts": 0.0594,
+      "fec_id": "S2SD00068"
+    },
+    {
+      "name": "Hakeem S. Jeffries",
+      "chamber": "House",
+      "ld203_lobbyist_$": 426950.0,
+      "fec_receipts": 13992479.93,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.0305,
+      "fec_id": "H2NY10092"
+    },
+    {
+      "name": "J. French Hill",
+      "chamber": "House",
+      "ld203_lobbyist_$": 425330.0,
+      "fec_receipts": 3790111.52,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.1122,
+      "fec_id": "H4AR02141"
+    },
+    {
+      "name": "Ken Calvert",
+      "chamber": "House",
+      "ld203_lobbyist_$": 424580.0,
+      "fec_receipts": 5714801.89,
+      "fec_cycle": 2026,
+      "lobbyist_share_of_receipts": 0.0743,
+      "fec_id": "H2CA37023"
+    }
+  ]
+}
