@@ -103,6 +103,11 @@ for-the-panel: <the question a lawyer should confirm, if any>
 - Answer from memory of "what the law probably says," or from a map/pack alone.
 - State "X violated the law" as a conclusion — the strongest you assert is *possible*, for a lawyer.
 - Confuse *unethical or newsworthy* with *illegal*; a legal pattern can still be a strong story.
+- Claim or imply that anyone was contacted for comment. During analysis, no outreach has
+  happened — never write "did not respond to a request for comment" or similar. When
+  suggesting publishable framing, the correct instruction is: *the reporter should seek
+  comment from every named party before publication, and a lawyer should review before
+  publishing any quid-pro-quo implication.*
 - Let a stale or repealed provision stand — check currency and effective dates.
 
 ## Building a law pack for your beat

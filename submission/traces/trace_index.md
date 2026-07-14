@@ -132,6 +132,22 @@ context; flagged the DoD China-list date as `no_source` (real-world context, not
 fact) and the Tencent ~5× multiplier as `context_concern` (the extract covers 2025 only) —
 the skill never fabricates a source.
 
+### 13 · Verify the Baldwin pharma lead  (`lobbying-influence-mapper`)
+```
+ingest.py --years 2023 2024 2026 --datasets contributions press → resolve_entities.py →
+(honoree-money-by-year + pharma-press-by-period queries)
+```
+A team member's hand analysis suggested drugmaker money reported in Sen. Tammy Baldwin's
+honor spiked in 2025 while her drug-price criticism stopped. Re-derived from the corpus
+before publishing: $13,000 (2023–24 combined) → $168,500 (2025), including two $80,000
+Takeda→NORD payments with filing UUIDs; 48 pharma-related releases Jan 2023–May 2025 →
+one passing mention in the ten months after. Output with per-item provenance:
+`outputs/13_baldwin_pharma_verification.json`.
+**Human judgment:** the hand count said $167,500 and 37 *critical* releases; the pipeline's
+broader keyword match yields slightly different numbers — the discrepancy is documented in
+the output file rather than silently reconciled, and the finding is framed as a timing
+pattern, not causation.
+
 ---
 
 ## Reproducibility

@@ -19,3 +19,11 @@ Resolver upgrade session: campaign-committee honorees ('Guthrie for Congress' et
 ---
 ### 2026-07-12T21:04:41 · session manual
 Cold-thread re-verification: House 2025 re-ingested (108,518 filings, 98.3% bridged). 36,643 comparable engagement-periods, 0 gaps >100K after making xref.py mismatch amendment-aware on BOTH chambers (19 phantom gaps were amendment artifacts). Also: Tencent 5x re-derived from corpus (800K 2024 -> 4.04M 2025); FEC denominator method note added; generality demo (Medicare) + full session logs packaged.
+
+## 2026-07-14 — feedback-round revision
+- Re-derived the Baldwin pharma lead (from Shelby's hand analysis) with the pipeline before
+  publishing: opened T-0005, logged F-0002 with the two Takeda→NORD filing UUIDs; method
+  discrepancy vs. the hand count documented in traces/outputs/13.
+- Product renamed Case Agent → Agent of Record. Guardrail added to skills after Katie's
+  test produced "did not respond to a request for comment" language: comment is sought,
+  never presumed. De-encoded S0/bucket shorthand in user-facing skill text.

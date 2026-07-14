@@ -25,29 +25,30 @@ It is built to work on **any dataset**, not only the bundled lobbying corpus. Wh
 that possible is the first stage: you *scope the investigation with the user* and that
 scope decides which **beat-pack** and which **outside data** the rest of the run uses.
 
-## The three buckets (and the sub-skills in each)
+## The three phases (and the sub-skills in each)
 
 ```
-  ┌── BUCKET 2: case-file — the organizing spine (created at S0, updated throughout) ──┐
+  ┌── STAYING ORGANIZED: case-file — created at scoping, updated throughout ──────────┐
   └────────────────────────────────────────────────────────────────────────────────────┘
- ┌──────────────────────────────────────┐     ┌──────── BUCKET 3: claim hardening ──────┐
- │ BUCKET 1: DATA GATHERING & ANALYSIS   │  →  │ checking-the-law · howard-center-        │
- │ scope(S0) · acquire(+web) · profile · │     │ footnoter · robodoig/verify_report       │
- │ discover · cross-check ground truth    │     └──────────────────────────────────────────┘
+ ┌──────────────────────────────────────┐     ┌──────── HARDENING CLAIMS ────────────────┐
+ │ GATHERING & ANALYZING                 │  →  │ checking-the-law · howard-center-        │
+ │ scope the question · acquire data     │     │ footnoter · robodoig/verify_report       │
+ │ (+web) · profile · discover leads ·   │     └──────────────────────────────────────────┘
+ │ cross-check against ground truth      │
  └──────────────────────────────────────┘
-  └── verifiability contract: provenance on every number; a human can round-trip it ────┘
+  └── the rule underneath: provenance on every number; a human can round-trip it ───────┘
 ```
 
-- **Bucket 1 — data gathering & analysis:** `robodoig` (profile any table) +
+- **Gathering & analyzing:** `robodoig` (profile any table) +
   `lobbying-influence-mapper` (model/discover/verify for the lobbying beat) + this skill's
   acquisition tools (`tools/find_data.py`, `tools/fetch_source.py`).
-- **Bucket 2 — investigation organizing:** `case-file` (threads, status, entities, journal).
-- **Bucket 3 — claim hardening / QA:** `checking-the-law` (legal), `howard-center-footnoter`
+- **Staying organized:** `case-file` (threads, status, entities, journal).
+- **Hardening claims (quality control):** `checking-the-law` (legal), `howard-center-footnoter`
   (source every sentence), and `robodoig`'s `verify_report.py` (transcription check).
 
 ## The workflow
 
-### S0 — Scope & framing  (INTERACTIVE, LOOPING — do this first, every investigation)
+### Phase 1 — Scope the question  (INTERACTIVE, LOOPING — do this first, every investigation)
 
 Do **not** jump into analysis. First, pin down what you're actually investigating, with the
 user in the loop:
@@ -131,15 +132,19 @@ to a primary source (tracked changes) and flag unsupported / out-of-context clai
 the review dashboard (`tools/build_dashboard.py`) so an editor can verify by clicking.
 
 ## Guardrails
-- **Scope first, always.** No analysis before S0. The scope selects the beat-pack.
+- **Scope first, always.** No analysis before the scoping step. The scope selects the beat-pack.
 - **Human in the loop.** Ask clarifying questions up front and whenever the data suggests
   the scope should change.
 - **Provenance or it didn't happen.** No claim graduates to a finding without a source id.
 - **Legal:** the strongest thing you assert is *possible*, for a lawyer — never "X broke
   the law."
-- **Works on any data:** if it's not lobbying, synthesize a minimal beat-pack at S0 and lean
+- **Comment is sought, never presumed.** No outreach has happened during analysis. Never
+  write "did not respond to a request for comment" or any language implying parties were
+  contacted. Instead instruct: *seek comment from every named party before publication;
+  lawyer review before any quid-pro-quo implication.*
+- **Works on any data:** if it's not lobbying, synthesize a minimal beat-pack at the scoping step and lean
   on `robodoig` + web-search-for-data; don't assume the lobbying schema.
 
 ## Related
-- `lobbying-influence-mapper`, `robodoig` (Bucket 1) · `case-file` (Bucket 2) ·
-  `checking-the-law`, `howard-center-footnoter` (Bucket 3).
+- `lobbying-influence-mapper`, `robodoig` (the gathering & analyzing phase) · `case-file` (the staying-organized phase) ·
+  `checking-the-law`, `howard-center-footnoter` (the claim-hardening phase).

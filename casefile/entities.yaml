@@ -13,7 +13,15 @@ members:
     display: Mark R. Warner (D-VA)
     status: key
     why: Senate Banking/Intelligence; top-3 lobbyist-money recipient 2025
+  - canonical_id: B001230
+    display: Tammy Baldwin (D-WI)
+    status: key
+    why: Drugmaker honoree money $13K (2023-24) -> $168.5K (2025) while her drug-price criticism stopped (T-0005)
 firms:
+  - canonical_id: TAKEDA PHARMACEUTICALS AMERICA
+    display: Takeda Pharmaceuticals America, Inc.
+    status: watch
+    why: Two $80K payments to NORD in Baldwin's honor, 2025 (T-0005)
   - canonical_id: akin-gump
     display: Akin Gump
     status: watch
@@ -27,6 +35,10 @@ clients:
     display: Tencent America LLC
     status: key
     why: ~5x lobbying spend jump to $4.04M while fighting DoD 'Chinese military company' listing
+  - canonical_id: NATIONAL ORGANIZATION FOR RARE DISORDERS
+    display: National Organization for Rare Disorders (NORD)
+    status: watch
+    why: Recipient of the two $80K Takeda payments made in Baldwin's honor (T-0005)
 people:
   - canonical_id: mcentee-john
     display: John McEntee

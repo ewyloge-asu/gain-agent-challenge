@@ -2,6 +2,10 @@
 
 **The GitHub repos are canonical.** Nothing lives only on one person's laptop.
 
+The product is named **Agent of Record** (renamed from "Case Agent," July 2026). The
+GitHub repo slugs (`case-agent`, `case-agent-for-newsrooms`) keep the old name for now —
+renaming repos breaks the published Pages URLs, so that waits until after the deadline.
+
 | What you want to change | Edit this file, in this repo |
 |---|---|
 | The submission website (judge-facing) | `docs/index.html` in **gain-agent-challenge** ← Shelby: this one |

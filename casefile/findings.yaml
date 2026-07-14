@@ -11,6 +11,20 @@ findings:
       members and floor leadership; Brett Guthrie (Chair, House Energy & Commerce) is #1 at
       $694K from lobbyist filers. Recipients verified against the congress-legislators roster.
       Descriptive, not causal.
+  - id: F-0002
+    title: Pharma money spiked in Sen. Baldwin's name as her drug-price criticism went quiet
+    thread: T-0005
+    status: confirmed
+    source_records:
+      - data/senate/2025/contributions/contributions_2025.json#b32965db-548a-4e60-b7d9-be24905b4bbb
+      - data/senate/2025/contributions/contributions_2025.json#58713f2c-e723-40da-b36a-3feaf6c9a1d0
+    summary: >
+      Drugmaker money reported in Sen. Tammy Baldwin's honor rose from $13K (2023-24
+      combined) to $168.5K in 2025, most of it two $80K Takeda payments to NORD made in her
+      honor; her pharma-related press releases (48 from Jan 2023-May 2025) fell to one
+      passing mention June 2025-Mar 2026 while overall output stayed high (192 releases).
+      Timing pattern, not causation; both records self-reported. Seek comment before
+      publication. Verification: traces/outputs/13_baldwin_pharma_verification.json.
 legal_flags:
   - id: L-0001
     thread: T-0003

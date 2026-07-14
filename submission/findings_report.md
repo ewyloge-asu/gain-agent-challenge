@@ -134,6 +134,37 @@ discovery. See `checking-the-law` verdict `legal_checks/loc_nation.md`.
 
 ---
 
+## Finding 4 (verified): Pharma money spiked in Sen. Tammy Baldwin's name as her drug-price criticism went quiet
+
+**Claim [corpus].** Money reported by drugmakers in Sen. Tammy Baldwin's honor jumped from
+**$13,000 across 2023–24 combined to $168,500 in 2025** — most of it **two $80,000 payments
+from Takeda Pharmaceuticals to the National Organization for Rare Disorders (NORD), made in
+her honor** (`filing_uuid b32965db-548a-4e60-b7d9-be24905b4bbb`, item date 2025-03-25, and
+`58713f2c-e723-40da-b36a-3feaf6c9a1d0`, item date 2025-10-20). Over the same stretch, her
+pharma-related press output stopped: **48 releases touching pharma/drug-price topics from
+January 2023 through May 2025, then one passing mention in the ten months from June 2025
+through March 2026** — while she stayed active overall (192 releases on other subjects in
+that window).
+
+**Method.** LD-203 contribution items whose honoree resolves to Baldwin (`B001230`),
+filtered to drugmaker/industry registrants and contributors; press releases keyword-matched
+for pharma/drug-price topics (title + lede). Full verification output with per-item
+provenance: `traces/outputs/13_baldwin_pharma_verification.json`; independent source-check
+spreadsheet: [Google Sheets](https://docs.google.com/spreadsheets/d/19lyq_A5dwY9mTobxG9NlCW2ueKueBtqW/edit?usp=sharing).
+(An earlier hand count reported $167,500 and 37 strictly *critical* releases; the pipeline's
+broader keyword match yields $168,500 and 48 pharma-*related* releases — same pattern,
+method difference documented.)
+
+**The discipline.** A timing pattern, not causation — and both the press releases and the
+LD-203 filings are self-reported by the parties involved. Before publication: seek comment
+from Sen. Baldwin's office, Takeda, and NORD.
+
+**Reproduce:** `ingest.py --years 2023 2024 2025 2026 --datasets contributions press`;
+`resolve_entities.py`; then the queries recorded in
+`traces/outputs/13_baldwin_pharma_verification.json`.
+
+---
+
 ## Capability demonstrated (not claimed as a finding): coordinated-messaging detection
 
 The coordination detector finds verbatim talking points reused across many offices in a tight
@@ -163,6 +194,20 @@ consistency claims made without amendment de-dup will manufacture phantom discre
 `xref.py mismatch --year 2025 --min-gap 100000`.
 
 ---
+
+## Limitations
+
+- **Generalizing the tool cost some corpus-specific sharpness.** Earlier lobbying-tuned
+  versions surfaced certain leads (e.g., the Baldwin pattern) more readily than the
+  generalized pipeline; deterministic queries always reproduce, but agent-driven discovery
+  can require more prompting on this corpus than it once did.
+- **Agent runs are non-deterministic.** The scripts return identical numbers every run; the
+  agent's path to them varies. Published findings were stress-tested across repeated runs.
+- **The skills are built to run as a bundle.** Individually installed skills validate, but
+  some instructions assume their companions are present.
+- **No party named in any finding has yet been contacted for comment.** Reporting toward
+  publication must include seeking comment from every named party, and legal review before
+  any quid-pro-quo implication.
 
 ## Caveats, ethics, and conflicts (read before quoting any number)
 - Every figure describes what was **disclosed** (self-reported), not independently verified

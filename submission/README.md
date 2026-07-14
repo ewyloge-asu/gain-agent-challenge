@@ -60,6 +60,7 @@ working on foreign data. See `generality_demo/README.md`.
 | Finding | Status | Skills used |
 |---|---|---|
 | Pay-the-gavel — lobbyist money pools on committee gatekeepers (Guthrie #1, $694K) | Confirmed | mapper (gatekeeper/resolve), connector (roster/FEC), case-file |
+| Baldwin pharma pattern — drugmaker honoree money $13K (2023–24) → $168.5K (2025, incl. two $80K Takeda→NORD payments) while her drug-price criticism stopped | Confirmed (timing pattern, not causation) | mapper (ingest/resolve, honoree + press queries) |
 | Foreign revolving door — Tencent $4.04M; McEntee not FARA-registered | Confirmed | mapper (client/lobbyist/FARA), checking-the-law |
 | Loc Nation — $80M of pseudo-legal claims filed as lobbying (integrity) | Flag | mapper (anomaly, amendment-aware), checking-the-law |
 | Senate↔House consistency (36,643 comparable periods, 0 gaps >$100K — re-verified this session, amendment-aware) | Cold | mapper (mismatch), case-file |

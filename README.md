@@ -1,4 +1,4 @@
-# Case Agent — GAIN Agentic Investigation Challenge submission (Arizona State University team)
+# Agent of Record — GAIN Agentic Investigation Challenge submission (Arizona State University team)
 
 A reusable **investigative assembly line** for records investigations — six composable
 Agent Skills plus the newsworthy findings they produced on the GAIN federal lobbying
@@ -20,7 +20,7 @@ corpus (2022–2026 Q1).
 ## The assembly line
 
 ```
-S0 scope-framing (works on ANY dataset; selects/synthesizes a beat-pack)
+scope the question (works on ANY dataset; picks or builds the beat's plan)
   → gather & analyze   ingest + web-search-for-data · profile (robodoig) ·
                        discover leads · cross-check vs ground truth
   → organize           case-file: threads, status, cold-ledger, journal
@@ -32,7 +32,7 @@ S0 scope-framing (works on ANY dataset; selects/synthesizes a beat-pack)
 Also in this repo, demonstrated end-to-end on real data:
 
 - [`submission/generality_demo/`](submission/generality_demo/) — the same line on a
-  **non-lobbying** beat (Medicare up-coding): S0 synthesized a healthcare beat-pack and
+  **non-lobbying** beat (Medicare up-coding): the scoping step built a healthcare plan and
   web-search-for-data surfaced + snapshotted an HHS-OIG primary source.
 - [`submission/footnoter_demo/`](submission/footnoter_demo/) — the findings draft
   footnoted to the engine's own outputs as Word tracked changes, with margin flags.
@@ -59,10 +59,11 @@ Shipped snapshots reproduce every keyed finding offline.
 
 ## Team
 
-Arizona State University team. Contributors: Evan
-(analysis engine, connectors, findings), Steve (RoboDoig profiler + QA), Mitul
-(checking-the-law), Allie + Katie (case-file, amendment-aware de-dup), Shelby
-(howard-center-footnoter, story framing). License: MIT.
+Walter Cronkite School of Journalism and Mass Communication, Arizona State University.
+Evan Wyloge, Shelby Grossman & Katie Wilcox (Professors of Practice); Allie Seligman
+(Clinical Assistant Professor); Stephen K. Doig (Professor); Brett Kurland (Assistant
+Dean & Professor of Practice); DeAnna Soth (Learning Design Principal); Mitul
+Balamurugan (ASU computer science student). License: MIT.
 
 > This repo previously hosted Evan's solo entry (the `lobbying-influence-mapper` alone);
 > that work is superseded by — and included within — this combined submission. See git
