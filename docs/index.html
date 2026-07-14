@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function(){
+  var PW = "CronkiteCompetition";
+  try { if (localStorage.getItem('aor_unlocked') === '1') return; } catch(e) {}
+  var attempt = prompt("This site is password-protected. Enter the password to continue:");
+  if (attempt === PW) {
+    try { localStorage.setItem('aor_unlocked','1'); } catch(e) {}
+  } else {
+    document.documentElement.innerHTML =
+      '<div style="font-family:sans-serif;padding:60px;text-align:center;color:#444">' +
+      'Incorrect password. <a href="javascript:location.reload()">Try again</a></div>';
+    throw new Error('locked');
+  }
+})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agent of Record — an AI agent for records investigations</title>
@@ -231,7 +246,7 @@
  <div class="navlinks" onclick="document.getElementById('nav').classList.remove('open')">
   <a href="#what">What it is</a><a href="#findings">What we found</a><a href="#skills">The tools</a>
   <a href="#install">Install &amp; run</a><a href="#generality">Any dataset</a>
-  <a href="#limits">Limitations</a><a href="#evaluators">For evaluators</a>
+  <a href="#limits">Limitations</a>
  </div>
 </div></nav>
 
@@ -239,9 +254,9 @@
  <div class="parallax" data-parallax="0.10"></div>
  <div class="watermark" data-parallax="-0.05">public records</div>
  <div class="wrap">
- <span class="tag">GAIN Agentic Investigation Challenge · a submission from the
-  <a href="https://cronkite.asu.edu/">Walter Cronkite School of Journalism and Mass
-  Communication</a>, Arizona State University</span>
+ <span class="tag">GAIN Agentic Investigation Challenge · a submission from a
+  group of faculty at the <a href="https://cronkite.asu.edu/">Walter Cronkite School of
+  Journalism and Mass Communication</a>, Arizona State University</span>
  <h1>Agent <em>of Record</em></h1>
  <p class="kicker">It works the case. People write the story.</p>
  <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
@@ -249,11 +264,11 @@
  and tie every claim to a source record a human can check. <b>The agent does not write
  the story</b> — news judgment and the writing stay with people.</p>
  <p class="sub" style="font-size:15px;margin-top:12px;color:var(--mut)">
- Evan Wyloge, Shelby Grossman &amp; Katie Wilcox, Professors of Practice ·
- Allie Seligman, Clinical Assistant Professor · Stephen K. Doig, Professor ·
+ Mitul Balamurugan, masters student, Fulton Schools of Engineering, ASU ·
+ Stephen K. Doig, Professor · Shelby Grossman, Professor of Practice ·
  Brett Kurland, Assistant Dean &amp; Professor of Practice ·
- DeAnna Soth, Learning Design Principal · Mitul Balamurugan, ASU computer science
- student</p>
+ Allie Seligman, Clinical Assistant Professor · Katie Wilcox, Professor of Practice ·
+ Evan Wyloge, Professor of Practice</p>
 </div></header>
 
 <section id="what"><div class="wrap">
@@ -333,40 +348,42 @@
 <section id="findings"><div class="wrap">
  <p class="eyebrow">02 · The journalism</p>
  <h2>What we found</h2>
- <p>Run on the challenge's federal lobbying corpus. Every number links to the pipeline
- output that produced it; any claim round-trips to the raw filing.</p>
  <ul style="font-size:16.5px;line-height:1.75;padding-left:22px">
-  <li style="margin:14px 0"><b>Lobbyist money pools around the committee gatekeepers.</b>
-   The top 2025 recipient of contributions reported by registered lobbyists is Rep. Brett
-   Guthrie — $694,295 from 177 different lobbying firms — and he chairs House Energy &amp;
-   Commerce; the rest of the leaderboard is chairs and floor leaders. Verified against the
-   congressional roster and FEC totals. Pattern, not causation.
-   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/outputs/04_gatekeeper_top12.json">the
-   leaderboard output</a> · <a href="review_dashboard.html">review dashboard</a></li>
-  <li style="margin:14px 0"><b>Pharma money spiked in Sen. Tammy Baldwin's name as her
-   drug-price criticism went quiet.</b> Drugmaker money reported in her honor was $13,000
-   across 2023–24, then $168,500 in 2025 — most of it two $80,000 Takeda payments to the
-   rare-disease nonprofit NORD made in her honor. Her pharma-related press releases
-   (48 from Jan 2023 to May 2025) fell to one passing mention in the ten months after
-   June 2025, though she stayed active otherwise (192 releases). A timing pattern, not
-   causation; both records are self-reported.
-   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/outputs/13_baldwin_pharma_verification.json">the
-   verification output</a> ·
+  <li style="margin:14px 0"><b>Pharma money spiked in Sen. Tammy Baldwin's name the same
+   stretch her public criticism of the drug industry went silent.</b> Between January 2023
+   and May 2025, Sen. Tammy Baldwin (D-WI) put out 37 press releases criticizing the
+   pharmaceutical industry over drug prices. Then, from June 2025 through March 2026, she
+   put out none — even though she stayed active overall, issuing 192 press releases on
+   other subjects in that same stretch. That silence began right as pharmaceutical
+   companies sharply increased money given in her name: federal disclosure filings show
+   $167,500 in 2025 (most of it two separate $80,000 payments from the drugmaker Takeda to
+   a rare-disease patient advocacy nonprofit called NORD, made in her honor), compared with
+   just $13,000 total over the two prior years combined. This is a pattern that lines up in
+   time, not proof that the money caused her to stop speaking out, and both the
+   press-release and donation records are self-reported by the parties involved.
+   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/outputs/13_baldwin_pharma_verification.json">interaction
+   traces</a> ·
    <a href="https://docs.google.com/spreadsheets/d/19lyq_A5dwY9mTobxG9NlCW2ueKueBtqW/edit?usp=sharing">source-check
    spreadsheet</a></li>
-  <li style="margin:14px 0"><b>No one validates the filings.</b> A Delaware filer reported
-   $80 million of "lobbying income" with no lobbying behind it — pseudo-legal reparations
-   claims filed as four $20M quarters — making it the single biggest "client" in the 2025
-   data. Referred to the panel as a possible misuse of a federal system; a question for
-   lawyers, not an accusation.
-   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/outputs/06_review_locnation_roundtrip.json">the
-   raw filing, round-tripped</a> ·
-   <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/traces/outputs/05_anomaly_factor5.json">the anomaly
-   scan</a></li>
+  <li style="margin:14px 0"><b>Corporations with business before Congress gave $4.4
+   million to expand a Kentucky GOP headquarters named for Mitch McConnell — and most
+   didn't disclose it the way federal law requires.</b> Sixteen large corporations with
+   business before Congress — including Pfizer, AT&amp;T, Verizon, Boeing, Comcast, and
+   Humana — gave a combined $4.4 million between late 2022 and 2025 to expand the Kentucky
+   Republican Party's headquarters, a building named after then-Senate Republican Leader
+   Mitch McConnell; a 2017 state law let them give unlimited amounts this way, sidestepping
+   the roughly $5,000 cap on what a corporation can normally give a senator directly.
+   Federal law separately requires any company that lobbies Congress to publicly disclose
+   gifts made to honor a sitting member, twice a year, but only 4 of the 16 companies
+   (Pfizer, AT&amp;T, Microsoft, and Delta, totaling $1.475 million) reported their
+   building-fund gifts in those federal filings; the other 12 — together giving $1.84
+   million, including Verizon, Boeing, Comcast, and Humana — reported nothing, even though
+   those same companies disclosed smaller, routine gifts to the senator in the very same
+   reports. No violation is being alleged outright, since it hinges on a genuinely disputed
+   legal question.
+   <a href="https://docs.google.com/spreadsheets/d/1ZbpNRztMJLqZAV6U67UEWY9U-zUbp7Gj/edit?usp=sharing&ouid=116192656704714972893&rtpof=true&sd=true">verification
+   spreadsheet</a></li>
  </ul>
- <p style="margin-top:14px"><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">Full
- findings report →</a> &nbsp;·&nbsp; <a href="sessions.html">Every skill invocation behind
- the work →</a></p>
 </div></section>
 
 <section id="skills"><div class="wrap">
@@ -447,8 +464,8 @@
      facts against each element, cite what's missing.</li>
     <li><b>Law packs:</b> reusable per-domain statute maps (LDA, FARA shipped; synthesize
      new ones per beat).</li>
-    <li><b>Output:</b> a written verdict memo — the two in this submission are the
-     Loc Nation and McEntee/FARA legal checks.</li></ul>
+    <li><b>Output:</b> a written verdict memo — the McEntee/FARA legal check in this
+     submission is one example.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
   <div class="flip"><div class="inner">
@@ -498,56 +515,8 @@
        built in.</li>
    <li>Open Claude Code and say:
        <i>"Use the custom skill in the investigative-method folder to investigate
-       [your question] in [your data]"</i> — or, to reproduce our work:
-       <i>"Use the custom skill in the investigative-method folder to reproduce the
-       pay-the-gavel finding."</i></li>
+       [your question] in [your data]"</i></li>
   </ol></div>
- </details>
-
- <details class="acc"><summary>Claude Cowork</summary>
-  <div class="body"><ol>
-   <li><a href="downloads/investigative-desk-menu.zip">Download the bundle</a> and unzip it.</li>
-   <li>Add the unzipped folder to your Cowork workspace (drag it in, or place it in the
-       folder Cowork is working from). If the corpus lives on your machine, mention its
-       path in your first message.</li>
-   <li>Say: <i>"Use the custom skill in the skills/investigative-method folder to
-       investigate [your question]."</i> Cowork reads the skill and takes it from
-       there.</li>
-  </ol></div>
- </details>
-
- <details class="acc"><summary>Cursor &amp; other agents that support Agent Skills</summary>
-  <div class="body"><ol>
-   <li><a href="downloads/investigative-desk-menu.zip">Download the bundle</a> and unzip it.</li>
-   <li>Copy all six folders from <code>skills/</code> into your agent's skills directory
-       (Cursor: <code>~/.cursor/skills/</code>), or open the unzipped folder as part of
-       your workspace.</li>
-   <li>Any agent — even without skills support — works with one instruction:
-       <i>"Read skills/investigative-method/SKILL.md and follow it."</i></li>
-  </ol></div>
- </details>
-
- <details class="acc"><summary>No agent — plain terminal</summary>
-  <div class="body">
-   <p style="color:var(--ink2)">The deterministic pipeline runs by itself. From the
-   unzipped bundle:</p>
-<pre><span class="cm"># point at the corpus (SKIP this line to use the built-in demo data)</span>
-export GAIN_DATA_DIR=/path/to/data
-export GAIN_WORKDIR=$PWD/workdir
-
-<span class="cm"># build the database (about 15 seconds on the full 2025 corpus)</span>
-python3 skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
-python3 skills/lobbying-influence-mapper/scripts/resolve_entities.py
-
-<span class="cm"># the pay-the-gavel leaderboard — Guthrie $694,295 at the top</span>
-python3 skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
-
-<span class="cm"># Loc Nation's $80M flagged as the #1 outlier</span>
-python3 skills/lobbying-influence-mapper/scripts/xref.py anomaly --year 2025 --factor 5
-
-<span class="cm"># find outside datasets/APIs for any topic</span>
-python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
-  </div>
  </details>
 </div></section>
 
@@ -575,7 +544,6 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
    in the CMS files, so 120 providers were excluded and the correction was recorded.
    The ranked leads landed in a case file with next actions.</small></div>
  </div>
- <p><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/generality_demo">See the full second-beat run →</a></p>
 </div></section>
 
 
@@ -598,41 +566,10 @@ python3 skills/investigative-method/tools/find_data.py "your topic"</pre>
  </ul>
 </div></section>
 
-<section id="evaluators"><div class="wrap">
- <p class="eyebrow">07 · For evaluators</p>
- <h2>For evaluators</h2>
- <p>The four required deliverables, and where each one lives:</p>
- <table>
-  <tr><th>Deliverable</th><th>Where</th></tr>
-  <tr><td><b>1 · Agent Skills</b> — six skills, all validating against the spec, built from one source</td>
-      <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/menu/skills">menu/skills/</a> · <a href="#skills">download above</a></td></tr>
-  <tr><td><b>2 · Findings report</b> — every claim source-stamped, disclosed vs. independently-confirmed distinguished</td>
-      <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/findings_report.md">submission/findings_report.md</a></td></tr>
-  <tr><td><b>3 · Interaction traces</b> — every skill invocation with arguments + verbatim outputs, keyed by a narrative index (scoped to tool use; see the scope note in trace_index.md)</td>
-      <td><a href="sessions.html">sessions.html</a> · <a href="https://github.com/ewyloge-asu/gain-agent-challenge/tree/main/submission/traces">submission/traces/</a></td></tr>
-  <tr><td><b>4 · README</b> — the submission map: skills ↔ findings, outside data, conflicts of interest, legal flags for the panel</td>
-      <td><a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">submission/README.md</a></td></tr>
- </table>
-  <p style="margin-top:14px"><b>Reproducibility:</b> the core findings re-run offline with
- no keys and no installs — the exact commands are under <a href="#install">Install &amp;
- run</a>, and a cold re-run from a fresh working directory is part of the trace record.
- Possible legal violations (Loc Nation; the FARA question) are flagged in the
- <a href="https://github.com/ewyloge-asu/gain-agent-challenge/blob/main/submission/README.md">README</a>
- and framed as questions for a lawyer, not conclusions. No conflicts of interest to
- declare.</p>
- <p style="margin-top:10px"><b>Prefer a repository to a website?</b> The identical
- submission is also published as a no-frills plain repo:
- <a href="https://github.com/ewyloge-asu/case-agent">github.com/ewyloge-asu/case-agent</a>
- — same skills, findings, traces, and demos; no presentation layer. Either form is the
- submission.</p>
-</div></section>
-
 <footer><div class="wrap">
  <b style="color:var(--ink)">Agent of Record</b> · Walter Cronkite School of Journalism
  and Mass Communication, Arizona State University · GAIN Agentic Investigation Challenge
- 2026 · MIT license · <a href="https://github.com/ewyloge-asu/gain-agent-challenge">GitHub
- repo</a> · <a href="https://github.com/ewyloge-asu/case-agent">plain-repo edition</a> ·
- <a href="https://ewyloge-asu.github.io/case-agent-for-newsrooms/">newsroom edition</a>
+ 2026 · MIT license
 </div></footer>
 
 <script>

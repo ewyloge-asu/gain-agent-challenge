@@ -24,18 +24,17 @@ assembled from it):
 All skills **validate against the Agent Skills spec** (`python3 ../validate_skills.py menu/skills`).
 Downloads: `../dist/` (menu bundle, mega, and per-skill zips).
 
-### Findings report
-`findings_report.md` — the newsworthy discoveries (below). Legal assessments in
-`legal_checks/`.
+### Findings
+The newsworthy discoveries are published as summary bullets on the
+[site](https://ewyloge-asu.github.io/gain-agent-challenge/#findings) and in the table
+below. Legal assessments are in `legal_checks/`. Public language about any finding is
+limited to that summary bullet, the linked logs, and (for the Baldwin and Kentucky
+GOP-headquarters findings) the linked verification spreadsheets — nothing beyond what
+those support is asserted.
 
-### Interaction traces
-`traces/sessions.html` — **every skill invocation across the four working sessions**,
-with full arguments, in order, plus the verbatim output of each key invocation in
-`traces/outputs/`. `traces/trace_index.md` is the narrative index: each invocation keyed
-to its command, output, and the human-judgment moments. Scope: we read the traces
-deliverable as the full record of the model sessions *using* the tool stack — every
-invocation, input, and output is here; the sessions' interleaved tool-development
-activity is development history, not an interaction trace, and is out of scope.
+### Interaction traces (logs)
+`traces/outputs/` — verbatim logs of the key invocations backing each published finding
+(e.g. `13_baldwin_pharma_verification.json`).
 
 ### Review surface
 `review_dashboard.html` — generated from the case file; thread board + findings + legal
@@ -47,22 +46,21 @@ pipeline outputs as Word tracked changes: 10 footnotes (9 sourced + 1 ⟨NEEDS S
 2 margin comments (`no_source`, `context_concern`). See `footnoter_demo/README.md`.
 
 ### Generality test (the FULL pipeline on a second beat)
-`generality_demo/` — the whole assembly line run end-to-end on a non-lobbying beat
-(Medicare hospital up-coding), zero lobbying-specific code: scoped question → synthesized
-healthcare beat-pack → live acquisition (CMS API + HHS-OIG report, sha256 snapshots) →
-robodoig profile of 4,079 billing rows → peer-baseline anomaly pass (25 ranked leads;
-median highest-severity share 74.4%, outliers 90–92%) → case-file thread + dashboard.
-Includes a caught-and-recorded data-suppression artifact — the tool's honesty features
-working on foreign data. See `generality_demo/README.md`.
+We ran the whole assembly line end-to-end on a non-lobbying beat (Medicare hospital
+up-coding), zero lobbying-specific code: scoped question → synthesized healthcare
+beat-pack → live acquisition (CMS API + HHS-OIG report, sha256 snapshots) → robodoig
+profile of 4,079 billing rows → peer-baseline anomaly pass (25 ranked leads; median
+highest-severity share 74.4%, outliers 90–92%) → case-file thread + dashboard. Includes a
+caught-and-recorded data-suppression artifact — the tool's honesty features working on
+foreign data.
 
 ## Findings and the skills that support them
 
 | Finding | Status | Skills used |
 |---|---|---|
-| Pay-the-gavel — lobbyist money pools on committee gatekeepers (Guthrie #1, $694K) | Confirmed | mapper (gatekeeper/resolve), connector (roster/FEC), case-file |
-| Baldwin pharma pattern — drugmaker honoree money $13K (2023–24) → $168.5K (2025, incl. two $80K Takeda→NORD payments) while her drug-price criticism stopped | Confirmed (timing pattern, not causation) | mapper (ingest/resolve, honoree + press queries) |
+| Baldwin pharma pattern — 37 drug-price press releases Jan 2023–May 2025, then none Jun 2025–Mar 2026, as drugmaker honoree money rose from $13K (2023–24) to $167.5K (2025, incl. two $80K Takeda→NORD payments) | Confirmed (timing pattern, not causation) | mapper (ingest/resolve, honoree + press queries) |
+| Kentucky GOP headquarters — 16 corporations with business before Congress gave $4.4M to a building-fund named for Sen. Mitch McConnell; only 4 of 16 disclosed it in federal filings | Confirmed (disclosure question, not an alleged violation) | mapper (ingest/resolve, honoree + building-fund queries) |
 | Foreign revolving door — Tencent $4.04M; McEntee not FARA-registered | Confirmed | mapper (client/lobbyist/FARA), checking-the-law |
-| Loc Nation — $80M of pseudo-legal claims filed as lobbying (integrity) | Flag | mapper (anomaly, amendment-aware), checking-the-law |
 | Senate↔House consistency (36,643 comparable periods, 0 gaps >$100K — re-verified this session, amendment-aware) | Cold | mapper (mismatch), case-file |
 
 Also demonstrated, as a capability rather than a finding: a **coordinated-messaging
@@ -76,11 +74,9 @@ Congress.gov (sponsored bills, Tier 1), FEC (receipts denominator, Tier 2), Vote
 (votes), FARA (foreign-agent registry). All snapshotted so findings re-run offline.
 
 ## Possible legal violations flagged to the panel
-- **Loc Nation** — possible misuse of the federal LDA filing system. `legal_checks/loc_nation.md`
-  (verdict: genuinely-unclear → for the panel).
 - **McEntee / FARA** — LDA-vs-FARA election for foreign-client work. `legal_checks/mcentee_fara.md`
   (verdict: genuinely-unclear → for the panel).
-Both are framed as questions for a lawyer, not assertions of illegality.
+This is framed as a question for a lawyer, not an assertion of illegality.
 
 ## Conflicts of interest
 None known. No team member has a relationship with any entity named.
@@ -90,8 +86,6 @@ None known. No team member has a relationship with any entity named.
 export GAIN_DATA_DIR=/path/to/data GAIN_WORKDIR=$PWD/build/workdir
 python3 ../menu/skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
 python3 ../menu/skills/lobbying-influence-mapper/scripts/resolve_entities.py
-python3 ../menu/skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
-python3 ../menu/skills/lobbying-influence-mapper/scripts/xref.py anomaly --year 2025 --factor 5
 ```
 No API key or network required for the core findings (shipped snapshots). Optional keys via
 `../menu/setup_keys.py`.

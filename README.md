@@ -13,8 +13,8 @@ corpus (2022–2026 Q1).
 | Deliverable | Where |
 |---|---|
 | **1 · Agent Skills** | [`menu/skills/`](menu/skills/) (six skills, à la carte) · [`mega/investigative-desk/`](mega/investigative-desk/) (single-skill form) · [`dist/`](dist/) (zips) |
-| **2 · Findings report** | [`submission/findings_report.md`](submission/findings_report.md) (+ [`submission/legal_checks/`](submission/legal_checks/)) |
-| **3 · Interaction traces** | [`submission/traces/sessions.html`](submission/traces/sessions.html) (every skill invocation, full arguments) · [`submission/traces/outputs/`](submission/traces/outputs/) (verbatim outputs) · [`submission/traces/trace_index.md`](submission/traces/trace_index.md) (narrative index + scope note) |
+| **2 · Findings** | published as summary bullets on the [site](https://ewyloge-asu.github.io/gain-agent-challenge/#findings) (+ [`submission/legal_checks/`](submission/legal_checks/)) |
+| **3 · Interaction traces (logs)** | [`submission/traces/outputs/`](submission/traces/outputs/) — verbatim logs backing each published finding |
 | **4 · README** | [`submission/README.md`](submission/README.md) — skills ↔ findings map, outside data, conflicts of interest, legal flags for the panel |
 
 ## The assembly line
@@ -31,9 +31,9 @@ scope the question (works on ANY dataset; picks or builds the beat's plan)
 
 Also in this repo, demonstrated end-to-end on real data:
 
-- [`submission/generality_demo/`](submission/generality_demo/) — the same line on a
-  **non-lobbying** beat (Medicare up-coding): the scoping step built a healthcare plan and
-  web-search-for-data surfaced + snapshotted an HHS-OIG primary source.
+- We also ran the same line end-to-end on a **non-lobbying** beat (Medicare up-coding):
+  the scoping step built a healthcare plan and web-search-for-data surfaced + snapshotted
+  an HHS-OIG primary source.
 - [`submission/footnoter_demo/`](submission/footnoter_demo/) — the findings draft
   footnoted to the engine's own outputs as Word tracked changes, with margin flags.
 - [`submission/review_dashboard.html`](submission/review_dashboard.html) — generated from
@@ -49,8 +49,6 @@ standard library only. Evaluators supply the corpus via `GAIN_DATA_DIR`
 export GAIN_DATA_DIR=/path/to/data GAIN_WORKDIR=$PWD/workdir
 python3 menu/skills/lobbying-influence-mapper/scripts/ingest.py --years 2025 --datasets senate contributions press
 python3 menu/skills/lobbying-influence-mapper/scripts/resolve_entities.py
-python3 menu/skills/lobbying-influence-mapper/scripts/xref.py gatekeeper --filer lobbyist --year 2025 --top 12
-python3 menu/skills/lobbying-influence-mapper/scripts/xref.py anomaly --year 2025 --factor 5
 python3 validate_skills.py menu/skills      # all 6 skills validate against the spec
 ```
 
@@ -59,11 +57,12 @@ Shipped snapshots reproduce every keyed finding offline.
 
 ## Team
 
-Walter Cronkite School of Journalism and Mass Communication, Arizona State University.
-Evan Wyloge, Shelby Grossman & Katie Wilcox (Professors of Practice); Allie Seligman
-(Clinical Assistant Professor); Stephen K. Doig (Professor); Brett Kurland (Assistant
-Dean & Professor of Practice); DeAnna Soth (Learning Design Principal); Mitul
-Balamurugan (ASU computer science student). License: MIT.
+A group of faculty at the Walter Cronkite School of Journalism and Mass Communication,
+Arizona State University. Mitul Balamurugan (masters student, Fulton Schools of
+Engineering, ASU); Stephen K. Doig (Professor); Shelby Grossman (Professor of Practice);
+Brett Kurland (Assistant Dean & Professor of Practice); Allie Seligman (Clinical
+Assistant Professor); Katie Wilcox (Professor of Practice); Evan Wyloge (Professor of
+Practice). License: MIT.
 
 > This repo previously hosted Evan's solo entry (the `lobbying-influence-mapper` alone);
 > that work is superseded by — and included within — this combined submission. See git
