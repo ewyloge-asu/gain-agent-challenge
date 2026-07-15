@@ -275,25 +275,26 @@
  project), then try the prompt on its card. What each one does:</p>
  <div class="grid">
   <div class="flip"><div class="inner">
-   <div class="face"><h3>Start here: the whole investigation</h3><p class="id">investigative-method</p>
-    <p>Scopes the question with you, then walks the entire path itself — gather, profile,
-    find leads, cross-check, check the law, stay organized, footnote — on any dataset.
-    Self-contained: it doesn't hand off to other skills.</p>
+   <div class="face"><h3>Start here: scope, find data, snapshot it</h3><p class="id">investigative-method</p>
+    <p>Interviews you to scope the investigation, finds and snapshots the outside data it
+    needs, and renders a case file into a review dashboard. For everything else — profiling,
+    leads, legal, footnoting — it hands off to the skill built for that job.</p>
     <p><a class="dl" href="downloads/skill-investigative-method.zip">⬇ Download</a></p>
     <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the investigative-method folder to investigate [your
-    question] in [your data]."</i></p>
+    <i>"Use the custom skill in the investigative-method folder to scope an investigation
+    into [your question] and find outside data on [a topic]."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">investigative-method</p><ul>
     <li><b>Tools:</b> <code>scope.py</code> (the scoping interview → brief + beat plan),
-     <code>casefile.py</code> (durable state: threads, findings, legal flags, journal),
      <code>find_data.py</code> (curated catalog + live CKAN + web-search prompts),
-     <code>fetch_source.py</code> (snapshot with sha256), <code>build_dashboard.py</code>.</li>
-    <li><b>Workflow:</b> scope → acquire → profile → find leads → cross-check → check the
-     law → stay organized → source &amp; publish, with guardrails on what may be claimed
-     at each stage. Profiling, lead-discovery, and footnoting are done directly (pandas/
-     duckdb, web search, reasoning) rather than through a separate packaged tool.</li>
-    <li><b>Needs:</b> Python 3 only, stdlib. Works on any dataset.</li></ul>
+     <code>fetch_source.py</code> (snapshot with sha256), <code>build_dashboard.py</code>
+     (renders a case file into a single HTML dashboard).</li>
+    <li><b>Hands off to:</b> case-file (organize), robodoig / lobbying-influence-mapper
+     (profile &amp; find leads), checking-the-law (legal), howard-center-footnoter
+     (source a draft) — rather than reimplementing any of that here.</li>
+    <li><b>Needs:</b> Python 3 only, stdlib. <code>build_dashboard.py</code> needs the
+     case-file skill installed alongside it (reads its parser directly, no duplicate
+     copy). Works on any dataset.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
   <div class="flip"><div class="inner">

@@ -218,11 +218,13 @@ def main() -> int:
     print(f"\n  Beat-pack: {pack['domain']}"
           + ("  (auto-detected as lobbying)" if pack.get("auto_detected") else ""))
     print("\nNext:")
-    print(f"  1. python3 tools/casefile.py --dir {args.dir} init  "
-          "# scaffold thread/finding/journal state (keeps this brief.md)")
-    print("  2. Load and profile the primary data (pandas/duckdb); find outside data "
-          "with tools/find_data.py + tools/fetch_source.py.")
-    print(f"  3. Discover leads → tools/casefile.py --dir {args.dir} new-thread ...")
+    print(f"  1. Find & snapshot outside data: tools/find_data.py \"<topic>\", then "
+          f"tools/fetch_source.py \"<url>\" --out-dir {args.dir}/snapshots.")
+    print(f"  2. Track leads across sessions: install the case-file skill and run "
+          f"../case-file/scripts/casefile.py --dir {args.dir} init (it reads this "
+          "brief.md as-is).")
+    print(f"  3. Once you have a case file: tools/build_dashboard.py --dir {args.dir} "
+          "--out review_dashboard.html")
     return 0
 
 

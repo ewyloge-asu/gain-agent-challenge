@@ -5,7 +5,9 @@ case file — the human-verification surface for an investigation. Renders the b
 thread board (open/chasing/confirmed/cold with reasons + source records), findings, legal
 flags, and key entities, so an editor can review by clicking rather than re-running the work.
 
-Uses this skill's own case-file module (tools/casefile.py) — no external dependency.
+Reads a case file produced by the case-file skill — reuses its parser directly from the
+sibling skill folder rather than duplicating it here. Needs case-file installed alongside
+this skill (e.g. ~/.claude/skills/case-file/).
 
 Usage:
   python3 build_dashboard.py --dir casefile --out review_dashboard.html
@@ -19,9 +21,13 @@ import sys
 
 def _load_casefile_module():
     here = os.path.dirname(os.path.abspath(__file__))
-    cand = os.path.join(here, "casefile.py")
+    cand = os.path.normpath(os.path.join(here, "..", "..", "case-file", "scripts",
+                                          "casefile.py"))
     if not os.path.exists(cand):
-        sys.exit(f"! cannot find casefile.py at {cand} (should ship alongside this script)")
+        sys.exit(f"! cannot find the case-file skill at {cand}\n"
+                 "  build_dashboard.py renders a case file produced by the case-file "
+                 "skill — install it alongside investigative-method "
+                 "(e.g. ~/.claude/skills/case-file/) and try again.")
     spec = importlib.util.spec_from_file_location("casefile", cand)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
