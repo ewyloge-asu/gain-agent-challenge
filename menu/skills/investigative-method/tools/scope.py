@@ -52,9 +52,10 @@ LOBBYING_PACK = {
     ],
     "law_packs": ["us-influence-law", "us-campaign-finance-law"],
     "anomaly_rules": "round-number million income, self-referential registrant/client, "
-                     "many unrelated issue codes, income>>peers (see mapper anomaly).",
-    "engine_notes": "Use lobbying-influence-mapper for model/discover/verify; "
-                    "amendment-aware de-dup before any spend aggregate.",
+                     "many unrelated issue codes, income>>peers.",
+    "engine_notes": "Load filings into a dataframe, resolve entities to canonical ids, "
+                    "and de-dup amendments (a filing amends a prior one; keep the latest "
+                    "version per registrant/client/period) before any spend aggregate.",
 }
 
 GENERIC_PACK = {
@@ -63,9 +64,12 @@ GENERIC_PACK = {
     "entity_keys": ["<the join key(s) in your data — resolve to canonical ids>"],
     "external_sources": [],
     "law_packs": [],
-    "anomaly_rules": "learn the baseline with robodoig, then flag deviations from normal.",
-    "engine_notes": "Profile with robodoig first; use tools/find_data.py to locate "
-                    "relevant outside datasets/APIs for this topic.",
+    "anomaly_rules": "learn the baseline first (types, distributions, normal ranges), "
+                     "then flag deviations from normal.",
+    "engine_notes": "Profile the data first (pandas .describe()/.info(), groupbys, "
+                    "correlations) before spending reasoning budget on it; use "
+                    "tools/find_data.py to locate relevant outside datasets/APIs for "
+                    "this topic.",
 }
 
 LOBBYING_HINTS = ("lobby", "lobbying", "lobbyist", "influence", "campaign finance",
@@ -101,7 +105,7 @@ CLARIFYING_QUESTIONS = [
     ("jurisdiction", "Jurisdiction / geography (e.g. 'US federal')?"),
     ("domain", "Domain/beat (e.g. 'lobbying', 'procurement', 'healthcare')?"),
     ("finding_bar", "What would count as a real finding (not just a data summary)?"),
-    ("data_path", "Where is the primary data? (path or 'GAIN_DATA_DIR')"),
+    ("data_path", "Where is the primary data? (file or folder path)"),
 ]
 
 
@@ -214,14 +218,13 @@ def main() -> int:
     print(f"\n  Beat-pack: {pack['domain']}"
           + ("  (auto-detected as lobbying)" if pack.get("auto_detected") else ""))
     print("\nNext:")
-    print(f"  1. python3 ../case-file/scripts/casefile.py --dir {args.dir} init  "
-          "# scaffold state (keeps this brief.md)")
-    if pack["domain"] == "lobbying":
-        print("  2. Build the store: lobbying-influence-mapper (ingest → resolve).")
-    else:
-        print("  2. Profile the data with robodoig; find outside data with "
-              "tools/find_data.py.")
-    print("  3. Discover leads → open threads in the case file.")
+    print(f"  1. Find & snapshot outside data: tools/find_data.py \"<topic>\", then "
+          f"tools/fetch_source.py \"<url>\" --out-dir {args.dir}/snapshots.")
+    print(f"  2. Track leads across sessions: install the case-file skill and run "
+          f"../case-file/scripts/casefile.py --dir {args.dir} init (it reads this "
+          "brief.md as-is).")
+    print(f"  3. Once you have a case file: tools/build_dashboard.py --dir {args.dir} "
+          "--out review_dashboard.html")
     return 0
 
 
