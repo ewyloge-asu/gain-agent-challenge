@@ -28,13 +28,12 @@ Downloads: `../dist/` (menu bundle, mega, and per-skill zips).
 The newsworthy discoveries are published as summary bullets on the
 [site](https://ewyloge-asu.github.io/gain-agent-challenge/#findings) and in the table
 below. Legal assessments are in `legal_checks/`. Public language about any finding is
-limited to that summary bullet, the linked logs, and (for the Baldwin and Kentucky
-GOP-headquarters findings) the linked verification spreadsheets — nothing beyond what
+limited to that summary bullet, the linked logs, and (for the Kentucky
+GOP-headquarters finding) the linked verification spreadsheet — nothing beyond what
 those support is asserted.
 
 ### Interaction traces (logs)
-`traces/outputs/` — verbatim logs of the key invocations backing each published finding
-(e.g. `13_baldwin_pharma_verification.json`).
+`traces/outputs/` — verbatim logs of the key invocations backing each published finding.
 
 ### Review surface
 `review_dashboard.html` — generated from the case file; thread board + findings + legal
@@ -58,7 +57,6 @@ foreign data.
 
 | Finding | Status | Skills used |
 |---|---|---|
-| Baldwin pharma pattern — 37 drug-price press releases Jan 2023–May 2025, then none Jun 2025–Mar 2026, as drugmaker honoree money rose from $13K (2023–24) to $167.5K (2025, incl. two $80K Takeda→NORD payments) | Confirmed (timing pattern, not causation) | mapper (ingest/resolve, honoree + press queries) |
 | Kentucky GOP headquarters — 16 corporations with business before Congress gave $4.4M to a building-fund named for Sen. Mitch McConnell; only 4 of 16 disclosed it in federal filings | Confirmed (disclosure question, not an alleged violation) | mapper (ingest/resolve, honoree + building-fund queries) |
 | Foreign revolving door — Tencent $4.04M; McEntee not FARA-registered | Confirmed | mapper (client/lobbyist/FARA), checking-the-law |
 | Senate↔House consistency (36,643 comparable periods, 0 gaps >$100K — re-verified this session, amendment-aware) | Cold | mapper (mismatch), case-file |
