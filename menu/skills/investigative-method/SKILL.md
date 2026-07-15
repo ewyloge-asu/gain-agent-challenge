@@ -59,21 +59,28 @@ user in the loop:
    finding bar). Run `python3 tools/scope.py --dir casefile --interactive` to be walked
    through the prompts, or gather the answers in conversation and pass them as flags
    (see `--help`).
-2. **Write the brief:**
+2. **Check whether this has already been reported on.** Before writing the brief, run a
+   quick web search (2–3 queries) for the question and key entities, using your own
+   web-search capability — the same way `find_data.py` leans on it for datasets. You're
+   looking for recent coverage of the same pattern, not just background reading. Summarize
+   what you find (or that nothing turned up) in one or two sentences.
+3. **Write the brief:**
    ```bash
    python3 tools/scope.py --dir casefile --question "..." --entities "..." \
        --from 2025-01-01 --to 2025-12-31 --jurisdiction "..." --domain "..." \
-       --finding-bar "..."
+       --finding-bar "..." --prior-coverage "..."
    ```
    This writes `casefile/brief.md` (the case brief — human-owned from here on) and
-   `casefile/beatpack.json` (the selected domain pack).
-3. **Pick or synthesize the beat-pack.** `scope.py` ships a **lobbying** beat-pack (US
+   `casefile/beatpack.json` (the selected domain pack). `brief.md` includes a **Prior
+   coverage check** section from `--prior-coverage`; if it's left blank, the brief flags
+   it as not yet checked so it isn't silently skipped.
+4. **Pick or synthesize the beat-pack.** `scope.py` ships a **lobbying** beat-pack (US
    federal LDA/LD-203 filings, relevant entity keys, campaign-finance/lobbying-law
    pointers, and outside sources like Congress.gov/FEC/FARA/Voteview). For any other
    beat, it emits a generic pack — read `casefile/beatpack.json` and fill in: which
    datasets, which entity keys (the join columns), and which laws are plausibly
    relevant. This is a map, never the answer.
-4. **Loop.** Scope is not one-shot. If acquisition or analysis later suggests the story
+5. **Loop.** Scope is not one-shot. If acquisition or analysis later suggests the story
    is broader or narrower than framed, ask the user whether to adjust scope and edit
    `brief.md` (or log the change via case-file, if installed).
 

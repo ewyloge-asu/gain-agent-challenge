@@ -17,7 +17,8 @@ Usage:
       --entities "committee chairs, registered lobbyists" \
       --from 2025-01-01 --to 2025-12-31 \
       --jurisdiction "US federal" --domain lobbying \
-      --finding-bar "a sourced pattern a reporter would chase, not a dataset summary"
+      --finding-bar "a sourced pattern a reporter would chase, not a dataset summary" \
+      --prior-coverage "web search 2026-07: no recent (12mo) reporting on this specific pattern"
 
 Standard library only. No network. Writes brief.md + beatpack.json under --dir.
 """
@@ -106,6 +107,8 @@ CLARIFYING_QUESTIONS = [
     ("domain", "Domain/beat (e.g. 'lobbying', 'procurement', 'healthcare')?"),
     ("finding_bar", "What would count as a real finding (not just a data summary)?"),
     ("data_path", "Where is the primary data? (file or folder path)"),
+    ("prior_coverage", "Quick web search: has this question/these entities been "
+                        "reported on recently? Summarize what turned up (or 'none found')"),
 ]
 
 
@@ -156,6 +159,12 @@ def render_brief(a: dict, pack: dict) -> str:
         "## What counts as a finding (the finding bar)",
         finding_bar,
         "",
+        "## Prior coverage check",
+        a.get("prior_coverage") or
+        "NOT YET CHECKED — before treating any pattern as new, run a quick web search "
+        "for the question and key entities to see if this has already been reported on "
+        "recently, and fill this in.",
+        "",
         f"## Beat-pack selected: `{pack['domain']}`",
         pack["summary"],
         "",
@@ -184,6 +193,9 @@ def main() -> int:
     p.add_argument("--domain", default="")
     p.add_argument("--finding-bar", dest="finding_bar")
     p.add_argument("--data-path", dest="data_path")
+    p.add_argument("--prior-coverage", dest="prior_coverage",
+                    help="summary of a quick web search for recent reporting on this "
+                    "topic (run the search yourself first; this just records it)")
     p.add_argument("--force", action="store_true", help="overwrite existing brief.md")
     args = p.parse_args()
 
@@ -192,7 +204,7 @@ def main() -> int:
     else:
         a = {k: getattr(args, k) or "" for k in
              ("question", "entities", "date_from", "date_to", "jurisdiction",
-              "domain", "finding_bar", "data_path")}
+              "domain", "finding_bar", "data_path", "prior_coverage")}
 
     if not a.get("question"):
         print("! No question given. S0 needs at least a question "
