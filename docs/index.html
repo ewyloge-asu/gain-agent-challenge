@@ -275,20 +275,24 @@
  project), then try the prompt on its card. What each one does:</p>
  <div class="grid">
   <div class="flip"><div class="inner">
-   <div class="face"><h3>Start here: the conductor</h3><p class="id">investigative-method</p>
-    <p>Interviews you to scope the investigation and opens the case file. Works on its own,
-    or can call the other five skills in order if you've installed them. Includes the
-    web-search-for-data tools.</p>
+   <div class="face"><h3>Start here: the whole investigation</h3><p class="id">investigative-method</p>
+    <p>Scopes the question with you, then walks the entire path itself — gather, profile,
+    find leads, cross-check, check the law, stay organized, footnote — on any dataset.
+    Self-contained: it doesn't hand off to other skills.</p>
     <p><a class="dl" href="downloads/skill-investigative-method.zip">⬇ Download</a></p>
     <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the investigative-method folder to scope an investigation into [your question] — help me figure out what data I need and open a case file."</i></p>
+    <i>"Use the custom skill in the investigative-method folder to investigate [your
+    question] in [your data]."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">investigative-method</p><ul>
     <li><b>Tools:</b> <code>scope.py</code> (the scoping interview → brief + beat plan),
+     <code>casefile.py</code> (durable state: threads, findings, legal flags, journal),
      <code>find_data.py</code> (curated catalog + live CKAN + web-search prompts),
      <code>fetch_source.py</code> (snapshot with sha256), <code>build_dashboard.py</code>.</li>
-    <li><b>Workflow:</b> scope → gather → analyze → organize → harden, with guardrails on
-     what may be claimed at each stage.</li>
+    <li><b>Workflow:</b> scope → acquire → profile → find leads → cross-check → check the
+     law → stay organized → source &amp; publish, with guardrails on what may be claimed
+     at each stage. Profiling, lead-discovery, and footnoting are done directly (pandas/
+     duckdb, web search, reasoning) rather than through a separate packaged tool.</li>
     <li><b>Needs:</b> Python 3 only, stdlib. Works on any dataset.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>

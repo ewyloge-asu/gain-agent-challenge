@@ -13,7 +13,7 @@ identifier; **`What it does` is the real name**:
 
 | Skill (identifier) | Role | What it does |
 |---|---|---|
-| `investigative-method` | the conductor | scopes the question with the user (works on any data), opens the case file; includes web-search-for-data. Standalone by default, but can call the other five skills if they're installed |
+| `investigative-method` | the whole investigation, standalone | scopes the question with the user (works on any data), then walks the entire path itself — acquire, profile, find leads, cross-check, check the law, stay organized, footnote. Self-contained; doesn't hand off to other skills |
 | `lobbying-influence-mapper` | find the leads | ingest → resolve entities → cross-reference → verify vs. outside data, with provenance on every number |
 | `robodoig` | understand any table | profile any tabular dataset + transcription-error QA *(named for Steve Doig, the Pulitzer-winning ASU data-journalism pioneer whose method it automates)* |
 | `case-file` | never lose the thread | durable thread/entity/journal state across sessions |
