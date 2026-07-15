@@ -13,7 +13,7 @@ identifier; **`What it does` is the real name**:
 
 | Skill (identifier) | Role | What it does |
 |---|---|---|
-| `investigative-method` | scope, find data, snapshot it | scopes the question with the user (works on any data), finds and snapshots outside data, and renders a case file into a review dashboard; hands off to case-file, robodoig/lobbying-influence-mapper, checking-the-law, and howard-center-footnoter for everything else rather than duplicating them |
+| `investigative-method` | scope, find data, snapshot it | scopes the question with the user (works on any data), checks via a quick web search whether it's already been reported on recently, finds and snapshots outside data, and renders a case file into a review dashboard; hands off to case-file, robodoig/lobbying-influence-mapper, checking-the-law, and howard-center-footnoter for everything else rather than duplicating them |
 | `lobbying-influence-mapper` | find the leads | ingest → resolve entities → cross-reference → verify vs. outside data, with provenance on every number |
 | `robodoig` | understand any table | profile any tabular dataset + transcription-error QA *(named for Steve Doig, the Pulitzer-winning ASU data-journalism pioneer whose method it automates)* |
 | `case-file` | never lose the thread | durable thread/entity/journal state across sessions |
