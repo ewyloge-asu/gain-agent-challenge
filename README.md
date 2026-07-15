@@ -1,8 +1,8 @@
 # Agent of Record — GAIN Agentic Investigation Challenge submission (Arizona State University team)
 
-A reusable **investigative assembly line** for records investigations — six composable
-Agent Skills plus the newsworthy findings they produced on the GAIN federal lobbying
-corpus (2022–2026 Q1).
+Six standalone Agent Skills for records investigations — each works on its own; used
+together they form an investigative assembly line. Plus the newsworthy findings they
+produced on the GAIN federal lobbying corpus (2022–2026 Q1).
 
 **Site:** https://ewyloge-asu.github.io/gain-agent-challenge/ ·
 **Submission map (required README):** [`submission/README.md`](submission/README.md) ·
@@ -12,7 +12,7 @@ corpus (2022–2026 Q1).
 
 | Deliverable | Where |
 |---|---|
-| **1 · Agent Skills** | [`menu/skills/`](menu/skills/) (six skills, à la carte) · [`mega/investigative-desk/`](mega/investigative-desk/) (single-skill form) · [`dist/`](dist/) (zips) |
+| **1 · Agent Skills** | [`menu/skills/`](menu/skills/) — six standalone skills, install only what you need · [`dist/`](dist/) (per-skill zips) |
 | **2 · Findings** | published as summary bullets on the [site](https://ewyloge-asu.github.io/gain-agent-challenge/#findings) (+ [`submission/legal_checks/`](submission/legal_checks/)) |
 | **3 · Interaction traces (logs)** | [`submission/traces/outputs/`](submission/traces/outputs/) — verbatim logs backing each published finding |
 | **4 · README** | [`submission/README.md`](submission/README.md) — skills ↔ findings map, outside data, conflicts of interest, legal flags for the panel |

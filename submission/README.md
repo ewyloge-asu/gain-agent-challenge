@@ -6,23 +6,21 @@ findings it produced on the GAIN federal lobbying corpus.
 ## What's included
 
 ### The skill(s)
-Delivered in two forms from **one shared source** (`../menu/` is canonical; `../mega/` is
-assembled from it):
+Six standalone Agent Skills, from **one shared source** (`../menu/`). Each installs and
+runs independently — download only the one you need. The `Skill` column is the install
+identifier; **`What it does` is the real name**:
 
-- **Menu (bundle)** — six composable skills you can install together or à la carte.
-  The `Skill` column is the install identifier; **`What it does` is the real name**:
-  | Skill (identifier) | Role | What it does |
-  |---|---|---|
-  | `investigative-method` | the conductor | scopes the question with the user (works on any data), opens the case file, drives the workflow; includes web-search-for-data |
-  | `lobbying-influence-mapper` | find the leads | ingest → resolve entities → cross-reference → verify vs. outside data, with provenance on every number |
-  | `robodoig` | understand any table | profile any tabular dataset + transcription-error QA *(named for Steve Doig, the Pulitzer-winning ASU data-journalism pioneer whose method it automates)* |
-  | `case-file` | never lose the thread | durable thread/entity/journal state across sessions |
-  | `checking-the-law` | is it actually illegal? | read the actual statute, apply it element-by-element |
-  | `howard-center-footnoter` | source every claim | footnote a draft to primary sources (tracked changes) |
-- **Mega (single skill)** — `investigative-desk`: the whole line behind one `SKILL.md`.
+| Skill (identifier) | Role | What it does |
+|---|---|---|
+| `investigative-method` | the conductor | scopes the question with the user (works on any data), opens the case file, drives the workflow; includes web-search-for-data. Standalone, but can call the other five if they're installed |
+| `lobbying-influence-mapper` | find the leads | ingest → resolve entities → cross-reference → verify vs. outside data, with provenance on every number |
+| `robodoig` | understand any table | profile any tabular dataset + transcription-error QA *(named for Steve Doig, the Pulitzer-winning ASU data-journalism pioneer whose method it automates)* |
+| `case-file` | never lose the thread | durable thread/entity/journal state across sessions |
+| `checking-the-law` | is it actually illegal? | read the actual statute, apply it element-by-element |
+| `howard-center-footnoter` | source every claim | footnote a draft to primary sources (tracked changes) |
 
 All skills **validate against the Agent Skills spec** (`python3 ../validate_skills.py menu/skills`).
-Downloads: `../dist/` (menu bundle, mega, and per-skill zips).
+Downloads: `../dist/` (per-skill zips).
 
 ### Findings
 The newsworthy discoveries are published as summary bullets on the
