@@ -129,11 +129,7 @@
  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;}
  .step b{font-family:var(--disp);font-size:17px;color:var(--maroon);display:block;margin-bottom:6px;}
  .step small{color:var(--ink2);}
- /* the four workflow steps walk the maroon sequential ramp; generality steps walk teal */
- #what .flip:nth-child(1) .face{border-left:3px solid #E8758E;}
- #what .flip:nth-child(2) .face{border-left:3px solid #CE5371;}
- #what .flip:nth-child(3) .face{border-left:3px solid #AF3758;}
- #what .flip:nth-child(4) .face{border-left:3px solid #8A2341;}
+ /* generality steps walk the teal sequential ramp */
  #generality .step:nth-child(1){border-left:3px solid #4FCFDE;}
  #generality .step:nth-child(2){border-left:3px solid #00B3C3;}
  #generality .step:nth-child(3){border-left:3px solid #0095A2;}
@@ -233,7 +229,7 @@
   <span></span><span></span><span></span>
  </button>
  <div class="navlinks" onclick="document.getElementById('nav').classList.remove('open')">
-  <a href="#what">What it is</a><a href="#findings">What we found</a><a href="#skills">The tools</a>
+  <a href="#findings">What we found</a><a href="#skills">The tools</a>
   <a href="#install">Install &amp; run</a><a href="#generality">Any dataset</a>
   <a href="#limits">Limitations</a>
  </div>
@@ -260,82 +256,8 @@
  Evan Wyloge, Professor of Practice</p>
 </div></header>
 
-<section id="what"><div class="wrap">
- <p class="eyebrow">01 · The tool</p>
- <h2>What it is</h2>
- <p>Six independent Agent Skills that can be used on their own or together as one
- pipeline, following the same four steps a careful reporter would:</p>
- <div class="flow">
-  <div class="flip"><div class="inner">
-   <div class="face"><b>1 · Scope the question</b><small>The agent interviews you: what's
-    the question, which entities, what time frame, what counts as a finding? That scope
-    becomes the case file's brief and picks the right tools for the beat.</small>
-    <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>What's actually happening</b><ul>
-    <li>Your answers become two small files: a plain-English brief — the investigation's
-     charter — and a settings file that points the rest of the tools at your beat.</li>
-    <li>Lobbying comes pre-configured. Any other beat gets a starter plan built from
-     your answers: what to treat as an entity, where to look for outside data, what
-     counts as unusual.</li>
-    <li>If the data later suggests a bigger or smaller story, the agent asks again, and
-     the change is written down.</li></ul>
-    <span class="hint">Click to flip back</span></div>
-  </div></div>
-  <div class="flip"><div class="inner">
-   <div class="face"><b>2 · Gather &amp; analyze</b><small>Deterministic scripts load the
-    records into a database, resolve messy names to real entities, profile what's normal,
-    and surface what isn't — including searching the web for outside datasets and APIs to
-    check claims against.</small>
-    <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>What's actually happening</b><ul>
-    <li>Scripts read the raw records once and organize them into a small database on
-     your computer — a year of federal lobbying filings takes about 15 seconds.</li>
-    <li>Name cleanup connects the variations — "Rep. Brett Guthrie," "GUTHRIE, BRETT,"
-     "Guthrie for Congress" — to the same real person, so the money adds up correctly.</li>
-    <li>A data-finder suggests public datasets and official sources for your topic, and
-     anything you pull in is saved with a digital fingerprint so it can be re-checked
-     later.</li></ul>
-    <span class="hint">Click to flip back</span></div>
-  </div></div>
-  <div class="flip"><div class="inner">
-   <div class="face"><b>3 · Stay organized</b><small>A case file on disk tracks every
-    thread (open, chasing, confirmed, or dead), every key entity, and a session journal —
-    so next week's session picks up exactly where this one stopped.</small>
-    <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>What's actually happening</b><ul>
-    <li>The case file is a folder of ordinary text files — a brief, one file per lead,
-     a list of who matters, a diary of what happened each session. You can read or edit
-     any of it without special software.</li>
-    <li>Built-in rules keep it honest: a lead can't be marked confirmed without a source
-     record behind it, and a dead end has to say why it died.</li>
-    <li>One command turns the whole case file into a dashboard page an editor can open
-     in any browser.</li></ul>
-    <span class="hint">Click to flip back</span></div>
-  </div></div>
-  <div class="flip"><div class="inner">
-   <div class="face"><b>4 · Harden every claim</b><small>Before anything goes to an
-    editor: read the actual statute and apply it element-by-element, footnote the draft
-    to primary sources as tracked changes, and flag what still needs a human decision.
-    The tool prepares claims for review; publishing judgments belong to people.</small>
-    <span class="hint">Click for details +</span></div>
-   <div class="face back"><b>What's actually happening</b><ul>
-    <li>The legal checker quotes the actual statute and walks through it requirement by
-     requirement. The strongest thing it will ever say is "possible — ask a lawyer."</li>
-    <li>The footnoter attaches each claim in a draft to its source, as a tracked change
-     in Word — and where it can't find support, it says so in a margin note rather than
-     inventing one.</li>
-    <li>Any number, anywhere in the work, can be traced back to the exact government
-     filing it came from with one command.</li></ul>
-    <span class="hint">Click to flip back</span></div>
-  </div></div>
- </div>
- <p style="color:var(--ink2)">Underneath all four steps, one rule: <b>every number carries
- a provenance ID</b> that traces back to the raw filing it came from, so an editor can
- audit any claim in one click.</p>
-</div></section>
-
 <section id="findings"><div class="wrap">
- <p class="eyebrow">02 · The journalism</p>
+ <p class="eyebrow">01 · The journalism</p>
  <h2>What we found</h2>
  <div class="note"><b>A request to the panel:</b> please don't make these findings
  public. They haven't yet gone through our own human third-party fact-checking process
@@ -363,10 +285,11 @@
 </div></section>
 
 <section id="skills"><div class="wrap">
- <p class="eyebrow">03 · The skills</p>
+ <p class="eyebrow">02 · The skills</p>
  <h2>The tools</h2>
- <p style="color:var(--ink2)">Six independent Agent Skills. Download only the one you
- need, or grab all six to run the full pipeline. What each one does:</p>
+ <p style="color:var(--ink2)">Six independent Agent Skills — each one works on its own.
+ Download only the one you need, or grab all six to use together. What each one
+ does:</p>
  <div class="grid">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Start here: the conductor</h3><p class="id">investigative-method</p>
@@ -468,10 +391,10 @@
 </div></section>
 
 <section id="install"><div class="wrap">
- <p class="eyebrow">04 · Step by step</p>
+ <p class="eyebrow">03 · Step by step</p>
  <h2>Install &amp; run</h2>
- <p>You need <b>Python 3</b> and either a code-executing AI agent or just a terminal.
- Pick your setup:</p>
+ <p>You need <b>Python 3</b> and Claude Code (desktop app or the <code>claude</code>
+ CLI) to run any of the six skills above.</p>
 
  <div class="note"><b>Two things to know first.</b><br>
  <b>The data:</b> the scripts read the corpus from a folder you point to with the
@@ -495,20 +418,23 @@
    <li>If you have the corpus:
        <code>export GAIN_DATA_DIR=/path/to/data</code> — otherwise skip; demo data is
        built in.</li>
-   <li>Open Claude Code and say:
+   <li>Open Claude Code and name the skill you want, e.g.:
        <i>"Use the custom skill in the investigative-method folder to investigate
-       [your question] in [your data]"</i> — or name whichever skill you installed.</li>
+       [your question] in [your data],"</i> or
+       <i>"Use the custom skill in the checking-the-law folder to check whether
+       [a fact pattern] violates [a statute]."</i> Swap in whichever skill(s) you
+       installed and what you want done.</li>
   </ol></div>
  </details>
 </div></section>
 
 
 <section id="generality"><div class="wrap">
- <p class="eyebrow">05 · Generality</p>
+ <p class="eyebrow">04 · Generality</p>
  <h2>Not just this corpus</h2>
- <p>Nothing in the workflow is hardwired to lobbying. To check that, we ran the whole
- pipeline on a different question — <em>"Which hospitals show billing patterns consistent
- with Medicare up-coding?"</em> — with no lobbying-specific code involved:</p>
+ <p>None of the six skills are hardwired to lobbying. To check that, we ran all six
+ together on a different question — <em>"Which hospitals show billing patterns
+ consistent with Medicare up-coding?"</em> — with no lobbying-specific code involved:</p>
  <div class="flow">
   <div class="step"><b>1 · Scoped the new beat</b><small>The scoping step took the
    healthcare question and generated a healthcare investigation plan — instead of falling
@@ -530,11 +456,11 @@
 
 
 <section id="limits"><div class="wrap">
- <p class="eyebrow">06 · Honest edges</p>
+ <p class="eyebrow">05 · Honest edges</p>
  <h2>Limitations</h2>
  <ul style="color:var(--ink2);font-size:15.5px;line-height:1.7;padding-left:22px">
   <li><b>Generalizing cost some corpus-specific sharpness.</b> Earlier, lobbying-tuned
-   versions surfaced certain leads more readily than the generalized pipeline does; the
+   versions surfaced certain leads more readily than the generalized skills do; the
    deterministic queries always reproduce, but agent-driven discovery can require more
    prompting on this corpus than it used to.</li>
   <li><b>Agent runs are non-deterministic.</b> The scripts return the same numbers every

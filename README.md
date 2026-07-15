@@ -1,8 +1,8 @@
 # Agent of Record — GAIN Agentic Investigation Challenge submission (Arizona State University team)
 
-Six standalone Agent Skills for records investigations — each works on its own; used
-together they form an investigative assembly line. Plus the newsworthy findings they
-produced on the GAIN federal lobbying corpus (2022–2026 Q1).
+Six standalone Agent Skills for records investigations. Each works on its own — there's
+no required pipeline — and they can be combined for a fuller investigation. Plus the
+newsworthy findings they produced on the GAIN federal lobbying corpus (2022–2026 Q1).
 
 **Site:** https://ewyloge-asu.github.io/gain-agent-challenge/ ·
 **Submission map (required README):** [`submission/README.md`](submission/README.md) ·
@@ -17,7 +17,10 @@ produced on the GAIN federal lobbying corpus (2022–2026 Q1).
 | **3 · Interaction traces (logs)** | [`submission/traces/outputs/`](submission/traces/outputs/) — verbatim logs backing each published finding |
 | **4 · README** | [`submission/README.md`](submission/README.md) — skills ↔ findings map, outside data, conflicts of interest, legal flags for the panel |
 
-## The assembly line
+## How the skills can be combined
+
+There's no formal pipeline — each skill validates and runs on its own. This is simply
+one way we combined them for the lobbying corpus:
 
 ```
 scope the question (works on ANY dataset; picks or builds the beat's plan)
@@ -31,7 +34,7 @@ scope the question (works on ANY dataset; picks or builds the beat's plan)
 
 Also in this repo, demonstrated end-to-end on real data:
 
-- We also ran the same line end-to-end on a **non-lobbying** beat (Medicare up-coding):
+- We also ran all six skills together on a **non-lobbying** beat (Medicare up-coding):
   the scoping step built a healthcare plan and web-search-for-data surfaced + snapshotted
   an HHS-OIG primary source.
 - [`submission/footnoter_demo/`](submission/footnoter_demo/) — the findings draft

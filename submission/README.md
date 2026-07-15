@@ -1,7 +1,8 @@
 # GAIN Agentic Investigation Challenge — Submission (Arizona State University team)
 
-A reusable **investigative assembly line** for records investigations, plus the newsworthy
-findings it produced on the GAIN federal lobbying corpus.
+Six standalone Agent Skills for records investigations — each works on its own, with no
+required pipeline — plus the newsworthy findings they produced on the GAIN federal
+lobbying corpus.
 
 ## What's included
 
@@ -12,7 +13,7 @@ identifier; **`What it does` is the real name**:
 
 | Skill (identifier) | Role | What it does |
 |---|---|---|
-| `investigative-method` | the conductor | scopes the question with the user (works on any data), opens the case file, drives the workflow; includes web-search-for-data. Standalone, but can call the other five if they're installed |
+| `investigative-method` | the conductor | scopes the question with the user (works on any data), opens the case file; includes web-search-for-data. Standalone by default, but can call the other five skills if they're installed |
 | `lobbying-influence-mapper` | find the leads | ingest → resolve entities → cross-reference → verify vs. outside data, with provenance on every number |
 | `robodoig` | understand any table | profile any tabular dataset + transcription-error QA *(named for Steve Doig, the Pulitzer-winning ASU data-journalism pioneer whose method it automates)* |
 | `case-file` | never lose the thread | durable thread/entity/journal state across sessions |
@@ -38,12 +39,12 @@ those support is asserted.
 flags, every claim linked to a source record.
 
 ### Footnoter demo (claim hardening, end-to-end)
-`footnoter_demo/` — a `.docx` excerpt of the findings report footnoted to the actual
-pipeline outputs as Word tracked changes: 10 footnotes (9 sourced + 1 ⟨NEEDS SOURCE⟩) and
+`footnoter_demo/` — a `.docx` excerpt of the findings report footnoted to the other
+skills' own outputs as Word tracked changes: 10 footnotes (9 sourced + 1 ⟨NEEDS SOURCE⟩) and
 2 margin comments (`no_source`, `context_concern`). See `footnoter_demo/README.md`.
 
-### Generality test (the FULL pipeline on a second beat)
-We ran the whole assembly line end-to-end on a non-lobbying beat (Medicare hospital
+### Generality test (all six skills, on a second beat)
+We ran all six skills together, end-to-end, on a non-lobbying beat (Medicare hospital
 up-coding), zero lobbying-specific code: scoped question → synthesized healthcare
 beat-pack → live acquisition (CMS API + HHS-OIG report, sha256 snapshots) → robodoig
 profile of 4,079 billing rows → peer-baseline anomaly pass (25 ranked leads; median
