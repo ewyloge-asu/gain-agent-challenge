@@ -1,0 +1,47 @@
+# Entity registry. Each entry: canonical_id, display, type/status, why.
+members: []
+
+firms:
+  - canonical_id: loc-community-association
+    display: "Loc Community Association (registrant)"
+    type: registrant
+    status: key
+    why: >
+      Senate registrant_id 401108853 / house_registrant_id 56638. Self-registered to lobby for its
+      own "client" (State of Loc Nation). Contact: /Christina Loren Clement LLC/, 8 The Green Suite A,
+      Dover DE 19901. The vehicle through which the $80M fabricated figure entered the record.
+
+  - canonical_id: usao-dc
+    display: "U.S. Attorney's Office for the District of Columbia"
+    type: enforcer
+    status: context
+    why: >
+      Sole LDA enforcement referral destination. Per GAO-25-107523, handles thousands of non-filing
+      referrals; one $65k civil settlement in 2024; zero criminal; no false-content case documented.
+
+  - canonical_id: sec-senate-clerk-house
+    display: "Secretary of the Senate / Clerk of the House (LDA filing offices)"
+    type: administrator
+    status: context
+    why: >
+      Operate the LDA e-filing portals. 2 U.S.C. 1605 tasks them to review/verify accuracy, but in
+      practice publish self-certified filings immediately with no substantive content check. The
+      'no gatekeeper on the way in'.
+
+clients:
+  - canonical_id: state-of-loc-nation
+    display: "STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION (client)"
+    type: client
+    status: key
+    why: >
+      Senate client_id 61287. Self-described 'Established sovereign govt'. Reported $80M in 2025
+      lobbying fees (4 x $20M, amendment-aware) — >20x the next real client by income and above the
+      largest real in-house budget (US Chamber ~$70.3M). The fabricated entity at the center of the finding.
+
+  - canonical_id: us-chamber-of-commerce
+    display: "U.S. Chamber of Commerce (comparison)"
+    type: client
+    status: context
+    why: >
+      Largest REAL lobbying budget in 2025 by reported in-house expenses ($70.3M). Used as the honest
+      comparison point: the fabricated $80M exceeds even this. NOT a subject of the finding.
