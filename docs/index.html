@@ -93,9 +93,9 @@
    font:italic 600 190px/1 var(--serif);color:rgba(140,29,64,.045);
    user-select:none;will-change:transform;white-space:nowrap;}
  header .wrap{position:relative;}
- .tag{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
-      color:var(--teal-deep);display:inline-block;padding:8px 14px;
-      border:1px solid var(--line2);border-radius:99px;background:#fff;}
+ .tag{font:600 13px/1.5 var(--mono);letter-spacing:.02em;
+      color:var(--teal-deep);display:inline-block;padding:10px 16px;
+      border:1px solid var(--line2);border-radius:16px;background:#fff;}
  .tag a{color:inherit;}
  h1{font-family:var(--disp);font-weight:800;font-size:clamp(46px,7.5vw,76px);
     letter-spacing:-.015em;line-height:1.02;margin:24px 0 6px;}
@@ -168,6 +168,18 @@
  .flip .back ul{margin:2px 0 8px;padding-left:16px;color:var(--ink2);font-size:13px;line-height:1.55;}
  .flip .back li{margin:4px 0;}
  /* skill cards as flip cards keep card sizing */
+ .skill-cell{display:flex;flex-direction:column;}
+ .try-box{background:var(--paper2);border:1px solid var(--line);border-top:none;
+     border-radius:0 0 12px 12px;padding:12px 16px 14px;font-size:14px;
+     color:var(--ink2);}
+ .try-box b{color:var(--ink);}
+ .try-box p{margin:6px 0 10px;user-select:text;}
+ .try-box .copy-btn{font:600 11.5px/1 var(--mono);letter-spacing:.04em;
+     text-transform:uppercase;color:var(--maroon);background:#fff;
+     border:1px solid var(--line2);border-radius:8px;padding:7px 12px;
+     cursor:pointer;transition:.18s;}
+ .try-box .copy-btn:hover{border-color:var(--maroon);background:var(--maroon-tint);}
+ .try-box .copy-btn.copied{color:var(--ok);border-color:var(--ok);}
  .grid .flip .face{padding:20px;}
  .grid .flip .face h3{margin:0 0 2px;font-size:21px;}
  .grid .flip .face .id{font:500 12px/1.6 var(--mono);color:var(--mut);margin:0 0 10px;}
@@ -221,9 +233,10 @@
  <div class="parallax" data-parallax="0.10"></div>
  <div class="watermark" data-parallax="-0.05">public records</div>
  <div class="wrap">
- <span class="tag">GAIN Agentic Investigation Challenge · a submission from a
-  group of faculty at the <a href="https://cronkite.asu.edu/">Walter Cronkite School of
-  Journalism and Mass Communication</a>, Arizona State University</span>
+ <span class="tag">GAIN Agentic Investigation Challenge<br>
+  A submission from a group of faculty at the
+  <a href="https://cronkite.asu.edu/">Walter Cronkite School of Journalism and Mass
+  Communication</a>, Arizona State University</span>
  <h1>Agent <em>of Record</em></h1>
  <p class="kicker">It works the case. People write the story.</p>
  <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
@@ -295,6 +308,7 @@
  skill into <code>~/.claude/skills/</code> (or <code>.claude/skills/</code> inside one
  project), then try the prompt on its card. What each one does:</p>
  <div class="grid">
+ <div class="skill-cell">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Start here: scope, find data, snapshot it</h3><p class="id">investigative-method</p>
     <p>Interviews you to scope the investigation, does a quick web search to check
@@ -303,9 +317,6 @@
     everything else — profiling, leads, legal, footnoting — it hands off to the skill
     built for that job.</p>
     <p><a class="dl" href="downloads/skill-investigative-method.zip">⬇ Download</a></p>
-    <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the investigative-method folder to scope an investigation
-    into [your question] and find outside data on [a topic]."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">investigative-method</p><ul>
     <li><b>Tools:</b> <code>scope.py</code> (the scoping interview → brief + beat plan,
@@ -321,17 +332,18 @@
      copy). Works on any dataset.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the investigative-method folder to scope an investigation into [your question] and find outside data on [a topic].&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the investigative-method folder to scope an investigation into [your question] and find outside data on [a topic].">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Find the leads</h3><p class="id">lobbying-influence-mapper</p>
     <p>Loads lobbying filings, contributions, and press releases into a database; resolves
     messy names to real members and companies; ranks who's paying whom; checks it all
     against outside records (FEC, committee rosters, FARA).</p>
     <p><a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">⬇ Download</a></p>
-    <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the lobbying-influence-mapper folder to find which
-    members of Congress got the most money from registered lobbyists last year."</i>
-    Point <code>GAIN_DATA_DIR</code> at the real corpus first, or leave it unset to run
-    on the skill's built-in demo data.</p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">lobbying-influence-mapper</p><ul>
     <li><b>Tools:</b> <code>ingest.py</code>, <code>resolve_entities.py</code>,
@@ -343,14 +355,21 @@
      FARA, Voteview).</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the lobbying-influence-mapper folder to find which
+  members of Congress got the most money from registered lobbyists last year.&quot;</p>
+  <p style="font-size:13px">Point <code>GAIN_DATA_DIR</code> at the real corpus first,
+  or leave it unset to run on the skill's built-in demo data.</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the lobbying-influence-mapper folder to find which members of Congress got the most money from registered lobbyists last year.">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Understand any table</h3><p class="id">robodoig</p>
     <p>Point it at any CSV or table and get a profile: what the columns mean, what's
     normal, what's missing, what correlates. Named for Steve Doig, the Pulitzer-winning
     ASU data-journalism pioneer whose method it automates.</p>
     <p><a class="dl" href="downloads/skill-robodoig.zip">⬇ Download</a></p>
-    <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the robodoig folder to profile [path/to/data.csv] — what's normal, what's missing, what stands out."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">robodoig</p><ul>
     <li><b>Tools:</b> <code>analyze.py</code> (types, stats, correlations, histogram +
@@ -361,14 +380,18 @@
     <li><b>Needs:</b> <code>pip install pandas numpy matplotlib openpyxl</code>.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the robodoig folder to profile [path/to/data.csv] — what's normal, what's missing, what stands out.&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the robodoig folder to profile [path/to/data.csv] — what's normal, what's missing, what stands out.">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Never lose the thread</h3><p class="id">case-file</p>
     <p>The investigation's memory: every lead's status (open, chasing, confirmed, dead),
     every key entity, a session journal. Come back a week later and the agent re-orients
     itself instead of starting over.</p>
     <p><a class="dl" href="downloads/skill-case-file.zip">⬇ Download</a></p>
-    <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the case-file folder to open a case file for my investigation into [topic], and give me a re-orientation brief whenever I come back to it."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">case-file</p><ul>
     <li><b>Tools:</b> <code>casefile.py</code> — init, brief (the re-orientation digest),
@@ -378,14 +401,18 @@
     <li><b>Needs:</b> Python 3 only. Plain files — readable and editable by humans.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the case-file folder to open a case file for my investigation into [topic], and give me a re-orientation brief whenever I come back to it.&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the case-file folder to open a case file for my investigation into [topic], and give me a re-orientation brief whenever I come back to it.">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Is it actually illegal?</h3><p class="id">checking-the-law</p>
     <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
     from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
     lawyer," or "not a violation, and here's why."</p>
     <p><a class="dl" href="downloads/skill-checking-the-law.zip">⬇ Download</a></p>
-    <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the checking-the-law folder to check whether [a fact pattern] violates [a statute, e.g. the Lobbying Disclosure Act]."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">checking-the-law</p><ul>
     <li><b>Method:</b> fetch the current statute text, break it into elements, test the
@@ -396,14 +423,18 @@
      submission is one example.</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the checking-the-law folder to check whether [a fact pattern] violates [a statute, e.g. the Lobbying Disclosure Act].&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the checking-the-law folder to check whether [a fact pattern] violates [a statute, e.g. the Lobbying Disclosure Act].">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Source every claim</h3><p class="id">howard-center-footnoter</p>
     <p>Reads a draft story, matches each factual claim to your reporting materials, and
     inserts Howard Center–style footnotes as Word tracked changes — with margin comments
     where no source exists or a quote may be out of context.</p>
     <p><a class="dl" href="downloads/skill-howard-center-footnoter.zip">⬇ Download</a></p>
-    <p style="margin-top:8px;font-size:14px;color:var(--ink2)"><b>Try:</b>
-    <i>"Use the custom skill in the howard-center-footnoter folder to footnote my draft at [path/to/draft.docx] against my source materials in [path/to/sources]."</i></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">howard-center-footnoter</p><ul>
     <li><b>Tools:</b> claim extraction, source ingestion (PDF/transcript/notes), footnote
@@ -414,6 +445,11 @@
     <li><b>Needs:</b> <code>pip install python-docx lxml</code> (+ pdfplumber for PDFs).</li></ul>
     <span class="hint">Click to flip back</span></div>
   </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the howard-center-footnoter folder to footnote my draft at [path/to/draft.docx] against my source materials in [path/to/sources].&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the howard-center-footnoter folder to footnote my draft at [path/to/draft.docx] against my source materials in [path/to/sources].">Copy</button>
+ </div>
+ </div>
  </div>
 </div></section>
 
@@ -433,6 +469,13 @@
 <section id="reflections"><div class="wrap">
  <p class="eyebrow">04 · Reflections</p>
  <h2>Reflections on this competition</h2>
+ <p style="color:var(--ink2)">We were struck, in a good way, by how much this
+ exercise depended on our expertise as journalists. Instead of asking what AI could do,
+ we first worked through the data cleaning, story pitching and reporting process exactly
+ as we would on our own. That helped us uncover which steps require human judgment,
+ which tasks aren't worth spending time automating and where AI can genuinely make the
+ work better. Only then did we land on skills that align with our workflow and
+ journalistic standards.</p>
  <p style="color:var(--ink2)">Most of us on this team had never built a Claude Skill
  before this competition, and we're genuinely glad it pushed us to learn — several of us
  are now using Agent Skills in other projects and in our teaching.</p>
@@ -453,6 +496,28 @@ document.querySelectorAll('.flip').forEach(function (card) {
   card.addEventListener('click', function (e) {
     if (e.target.closest('a')) return;
     card.classList.toggle('flipped');
+  });
+});
+// Copy-to-clipboard for the starter prompt under each skill card.
+document.querySelectorAll('.copy-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var done = function () {
+      var original = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
   });
 });
 // Barely-perceptible parallax on the hero layers (rate set per element).
