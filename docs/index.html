@@ -178,17 +178,6 @@
  .grid .flip .face p{margin:0 0 8px;color:var(--ink2);font-size:15px;}
  .grid .flip .face .dl{margin-top:auto;align-self:flex-start;}
 
- /* bundle chooser */
- .bundles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:8px 0 30px;}
- .bundle{background:#fff;border:2px solid var(--line2);border-radius:14px;padding:22px;
-       transition:transform .22s ease,box-shadow .22s ease;}
- .bundle:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(25,25,25,.35);}
- .bundle.primary{border-color:var(--maroon);}
- .bundle h3{font-size:22px;margin-top:0;}
- .bundle .id{font:500 12px/1.6 var(--mono);color:var(--mut);}
- .bundle ul{margin:10px 0 6px;padding-left:20px;color:var(--ink2);font-size:15px;}
- .bundle li{margin:4px 0;}
-
  /* ---------- pills + tables ---------- */
  .pill{display:inline-block;font:600 11.5px/1 var(--mono);letter-spacing:.02em;
        padding:5px 11px;border-radius:99px;white-space:nowrap;}
@@ -274,8 +263,8 @@
 <section id="what"><div class="wrap">
  <p class="eyebrow">01 · The tool</p>
  <h2>What it is</h2>
- <p>Six Agent Skills that work as one pipeline, following the same four steps a careful
- reporter would:</p>
+ <p>Six independent Agent Skills that can be used on their own or together as one
+ pipeline, following the same four steps a careful reporter would:</p>
  <div class="flow">
   <div class="flip"><div class="inner">
    <div class="face"><b>1 · Scope the question</b><small>The agent interviews you: what's
@@ -373,15 +362,15 @@
 <section id="skills"><div class="wrap">
  <p class="eyebrow">03 · The skills</p>
  <h2>The tools</h2>
- <p><a class="dl" style="margin-top:0" href="downloads/investigative-desk-menu.zip">⬇ Download
- the skill bundle</a></p>
- <p style="color:var(--ink2)">One download, six skills that work as one pipeline —
- install them together (they're built to run as a set). What each one does:</p>
+ <p style="color:var(--ink2)">Six independent Agent Skills. Download only the one you
+ need, or grab all six to run the full pipeline. What each one does:</p>
  <div class="grid">
   <div class="flip"><div class="inner">
    <div class="face"><h3>Start here: the conductor</h3><p class="id">investigative-method</p>
-    <p>Interviews you to scope the investigation, opens the case file, and drives the other
-    five skills in order. Includes the web-search-for-data tools.</p>
+    <p>Interviews you to scope the investigation and opens the case file. Works on its own,
+    or can call the other five skills in order if you've installed them. Includes the
+    web-search-for-data tools.</p>
+    <p><a class="dl" href="downloads/skill-investigative-method.zip">⬇ Download</a></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">investigative-method</p><ul>
     <li><b>Tools:</b> <code>scope.py</code> (the scoping interview → brief + beat plan),
@@ -397,6 +386,7 @@
     <p>Loads lobbying filings, contributions, and press releases into a database; resolves
     messy names to real members and companies; ranks who's paying whom; checks it all
     against outside records (FEC, committee rosters, FARA).</p>
+    <p><a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">⬇ Download</a></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">lobbying-influence-mapper</p><ul>
     <li><b>Tools:</b> <code>ingest.py</code>, <code>resolve_entities.py</code>,
@@ -413,6 +403,7 @@
     <p>Point it at any CSV or table and get a profile: what the columns mean, what's
     normal, what's missing, what correlates. Named for Steve Doig, the Pulitzer-winning
     ASU data-journalism pioneer whose method it automates.</p>
+    <p><a class="dl" href="downloads/skill-robodoig.zip">⬇ Download</a></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">robodoig</p><ul>
     <li><b>Tools:</b> <code>analyze.py</code> (types, stats, correlations, histogram +
@@ -428,6 +419,7 @@
     <p>The investigation's memory: every lead's status (open, chasing, confirmed, dead),
     every key entity, a session journal. Come back a week later and the agent re-orients
     itself instead of starting over.</p>
+    <p><a class="dl" href="downloads/skill-case-file.zip">⬇ Download</a></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">case-file</p><ul>
     <li><b>Tools:</b> <code>casefile.py</code> — init, brief (the re-orientation digest),
@@ -442,6 +434,7 @@
     <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
     from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
     lawyer," or "not a violation, and here's why."</p>
+    <p><a class="dl" href="downloads/skill-checking-the-law.zip">⬇ Download</a></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">checking-the-law</p><ul>
     <li><b>Method:</b> fetch the current statute text, break it into elements, test the
@@ -457,6 +450,7 @@
     <p>Reads a draft story, matches each factual claim to your reporting materials, and
     inserts Howard Center–style footnotes as Word tracked changes — with margin comments
     where no source exists or a quote may be out of context.</p>
+    <p><a class="dl" href="downloads/skill-howard-center-footnoter.zip">⬇ Download</a></p>
     <span class="hint">Click card for details +</span></div>
    <div class="face back"><h3>Details</h3><p class="id">howard-center-footnoter</p><ul>
     <li><b>Tools:</b> claim extraction, source ingestion (PDF/transcript/notes), footnote
@@ -489,17 +483,18 @@
 
  <details class="acc" open><summary>Claude Code (desktop app or the <code>claude</code> CLI)</summary>
   <div class="body"><ol>
-   <li><a href="downloads/investigative-desk-menu.zip">Download the bundle</a> and unzip
-       it: <code>unzip investigative-desk-menu.zip -d agent-of-record</code></li>
-   <li>Copy <b>all six</b> skill folders in (they're built to run as a set):<br>
-       <code>cp -r agent-of-record/skills/* ~/.claude/skills/</code><br>
-       (for one project only: <code>.claude/skills/</code> inside that project instead)</li>
+   <li>Download the skill(s) you need from <a href="#skills">the list above</a> — each
+       is a standalone zip. Unzip directly into your skills folder, e.g.:<br>
+       <code>unzip skill-investigative-method.zip -d ~/.claude/skills/</code><br>
+       (for one project only: <code>.claude/skills/</code> inside that project instead).
+       Repeat for any other skill you want — they don't need each other to run, though
+       investigative-method can call the others if they're present.</li>
    <li>If you have the corpus:
        <code>export GAIN_DATA_DIR=/path/to/data</code> — otherwise skip; demo data is
        built in.</li>
    <li>Open Claude Code and say:
        <i>"Use the custom skill in the investigative-method folder to investigate
-       [your question] in [your data]"</i></li>
+       [your question] in [your data]"</i> — or name whichever skill you installed.</li>
   </ol></div>
  </details>
 </div></section>
@@ -542,9 +537,9 @@
   <li><b>Agent runs are non-deterministic.</b> The scripts return the same numbers every
    time; the agent's path to them varies run to run. We stress-tested the published
    findings across repeated runs, and recommend the same before relying on a new one.</li>
-  <li><b>The skills are built to run as a bundle.</b> Installed individually they still
-   validate, but some instructions assume their companions are present — one reason the
-   download above is the full set.</li>
+  <li><b>Each skill stands alone, but a few reference the others.</b> All six validate
+   and run independently; investigative-method in particular is more useful with its
+   companions installed, since it can call them if they're present.</li>
   <li><b>This is a submission-stage tool.</b> It needs continued refinement across more
    datasets and more newsroom feedback before we'd call it production software.</li>
  </ul>
