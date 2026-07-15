@@ -42,7 +42,10 @@ instructions so each piece is easy to connect to the finding it supports:
   journal) written by the `case-file` skill.
 
 Skills invoked, keyed to the trace: `investigative-method`, `lobbying-influence-mapper`,
-`checking-the-law` (plus `case-file` via its CLI).
+`checking-the-law` (plus `case-file` via its CLI). **Version note:** this run used an
+earlier version of `investigative-method`, before later edits narrowed its scope to avoid
+overlap with the other skills; `lobbying-influence-mapper`, `checking-the-law`, and
+`case-file` here are the current versions.
 
 ### Findings
 The newsworthy discoveries are published as summary bullets on the
@@ -77,10 +80,14 @@ foreign data.
 
 | Finding | Status | Skills used |
 |---|---|---|
-| No gatekeeper — a fictitious "sovereign nation" reported $80M in 2025 lobbying fees (~21x the next-largest real client by income), posted to the public record unchecked; GAO shows enforcement is aimed almost entirely at non-filers, with no documented case of anyone penalized for a false figure | Confirmed, verified and fact-checked (see `loc-nation-no-gatekeeper/`) | investigative-method (scope, find/snapshot data), lobbying-influence-mapper (ingest, anomaly scan, rankings), checking-the-law (statute + GAO read), case-file |
+| No gatekeeper — a fictitious "sovereign nation" reported $80M in 2025 lobbying fees (~21x the next-largest real client by income), posted to the public record unchecked; GAO shows enforcement is aimed almost entirely at non-filers, with no documented case of anyone penalized for a false figure | Confirmed, verified and fact-checked (see `loc-nation-no-gatekeeper/`) | investigative-method¹ (scope, find/snapshot data), lobbying-influence-mapper (ingest, anomaly scan, rankings), checking-the-law (statute + GAO read), case-file |
 | Kentucky GOP headquarters — 16 corporations with business before Congress gave $4.4M to a building-fund named for Sen. Mitch McConnell; only 4 of 16 disclosed it in federal filings | Confirmed (disclosure question, not an alleged violation) | mapper (ingest/resolve, honoree + building-fund queries) |
 | Foreign revolving door — Tencent $4.04M; McEntee not FARA-registered | Confirmed | mapper (client/lobbyist/FARA), checking-the-law |
 | Senate↔House consistency (36,643 comparable periods, 0 gaps >$100K — re-verified this session, amendment-aware) | Cold | mapper (mismatch), case-file |
+
+¹ Ran on an earlier version of `investigative-method`, before later edits narrowed its
+scope to avoid overlap with the other skills. Every other skill in this table is the
+current version.
 
 Also demonstrated, as a capability rather than a finding: a **coordinated-messaging
 detector** (`mapper/detect_coordination.py`) that surfaces near-identical language pushed
