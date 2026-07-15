@@ -213,7 +213,6 @@
  </button>
  <div class="navlinks" onclick="document.getElementById('nav').classList.remove('open')">
   <a href="#findings">What we found</a><a href="#skills">The tools</a>
-  <a href="#generality">Any dataset</a>
   <a href="#limits">Limitations</a>
  </div>
 </div></nav>
@@ -391,34 +390,9 @@
 </div></section>
 
 
-<section id="generality"><div class="wrap">
- <p class="eyebrow">03 · Generality</p>
- <h2>Not just this corpus</h2>
- <p>None of the six skills are hardwired to lobbying. To check that, we ran all six
- together on a different question — <em>"Which hospitals show billing patterns
- consistent with Medicare up-coding?"</em> — with no lobbying-specific code involved:</p>
- <div class="flow">
-  <div class="step"><b>1 · Scoped the new beat</b><small>The scoping step took the
-   healthcare question and generated a healthcare investigation plan — instead of falling
-   back to lobbying.</small></div>
-  <div class="step"><b>2 · Found &amp; kept the data</b><small>The data-search tool
-   ranked CMS first, queried a live open-data portal, and surfaced the HHS Inspector
-   General's up-coding report — then snapshotted the report and three live CMS data
-   slices with checksums.</small></div>
-  <div class="step"><b>3 · Profiled &amp; found leads</b><small>4,079 hospital billing
-   rows profiled; per-provider highest-severity billing shares computed against the
-   national baseline (median 74.4%) — top outliers bill 90–92%, exactly the pattern the
-   OIG flags for up-coding review.</small></div>
-  <div class="step"><b>4 · Flagged a data artifact</b><small>The first pass showed a
-   wall of hospitals at exactly 100%. That turned out to be a data-suppression artifact
-   in the CMS files, so 120 providers were excluded and the correction was recorded.
-   The ranked leads landed in a case file with next actions.</small></div>
- </div>
-</div></section>
-
 
 <section id="limits"><div class="wrap">
- <p class="eyebrow">04 · Honest edges</p>
+ <p class="eyebrow">03 · Honest edges</p>
  <h2>Limitations</h2>
  <ul style="color:var(--ink2);font-size:15.5px;line-height:1.7;padding-left:22px">
   <li><b>Generalizing cost some corpus-specific sharpness.</b> Earlier, lobbying-tuned
