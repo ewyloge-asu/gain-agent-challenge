@@ -1,0 +1,30 @@
+{
+  "generated": "2026-07-15T16:23:24",
+  "counts": {
+    "open": 0,
+    "chasing": 1,
+    "confirmed": 4,
+    "cold": 2,
+    "killed": 0
+  },
+  "threads_total": 7,
+  "findings_total": 4,
+  "entities_total": 13,
+  "threads_by_status": {
+    "open": [],
+    "chasing": [
+      "T-0007"
+    ],
+    "confirmed": [
+      "T-0001",
+      "T-0004",
+      "T-0005",
+      "T-0006"
+    ],
+    "cold": [
+      "T-0002",
+      "T-0003"
+    ],
+    "killed": []
+  }
+}
