@@ -1,0 +1,24 @@
+donor,state_cumulative_total,federal_LD203_he_building,disclosed_federally,federal_LD203_registrant,note
+Pfizer Inc.,1000000,1000000,YES,yes,Match. 2022-12-27 honoree McConnell (uuid 7fcdd899).
+NWO Resources,500000,0,n/a,NO,"#2 donor; not a federal LD-203 filer in the data -> no federal duty. Privately held (Greenwood Village, CO)."
+Altria Client Services,300000,0,NO,yes,"Registrant (1,602 LD-203 items). Only KY federal items are FECA PAC gifts, not the building fund."
+Metropolitan Life Insurance Co.,300000,0,NO,yes,"Registrant 'MetLife Group, Inc.' (564 items). Entity-name nuance: state donor 'Metropolitan Life Insurance Co.'"
+AT&T,300000,300000,YES,yes,"Match ($100k x3, 2022/2023/2024)."
+Verizon,300000,0,NO,yes,Registrant. No building he item; KY federal items are ordinary FECA party gifts.
+Brown-Forman Corp.,300000,0,NO,yes,Registrant 'BROWN-FORMAN CORPORATION'. No building he item.
+The Boeing Company PAC,250000,0,NO,yes,Boeing is a registrant; gift via its PAC. LDA (E) covers PACs 'controlled by' the registrant -> plausibly a duty. Boeing disclosed OTHER McConnell honoraria (Hudson gala) but not this.
+Beam Suntory,200000,0,NO,yes,Registrant 'SUNTORY GLOBAL SPIRITS' (formerly Beam Suntory). No building he item.
+Sazerac Inc.,150000,0,NO,yes,"Registrant 'SAZERAC COMPANY, INC.'. No building he item."
+Microsoft Corp.,125000,125000,YES,yes,Match ($100k 2023 + $25k 2025).
+Comcast Corp.,100000,0,NO,yes,"Registrant (3,186 items). No building he item; KY federal items are FECA."
+The Jockey Club,100000,0,n/a,NO,Not a federal LD-203 filer in the data -> no federal duty.
+Churchill Downs,100000,0,NO,yes,Registrant 'CHURCHILL DOWNS INCORPORATED'. No building he item.
+Keeneland,100000,0,n/a,NO,Not a federal LD-203 filer in the data -> no federal duty.
+Barbara R. Banke Revocable Trust,100000,0,n/a,NO,Individual/trust (not a lobbying registrant) -> no federal duty.
+"Airbnb, Inc.",50000,0,NO,yes,"Registrant. Disclosed a SMALL McConnell honorarium (AEI, $1,500) but not the $50k building gift."
+Delta Air Lines,50000,100000,YES,yes,"Disclosed; appears twice federally ($50k x2, 2022-11-29) vs one $50k in state record (likely original+amendment)."
+National Thoroughbred Racing Assn.,50000,0,NO,yes,Registrant 'NATIONAL THOROUGHBRED RACING ASSOCIATION'. No building he item.
+Rescare Inc.,12500,0,NO,yes,Now 'BRIGHTSPRING HEALTH SERVICES' (registrant). Entity-name nuance; small amount.
+Toyota Motor North America Inc.,10000,0,NO,yes,Registrant. Disclosed OTHER McConnell honoraria (JFK Center $100k) but not this $10k building gift.
+Jonathan Goldberg (attorney),10000,0,n/a,NO,Individual -> no federal duty.
+16 smaller contributions,19145,0,n/a,NO,Aggregated small gifts; not individually identifiable.

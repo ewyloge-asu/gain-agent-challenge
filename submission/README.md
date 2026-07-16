@@ -47,13 +47,34 @@ earlier version of `investigative-method`, before later edits narrowed its scope
 overlap with the other skills; `lobbying-influence-mapper`, `checking-the-law`, and
 `case-file` here are the current versions.
 
+### "Mitch McConnell Building" finding (fully worked example)
+`mcconnell-building-fund/` — the complete record behind the second site finding: $4.4M in
+corporate money flowed into a Kentucky GOP building fund named for Sen. McConnell, and
+only 4 of 16 corporate donors that are federal lobbying filers disclosed the gift the way
+federal law requires. Continues from the same case file as the "no gatekeeper" finding:
+- `FINDINGS_SUMMARY.md` — the findings report for this lead: the honorary-giving channel
+  mapped broadly, the full donor-by-donor reconciliation against federal disclosures, the
+  statutory read, sources, and honest caveats.
+- `interaction-trace/interaction-trace.html` (also published at
+  [`docs/traces/mcconnell-building-fund.html`](../docs/traces/mcconnell-building-fund.html),
+  linked from the site finding as "interaction trace") and `interaction-trace.jsonl` — the
+  full session log, human turns and skill invocations highlighted.
+- `working-papers/` — the honorary-giving channel map and the full-period building-fund
+  reconciliation memo, plus its row-level `full_reconciliation_table.csv`.
+- `casefile/` — the shared case file continued from the "no gatekeeper" investigation; it
+  holds both findings' threads and reports (the cross-session continuity is intentional).
+
+Skills invoked, keyed to the trace: `case-file` (opened the prior investigation first),
+`lobbying-influence-mapper`, `checking-the-law` — all current versions.
+
 ### Findings
 The newsworthy discoveries are published as summary bullets on the
 [site](https://ewyloge-asu.github.io/gain-agent-challenge/#findings) and in the table
 below. Legal assessments are in `legal_checks/`. Public language about any finding is
 limited to that summary bullet plus its linked evidence — the interaction trace and the
-live public filing for the "no gatekeeper" finding, the verification spreadsheet for the
-Kentucky GOP-headquarters finding — nothing beyond what those support is asserted.
+live public filing for the "no gatekeeper" finding, the interaction trace and the state
+donor record for the "Mitch McConnell Building" finding — nothing beyond what those
+support is asserted.
 
 ### Interaction traces (logs)
 `traces/outputs/` — verbatim logs of the key invocations backing each published finding.
@@ -81,7 +102,7 @@ foreign data.
 | Finding | Status | Skills used |
 |---|---|---|
 | No gatekeeper — a fictitious "sovereign nation" reported $80M in 2025 lobbying fees (~21x the next-largest real client by income), posted to the public record unchecked; GAO shows enforcement is aimed almost entirely at non-filers, with no documented case of anyone penalized for a false figure | Confirmed, verified and fact-checked (see `loc-nation-no-gatekeeper/`) | investigative-method¹ (scope, find/snapshot data), lobbying-influence-mapper (ingest, anomaly scan, rankings), checking-the-law (statute + GAO read), case-file |
-| Kentucky GOP headquarters — 16 corporations with business before Congress gave $4.4M to a building-fund named for Sen. Mitch McConnell; only 4 of 16 disclosed it in federal filings | Confirmed (disclosure question, not an alleged violation) | mapper (ingest/resolve, honoree + building-fund queries) |
+| "Mitch McConnell Building" — corporations with business before Congress gave $4.4M to a Kentucky GOP building fund named for Sen. McConnell; only 4 of 16 federal-filer donors disclosed it in federal filings (see `mcconnell-building-fund/`) | Confirmed (disclosure question, not an alleged violation) | case-file, lobbying-influence-mapper (ingest/resolve, honoree + building-fund queries), checking-the-law |
 | Foreign revolving door — Tencent $4.04M; McEntee not FARA-registered | Confirmed | mapper (client/lobbyist/FARA), checking-the-law |
 | Senate↔House consistency (36,643 comparable periods, 0 gaps >$100K — re-verified this session, amendment-aware) | Cold | mapper (mismatch), case-file |
 

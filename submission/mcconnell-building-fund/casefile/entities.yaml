@@ -1,0 +1,117 @@
+# Entity registry. Each entry: canonical_id, display, type/status, why.
+members: []
+
+firms:
+  - canonical_id: loc-community-association
+    display: "Loc Community Association (registrant)"
+    type: registrant
+    status: key
+    why: >
+      Senate registrant_id 401108853 / house_registrant_id 56638. Self-registered to lobby for its
+      own "client" (State of Loc Nation). Contact: /Christina Loren Clement LLC/, 8 The Green Suite A,
+      Dover DE 19901. The vehicle through which the $80M fabricated figure entered the record.
+
+  - canonical_id: usao-dc
+    display: "U.S. Attorney's Office for the District of Columbia"
+    type: enforcer
+    status: context
+    why: >
+      Sole LDA enforcement referral destination. Per GAO-25-107523, handles thousands of non-filing
+      referrals; one $65k civil settlement in 2024; zero criminal; no false-content case documented.
+
+  - canonical_id: sec-senate-clerk-house
+    display: "Secretary of the Senate / Clerk of the House (LDA filing offices)"
+    type: administrator
+    status: context
+    why: >
+      Operate the LDA e-filing portals. 2 U.S.C. 1605 tasks them to review/verify accuracy, but in
+      practice publish self-certified filings immediately with no substantive content check. The
+      'no gatekeeper on the way in'.
+
+clients:
+  - canonical_id: state-of-loc-nation
+    display: "STATE OF LOC NATION GLOBAL PUBLIC BENEFIT CORPORATION (client)"
+    type: client
+    status: key
+    why: >
+      Senate client_id 61287. Self-described 'Established sovereign govt'. Reported $80M in 2025
+      lobbying fees (4 x $20M, amendment-aware) — >20x the next real client by income and above the
+      largest real in-house budget (US Chamber ~$70.3M). The fabricated entity at the center of the finding.
+
+  - canonical_id: us-chamber-of-commerce
+    display: "U.S. Chamber of Commerce (comparison)"
+    type: client
+    status: context
+    why: >
+      Largest REAL lobbying budget in 2025 by reported in-house expenses ($70.3M). Used as the honest
+      comparison point: the fabricated $80M exceeds even this. NOT a subject of the finding.
+
+  # --- Added S2 (2026-07-15): honorary-giving channel (T-0004..T-0006) ---
+  - canonical_id: honorary-giving-channel
+    display: "LD-203 'Honorary Expenses' channel (contribution_type=he)"
+    type: pattern
+    status: key
+    why: >
+      The 'in honor of' money channel: 4,291 items, ~$134.4M reported 2022-2026Q1. Uncapped by statute
+      (2 U.S.C. 1604(d)(1)(E)); disclosed but far less scrutinized than capped FECA donations.
+
+  - canonical_id: cbcf
+    display: "Congressional Black Caucus Foundation (+ CHCI, APAICS caucus nonprofits)"
+    type: recipient
+    status: key
+    why: >
+      Dominant destination cluster: CBCF ~$25.5M (101 corporate funders), CHCI+CHLI ~$22.7M (80),
+      APAICS ~$5.0M (39) — honorary money to caucus-affiliated nonprofits in honor of caucus members.
+
+  - canonical_id: rpk-mcconnell-building
+    display: "Republican Party of Kentucky Building Fund ('Mitch McConnell Building')"
+    type: recipient
+    status: key
+    why: >
+      State-party building fund named for the sitting Senate GOP Leader. ~$1.525M in LD-203 'he' items
+      from Pfizer ($1M), AT&T, Microsoft, Delta. Pfizer $1M independently confirmed by KY press.
+
+  - canonical_id: statefarm-foxx-habitat
+    display: "State Farm $2.65M -> Habitat for Humanity 'in honor of' Rep. Virginia Foxx"
+    type: finding-entity
+    status: key
+    why: >
+      Single largest honorary item in the corpus (uuid 91514e3d..., 2025-11-20). Money verified real
+      (State Farm's ~$2.6M 2025 Habitat partnership renewal); the honoree attribution to Foxx is the
+      reportable nuance.
+
+  # --- Added S3 (2026-07-15): building-fund reconciliation non-disclosers (T-0007) ---
+  - canonical_id: metlife
+    display: "MetLife (KREF donor 'Metropolitan Life Insurance Co.' / federal registrant 'MetLife Group, Inc.')"
+    type: donor
+    status: key
+    why: >
+      Gave $300k to the RPK/McConnell building fund per KREF Q4-2022; no matching federal LD-203 honorary
+      item despite filing 564 LD-203 items 2022-25. Entity-identity nuance (Metropolitan Life vs MetLife
+      Group) is the key open fact.
+
+  - canonical_id: altria
+    display: "Altria Client Services LLC"
+    type: donor
+    status: key
+    why: >
+      Gave $100k to the building fund per KREF; no federal LD-203 honorary item for it (its KY federal items
+      are FECA PAC gifts to McConnell's leadership PAC). Active federal registrant (1,602 LD-203 items).
+
+  - canonical_id: comcast
+    display: "Comcast Corporation"
+    type: donor
+    status: key
+    why: >
+      Gave $100k to the building fund per KREF; no federal LD-203 honorary item for it (KY federal items are
+      ordinary FECA party gifts). Active federal registrant (3,186 LD-203 items).
+
+  # --- Added S3 (2026-07-15): full-period building-fund donors (T-0007, F-008) ---
+  - canonical_id: rpk-building-full-donors
+    display: "RPK Building Fund full donor set (~$4.43M, ~22 named donors, 2022-2025)"
+    type: recipient-detail
+    status: key
+    why: >
+      Complete KREF cumulative record (Ky Lantern 2026-01-07). Federal LD-203 reconciliation: only 4 donors
+      disclosed (Pfizer, AT&T, Microsoft, Delta = $1.475M); 13 federal registrants gave but did not disclose
+      a building 'he' item (~$2.12M); ~$829k from non-registrant donors incl. #2 donor NWO Resources ($500k).
