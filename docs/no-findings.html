@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  var PW = "CronkiteCompetition";
+  try { if (localStorage.getItem('aor_unlocked') === '1') return; } catch(e) {}
+  var attempt = prompt("This site is password-protected. Enter the password to continue:");
+  if (attempt === PW) {
+    try { localStorage.setItem('aor_unlocked','1'); } catch(e) {}
+  } else {
+    document.documentElement.innerHTML =
+      '<div style="font-family:sans-serif;padding:60px;text-align:center;color:#444">' +
+      'Incorrect password. <a href="javascript:location.reload()">Try again</a></div>';
+    throw new Error('locked');
+  }
+})();
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent of Record — an AI agent for records investigations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+ :root{
+   /* The Beam color system (ASU-blended) — maroon primary, turquoise secondary,
+      warm paper neutrals. Gold deliberately unused. */
+   --paper:#FFFFFF;--paper2:#F6F5F1;--ink:#191919;--ink2:#484848;--mut:#747474;
+   --line:#E8E8E8;--line2:#D0D0D0;
+   --maroon:#8C1D40;--maroon-deep:#611A2E;--maroon-tint:#F8F4F4;
+   --teal:#007D88;--teal-deep:#005B64;--teal-tint:#F1F6F7;
+   --ok-bg:#D7F5D7;--ok:#005F14;--warn-bg:#FFE6D5;--warn:#773A00;
+   --err-bg:#FFE4DF;--err:#892312;--info-bg:#D1F1FF;--info:#00566E;
+   /* American-broadsheet pairing: Franklin Gothic voice for display,
+      a print-grade serif for reading, Plex Mono for the machine layer. */
+   --sans:'Libre Franklin',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+   --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
+   --disp:'Libre Franklin',-apple-system,'Segoe UI',Roboto,sans-serif;
+   --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+ }
+ *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+ body{margin:0;font:16.5px/1.7 var(--serif);background:var(--paper);color:var(--ink);
+      -webkit-font-smoothing:antialiased;}
+ ::selection{background:#FEC7CF;}
+ /* links: understated grow-in underline */
+ a{color:var(--maroon);text-decoration:none;
+   background-image:linear-gradient(currentColor,currentColor);
+   background-repeat:no-repeat;background-position:0 100%;background-size:0% 1.5px;
+   transition:background-size .25s ease;}
+ a:hover{background-size:100% 1.5px;}
+ .dl,.navlinks a,.tag a{background-image:none;}
+ .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+ [id]{scroll-margin-top:64px;}
+ @media (prefers-reduced-motion:reduce){
+   *,*::before,*::after{animation:none!important;transition:none!important;}
+ }
+
+ /* ---------- nav + hamburger ---------- */
+ nav{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+     border-bottom:1px solid var(--line);z-index:20;}
+ nav .wrap{display:flex;align-items:center;gap:4px;padding:10px 24px;}
+ .brand{font:700 15px/1 var(--disp);color:var(--ink);margin-right:auto;white-space:nowrap;}
+ .brand b{color:var(--maroon);}
+ .navlinks{display:flex;gap:2px;flex-wrap:wrap;}
+ .navlinks a{font:500 12px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
+       color:var(--ink2);padding:9px 11px;border-radius:8px;}
+ .navlinks a:hover{color:var(--maroon);background:var(--maroon-tint);text-decoration:none;}
+ .burger{display:none;background:none;border:1px solid var(--line2);border-radius:8px;
+       padding:8px 10px;cursor:pointer;}
+ .burger span{display:block;width:18px;height:2px;background:var(--ink);margin:3.5px 0;
+       transition:.2s;}
+ @media (max-width:780px){
+   .burger{display:block;}
+   .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+       border-bottom:1px solid var(--line);flex-direction:column;padding:8px 16px 14px;
+       box-shadow:0 16px 30px -18px rgba(25,25,25,.25);}
+   nav.open .navlinks{display:flex;}
+   nav.open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
+   nav.open .burger span:nth-child(2){opacity:0;}
+   nav.open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
+   .navlinks a{padding:12px;border-bottom:1px solid var(--paper2);font-size:13px;}
+ }
+
+ /* ---------- hero (with barely-perceptible parallax layer) ---------- */
+ header{position:relative;background:linear-gradient(180deg,var(--paper2),var(--paper));
+        border-bottom:1px solid var(--line);padding:84px 0 64px;overflow:hidden;}
+ .parallax{position:absolute;inset:-12% -4%;pointer-events:none;will-change:transform;
+   background:
+     radial-gradient(560px 300px at 10% 0%,rgba(140,29,64,.05),transparent 65%),
+     radial-gradient(640px 340px at 92% 8%,rgba(0,125,136,.06),transparent 65%);}
+ .watermark{position:absolute;right:-40px;bottom:-54px;pointer-events:none;
+   font:italic 600 190px/1 var(--serif);color:rgba(140,29,64,.045);
+   user-select:none;will-change:transform;white-space:nowrap;}
+ header .wrap{position:relative;}
+ .tag{font:600 13px/1.5 var(--mono);letter-spacing:.02em;
+      color:var(--teal-deep);display:inline-block;padding:10px 16px;
+      border:1px solid var(--line2);border-radius:16px;background:#fff;}
+ .tag a{color:inherit;}
+ h1{font-family:var(--disp);font-weight:800;font-size:clamp(46px,7.5vw,76px);
+    letter-spacing:-.015em;line-height:1.02;margin:24px 0 6px;}
+ h1 em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--maroon);}
+ .kicker{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink2);margin:0 0 18px;}
+ .sub{color:var(--ink2);font-size:18.5px;max-width:740px;}
+ .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+ /* stat chips step through the maroon sequential ramp (light -> deep) */
+ .stat{background:#fff;border:1px solid var(--line);border-radius:10px;
+       padding:12px 18px;min-width:150px;flex:1;max-width:230px;}
+ .stat:nth-child(1){border-top:3px solid #E8758E;}
+ .stat:nth-child(2){border-top:3px solid #CE5371;}
+ .stat:nth-child(3){border-top:3px solid #AF3758;}
+ .stat:nth-child(4){border-top:3px solid #8A2341;}
+ .stat b{display:block;font:600 24px/1.2 var(--disp);color:var(--ink);}
+ .stat span{font:500 11px/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mut);}
+
+ /* ---------- sections ---------- */
+ section{padding:64px 0;border-bottom:1px solid var(--line);}
+ section:nth-of-type(even){background:var(--paper2);}
+ .eyebrow{font:600 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+          color:var(--teal-deep);margin:0 0 12px;}
+ .eyebrow::before{content:"";display:inline-block;width:22px;height:2px;background:var(--maroon);
+          vertical-align:middle;margin-right:10px;}
+ h2{font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.6vw,38px);
+    letter-spacing:-.01em;margin:0 0 18px;}
+ h3{font-family:var(--disp);font-weight:600;margin:6px 0;font-size:20px;}
+
+ /* ---------- flow + cards ---------- */
+ .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:22px 0;}
+ .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;}
+ .step b{font-family:var(--disp);font-size:17px;color:var(--maroon);display:block;margin-bottom:6px;}
+ .step small{color:var(--ink2);}
+ /* generality steps walk the teal sequential ramp */
+ #generality .step:nth-child(1){border-left:3px solid #4FCFDE;}
+ #generality .step:nth-child(2){border-left:3px solid #00B3C3;}
+ #generality .step:nth-child(3){border-left:3px solid #0095A2;}
+ #generality .step:nth-child(4){border-left:3px solid #005B64;}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
+ .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;
+       transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+       display:flex;flex-direction:column;}
+ .card:hover{border-color:var(--maroon);box-shadow:0 12px 28px -18px rgba(140,29,64,.35);
+       transform:translateY(-2px);}
+ .card h3{margin:0 0 2px;font-size:21px;}
+ .card .id{font:500 12px/1.6 var(--mono);color:var(--mut);margin:0 0 10px;}
+ .card p{margin:0 0 8px;color:var(--ink2);font-size:15px;}
+ .card .dl{margin-top:auto;align-self:flex-start;}
+
+ /* ---------- flip cards (click for details) ---------- */
+ .flip{perspective:1200px;cursor:pointer;}
+ .flip .inner{display:grid;transform-style:preserve-3d;
+       transition:transform .55s cubic-bezier(.4,.1,.2,1);height:100%;}
+ .flip.flipped .inner{transform:rotateY(180deg);}
+ .flip .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+       background:#fff;border:1px solid var(--line);border-radius:12px;
+       padding:16px 16px 14px;display:flex;flex-direction:column;
+       transition:box-shadow .22s ease,border-color .22s ease;}
+ .flip .face.back{transform:rotateY(180deg);background:var(--paper2);}
+ .flip:hover .face{border-color:var(--maroon);box-shadow:0 12px 28px -18px rgba(140,29,64,.3);}
+ .flip{transition:transform .22s ease;}
+ .flip:hover{transform:translateY(-2px);}
+ .flip.flipped{transform:scale(1.02);}
+ .flip .face b{font-family:var(--disp);font-size:17px;color:var(--maroon);display:block;margin-bottom:6px;}
+ .flip .face small{color:var(--ink2);}
+ .flip .hint{margin-top:auto;padding-top:10px;font:500 10.5px/1 var(--mono);
+       letter-spacing:.08em;text-transform:uppercase;color:var(--line2);
+       transition:color .22s ease;}
+ .flip:hover .hint{color:var(--maroon);}
+ .flip .back ul{margin:2px 0 8px;padding-left:16px;color:var(--ink2);font-size:13px;line-height:1.55;}
+ .flip .back li{margin:4px 0;}
+ /* skill cards as flip cards keep card sizing */
+ .skill-cell{display:flex;flex-direction:column;}
+ .try-box{background:var(--paper2);border:1px solid var(--line);border-top:none;
+     border-radius:0 0 12px 12px;padding:12px 16px 14px;font-size:14px;
+     color:var(--ink2);}
+ .try-box b{color:var(--ink);}
+ .try-box p{margin:6px 0 10px;user-select:text;}
+ .try-box .copy-btn{font:600 11.5px/1 var(--mono);letter-spacing:.04em;
+     text-transform:uppercase;color:var(--maroon);background:#fff;
+     border:1px solid var(--line2);border-radius:8px;padding:7px 12px;
+     cursor:pointer;transition:.18s;}
+ .try-box .copy-btn:hover{border-color:var(--maroon);background:var(--maroon-tint);}
+ .try-box .copy-btn.copied{color:var(--ok);border-color:var(--ok);}
+ .grid .flip .face{padding:20px;}
+ .grid .flip .face h3{margin:0 0 2px;font-size:21px;}
+ .grid .flip .face .id{font:500 12px/1.6 var(--mono);color:var(--mut);margin:0 0 10px;}
+ .grid .flip .face p{margin:0 0 8px;color:var(--ink2);font-size:15px;}
+ .grid .flip .face .dl{margin-top:auto;align-self:flex-start;}
+
+ /* ---------- pills + tables ---------- */
+ .pill{display:inline-block;font:600 11.5px/1 var(--mono);letter-spacing:.02em;
+       padding:5px 11px;border-radius:99px;white-space:nowrap;}
+ .c-good{background:var(--ok-bg);color:var(--ok);}
+ .c-warn{background:var(--info-bg);color:var(--info);}
+ .c-flag{background:var(--err-bg);color:var(--err);}
+ .c-mut{background:var(--line);color:var(--ink2);}
+ table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;font-family:var(--sans);background:#fff;
+       border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+ th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+ tr:last-child td{border-bottom:none;}
+ th{font:600 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+    color:var(--mut);background:var(--paper2);}
+ tr:hover td{background:var(--maroon-tint);}
+
+ /* ---------- code, buttons, accordions ---------- */
+ code{font-family:var(--mono);background:var(--paper2);border:1px solid var(--line);
+      padding:2px 7px;border-radius:6px;font-size:13px;}
+ pre{font-family:var(--mono);background:var(--ink);color:#F2F0EC;border-radius:12px;
+     padding:18px;overflow:auto;font-size:13px;line-height:1.7;}
+ pre .cm{color:#B7A276;}
+ .dl{display:inline-block;font:600 13.5px/1 var(--sans);color:#fff;padding:11px 18px;
+     border-radius:9px;margin-top:12px;background:var(--maroon);transition:.18s;}
+ .dl:hover{text-decoration:none;background:var(--maroon-deep);transform:translateY(-1px);}
+ .dl.alt{background:#fff;color:var(--maroon);border:1.5px solid var(--maroon);}
+ .dl.alt:hover{background:var(--maroon-tint);}
+ .note{background:var(--teal-tint);border:1px solid #A5CACE;border-radius:10px;
+     padding:12px 16px;font-size:14.5px;color:var(--teal-deep);margin:14px 0;}
+ footer{padding:48px 0 60px;color:var(--mut);font-size:14px;line-height:1.8;background:var(--paper2);}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap">
+ <span class="brand">Agent <b>of Record</b></span>
+ <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+  <span></span><span></span><span></span>
+ </button>
+ <div class="navlinks" onclick="document.getElementById('nav').classList.remove('open')">
+  <a href="#skills">The tools</a>
+  <a href="#limits">Limitations</a><a href="#reflections">Reflections</a>
+ </div>
+</div></nav>
+
+<header>
+ <div class="parallax" data-parallax="0.10"></div>
+ <div class="watermark" data-parallax="-0.05">public records</div>
+ <div class="wrap">
+ <span class="tag">GAIN Agentic Investigation Challenge<br><br>
+  A submission from a group of faculty at the
+  <a href="https://cronkite.asu.edu/">Walter Cronkite School of Journalism and Mass
+  Communication</a>, Arizona State University</span>
+ <h1>Agent <em>of Record</em></h1>
+ <p class="kicker">It works the case. People write the story.</p>
+ <p class="sub">A toolkit that lets an AI coding agent run a records investigation the way
+ a newsroom would: gather the records, find the leads, stay organized across sessions,
+ and tie every claim to a source record a human can check.</p>
+ <p class="sub" style="font-size:15px;margin-top:12px;color:var(--mut)">
+ Mitul Balamurugan, masters student, Fulton Schools of Engineering, ASU ·
+ Stephen K. Doig, Professor · Shelby Grossman, Professor of Practice ·
+ Brett Kurland, Assistant Dean &amp; Professor of Practice ·
+ Allie Seligman, Clinical Assistant Professor · Katie Wilcox, Professor of Practice ·
+ Evan Wyloge, Professor of Practice</p>
+</div></header>
+
+<section id="skills"><div class="wrap">
+ <p class="eyebrow">01 · The skills</p>
+ <h2>The tools</h2>
+ <p style="color:var(--ink2)">Six independent Agent Skills — each one works on its own.
+ Download only the one you need, or grab all six to use together. You'll need
+ <b>Python 3</b> and Claude Code (desktop app or the <code>claude</code> CLI): unzip a
+ skill into <code>~/.claude/skills/</code> (or <code>.claude/skills/</code> inside one
+ project), then try the prompt on its card. What each one does:</p>
+ <div class="grid">
+ <div class="skill-cell">
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Start here: scope, find data, snapshot it</h3><p class="id">investigative-method</p>
+    <p>Interviews you to scope the investigation, does a quick web search to check
+    whether the topic has already been reported on recently, finds and snapshots the
+    outside data it needs, and renders a case file into a review dashboard. For
+    everything else — profiling, leads, legal, footnoting — it hands off to the skill
+    built for that job.</p>
+    <p><a class="dl" href="downloads/skill-investigative-method.zip">⬇ Download</a></p>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">investigative-method</p><ul>
+    <li><b>Tools:</b> <code>scope.py</code> (the scoping interview → brief + beat plan,
+     with a prior-coverage web-search check before the brief is written),
+     <code>find_data.py</code> (curated catalog + live CKAN + web-search prompts),
+     <code>fetch_source.py</code> (snapshot with sha256), <code>build_dashboard.py</code>
+     (renders a case file into a single HTML dashboard).</li>
+    <li><b>Hands off to:</b> case-file (organize), robodoig / lobbying-influence-mapper
+     (profile &amp; find leads), checking-the-law (legal), howard-center-footnoter
+     (source a draft) — rather than reimplementing any of that here.</li>
+    <li><b>Needs:</b> Python 3 only, stdlib. <code>build_dashboard.py</code> needs the
+     case-file skill installed alongside it (reads its parser directly, no duplicate
+     copy). Works on any dataset.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the investigative-method folder to scope an investigation into [your question] and find outside data on [a topic].&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the investigative-method folder to scope an investigation into [your question] and find outside data on [a topic].">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Find the leads</h3><p class="id">lobbying-influence-mapper</p>
+    <p>Loads lobbying filings, contributions, and press releases into a database; resolves
+    messy names to real members and companies; ranks who's paying whom; checks it all
+    against outside records (FEC, committee rosters, FARA).</p>
+    <p><a class="dl" href="downloads/skill-lobbying-influence-mapper.zip">⬇ Download</a></p>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">lobbying-influence-mapper</p><ul>
+    <li><b>Tools:</b> <code>ingest.py</code>, <code>resolve_entities.py</code>,
+     <code>xref.py</code> (gatekeeper / anomaly / client / lobbyist / mismatch / timeline),
+     <code>detect_coordination.py</code>, <code>connector.py</code>, <code>review.py</code>.</li>
+    <li><b>Extends the agent:</b> honoree→member + cross-chamber resolvers,
+     amendment-aware de-dup, provenance IDs on every number.</li>
+    <li><b>Needs:</b> Python 3 only. Ships demo data + offline snapshots (FEC, roster,
+     FARA, Voteview).</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the lobbying-influence-mapper folder to find which
+  members of Congress got the most money from registered lobbyists last year.&quot;</p>
+  <p style="font-size:13px">Point <code>GAIN_DATA_DIR</code> at the real corpus first,
+  or leave it unset to run on the skill's built-in demo data.</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the lobbying-influence-mapper folder to find which members of Congress got the most money from registered lobbyists last year.">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Understand any table</h3><p class="id">robodoig</p>
+    <p>Point it at any CSV or table and get a profile: what the columns mean, what's
+    normal, what's missing, what correlates. Named for Steve Doig, the Pulitzer-winning
+    ASU data-journalism pioneer whose method it automates.</p>
+    <p><a class="dl" href="downloads/skill-robodoig.zip">⬇ Download</a></p>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">robodoig</p><ul>
+    <li><b>Tools:</b> <code>analyze.py</code> (types, stats, correlations, histogram +
+     heatmap charts → one <code>analysis.json</code>), <code>verify_report.py</code>
+     (checks every number in a written report against the JSON — a transcription
+     fact-checker).</li>
+    <li><b>Handles:</b> CSV/TSV/Excel, messy types, missing data, overflow values.</li>
+    <li><b>Needs:</b> <code>pip install pandas numpy matplotlib openpyxl</code>.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the robodoig folder to profile [path/to/data.csv] — what's normal, what's missing, what stands out.&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the robodoig folder to profile [path/to/data.csv] — what's normal, what's missing, what stands out.">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Never lose the thread</h3><p class="id">case-file</p>
+    <p>The investigation's memory: every lead's status (open, chasing, confirmed, dead),
+    every key entity, a session journal. Come back a week later and the agent re-orients
+    itself instead of starting over.</p>
+    <p><a class="dl" href="downloads/skill-case-file.zip">⬇ Download</a></p>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">case-file</p><ul>
+    <li><b>Tools:</b> <code>casefile.py</code> — init, brief (the re-orientation digest),
+     update-status, log, rollup, lint.</li>
+    <li><b>Honesty rules, enforced:</b> confirmed requires a source record; cold requires
+     a reason; chasing requires a next action.</li>
+    <li><b>Needs:</b> Python 3 only. Plain files — readable and editable by humans.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the case-file folder to open a case file for my investigation into [topic], and give me a re-orientation brief whenever I come back to it.&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the case-file folder to open a case file for my investigation into [topic], and give me a re-orientation brief whenever I come back to it.">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Is it actually illegal?</h3><p class="id">checking-the-law</p>
+    <p>Takes a lead, pulls the real statute text, and applies it element-by-element — never
+    from memory. Its verdicts are deliberately cautious: "possible," "unclear, ask a
+    lawyer," or "not a violation, and here's why."</p>
+    <p><a class="dl" href="downloads/skill-checking-the-law.zip">⬇ Download</a></p>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">checking-the-law</p><ul>
+    <li><b>Method:</b> fetch the current statute text, break it into elements, test the
+     facts against each element, cite what's missing.</li>
+    <li><b>Law packs:</b> reusable per-domain statute maps (LDA, FARA shipped; synthesize
+     new ones per beat).</li>
+    <li><b>Output:</b> a written verdict memo — the McEntee/FARA legal check in this
+     submission is one example.</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the checking-the-law folder to check whether [a fact pattern] violates [a statute, e.g. the Lobbying Disclosure Act].&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the checking-the-law folder to check whether [a fact pattern] violates [a statute, e.g. the Lobbying Disclosure Act].">Copy</button>
+ </div>
+ </div>
+ <div class="skill-cell">
+  <div class="flip"><div class="inner">
+   <div class="face"><h3>Source every claim</h3><p class="id">howard-center-footnoter</p>
+    <p>Reads a draft story, matches each factual claim to your reporting materials, and
+    inserts Howard Center–style footnotes as Word tracked changes — with margin comments
+    where no source exists or a quote may be out of context.</p>
+    <p><a class="dl" href="downloads/skill-howard-center-footnoter.zip">⬇ Download</a></p>
+    <span class="hint">Click card for details +</span></div>
+   <div class="face back"><h3>Details</h3><p class="id">howard-center-footnoter</p><ul>
+    <li><b>Tools:</b> claim extraction, source ingestion (PDF/transcript/notes), footnote
+     formatting, tracked-change insertion, source-tier checking (primary beats
+     secondary; Wikipedia is never an endpoint).</li>
+    <li><b>Flags, not fabrications:</b> ⟨NEEDS SOURCE⟩ placeholders + margin comments for
+     anything unsupported.</li>
+    <li><b>Needs:</b> <code>pip install python-docx lxml</code> (+ pdfplumber for PDFs).</li></ul>
+    <span class="hint">Click to flip back</span></div>
+  </div></div>
+ <div class="try-box"><b>Try:</b>
+  <p>&quot;Use the custom skill in the howard-center-footnoter folder to footnote my draft at [path/to/draft.docx] against my source materials in [path/to/sources].&quot;</p>
+  <button class="copy-btn" type="button" data-copy="Use the custom skill in the howard-center-footnoter folder to footnote my draft at [path/to/draft.docx] against my source materials in [path/to/sources].">Copy</button>
+ </div>
+ </div>
+ </div>
+</div></section>
+
+
+
+<section id="limits"><div class="wrap">
+ <p class="eyebrow">02 · The edges</p>
+ <h2>Limitations</h2>
+ <ul style="color:var(--ink2);font-size:15.5px;line-height:1.7;padding-left:22px">
+  <li><b>Generalizing cost some corpus-specific sharpness.</b> Earlier, lobbying-tuned
+   versions surfaced certain leads more readily than the generalized skills do.</li>
+  <li><b>This is a submission-stage tool.</b> It needs continued refinement across more
+   datasets and more newsroom feedback before we'd call it production software.</li>
+ </ul>
+</div></section>
+
+<section id="reflections"><div class="wrap">
+ <p class="eyebrow">03 · Reflections</p>
+ <h2>Reflections on this competition</h2>
+ <p style="color:var(--ink2)">We were struck, in a good way, by how much this
+ exercise depended on our expertise as journalists. Instead of asking what AI could do,
+ we first worked through the data cleaning, story pitching and reporting process exactly
+ as we would on our own. That helped us uncover which steps require human judgment,
+ which tasks aren't worth spending time automating and where AI can genuinely make the
+ work better. Only then did we land on skills that align with our workflow and
+ journalistic standards.</p>
+ <p style="color:var(--ink2)">Most of us on this team had never built a Claude Skill
+ before this competition, and we're genuinely glad it pushed us to learn — several of us
+ are now using Agent Skills in other projects and in our teaching.</p>
+ <p style="color:var(--ink2)">It was also inspiring in a broader way. We learned a
+ lot from each other, and we'd like to organize similar cross-disciplinary competitions
+ for students at ASU so they can have that same experience.</p>
+ <p style="color:var(--ink2)">We also spent time on a bigger question: Who gets to do
+ this kind of work? Large news organizations often have data teams, developers and
+ specialists who can tackle complex reporting projects. Many local and community
+ newsrooms don't. As we built these skills, we thought about how they could lower the
+ barrier to entry for journalists without deep technical expertise. If AI can take care
+ of the repetitive or intimidating parts of the workflow while leaving the reporting,
+ verification and editorial judgment in human hands, it can give smaller newsrooms the
+ confidence to pursue ambitious data stories that directly serve their communities.</p>
+</div></section>
+
+<footer><div class="wrap">
+ <b style="color:var(--ink)">Agent of Record</b> · Walter Cronkite School of Journalism
+ and Mass Communication, Arizona State University · GAIN Agentic Investigation Challenge
+ 2026
+</div></footer>
+
+<script>
+// Flip cards: click toggles; clicks on links inside pass through untouched.
+document.querySelectorAll('.flip').forEach(function (card) {
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    card.classList.toggle('flipped');
+  });
+});
+// Copy-to-clipboard for the starter prompt under each skill card.
+document.querySelectorAll('.copy-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var done = function () {
+      var original = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+});
+// Barely-perceptible parallax on the hero layers (rate set per element).
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if (!els.length) return;
+  var ticking = false;
+  function frame() {
+    var y = window.scrollY;
+    els.forEach(function (el) {
+      el.style.transform = 'translateY(' + (y * parseFloat(el.dataset.parallax)) + 'px)';
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(frame); ticking = true; }
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
